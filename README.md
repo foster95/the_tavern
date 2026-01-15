@@ -5,10 +5,28 @@
 The Tavern is an online e-commerce website store, designed for the Dungeons and Dragons and TTRPG community. The Tavern is B2C (Business to Consumer) one stop shop for all accessories needed for the table - from dice to rollers and bags, and is based within the UK, shipping globally. The Tavern features a user-friendly interface, secure payment system and allows for a seamless shopping experience. Within the website, customers will be able to browse products, read and understand product details and leave reviews for products. 
 
 # Table of Contents
+1. [UX](#ux)
+    * [Five Planes of UX Design](#five-planes-of-ux-design)
+        * [Strategy](#strategy)
+        * [Scope](#scope)
+        * [Structure](#structure)
+        * [Skeleton](#skeleton)
+        * [Surface](#surface)
+2. [Development using Agile Methodology](#developing-using-agile-methodology)
+    * [Epics](#epics)
+        * [Products](#products)
+        * [User Account and Authentication](#user-account-and-authentication)
+        * [Shopping Bag and Checkout](#shopping-bag-and-checkout)
+        * [Brand Experience](#brand-experience)
+    * [User Stories](#user-stories)
+        * [Products](#products-1)
+        * [User Account and Authentication](#user-account-and-authentication-1)
+        * [Shopping Bag and Checkout](#shopping-bag-and-checkout-1)
+        * [Brand Experience](#brand-experience-1)
 
 ## UX
 ### Five Planes of UX Design
-To build The Tavern, I used the theory of the 5 planes of UX - strategy, scope, structure, skeleton and surface.
+To guide the initial development stages of The Tavern, I used the theory of the 5 planes of UX - strategy, scope, structure, skeleton and surface.
 
 ### Strategy
 #### Purpose
@@ -77,6 +95,7 @@ Staff | Wants to amend a product | Home -> Login -> Product Management -> Amend 
 Staff | Wants to delete a product | Home -> Login -> Product Management -> Delete Product
 
 ### Skeleton
+#### Wireframes
 I created a series of wireframes illustrating the mobile and desktop experience for users and staff. These wireframes were created with Canva
 
 | Page | Mobile | Desktop
@@ -96,8 +115,86 @@ Add Product | |
 Amend a Product | |
 Error 404 | |
 
+### Surface
+#### Colour Palette
+As The Tavern is a website for TTRPG/D&D items, the website should have a rich, luxurious fantasy feel, similar to the aesthetics seen in games like Baldurs Gate and other D&D based games. I used coolors to help create the initial colour palette, which is focussed on this richness and warmth of an adventuring party, without leaning into the more cliche reds and golds that you often see associated with D&D and TTRPG games.
 
+#### Typography
+Using Our Own Thing's font matching extension, I settled on using Montserrat for the main body of the website, and Almendra for any headers. Montserrat is a standard font used across the industry, noted for its readability and simplicity. Almendra is a more decorative font which evokes the fantasy world, making it suited for The Tavern's aesthetics. Font Awesome was used for the social media icons in the footer. 
 
+#### The Tavern's Logo/Wordmark
+
+#### Development Using Agile Methodology
+Using the Agile Methodology, I first created a set of epics, which then got broken down into 
+a series of user stories to help understand down the requirements of the website. These user stories were all writen in the following formation: As a *Role* I can *Capability* so that *Receive Benefit*.
+
+## Developing using Agile Methodology
+### Epics
+#### Products
+* Users are able to browse all the products available 
+* Users are able to learn the details of individual products, including materials and dimensions per item
+* Users are able to view reviews of products
+Registered users are able to leave reviews of products
+* Users are able to see when they have put a product into their shopping bag
+* Admin are able to add, remove and delete products
+* Admin are able to keep product details up to date
+
+#### User Account and Authentication
+* Users are able to sign up to become registered users
+* Users are able to recieve a confirmation email once they have completed a product purchase  §a
+* Registered users are able to securely log in and log out of their account
+* Registered users are able to manage their own personal details in their profile, including a profile picture
+* Registered users are able to reset their password at any time
+* Registered users are able to see past orders attached to their account
+
+#### Shopping Bag and Checkout
+* Users can add items to their shopping bag
+* Users can choose the amount of individual products they want
+* Users can increase and decrease quantity of the individual products
+* Users can remove items from their shopping bag
+* Users can securely enter their card details and complete the payment process
+* Users are taken to an order confirmation page on succesful purchase
+
+#### Brand Experience
+* The website is themed around The Tavern's brand guidelines
+* Every single product has a correct associated image attached
+* Users are able to see the history of the brand 
+* Photos used across the website are appropriately matched to the material 
+* Users are able to contact the team behind The Tavern
+
+### User Stories
+#### Products
+* As a user of the website, I want to be able to browse products so that I can find items to purchase
+* As a user of the website, I want to be able to view product details for each individual product, so that I can understand if the product is suited for my needs
+* As a user of the website, I want to be able to read product reviews, so that I can see how other people have experienced the item and decide if it suits my needs
+* As a registered user of the website, I want to be able to leave product reviews, so that I can help inform other potential buyers about my opinion of the product
+* As a staff member (Admin role), I want to be able to approve product reviews, so that I can ensure that only quality reviews end up on the website
+* As a staff member (Admin role), I want to be able to delete product reviews, so that I can ensure that innapropriate reviews do not end up on the website
+* As a staff member (Admin role), I want to be able to add, amend and delete products from the website 
+
+#### User Account and Authentication
+* As a user, I can sign up to become a registered user, so that I can track have a profile that tracks previous orders and automatically populate fields with my details at checkout
+* As a user, I will recieve a confirmation email when I have created an account, so that I can securely validate my account
+* As a registered user I am able to securely log in and log out of my profile so that I know that my account is safe
+* As a registered user, I am able to update my profile information, so that I can be sure that my details are up to date
+* As a registered user, I am able to give myself a profile picture, so that I can have a photo on my profile
+* As a registered user, I am able to reset my password at any time, so that I can keep my account secure
+* As a registered user, I am able to see my previous orders, so that I can track any orders I have made in the past. 
+
+#### Shopping Bag and Checkout
+* As a user of the website, I can add items to a shopping bag and see how much the grand total is, so that I can track how much I am spending
+* As a user of the website, I can change the quantity of the items in my shopping bag and an updated grand total, so that I can track how much I am spending
+* As a user of the website I can remove items from my shopping bag and see an updated grand total, so that I can remove items I do not need anymore
+* As a user of the website I can be shown all the items I am buying, plus the subtotal, shipping details and grand total before I complete the purchase, so that I can decide that I definitely want to complete the purchase
+* As a user of the website I can enter my details into the checkout securely, using the Stripe API, so that I can purchase items safely and securely
+* As a user of the website, I can be shown my order details once my order is confirmed, so that I can see that my order has been completed
+* As a user of the website, I can recieve an email confirming my order once my order has been succesfully submitted
+
+#### Brand Experience
+* As a user, I want to be able to sign up to The Tavern's newsletter, so I can learn about their community
+* As a user, I want to be able to see information about the company, so I can know who I'm buying from
+* As a user, I want to be able to contact the team behind The Tavern, so I can know that I can message directly with questions, queries or suggestions
+* As a staff member (Admin role) I want to be able to update the information on the company, so that I can keep this up to date as the company grows and expands
 
 ## Web Marketing
 ### Keyword and SEO research
@@ -204,6 +301,7 @@ The Tavern do have a small marketing budget, however I would personally suggest 
 ## Tools and Technologies
 ### Media and Design
 * Google Gemini - Product images
+* Coolors - Colour Palettes
 * Our Own Thing - Font pairing website
 * Google Fonts - Fonts across the full website
 * Canva - Wireframes
