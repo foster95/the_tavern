@@ -206,6 +206,14 @@ Using the MoSCoW priotisation method, I then further broke down my user stories 
 
 Using GitHub's issue board, I grouped each user story by its category and then transferred these to the GitHub Projects kanban board which I used to track website progression over the remaining project
 
+#### MoSCoW summary
+| Priority | Count | Percentage
+--- | --- | --- 
+Must Have | 12 | 48%
+Should Have | 10 | 40%
+Could Have | 3 | 12%
+Total | 25 | 100%
+
 #### Must Have
 * As a user of the website, I want to be able to browse products so that I can find items to purchase
 * As a user of the website, I want to be able to view product details for each individual product, so that I can understand if the product is suited for my needs
