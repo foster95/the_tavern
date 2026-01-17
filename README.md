@@ -196,6 +196,47 @@ Registered users are able to leave reviews of products
 * As a user, I want to be able to contact the team behind The Tavern, so I can know that I can message directly with questions, queries or suggestions
 * As a staff member (Admin role) I want to be able to update the information on the company, so that I can keep this up to date as the company grows and expands
 
+### MoSCoW Prioritisation
+Using the MoSCoW priotisation method, I then further broke down my user stories into four seperate categories. These categories are:
+ 
+* Must Have - this should take up no more than 50% of the entire project. 
+* Should Have
+* Could Have
+* Won't Have
+
+Using GitHub's issue board, I grouped each user story by its category and then transferred these to the GitHub Projects kanban board which I used to track website progression over the remaining project
+
+#### Must Have
+* As a user of the website, I want to be able to browse products so that I can find items to purchase
+* As a user of the website, I want to be able to view product details for each individual product, so that I can understand if the product is suited for my needs
+* As a staff member (Admin role), I want to be able to add, amend and delete products from the website
+* As a user, I can sign up to become a registered user, so that I can track have a profile that tracks previous orders and automatically populate fields with my details at checkout
+* As a user, I will recieve a confirmation email when I have created an account, so that I can securely validate my account
+* As a registered user I am able to securely log in and log out of my profile so that I know that my account is safe
+* As a user of the website, I can add items to a shopping bag and see how much the grand total is, so that I can track how much I am spending
+* As a user of the website, I can change the quantity of the items in my shopping bag and an updated grand total, so that I can track how much I am spending
+* As a user of the website I can remove items from my shopping bag and see an updated grand total, so that I can remove items I do not need anymore
+* As a user of the website I can be shown all the items I am buying, plus the subtotal, shipping details and grand total before I complete the purchase, so that I can decide that I definitely want to complete the purchase
+* As a user of the website I can enter my details into the checkout securely, using the Stripe API, so that I can purchase items safely and securely
+* As a user, I want to be able to sign up to The Tavern's newsletter, so I can learn about their community
+
+#### Should Have
+* As a user of the website, I want to be able to read product reviews, so that I can see how other people have experienced the item and decide if it suits my needs
+* As a registered user of the website, I want to be able to leave product reviews, so that I can help inform other potential buyers about my opinion of the product
+* As a staff member (Admin role), I want to be able to approve product reviews, so that I can ensure that only quality reviews end up on the website
+* As a staff member (Admin role), I want to be able to delete product reviews, so that I can ensure that innapropriate reviews do not end up on the website
+* As a registered user, I am able to update my profile information, so that I can be sure that my details are up to date
+* As a registered user, I am able to reset my password at any time, so that I can keep my account secure
+* As a registered user, I am able to see my previous orders, so that I can track any orders I have made in the past.
+* As a user of the website, I can be shown my order details once my order is confirmed, so that I can see that my order has been completed
+* As a user of the website, I can recieve an email confirming my order once my order has been succesfully submitted
+* As a user, I want to be able to contact the team behind The Tavern, so I can know that I can message directly with questions, queries or suggestions
+
+#### Could Have
+* As a registered user, I am able to give myself a profile picture, so that I can have a photo on my profile
+* As a user, I want to be able to see information about the company, so I can know who I'm buying from
+* As a staff member (Admin role) I want to be able to update the information on the company, so that I can keep this up to date as the company grows and expands
+
 ## Web Marketing
 ### Keyword and SEO research
 At the beginning of the project, I sat down and documented all of the keywords associated with The Tavern, in order to try and improve my SEO rating as much as possible. To start this process, I began by noting down all the general keywords associated with my website:
