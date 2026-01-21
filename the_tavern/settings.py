@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook', # To login via Facebook
     'allauth.socialaccount.providers.twitter_oauth2', # To login via Twitter
     'allauth.socialaccount.providers.google', # To login via Google
+    'home', # Home app
 
 ]
 
@@ -64,7 +65,10 @@ ROOT_URLCONF = 'the_tavern.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
