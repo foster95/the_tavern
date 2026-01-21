@@ -199,7 +199,7 @@ Registered users are able to leave reviews of products
 ### MoSCoW Prioritisation
 Using the MoSCoW priotisation method, I then further broke down my user stories into four seperate categories. These categories are:
  
-* Must Have - this should take up no more than 50% of the entire project. 
+* Must Have - this should take up no more than 60% of the entire project. 
 * Should Have
 * Could Have
 * Won't Have
@@ -212,6 +212,7 @@ Using GitHub's issue board, I grouped each user story by its category and then t
 Must Have | 12 | 48%
 Should Have | 10 | 40%
 Could Have | 3 | 12%
+Won't Have | 0 | 0%
 Total | 25 | 100%
 
 #### Must Have
