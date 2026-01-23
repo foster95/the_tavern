@@ -2,5 +2,143 @@
 {% load static %}
 
 {% block content %}
-<h1 class="display-4 text-success">Hello</h1>
+<div class="container mt-4">
+    <!-- Hero Image and Welcome Message -->
+    <div>
+        <h1 class="display-4 logo-font text-green">
+            Welcome intrepid adventurer!
+        </h1>
+    </div>
+
+    <div class="row mt-5">
+    <!-- Product of the Month -->
+    <div class="col-md-6">
+        <h2 class="text-center mb-4">Product of the Month</h2>
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{% static 'images/product_of_the_month.jpg' %}"
+                         class="img-fluid rounded-start"
+                         alt="Product of the Month">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Elven Cloak of Invisibility</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="col-md-6">
+        <h2 class="text-center mb-4">Explore Our Wares</h2>
+         <div class="row g-3">
+            <div class="col-12 col-md-6 product-category-disk">
+                <span class="homepage-usp-card d-flex align-items-center justify-content-center text-center">
+                    Acrylic Dice</span>
+            </div>
+            <div class="col-12 col-md-6 product-category-disk">
+                <span class="homepage-usp-card d-flex align-items-center justify-content-center text-center">
+                    Resin Dice</span>
+            </div>
+            <div class="col-12 col-md-6 product-category-disk">
+                <span class="homepage-usp-card d-flex align-items-center justify-content-center text-center">
+                    Metalic Dice</span>
+            </div>
+            <div class="col-12 col-md-6 product-category-disk">
+                <span class="homepage-usp-card d-flex align-items-center justify-content-center text-center">
+                    Other TTRPG Accessories</span>
+            </div>
+        </div>
+    </div>
+</div>    
+
+<!-- Reasons to Buy -->
+ <div class="container my-5">
+    <h2 class="text-center mb-4">Why adventurers choose The Tavern?</h2>
+
+    <div id="reasonstobuy" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
+
+        <div class="carousel-inner">
+            <div class="carousel-item active text-center">
+            <h3>Dice Worth Trusting Your Fate To</h3>
+            <p>Every set is carefully selected for balance, clarity, and feel. When the roll matters, you deserve dice that honor the moment.</p>
+            </div>
+            <div class="carousel-item text-center">
+            <h3>Built for Long Campaigns</h3>
+            <p>From marathon sessions to years-long adventures, our gear is made to last. Because legends aren’t written in one night.</p>
+            </div>
+            <div class="carousel-item text-center">
+            <h3>From Our Table to Yours</h3>
+            <p>We’re players first. Every item in our shop is something we’d proudly use in our own campaigns — and recommend across the table.</p>
+            </div>
+            <div class="carousel-item text-center">
+            <h3>Forged and Finished in the UK</h3>
+            <p>All of our products are made right here in the UK, with care and craftsmanship you can feel. No distant factories — just quality work from local makers.</p>
+            </div>
+            <div class="carousel-item text-center">
+            <h3>Free Shipping on Orders Over £25</h3>
+            <p> Stock up for your next campaign and we’ll cover the journey. Free UK shipping when your order reaches £25.</p>
+            </div>
+        </div>
+    <div class="container text-center">
+        <p>
+            Trusted by tables across the UK.
+        </p>
+    </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#reasonstobuy" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#reasonstobuy" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!--Testimonials-->
+    <h2 class="text-center my-5 text-center">What Our Customers Say</h2>
+    <div class="row g-4 text-center">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <p class="card-text">
+                        “The balance on these dice is fantastic. You can feel the quality the
+                        moment they hit the table. Easily my new go-to set.”
+                    </p>
+                <h6 class="mt-3 mb-0">Rowan, Dungeon Master, London</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <p class="card-text">
+                    “The dice roller has become part of our weekly ritual.
+                    Smooth, satisfying, and it just feels right for dramatic rolls.”
+                </p>
+            <h6 class="mt-3 mb-0">Eliza, Half Elf Bard, Manchester</h6>
+        </div>
+    </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <p class="card-text">
+                    “Fast shipping, beautifully made, and clearly designed by people
+                    who actually play. I’ll definitely be ordering again.”
+                </p>
+            <h6 class="mt-3 mb-0">Tom, Gnome Barbarian, Birmingham</h6>
+        </div>
+    </div>
+  </div>
+</div>
+ 
+ 
+
+    
+
 {% endblock %}
