@@ -1,0 +1,75 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Global Base Styles */
+:root {
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Almendra', serif;
+    --primary-color: #FFF9E1;
+    --secondary-color: #1A1A1D;
+    --primary-accent: #A68A56;
+    --secondary-accent: #2D4032;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+p {
+    font-family: var(--font-primary) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary) !important;
+}
+
+/* Hero Image */
+#hero-image {
+    background-image: url('/static/images/hero-image-3.jpg');
+    background-size: 102%;
+    background-position: center;
+    height: 385px;
+    margin-bottom: 2rem;
+}
+
+#hero-text {
+    color: var(--primary-accent);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-top: 2rem;
+    text-align: right;
+    font-size: 50px;
+    padding-right: 2rem;
+}
+
+/* Index Page Specific Styles */
+
+#reasonstobuy {
+    margin-left: calc(var(--bs-gutter-x) * -0.5);
+    margin-right: calc(var(--bs-gutter-x) * -0.5);
+}
+
+#reasonstobuy,
+#reasonstobuy .carousel-inner,
+#reasonstobuy .carousel-item {
+  background: var(--secondary-accent);
+  color: var(--primary-accent);
+}
+
+/* Make the band tall enough to actually look like a band */
+#reasonstobuy .carousel-item {
+  padding: 3rem 0;
+}
+
+/* Center content + readable width */
+.reason-card {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Keep arrows from sitting on top of the text too much */
+#reasonstobuy .carousel-control-prev,
+#reasonstobuy .carousel-control-next {
+  width: 10%;
+}
