@@ -24,6 +24,24 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-secondary) !important;
 }
 
+/* Navbar Styles */
+#navbar {
+    background-color: var(--secondary-accent) !important;
+    border-color: var(--secondary-accent) !important
+}
+
+#navbar .btn {
+    background-color: var(--primary-accent) !important;
+}
+
+#navbar a {
+    color: var(--primary-accent) !important;
+}
+
+#navbar .dropdown-toggle::after {
+  display: none !important;
+}
+
 /* Hero Image */
 #hero-image {
     background-image: url('/static/images/hero-image-3.jpg');
@@ -44,6 +62,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Index Page Specific Styles */
 
+#introductory-text {
+    font-size: 18px;
+    margin-bottom: 2rem;
+}
+
 #reasonstobuy {
     margin-left: calc(var(--bs-gutter-x) * -0.5);
     margin-right: calc(var(--bs-gutter-x) * -0.5);
@@ -53,23 +76,37 @@ h1, h2, h3, h4, h5, h6 {
 #reasonstobuy .carousel-inner,
 #reasonstobuy .carousel-item {
   background: var(--secondary-accent);
-  color: var(--primary-accent);
+  color: var(--primary-color);
 }
 
-/* Make the band tall enough to actually look like a band */
+
 #reasonstobuy .carousel-item {
   padding: 3rem 0;
 }
 
-/* Center content + readable width */
 .reason-card {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-/* Keep arrows from sitting on top of the text too much */
 #reasonstobuy .carousel-control-prev,
 #reasonstobuy .carousel-control-next {
   width: 10%;
+  color: var(--primary-accent) !important;
+}
+
+.btn {
+    background-color: var(--secondary-accent);
+    color: var(--primary-color);
+    border: none;
+    padding: 15px 30px;
+    font-family: var(--font-primary);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--primary-accent);
 }
