@@ -25,12 +25,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Navbar Styles */
-#navbar {
+#heading {
     background-color: var(--secondary-accent) !important;
-    border-color: var(--secondary-accent) !important
+    border-color: var(--secondary-accent) !important;
 }
 
-#navbar .input-group {
+#heading .container {
+    padding-bottom: 10px;
+}
+
+#heading .input-group {
     width: 85%;
 }
 
@@ -38,21 +42,40 @@ h1, h2, h3, h4, h5, h6 {
     padding-left: 15%
 }
 
-#navbar .btn {
+#heading .btn {
     background-color: var(--primary-accent) !important;
 }
 
-#navbar a {
+#heading a {
     color: var(--primary-color) !important;
 }
 
-#navbar .dropdown-toggle::after {
+#heading .dropdown-toggle::after {
   display: none !important;
 }
 
 .list-inline-item:not(:last-child) {
     margin-right: 1.5rem;
 }
+
+.message-container {
+  padding-top: 0 !important;
+  margin-top: -9px !important;
+}
+
+#products-navigation {
+    background-color: var(--primary-accent) !important;
+    border-color: var(--secondary-accent) !important;
+    color: var(--secondary-color) !important;
+}
+
+#products-navigation .navbar {
+    letter-spacing: 0.03em;
+    line-height: 1.6;
+    font-family: var(--font-primary);
+    font-weight: bold
+}
+
 
 /* Hero Image */
 #hero-image {
@@ -62,13 +85,37 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 2rem;
 }
 
-#hero-text {
-    color: var(--primary-accent);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    padding-top: 2rem;
-    text-align: right;
-    font-size: 50px;
-    padding-right: 2rem;
+#hero-image,
+#welcome-section {
+  color: var(--secondary-color);
+}
+
+main,
+.message-container,
+#hero-section,
+#welcome-section {
+  background-color:var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.message-container {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.footer-band {
+  background-color: var(--secondary-accent);
+  color: var(--primary-color);
+}
+
+.footer-band a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-family: var(--font-primary);
+}
+
+.footer-band a:hover {
+  text-decoration: underline;
 }
 
 /* Index Page Specific Styles */
