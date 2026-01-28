@@ -13,10 +13,10 @@
     {% endblock %}
 
     <!-- Favicon -->
-     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
-     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
-     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
-     <link rel="manifest" href="{% static 'images/site.webmanifest' %}">
+     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'media/apple-touch-icon.png' %}">
+     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'media/favicon-32x32.png' %}">
+     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'media/favicon-16x16.png' %}">
+     <link rel="manifest" href="{% static 'media/site.webmanifest' %}">
 
     <!-- CSS -->
 
@@ -36,9 +36,7 @@
     <!-- Optional JavaScript -->
      {% block core_js %}
      <!-- Bootstrap JS-->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HoA2wD6O5t8bW3WZs5m7z9tUQyK1NQX2tZ5F4Y3P5MZ6KX3FJZ7YFJ5z7YFJ"
-        crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/59919c7ac3.js" crossorigin="anonymous"></script>
@@ -60,8 +58,8 @@
 
             <!-- Logo -->
              <div class="col-12 col-md-2 text-center text-md-start">
-              <a href="/" class="d-inline-flex align-items-center">
-                <img src="{% static 'images/outline.png' %}"
+              <a href="{% url 'home' %}" class="d-inline-flex align-items-center">
+                <img src="{% static 'media/outline.png' %}"
                 alt="The Tavern"
                 class="img-fluid"
                 style="max-height: 80px;">
@@ -81,7 +79,8 @@
             </div>
             
             <!-- Account & Basket -->
-             <div class="col-12 col-md-3 d-flex justify-content-md-end justify-content-center">
+             <div id="account" class="col-12 col-md-3 d-flex justify-content-md-end justify-content-center">
+              <ul class="list-inline mb-0">
               <!-- Account dropdown -->
                <li class="list-inline-item dropdown">
                 <a class="nav-link text-dark dropdown-toggle p-0"
@@ -102,10 +101,10 @@
                     <a href="" class="dropdown-item">Product Management</a>
                   {% endif %}
                   <a href="" class="dropdown-item">My Profile</a>
-                  <a href="" class="dropdown-item">Logout</a>
+                  <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                 {% else %}
-                  <a href="" class="dropdown-item">Register</a>
-                  <a href="" class="dropdown-item">Login</a>
+                  <a href="{% url 'account_register' %}" class="dropdown-item">Register</a>
+                  <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                 {% endif %}
               </div>
             </li>
@@ -133,14 +132,15 @@
     </div>
 
   <div class="row" id="products-navigation">
-    <nav class="navbar navbar-expand-lg navbar-light w-100">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-md navbar-light w-100">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       {% include 'includes/main-navigation.html' %}
     </nav>
   </div>
 </header>
+</div>
 
     <!-- Message Container -->
     <div class="message-container">
