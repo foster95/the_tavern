@@ -30,22 +30,33 @@ h1, h2, h3, h4, h5, h6 {
     border-color: var(--secondary-accent) !important
 }
 
+#navbar .input-group {
+    width: 85%;
+}
+
+#searchbar {
+    padding-left: 15%
+}
+
 #navbar .btn {
     background-color: var(--primary-accent) !important;
 }
 
 #navbar a {
-    color: var(--primary-accent) !important;
+    color: var(--primary-color) !important;
 }
 
 #navbar .dropdown-toggle::after {
   display: none !important;
 }
 
+.list-inline-item:not(:last-child) {
+    margin-right: 1.5rem;
+}
+
 /* Hero Image */
 #hero-image {
-    background-image: url('/static/images/hero-image-3.jpg');
-    background-size: 102%;
+    background-image: url('/static/images/header-2.png');
     background-position: center;
     height: 385px;
     margin-bottom: 2rem;
