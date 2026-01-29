@@ -51,8 +51,8 @@
   <body>
 
     <!-- Header & Navigation Bar -->
-    <div id="heading">
-      <header class="pt-3">
+     <div id="heading">
+      <header class="pt-3 d-none d-md-flex">
         <div class="container">
           <div class="row align-items-center">
 
@@ -130,17 +130,21 @@
 
       </div>
     </div>
+  </div>  
 
-  <div class="row" id="products-navigation">
-    <nav class="navbar navbar-expand-md navbar-light w-100">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      {% include 'includes/main-navigation.html' %}
-    </nav>
+  <nav class="navbar navbar-expand-md" id="products-navigation">
+
+  <!-- Mobile header (burger etc) only on small screens -->
+  <div class="w-100 d-md-none text-center py-2">
+    {% include "includes/mobile-top-header.html" %}
   </div>
-</header>
-</div>
+
+  <!-- Collapsible nav (this must NOT be d-none on mobile) -->
+  <div class="collapse navbar-collapse" id="main-nav">
+    {% include "includes/main-navigation.html" %}
+  </div>
+
+</nav>
 
     <!-- Message Container -->
     <div class="message-container">
