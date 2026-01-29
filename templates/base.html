@@ -101,10 +101,10 @@
                     <a href="" class="dropdown-item">Product Management</a>
                   {% endif %}
                   <a href="" class="dropdown-item">My Profile</a>
-                  <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                  <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
                 {% else %}
-                  <a href="{% url 'account_register' %}" class="dropdown-item">Register</a>
-                  <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                  <a href="" class="dropdown-item">Sign Up</a>
+                  <a href="{% url 'account_login' %}" class="dropdown-item">Sign In</a>
                 {% endif %}
               </div>
             </li>
@@ -134,12 +134,12 @@
 
   <nav class="navbar navbar-expand-md" id="products-navigation">
 
-  <!-- Mobile header (burger etc) only on small screens -->
+  <!-- Mobile header -->
   <div class="w-100 d-md-none text-center py-2">
     {% include "includes/mobile-top-header.html" %}
   </div>
 
-  <!-- Collapsible nav (this must NOT be d-none on mobile) -->
+  <!-- Standard header to be shown on tablets and larger screens-->
   <div class="collapse navbar-collapse" id="main-nav">
     {% include "includes/main-navigation.html" %}
   </div>

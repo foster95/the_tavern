@@ -24,6 +24,15 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-secondary) !important;
 }
 
+/* from Bulma - taken from Boutique Ado walkthrough */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
 /* Navbar Styles */
 #heading {
     background-color: var(--secondary-accent) !important;
@@ -69,7 +78,6 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-color) !important;
     text-decoration: none;
     font-family: var(--font-primary);
-    font-weight: bold;
 }
 
 #products-navigation a:hover {
@@ -80,7 +88,6 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 0.03em;
     line-height: 1.6;
     font-family: var(--font-primary);
-    font-weight: bold;
 }
 
 #products-navigation .navbar a {
@@ -96,9 +103,14 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: 30px;
 }
 
+#user-options:hover {
+    color: var(--primary-accent) !important;
+}
+
 #user-options + .dropdown-menu{
   border: 2px solid var(--secondary-accent) !important;
   background-color: var(--primary-accent) !important;
+  font-family: var(--font-primary);
 }
 
 #user-options + .dropdown-menu .dropdown-item {
@@ -109,6 +121,17 @@ h1, h2, h3, h4, h5, h6 {
 #user-options + .dropdown-menu .dropdown-item:hover {
     color: var(--secondary-accent) !important;
 }
+
+#main-nav .dropdown-menu{
+  --bs-dropdown-link-hover-color: var(--secondary-accent);
+  --bs-dropdown-link-hover-bg: transparent;
+}
+
+#main-nav .dropdown-menu.border-0.show {
+    background-color: var(--primary-accent);
+    border: 2px solid var(--secondary-accent) !important;
+}
+
 
 
 /* Hero Image */
@@ -203,11 +226,19 @@ main,
     background-color: var(--primary-accent);
 }
 
+/* Media Queries */
+
 @media (min-width: 768px){
   #products-navigation .nav-link{
     padding-left: 0.75rem;
     padding-right: 0.75rem;
   }
+}
+
+@media (min-width: 800px) {
+    #heading header .container{
+    max-width: 90%;
+}
 }
 
 @media (min-width: 1200px) {
