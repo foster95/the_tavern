@@ -132,6 +132,46 @@ h1, h2, h3, h4, h5, h6 {
     border: 2px solid var(--secondary-accent) !important;
 }
 
+/* Scrolling Info Banner */
+
+@keyframes scroll-right {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.scroll-banner {
+    width: 100%;
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    max-width: 100%;
+}
+
+.scroll-viewport {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.scroll-content {
+    display: flex;
+    white-space: nowrap;
+    gap: 8rem;
+    width: max-content;
+    animation: scroll-right 30s linear infinite;
+    justify-content: flex-start; 
+}
+
+.scroll-banner:hover .scroll-content {
+    animation-play-state: paused;
+}
+
+.scroll-content span {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
 
 
 /* Hero Image */

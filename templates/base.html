@@ -103,7 +103,7 @@
                   <a href="" class="dropdown-item">My Profile</a>
                   <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
                 {% else %}
-                  <a href="" class="dropdown-item">Sign Up</a>
+                  <a href="{% url 'account_signup' %}" class="dropdown-item">Sign Up</a>
                   <a href="{% url 'account_login' %}" class="dropdown-item">Sign In</a>
                 {% endif %}
               </div>
@@ -143,9 +143,12 @@
   <div class="collapse navbar-collapse" id="main-nav">
     {% include "includes/main-navigation.html" %}
   </div>
-
 </nav>
+</header>
 
+    <!-- Scrolling Info Banner -->
+  {% include "includes/scrolling-banner.html" %}
+  
     <!-- Message Container -->
     <div class="message-container">
       {% if messages %}
