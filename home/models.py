@@ -11,6 +11,8 @@ class ProductOfTheMonth(models.Model):
     class Meta:
         unique_together = ("year", "month")
         ordering = ["-year", "-month"]
+        verbose_name = "Product of the Month"
+        verbose_name_plural = "Product of the Month"
 
     def __str__(self):
         try:
@@ -19,3 +21,20 @@ class ProductOfTheMonth(models.Model):
         except (TypeError, ValueError, IndexError):
             month_label = str(self.month)
         return f"Featured Product for {month_label} {self.year}: {self.product}"
+
+class Testimonial(models.Model):
+    quote = models.TextField()
+    name = models.CharField(max_length=80)
+    tagline = models.CharField(max_length=120, blank=True)  # e.g. "Dungeon Master, London"
+    rating = models.PositiveSmallIntegerField(null=True, blank=True)  # optional
+    is_featured = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    sort_order = models.PositiveSmallIntegerField(default=0)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["sort_order", "-created_at"]
+
+    def __str__(self):
+        return f"{self.name} — {self.quote[:40]}..."

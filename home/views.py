@@ -15,6 +15,13 @@ def home_view(request):
         .first()
     )
 
+    testimonials = (
+        Testimonial.objects
+        .filter(is_active=True)
+        .order_by("sort_order", "-created_at")[:3]
+    )
+
     return render(request, "home/index.html", {
         "product_of_the_month": potm.product if potm else None,
+        "testimonials": testimonials
     })

@@ -261,10 +261,35 @@ The footer also extends from base.html and is very simple, made up of a few link
 The scrolling bar is a fun little feature that allows users to see the free delivery threshold by scrolling across the screen. The scroll is slow so as not to be distracting, and can be stopped by hovering the mouse over the scroll bar. 
 
 ### Product of the Month - Home Page
+The Product of the Month section of the homepage is linked to a template literal which comes from a model that was specifically built for this function. This model allows superadmin staff users to access the Django admin platform and highlight a specific product that they want to show on the website. 
 
-### Reasons to Buy - Home Page 
+        MONTH_CHOICES = [(i, calendar.month_name[i]) for i in range(1, 13)]
+
+        class ProductOfTheMonth(models.Model):
+            year = models.PositiveIntegerField()
+            month = models.PositiveSmallIntegerField(choices=MONTH_CHOICES)
+            product = models.ForeignKey("products.Product", on_delete=models.CASCADE)
+
+        class Meta:
+            unique_together = ("year", "month")
+            ordering = ["-year", "-month"]
+            verbose_name = "Product of the Month"
+            verbose_name_plural = "Product of the Month"
+
+        def __str__(self):
+            try:
+                month_int = int(self.month)
+                month_label = calendar.month_name[month_int]
+            except (TypeError, ValueError, IndexError):
+                month_label = str(self.month)
+            return f"Featured Product for {month_label} {self.year}: {self.product}"
+
+
+### Reasons to Buy - Home Page
+The reasons to buy carousel is a simple carousel made up of text which slides across every 7 seconds to the next item. The carousel is set to loop infinitely but is subtle enough that it should not cause any visual issues. Users can also toggle through to the next item using the arrows on either side of the page. 
 
 ### Testimonials - Home Page
+The testimonials are model testimonials from previous customers that were built in Bootstrap. They are not connected to any models and therefore can only be updated by going into the HTML. A future version of the project would have the ability to update and change the testimonials through the Admin platform.
 
 ## Web Marketing
 ### Keyword and SEO research

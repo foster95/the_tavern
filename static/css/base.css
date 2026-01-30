@@ -311,6 +311,7 @@ main,
 
 .text-primary {
     color: var(--primary-accent) !important;
+    font-weight: bold;
 }
  
 /* Media Queries */
@@ -328,8 +329,21 @@ main,
 }
 }
 
+@media (min-width: 992px) {
+  .navbar .dropdown:hover > .dropdown-menu {
+    display: block;
+    background-color: var(--primary-accent);
+    color: var(--primary-color);
+    border: 2px solid var(--secondary-accent) !important;
+  }
+
+  #site-header .dropdown:hover > .dropdown-menu {
+    display: block;
+  }
+}
+
 @media (min-width: 1200px) {
     .list-inline-item:not(:last-child) {
     margin-right: 1.5rem;
-    }
+}
 }
