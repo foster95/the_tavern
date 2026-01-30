@@ -1,0 +1,64 @@
+[
+  {
+    "model": "products.bundle",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "Single D20",
+      "quantity": 1,
+      "price": "5.00"
+    }
+  },
+  {
+    "model": "products.bundle",
+    "pk": 2,
+    "fields": {
+      "category": 1,
+      "name": "Full Set",
+      "quantity": 7,
+      "price": "25.00"
+    }
+  },
+
+  {
+    "model": "products.bundle",
+    "pk": 3,
+    "fields": {
+      "category": 2,
+      "name": "Single D20",
+      "quantity": 1,
+      "price": "6.00"
+    }
+  },
+  {
+    "model": "products.bundle",
+    "pk": 4,
+    "fields": {
+      "category": 2,
+      "name": "Full Set",
+      "quantity": 7,
+      "price": "30.00"
+    }
+  },
+
+  {
+    "model": "products.bundle",
+    "pk": 5,
+    "fields": {
+      "category": 3,
+      "name": "Single D20",
+      "quantity": 1,
+      "price": "8.00"
+    }
+  },
+  {
+    "model": "products.bundle",
+    "pk": 6,
+    "fields": {
+      "category": 3,
+      "name": "Full Set",
+      "quantity": 7,
+      "price": "40.00"
+    }
+  }
+]

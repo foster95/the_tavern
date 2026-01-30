@@ -1,542 +1,678 @@
 [
   {
-    "Item": "Bag - Blue Leather Dice Bag",
-    "Product Key": 1,
-    "Category": 5,
-    "Sku": 167689,
-    "Name": "Leather Dice Bag - Blue",
-    "Slug": "leather-dice-bag-blue",
-    "Description": "Forged in the hue of a clear midnight sky, this pouch feels as though it was stitched from the very cloak of a storm-sorcerer. It is the perfect vessel for dice that carry the chill of frost or the crackle of lightning.",
-    "Image": "blue-dice-bag.jpg",
-    "Product Material": "100% Genuine Leather (Exterior) / 100% Cotton Cord (Drawstring)",
-    "Product Dimensions": "12.5 cm x 10 cm - holding approximately 35 dice"
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+      "category": 5,
+      "sku": "167689",
+      "name": "Leather Dice Bag - Blue",
+      "slug": "leather-dice-bag-blue",
+      "description": "Forged in the hue of a clear midnight sky, this pouch feels as though it was stitched from the very cloak of a storm-sorcerer. It is the perfect vessel for dice that carry the chill of frost or the crackle of lightning.",
+      "product_material": "100% Genuine Leather (Exterior) / 100% Cotton Cord (Drawstring)",
+      "product_dimensions": "12.5 cm x 10 cm - holding approximately 35 dice",
+      "price": "40.00",
+      "image": "blue-dice-bag.jpg"
+    }
   },
   {
-    "Item": "Bag - Brown Canvas Dice Bag",
-    "Product Key": 2,
-    "Category": 5,
-    "Sku": 167690,
-    "Name": "Canvas Dice Bag - Brown",
-    "Slug": "canvas-dice-bag-brown",
-    "Description": "Woven from the thick, sun-bleached fibers of a seasoned traveler’s tent. This rugged pouch is built to withstand the grit of the road, keeping your dice dry and secure whether you are trekking through mud-slicked lowlands or dusty trade routes.",
-    "Image": "brown-cloth-dice-bag.jpg",
-    "Product Material": "100% Heavy-Duty Cotton Duck Canvas  (Exterior and Interior) / Braided Jute (Drawstring)",
-    "Product Dimensions": "14 cm x 11 cm - holding approximately 55 dice"
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+      "category": 5,
+      "sku": "167690",
+      "name": "Canvas Dice Bag - Brown",
+      "slug": "canvas-dice-bag-brown",
+      "description": "Woven from the thick, sun-bleached fibers of a seasoned traveler’s tent. This rugged pouch is built to withstand the grit of the road, keeping your dice dry and secure whether you are trekking through mud-slicked lowlands or dusty trade routes.",
+      "product_material": "100% Heavy-Duty Cotton Duck Canvas  (Exterior and Interior) / Braided Jute (Drawstring)",
+      "product_dimensions": "14 cm x 11 cm - holding approximately 55 dice",
+      "price": "20.00",
+      "image": "brown-cloth-dice-bag.jpg"
+    }
   },
   {
-    "Item": "Bag - Celestial Dice Bag",
-    "Product Key": 3,
-    "Category": 5,
-    "Sku": 167691,
-    "Name": "Velvet Dice Bag - Celestial",
-    "Slug": "velvet-dice-bag-celestial",
-    "Description": "Woven from threads of captured starlight and midnight silk, this pouch hums with the quiet energy of the cosmos. It is the favored vessel for those who draw their power from the heavens or seek to influence the very threads of fate.",
-    "Image": "celestial-dice-bag.jpg",
-    "Product Material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
-    "Product Dimensions": "15 cm x 12 cm - holding approximately 50 dice"
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+      "category": 5,
+      "sku": "167691",
+      "name": "Velvet Dice Bag - Celestial",
+      "slug": "velvet-dice-bag-celestial",
+      "description": "Woven from threads of captured starlight and midnight silk, this pouch hums with the quiet energy of the cosmos. It is the favored vessel for those who draw their power from the heavens or seek to influence the very threads of fate.",
+      "product_material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
+      "product_dimensions": "15 cm x 12 cm - holding approximately 50 dice",
+      "price": "15.00",
+      "image": "celestial-dice-bag.jpg"
+    }
   },
   {
-    "Item": "Bag - Deer Dice Bag",
-    "Product Key": 4,
-    "Category": 5,
-    "Sku": 167692,
-    "Name": "Velvet Dice Bag - Stag",
-    "Slug": "velevet-dice-bag-stag",
-    "Description": "Embossed with the image of the Great Forest King, this emerald-toned velvet bag carries the scent of pine and ancient magic. It is a noble choice for the warden or druid who views their dice as sacred seeds of destiny.",
-    "Image": "deer-dice-bag.jpg",
-    "Product Material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
-    "Product Dimensions": "15 cm x 12 cm - holding approximately 50 dice"
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+      "category": 5,
+      "sku": "167692",
+      "name": "Velvet Dice Bag - Stag",
+      "slug": "velvet-dice-bag-stag",
+      "description": "Embossed with the image of the Great Forest King, this emerald-toned velvet bag carries the scent of pine and ancient magic. It is a noble choice for the warden or druid who views their dice as sacred seeds of destiny.",
+      "product_material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
+      "product_dimensions": "15 cm x 12 cm - holding approximately 50 dice",
+      "price": "15.00",
+      "image": "deer-dice-bag.jpg"
+    }
   },
   {
-    "Item": "Bag - Dragon Dice Bag",
-    "Product Key": 42,
-    "Category": 5,
-    "Sku": 167693,
-    "Name": "Velvet Dice Bag - Dragon",
-    "Slug": "velvet-dice-bag-dragon",
-    "Description": "Clad in the regal texture of a Great Wyrm’s underbelly, this pouch is designed to protect a hoard of any size. It carries an air of ancient power, perfect for the player who intends to dominate the battlefield with fire and fury.",
-    "Image": "dragon-dice-bag.jpg",
-    "Product Material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
-    "Product Dimensions": "15 cm x 12 cm - holding approximately 50 dice"
+    "model": "products.product",
+    "pk": 42,
+    "fields": {
+      "category": 5,
+      "sku": "167693",
+      "name": "Velvet Dice Bag - Dragon",
+      "slug": "velvet-dice-bag-dragon",
+      "description": "Clad in the regal texture of a Great Wyrm’s underbelly, this pouch is designed to protect a hoard of any size. It carries an air of ancient power, perfect for the player who intends to dominate the battlefield with fire and fury.",
+      "product_material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
+      "product_dimensions": "15 cm x 12 cm - holding approximately 50 dice",
+      "price": "15.00",
+      "image": "dragon-dice-bag.jpg"
+    }
   },
   {
-    "Item": "Bag - Illithid Dice Bag",
-    "Product Key": 5,
-    "Category": 5,
-    "Sku": 167694,
-    "Name": "Velvet Dice Bag - Illithid",
-    "Slug": "velevet-dice-bag-illithid",
-    "Description": "A pouch that seems to shimmer with a strange, oily iridescence, reminiscent of the depths of the Underdark. It is a chilling home for dice that deal in psychic whispers and secrets best left unspoken.",
-    "Image": "illitid-dice-bag.jpg",
-    "Product Material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
-    "Product Dimensions": "15 cm x 12 cm - holding approximately 50 dice"
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+      "category": 5,
+      "sku": "167694",
+      "name": "Velvet Dice Bag - Illithid",
+      "slug": "velvet-dice-bag-illithid",
+      "description": "A pouch that seems to shimmer with a strange, oily iridescence, reminiscent of the depths of the Underdark. It is a chilling home for dice that deal in psychic whispers and secrets best left unspoken.",
+      "product_material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
+      "product_dimensions": "15 cm x 12 cm - holding approximately 50 dice",
+      "price": "15.00",
+      "image": "illitid-dice-bag.jpg"
+    }
   },
   {
-    "Item": "Bag - Kharki Green Leather Dice Bag",
-    "Product Key": 6,
-    "Category": 5,
-    "Sku": 167695,
-    "Name": "Leather Dice Bag - Kharki",
-    "Slug": "leather-dice-bag-kharki",
-    "Description": "This rugged hide bears the weathered tone of the high mountain trails. Built for the long haul, it is an essential piece of kit for the scout or wanderer who needs their lucky stones to stay silent and secure while trekking through the brush.",
-    "Image": "kharki-dice-bag.jpg",
-    "Product Material": "100% Genuine Leather (Exterior) / 100% Cotton Cord (Drawstring)",
-    "Product Dimensions": "12.5 cm x 10 cm - holding approximately 35 dice"
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+      "category": 5,
+      "sku": "167695",
+      "name": "Leather Dice Bag - Kharki",
+      "slug": "leather-dice-bag-kharki",
+      "description": "This rugged hide bears the weathered tone of the high mountain trails. Built for the long haul, it is an essential piece of kit for the scout or wanderer who needs their lucky stones to stay silent and secure while trekking through the brush.",
+      "product_material": "100% Genuine Leather (Exterior) / 100% Cotton Cord (Drawstring)",
+      "product_dimensions": "12.5 cm x 10 cm - holding approximately 35 dice",
+      "price": "40.00",
+      "image": "kharki-dice-bag.jpg"
+    }
   },
   {
-    "Item": "Bag - Leather Dice Bag",
-    "Product Key": 7,
-    "Category": 5,
-    "Sku": 167696,
-    "Name": "Leather Dice Bag - Brown",
-    "Slug": "leather-dice-bag-brown",
-    "Description": "A classic relic of the Old World, this bag smells of ancient libraries and tavern hearths. Its rich, earthen leather is a staple for any seasoned adventurer, looking better with every battle scar and gold coin it carries.",
-    "Image": "leather-dice-bag.jpg",
-    "Product Material": "100% Genuine Leather (Exterior) / 100% Cotton Cord (Drawstring)",
-    "Product Dimensions": "12.5 cm x 10 cm - holding approximately 35 dice"
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+      "category": 5,
+      "sku": "167696",
+      "name": "Leather Dice Bag - Brown",
+      "slug": "leather-dice-bag-brown",
+      "description": "A classic relic of the Old World, this bag smells of ancient libraries and tavern hearths. Its rich, earthen leather is a staple for any seasoned adventurer, looking better with every battle scar and gold coin it carries.",
+      "product_material": "100% Genuine Leather (Exterior) / 100% Cotton Cord (Drawstring)",
+      "product_dimensions": "12.5 cm x 10 cm - holding approximately 35 dice",
+      "price": "40.00",
+      "image": "leather-dice-bag.jpg"
+    }
   },
   {
-    "Item": "Bag - Moon and Stars Dice Bag",
-    "Product Key": 9,
-    "Category": 5,
-    "Sku": 167697,
-    "Name": "Velvet Dice Bag - Moon and Stars",
-    "Slug": "velevet-dice-bag-moon-and-stars",
-    "Description": "Adorned with the silver icons of the night sky, this velvet bag serves as a tiny sanctuary for your dice. It feels as soft as a cloud and is said to grant a lunar blessing to any roll made in the dark of night.",
-    "Image": "moon-dice-bag.jpg",
-    "Product Material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
-    "Product Dimensions": "15 cm x 12 cm - holding approximately 50 dice"
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+      "category": 5,
+      "sku": "167697",
+      "name": "Velvet Dice Bag - Moon and Stars",
+      "slug": "velvet-dice-bag-moon-and-stars",
+      "description": "Adorned with the silver icons of the night sky, this velvet bag serves as a tiny sanctuary for your dice. It feels as soft as a cloud and is said to grant a lunar blessing to any roll made in the dark of night.",
+      "product_material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
+      "product_dimensions": "15 cm x 12 cm - holding approximately 50 dice",
+      "price": "15.00",
+      "image": "moon-dice-bag.jpg"
+    }
   },
   {
-    "Item": "Bag - Mushroom Dice Bag",
-    "Product Key": 10,
-    "Category": 5,
-    "Sku": 167698,
-    "Name": "Velvet Dice Bag - Funghi",
-    "Slug": "velevet-dice-bag-funghi",
-    "Description": "Sprouting from the damp corners of an enchanted grove, this whimsical bag is a tribute to the strange magic of the earth. It is the perfect home for dice that carry the unpredictable and transformative power of nature.",
-    "Image": "mushroom-dice-bag.jpg",
-    "Product Material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
-    "Product Dimensions": "15 cm x 12 cm - holding approximately 50 dice"
+    "model": "products.product",
+    "pk": 10,
+    "fields": {
+      "category": 5,
+      "sku": "167698",
+      "name": "Velvet Dice Bag - Funghi",
+      "slug": "velvet-dice-bag-funghi",
+      "description": "Sprouting from the damp corners of an enchanted grove, this whimsical bag is a tribute to the strange magic of the earth. It is the perfect home for dice that carry the unpredictable and transformative power of nature.",
+      "product_material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
+      "product_dimensions": "15 cm x 12 cm - holding approximately 50 dice",
+      "price": "15.00",
+      "image": "mushroom-dice-bag.jpg"
+    }
   },
   {
-    "Item": "Bag - Owl Dice Bag",
-    "Product Key": 11,
-    "Category": 5,
-    "Sku": 167699,
-    "Name": "Velvet Dice Bag - Owl",
-    "Slug": "velevet-dice-bag-owl",
-    "Description": "Soft as a silent wingbeat in the dark, this bag is a tribute to the keepers of hidden knowledge. It is ideal for the wizard or scholar whose dice are as sharp and discerning as a raptor's gaze.",
-    "Image": "owl-dice-bag.jpg",
-    "Product Material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
-    "Product Dimensions": "15 cm x 12 cm - holding approximately 50 dice"
+    "model": "products.product",
+    "pk": 11,
+    "fields": {
+      "category": 5,
+      "sku": "167699",
+      "name": "Velvet Dice Bag - Owl",
+      "slug": "velvet-dice-bag-owl",
+      "description": "Soft as a silent wingbeat in the dark, this bag is a tribute to the keepers of hidden knowledge. It is ideal for the wizard or scholar whose dice are as sharp and discerning as a raptor's gaze.",
+      "product_material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
+      "product_dimensions": "15 cm x 12 cm - holding approximately 50 dice",
+      "price": "15.00",
+      "image": "owl-dice-bag.jpg"
+    }
   },
   {
-    "Item": "Bag - Slate Grey Leather Dice Bag",
-    "Product Key": 12,
-    "Category": 5,
-    "Sku": 167700,
-    "Name": "Leather Dice Bag - Slate Grey",
-    "Slug": "leather-dice-bag-slate-grey",
-    "Description": "Cool and elusive as the morning mist over the Shadowfell, this pouch is designed for those who move unseen. Its neutral, stony finish ensures that while your rolls might be legendary, your presence remains a mystery.",
-    "Image": "slate-grey-dice-bag.jpg",
-    "Product Material": "100% Genuine Leather (Exterior) / 100% Cotton Cord (Drawstring)",
-    "Product Dimensions": "12.5 cm x 10 cm - holding approximately 35 dice"
+    "model": "products.product",
+    "pk": 12,
+    "fields": {
+      "category": 5,
+      "sku": "167700",
+      "name": "Leather Dice Bag - Slate Grey",
+      "slug": "leather-dice-bag-slate-grey",
+      "description": "Cool and elusive as the morning mist over the Shadowfell, this pouch is designed for those who move unseen. Its neutral, stony finish ensures that while your rolls might be legendary, your presence remains a mystery.",
+      "product_material": "100% Genuine Leather (Exterior) / 100% Cotton Cord (Drawstring)",
+      "product_dimensions": "12.5 cm x 10 cm - holding approximately 35 dice",
+      "price": "40.00",
+      "image": "slate-grey-dice-bag.jpg"
+    }
   },
   {
-    "Item": "Bag - White Canvas Dice Bag",
-    "Product Key": 13,
-    "Category": 5,
-    "Sku": 167701,
-    "Name": "Canvas Dice Bag - White",
-    "Slug": "canvas-dice-bag-white",
-    "Description": "This pouch is crafted from heavy, bleached sailcloth, reminiscent of the great ships that traverse the Uncharted Seas. It is a clean, sturdy vessel for a cleric’s holy relics or a navigator’s most trusted star-charts—and the dice that guide their way.",
-    "Image": "white-cloth-dice-bag.jpg",
-    "Product Material": "100% Heavy-Duty Cotton Duck Canvas  (Exterior and Interior) / Braided Jute (Drawstring)",
-    "Product Dimensions": "14 cm x 11 cm - holding approximately 55 dice"
+    "model": "products.product",
+    "pk": 13,
+    "fields": {
+      "category": 5,
+      "sku": "167701",
+      "name": "Canvas Dice Bag - Cotton White",
+      "slug": "canvas-dice-bag-cotton-white",
+      "description": "This pouch is crafted from heavy, bleached sailcloth, reminiscent of the great ships that traverse the Uncharted Seas. It is a clean, sturdy vessel for a cleric’s holy relics or a navigator’s most trusted star-charts—and the dice that guide their way.",
+      "product_material": "100% Heavy-Duty Cotton Duck Canvas  (Exterior and Interior) / Braided Jute (Drawstring)",
+      "product_dimensions": "14 cm x 11 cm - holding approximately 55 dice",
+      "price": "20.00",
+      "image": "white-cloth-dice-bag.jpg"
+    }
+  },
+
+  {
+    "model": "products.product",
+    "pk": 14,
+    "fields": {
+      "category": 3,
+      "sku": "167702",
+      "name": "Aged Bronze Dice",
+      "slug": "aged-bronze-metal-dice",
+      "description": "Heavy with the weight of centuries, these dice look like relics recovered from a sunken trireme, their patina telling tales of forgotten empires.",
+      "product_material": "95% Zinc Alloy, 5% Electroplated Finish (Antique or High-Gloss)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 130g per set",
+      "price": null,
+      "image": "aged-bronze-metal-dice.webp"
+    }
   },
   {
-    "Item": "Dice - Aged Bronze Metal Dice",
-    "Product Key": 14,
-    "Category": 3,
-    "Sku": 167702,
-    "Name": "Aged Bronze Dice",
-    "Slug": "aged-bronze-metal-dice",
-    "Description": "Heavy with the weight of centuries, these dice look like relics recovered from a sunken trireme, their patina telling tales of forgotten empires.",
-    "Image": "aged-bronze-metal-dice.webp",
-    "Product Material": "95% Zinc Alloy, 5% Electroplated Finish (Antique or High-Gloss)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 130g per set"
+    "model": "products.product",
+    "pk": 15,
+    "fields": {
+      "category": 3,
+      "sku": "167703",
+      "name": "Dusty Coal Dice",
+      "slug": "dusty-coal-metal-dice",
+      "description": "Matte and dark as a dragon-slayer’s forge, these dice are forged from the pressurized remains of ancient forests, carrying a smoldering, silent intensity.",
+      "product_material": "95% Zinc Alloy, 5% Electroplated Finish (Antique or High-Gloss)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 130g per set",
+      "price": null,
+      "image": "black-metal-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Black Metal Dice",
-    "Product Key": 15,
-    "Category": 3,
-    "Sku": 167703,
-    "Name": "Dusty Coal Dice",
-    "Slug": "dusty-coal-metal-dice",
-    "Description": "Matte and dark as a dragon-slayer’s forge, these dice are forged from the pressurized remains of ancient forests, carrying a smoldering, silent intensity.",
-    "Image": "black-metal-dice.jpg",
-    "Product Material": "95% Zinc Alloy, 5% Electroplated Finish (Antique or High-Gloss)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 130g per set"
+    "model": "products.product",
+    "pk": 16,
+    "fields": {
+      "category": 1,
+      "sku": "167704",
+      "name": "Night Sky Dice",
+      "slug": "night-sky-acrylic-dice",
+      "description": "Deep indigo shards flecked with distant silver, these dice carry the vast, silent majesty of the midnight heavens in the palm of your hand.",
+      "product_material": "100% High-Density PMMA Acrylic (Polymethyl Methacrylate)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
+      "price": null,
+      "image": "blue-acrylic-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Blue Acrylic Dice",
-    "Product Key": 16,
-    "Category": 1,
-    "Sku": 167704,
-    "Name": "Night Sky Dice",
-    "Slug": "night-sky-acrylic-dice",
-    "Description": "Deep indigo shards flecked with distant silver, these dice carry the vast, silent majesty of the midnight heavens in the palm of your hand.",
-    "Image": "blue-acrylic-dice.jpg",
-    "Product Material": "100% High-Density PMMA Acrylic (Polymethyl Methacrylate)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 30g per set"
+    "model": "products.product",
+    "pk": 17,
+    "fields": {
+      "category": 3,
+      "sku": "167705",
+      "name": "Copper Coins Dice",
+      "slug": "copper-coins-metal-dice",
+      "description": "Gleaming with the humble pride of a merchant's guild, these dice ring with the sound of a well-earned reward and the promise of a filled purse.",
+      "product_material": "95% Zinc Alloy, 5% Electroplated Finish (Antique or High-Gloss)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 130g per set",
+      "price": null,
+      "image": "bronze-metal-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Bronze Metal Dice",
-    "Product Key": 17,
-    "Category": 3,
-    "Sku": 167705,
-    "Name": "Copper Coins Dice",
-    "Slug": "copper-coins-metal-dice",
-    "Description": "Gleaming with the humble pride of a merchant's guild, these dice ring with the sound of a well-earned reward and the promise of a filled purse.",
-    "Image": "bronze-metal-dice.jpg",
-    "Product Material": "95% Zinc Alloy, 5% Electroplated Finish (Antique or High-Gloss)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 130g per set"
+    "model": "products.product",
+    "pk": 18,
+    "fields": {
+      "category": 2,
+      "sku": "167706",
+      "name": "Verdant Forest Dice",
+      "slug": "verdant-forest-resin-dice",
+      "description": "Polished stones plucked from the heart of an ancient, moss-covered glade, these dice hum with the vibrant, leafy energy of a world in perpetual spring.",
+      "product_material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
+      "price": null,
+      "image": "forest-green-resin-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Forest Green Resin Dice",
-    "Product Key": 18,
-    "Category": 2,
-    "Sku": 167706,
-    "Name": "Verdant Forest Dice",
-    "Slug": "verdant-forest-resin-dice",
-    "Description": "Polished stones plucked from the heart of an ancient, moss-covered glade, these dice hum with the vibrant, leafy energy of a world in perpetual spring.",
-    "Image": "forest-green-resin-dice.jpg",
-    "Product Material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 30g per set"
+    "model": "products.product",
+    "pk": 19,
+    "fields": {
+      "category": 3,
+      "sku": "167707",
+      "name": "Golden Coins Dice",
+      "slug": "golden-coins-metal-dice",
+      "description": "Radiant and opulent, these dice are the literal manifestation of a king’s ransom, shimmering with the greed and glory of a dragon’s treasure hoard.",
+      "product_material": "95% Zinc Alloy, 5% Electroplated Finish (Antique or High-Gloss)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 130g per set",
+      "price": null,
+      "image": "gold-metal-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Gold Metal Dice",
-    "Product Key": 19,
-    "Category": 3,
-    "Sku": 167707,
-    "Name": "Gold Coins Dice",
-    "Slug": "gold-coins-metal-dice",
-    "Description": "Radiant and opulent, these dice are the literal manifestation of a king’s ransom, shimmering with the greed and glory of a dragon’s treasure hoard.",
-    "Image": "gold-metal-dice.jpg",
-    "Product Material": "95% Zinc Alloy, 5% Electroplated Finish (Antique or High-Gloss)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 130g per set"
+    "model": "products.product",
+    "pk": 20,
+    "fields": {
+      "category": 1,
+      "sku": "167708",
+      "name": "Swamp Dice",
+      "slug": "swamp-acrylic-dice",
+      "description": "Veined with the murky greens and deep browns of a stagnant bayou, these dice are as treacherous and unpredictable as the shifting peat of a hag’s marsh.",
+      "product_material": "100% High-Density PMMA Acrylic (Polymethyl Methacrylate)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
+      "price": null,
+      "image": "green-acrylic-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Green Acrylic Dice",
-    "Product Key": 20,
-    "Category": 1,
-    "Sku": 167708,
-    "Name": "Swamp Dice",
-    "Slug": "swamp-acrylic-dice",
-    "Description": "Veined with the murky greens and deep browns of a stagnant bayou, these dice are as treacherous and unpredictable as the shifting peat of a hag’s marsh.",
-    "Image": "green-acrylic-dice.jpg",
-    "Product Material": "100% High-Density PMMA Acrylic (Polymethyl Methacrylate)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 30g per set"
+    "model": "products.product",
+    "pk": 21,
+    "fields": {
+      "category": 3,
+      "sku": "167709",
+      "name": "Moss Dice",
+      "slug": "moss-metal-dice",
+      "description": "Soft, earthy, and ancient, these dice look as though they have been reclaimed by the forest floor, perfect for a druid who draws power from the quiet growth of the wild.",
+      "product_material": "95% Zinc Alloy, 5% Electroplated Finish (Antique or High-Gloss)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 130g per set",
+      "price": null,
+      "image": "green-metal-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Green Metal Dice",
-    "Product Key": 21,
-    "Category": 3,
-    "Sku": 167709,
-    "Name": "Moss Dice",
-    "Slug": "moss-metal-dice",
-    "Description": "Soft, earthy, and ancient, these dice look as though they have been reclaimed by the forest floor, perfect for a druid who draws power from the quiet growth of the wild.",
-    "Image": "green-metal-dice.jpg",
-    "Product Material": "95% Zinc Alloy, 5% Electroplated Finish (Antique or High-Gloss)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 130g per set"
+    "model": "products.product",
+    "pk": 22,
+    "fields": {
+      "category": 2,
+      "sku": "167710",
+      "name": "Elvish Emerald Dice",
+      "slug": "elvish-emerald-resin-dice",
+      "description": "Flawless and crystalline, these dice are master-crafted by sylvan smiths to reflect the eternal light of the Undying Lands.",
+      "product_material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
+      "price": null,
+      "image": "green-resin-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Green Resin Dice",
-    "Product Key": 22,
-    "Category": 2,
-    "Sku": 167710,
-    "Name": "Elvish Emerald Dice",
-    "Slug": "elvish-emerald-resin-dice",
-    "Description": "Flawless and crystalline, these dice are master-crafted by sylvan smiths to reflect the eternal light of the Undying Lands.",
-    "Image": "green-resin-dice.jpg",
-    "Product Material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 30g per set"
+    "model": "products.product",
+    "pk": 23,
+    "fields": {
+      "category": 1,
+      "sku": "167711",
+      "name": "Endless Night Dice",
+      "slug": "endless-night-acrylic-dice",
+      "description": "Solid, obsidian-black dice that seem to swallow the light around them; they are the preferred tool for assassins and those who walk the path of shadow.",
+      "product_material": "100% High-Density PMMA Acrylic (Polymethyl Methacrylate)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
+      "price": null,
+      "image": "grey-acrylic-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Grey Acrylic Dice",
-    "Product Key": 23,
-    "Category": 1,
-    "Sku": 167711,
-    "Name": "Endless Night Dice",
-    "Slug": "endless-night-acrylic-dice",
-    "Description": "Solid, obsidian-black dice that seem to swallow the light around them; they are the preferred tool for assassins and those who walk the path of shadow.",
-    "Image": "grey-acrylic-dice.jpg",
-    "Product Material": "100% High-Density PMMA Acrylic (Polymethyl Methacrylate)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 30g per set"
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+      "category": 2,
+      "sku": "167712",
+      "name": "Snowstorm Dice",
+      "slug": "snowstorm-resin-dice",
+      "description": "Gnarled and thick with history, this roller feels as though it was hewn from the oldest tree in the world. It carries the heavy, earthen spirit of the woods into every roll.",
+      "product_material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
+      "price": null,
+      "image": "light-blue-resin-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Light Blue Resin Dice",
-    "Product Key": 8,
-    "Category": 2,
-    "Sku": 167712,
-    "Name": "Snowstorm Dice",
-    "Slug": "snowstorm-resin-dice",
-    "Description": "Gnarled and thick with history, this roller feels as though it was hewn from the oldest tree in the world. It carries the heavy, earthen spirit of the woods into every roll.",
-    "Image": "light-blue-resin-dice.jpg",
-    "Product Material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 30g per set"
+    "model": "products.product",
+    "pk": 24,
+    "fields": {
+      "category": 2,
+      "sku": "167713",
+      "name": "Nebula Dice",
+      "slug": "nebula-resin-dice",
+      "description": "A swirling vortex of cosmic purples and cosmic pinks, these dice are birthed from the heart of a dying star, crackling with raw, unbridled arcane energy.",
+      "product_material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
+      "price": null,
+      "image": "nebula-resin-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Nebula Resin Dice",
-    "Product Key": 24,
-    "Category": 2,
-    "Sku": 167713,
-    "Name": "Nebula Dice",
-    "Slug": "nebula-resin-dice",
-    "Description": "A swirling vortex of cosmic purples and cosmic pinks, these dice are birthed from the heart of a dying star, crackling with raw, unbridled arcane energy.",
-    "Image": "nebula-resin-dice.jpg",
-    "Product Material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 30g per set"
+    "model": "products.product",
+    "pk": 25,
+    "fields": {
+      "category": 2,
+      "sku": "167714",
+      "name": "Fire and Soot  Dice",
+      "slug": "fire-and-soot-resin-dice",
+      "description": "Swirled with the angry orange of a stoked hearth and the black ash of a burnt village, these dice carry the destructive spirit of the flame.",
+      "product_material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
+      "price": null,
+      "image": "orange-resin-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Orange Resin Dice",
-    "Product Key": 25,
-    "Category": 2,
-    "Sku": 167714,
-    "Name": "Fire and Soot  Dice",
-    "Slug": "fire-and-soot-resin-dice",
-    "Description": "Swirled with the angry orange of a stoked hearth and the black ash of a burnt village, these dice carry the destructive spirit of the flame.",
-    "Image": "orange-resin-dice.jpg",
-    "Product Material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 30g per set"
+    "model": "products.product",
+    "pk": 26,
+    "fields": {
+      "category": 1,
+      "sku": "167715",
+      "name": "Shadowfell Mist Dice",
+      "slug": "shadowfell-mist-acrylic-dice",
+      "description": "These dice are translucent and ghostly, appearing as though they were carved from the very fog that haunts the border between life and death.",
+      "product_material": "100% High-Density PMMA Acrylic (Polymethyl Methacrylate)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
+      "price": null,
+      "image": "purple-acrylic-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Purple Acrylic Dice",
-    "Product Key": 26,
-    "Category": 1,
-    "Sku": 167715,
-    "Name": "Shadowfell Mist Dice",
-    "Slug": "shadowfell-mist-acrylic-dice",
-    "Description": "These dice are translucent and ghostly, appearing as though they were carved from the very fog that haunts the border between life and death.",
-    "Image": "purple-acrylic-dice.jpg",
-    "Product Material": "100% High-Density PMMA Acrylic (Polymethyl Methacrylate)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 30g per set"
+    "model": "products.product",
+    "pk": 27,
+    "fields": {
+      "category": 2,
+      "sku": "167716",
+      "name": "Stardust Orchid Dice",
+      "slug": "stardust-orchid-resin-dice",
+      "description": "A magical blend of floral pink and celestial violet, these dice sparkle with the glitter of a thousand crushed stars, favored by bards and fey-touched souls.",
+      "product_material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
+      "price": null,
+      "image": "purple-resin-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Purple Resin Dice",
-    "Product Key": 27,
-    "Category": 2,
-    "Sku": 167716,
-    "Name": "Stardust Orchid Dice",
-    "Slug": "stardust-orchid-resin-dice",
-    "Description": "A magical blend of floral pink and celestial violet, these dice sparkle with the glitter of a thousand crushed stars, favored by bards and fey-touched souls.",
-    "Image": "purple-resin-dice.jpg",
-    "Product Material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 30g per set"
+    "model": "products.product",
+    "pk": 28,
+    "fields": {
+      "category": 1,
+      "sku": "167717",
+      "name": "Dragons Blood Dice",
+      "slug": "dragons-blood-acrylic-dice",
+      "description": "Deep, viscous crimson dice that pulse with the latent fury of a wounded drake, perfect for those whose rage knows no bounds.",
+      "product_material": "100% High-Density PMMA Acrylic (Polymethyl Methacrylate)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
+      "price": null,
+      "image": "red-acrylic-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Red Acrylic Dice",
-    "Product Key": 28,
-    "Category": 1,
-    "Sku": 167717,
-    "Name": "Dragons Blood Dice",
-    "Slug": "dragons-blood-acrylic-dice",
-    "Description": "Deep, viscous crimson dice that pulse with the latent fury of a wounded drake, perfect for those whose rage knows no bounds.",
-    "Image": "red-acrylic-dice.jpg",
-    "Product Material": "100% High-Density PMMA Acrylic (Polymethyl Methacrylate)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 30g per set"
+    "model": "products.product",
+    "pk": 29,
+    "fields": {
+      "category": 2,
+      "sku": "167718",
+      "name": "Hellfire Dice",
+      "slug": "hellfire-resin-dice",
+      "description": "These dice shimmer with an infernal heat, their dark core surrounded by licks of brimstone orange, birthed in the deepest pits of the Nine Hells.",
+      "product_material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
+      "price": null,
+      "image": "red-ressin-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Red Resin Dice",
-    "Product Key": 29,
-    "Category": 2,
-    "Sku": 167718,
-    "Name": "Hellfire Dice",
-    "Slug": "hellfire-resin-dice",
-    "Description": "These dice shimmer with an infernal heat, their dark core surrounded by licks of brimstone orange, birthed in the deepest pits of the Nine Hells.",
-    "Image": "red-ressin-dice.jpg",
-    "Product Material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 30g per set"
+    "model": "products.product",
+    "pk": 30,
+    "fields": {
+      "category": 3,
+      "sku": "167719",
+      "name": "Silver Coins Dice",
+      "slug": "silver-coins-metal-dice",
+      "description": "Bright and sharp as a moonbeam, these dice carry the purity of refined silver, often sought after by those who hunt the creatures of the night.",
+      "product_material": "95% Zinc Alloy, 5% Electroplated Finish (Antique or High-Gloss)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 130g per set",
+      "price": null,
+      "image": "silver-metal-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Silver Metal Dice",
-    "Product Key": 30,
-    "Category": 3,
-    "Sku": 167719,
-    "Name": "Silver Coins Dice",
-    "Slug": "silver-coins-metal-dice",
-    "Description": "Bright and sharp as a moonbeam, these dice carry the purity of refined silver, often sought after by those who hunt the creatures of the night.",
-    "Image": "silver-metal-dice.jpg",
-    "Product Material": "95% Zinc Alloy, 5% Electroplated Finish (Antique or High-Gloss)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 130g per set"
+    "model": "products.product",
+    "pk": 31,
+    "fields": {
+      "category": 1,
+      "sku": "167720",
+      "name": "Starburst Dice",
+      "slug": "starburst-acrylic-dice",
+      "description": "Radiant and explosive, these dice capture the blinding flash of a supernova, designed for those who wish to illuminate the darkest dungeons with a single roll.",
+      "product_material": "100% High-Density PMMA Acrylic (Polymethyl Methacrylate)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
+      "price": null,
+      "image": "yellow-acrylic-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Yellow Acrylic Dice",
-    "Product Key": 31,
-    "Category": 1,
-    "Sku": 167720,
-    "Name": "Starburst Dice",
-    "Slug": "starburst-acrylic-dice",
-    "Description": "Radiant and explosive, these dice capture the blinding flash of a supernova, designed for those who wish to illuminate the darkest dungeons with a single roll.",
-    "Image": "yellow-acrylic-dice.jpg",
-    "Product Material": "100% High-Density PMMA Acrylic (Polymethyl Methacrylate)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 30g per set"
+    "model": "products.product",
+    "pk": 32,
+    "fields": {
+      "category": 1,
+      "sku": "167721",
+      "name": "Dragons Gold Dice",
+      "slug": "dragons-gold-resin-dice",
+      "description": "A swirling mix of metallic amber and molten gold, these dice represent the singular obsession of the Great Wyrms—power, wealth, and immortality.",
+      "product_material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
+      "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
+      "price": null,
+      "image": "yellow-resin-dice.jpg"
+    }
   },
   {
-    "Item": "Dice - Yellow Resin Dice",
-    "Product Key": 32,
-    "Category": 2,
-    "Sku": 167721,
-    "Name": "Dragons Gold Dice",
-    "Slug": "dragons-gold-resin-dice",
-    "Description": "A swirling mix of metallic amber and molten gold, these dice represent the singular obsession of the Great Wyrms—power, wealth, and immortality.",
-    "Image": "yellow-resin-dice.jpg",
-    "Product Material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
-    "Product Dimensions": "D20 - 20mm\nD12 - 18mm\nD10 & D00 - 16mm\nD8 - 16mm\nD6 - 16mm\nD4 - 18mm\n\nWeight: 30g per set"
+    "model": "products.product",
+    "pk": 33,
+    "fields": {
+      "category": 4,
+      "sku": "167722",
+      "name": "Belltower Dice Roller",
+      "slug": "belltower-dice-roller",
+      "description": "A soaring spire that echoes with the gravity of fate. As your dice tumble through its heights, imagine the distant tolling of a bronze bell announcing a champion's victory or a hero's fall.",
+      "product_material": "100% High-Density Resin",
+      "product_dimensions": "16cm(H)x6.5cm(W)x6.5cm(D)",
+      "price": "65.00",
+      "image": "dice-roller-tower-belltower.jpg"
+    }
   },
   {
-    "Item": "Dice Roller - Belltower",
-    "Product Key": 33,
-    "Category": 4,
-    "Sku": 167722,
-    "Name": "Belltower Dice Roller",
-    "Slug": "belltower-dice-roller",
-    "Description": "A soaring spire that echoes with the gravity of fate. As your dice tumble through its heights, imagine the distant tolling of a bronze bell announcing a champion's victory or a hero's fall.",
-    "Image": "dice-roller-tower-belltower.jpg",
-    "Product Material": "100% High-Density Resin",
-    "Product Dimensions": "16 cm (H) x 6.5 cm (W) x 6.5 cm (D)"
+    "model": "products.product",
+    "pk": 34,
+    "fields": {
+      "category": 4,
+      "sku": "167723",
+      "name": "Crumbling Castle Dice Roller",
+      "slug": "crumbling-castle-dice-roller",
+      "description": "This weathered stone fortress has stood against a thousand sieges. Rolling your dice through its cracked ramparts feels like a desperate gambit during a final stand for the kingdom.",
+      "product_material": "100% Cast Stone Resin",
+      "product_dimensions": "14cm(H)x9cm(W)x8cm(D)",
+      "price": "45.00",
+      "image": "dice-roller-tower-crumbling-castle.jpg"
+    }
   },
   {
-    "Item": "Dice Roller - Crumbling Castle",
-    "Product Key": 34,
-    "Category": 4,
-    "Sku": 167723,
-    "Name": "Crumbling Castle Dice Roller",
-    "Slug": "crumbling-castle-dice-roller",
-    "Description": "This weathered stone fortress has stood against a thousand sieges. Rolling your dice through its cracked ramparts feels like a desperate gambit during a final stand for the kingdom.",
-    "Image": "dice-roller-tower-crumbling-castle.jpg",
-    "Product Material": "100% Cast Stone Resin",
-    "Product Dimensions": "14 cm (H) x 9 cm (W) x 8 cm (D)"
+    "model": "products.product",
+    "pk": 35,
+    "fields": {
+      "category": 4,
+      "sku": "167724",
+      "name": "Dragons Lair Dice Roller",
+      "slug": "dragons-lair-dice-roller",
+      "description": "Cast your dice into the smoking maw of a Great Wyrm’s sanctum. Only those with a true dragon’s hoard of luck will emerge from this scorched stone passage with a critical success.",
+      "product_material": "95% Polyresin, 5% Fiber Reinforcement",
+      "product_dimensions": "14cm(H)x9cm(W)x8cm(D)",
+      "price": "55.00",
+      "image": "dice-roller-tower-dragon.jpg"
+    }
   },
   {
-    "Item": "Dice Roller - Dragon",
-    "Product Key": 35,
-    "Category": 4,
-    "Sku": 167724,
-    "Name": "Dragons Lair Dice Roller",
-    "Slug": "dragons-lair-dice-roller",
-    "Description": "Cast your dice into the smoking maw of a Great Wyrm’s sanctum. Only those with a true dragon’s hoard of luck will emerge from this scorched stone passage with a critical success.",
-    "Image": "dice-roller-tower-dragon.jpg",
-    "Product Material": "95% Polyresin, 5% Fiber Reinforcement",
-    "Product Dimensions": "14 cm (H) x 9 cm (W) x 8 cm (D)"
+    "model": "products.product",
+    "pk": 36,
+    "fields": {
+      "category": 4,
+      "sku": "167725",
+      "name": "Elvish Tree Dice Roller",
+      "slug": "elvish-tree-dice-roller",
+      "description": "Carved from living wood and infused with Sylvan magic, this roller guides your dice through a labyrinth of silver-leafed branches. It is the favored tool of those who walk the path of the High Forest.",
+      "product_material": "100% Sustainably Sourced Mango Wood",
+      "product_dimensions": "17cm(H)x8cm(W)x8cm(D)",
+      "price": "80.00",
+      "image": "dice-roller-tower-elvish-tree.jpg"
+    }
   },
   {
-    "Item": "Dice Roller - Elvish Tree",
-    "Product Key": 36,
-    "Category": 4,
-    "Sku": 167725,
-    "Name": "Elvish Tree Dice Roller",
-    "Slug": "elvish-tree-dice-roller",
-    "Description": "Carved from living wood and infused with Sylvan magic, this roller guides your dice through a labyrinth of silver-leafed branches. It is the favored tool of those who walk the path of the High Forest.",
-    "Image": "dice-roller-tower-elvish-tree.jpg",
-    "Product Material": "100% Sustainably Sourced Mango Wood",
-    "Product Dimensions": "17cm (H) x 8cm (W) x 8cm (D)"
+    "model": "products.product",
+    "pk": 37,
+    "fields": {
+      "category": 4,
+      "sku": "167726",
+      "name": "Lighthouse Dice Roller",
+      "slug": "lighthouse-dice-roller",
+      "description": "A beacon of hope in the storm of battle. This roller provides a steady, guiding path for your dice, cutting through the fog of war to reveal the numbers you need most",
+      "product_material": "100% Cast Resin",
+      "product_dimensions": "14cm(H)x9cm(W)x8cm(D)",
+      "price": "65.00",
+      "image": "dice-roller-tower-lighthouse.jpg"
+    }
   },
   {
-    "Item": "Dice Roller - Lighthouse",
-    "Product Key": 37,
-    "Category": 4,
-    "Sku": 167726,
-    "Name": "Lighthouse Dice Roller",
-    "Slug": "lighthouse-dice-roller",
-    "Description": "A beacon of hope in the storm of battle. This roller provides a steady, guiding path for your dice, cutting through the fog of war to reveal the numbers you need most.",
-    "Image": "dice-roller-tower-lighthouse.jpg",
-    "Product Material": "100% Cast Resin",
-    "Product Dimensions": "14 cm (H) x 9 cm (W) x 8 cm (D)"
+    "model": "products.product",
+    "pk": 38,
+    "fields": {
+      "category": 4,
+      "sku": "167727",
+      "name": "Pagoda Dice Roller",
+      "slug": "pagoda-dice-roller",
+      "description": "A structure of elegant balance and ancient wisdom. It offers a tranquil and disciplined descent for your dice, perfect for the monk or strategist who values precision over brute force.",
+      "product_material": "100% Solid Rosewood",
+      "product_dimensions": "15cm(H)x8.5cm(W)x8.5cm(D)",
+      "price": "70.00",
+      "image": "dice-roller-tower-pagoda.jpg"
+    }
   },
   {
-    "Item": "Dice Roller - Pagoda",
-    "Product Key": 38,
-    "Category": 4,
-    "Sku": 167727,
-    "Name": "Pagoda Dice Roller",
-    "Slug": "pagoda-dice-roller",
-    "Description": "A structure of elegant balance and ancient wisdom. It offers a tranquil and disciplined descent for your dice, perfect for the monk or strategist who values precision over brute force.",
-    "Image": "dice-roller-tower-pagoda.jpg",
-    "Product Material": "100% Solid Rosewood",
-    "Product Dimensions": "15 cm (H) x 8.5cm (W) x 8.5cm (D)"
+    "model": "products.product",
+    "pk": 39,
+    "fields": {
+      "category": 4,
+      "sku": "167728",
+      "name": "Temple of Doom Dice Roller",
+      "slug": "temple-of-doom-dice-roller",
+      "description": "Dangerous and shrouded in mystery, this roller represents a descent into cursed ruins. Every die that passes through its shadowed halls feels like a narrow escape from a deadly ancient trap.",
+      "product_material": "90% Polyresin, 10% Crushed Stone",
+      "product_dimensions": "15cm(H)x8.5cm(W)x8.5cm(D)",
+      "price": "65.00",
+      "image": "dice-roller-tower-temple-of-doom.jpg"
+    }
   },
   {
-    "Item": "Dice Roller - Temple of Doom",
-    "Product Key": 39,
-    "Category": 4,
-    "Sku": 167728,
-    "Name": "Temple of Doom Dice Roller",
-    "Slug": "temple-of-doom-dice-roller",
-    "Description": "Dangerous and shrouded in mystery, this roller represents a descent into cursed ruins. Every die that passes through its shadowed halls feels like a narrow escape from a deadly ancient trap.",
-    "Image": "dice-roller-tower-temple-of-doom.jpg",
-    "Product Material": "90% Polyresin, 10% Crushed Stone",
-    "Product Dimensions": "15 cm (H) x 8.5cm (W) x 8.5cm (D)"
+    "model": "products.product",
+    "pk": 40,
+    "fields": {
+      "category": 4,
+      "sku": "167729",
+      "name": "Tower Dice Roller",
+      "slug": "tower-dice-roller",
+      "description": "The quintessential bastion of the arcane. This classic stone tower provides a reliable and authoritative tumble, making every roll feel like a decree from a high-seated wizard.",
+      "product_material": "100% Cast Stone Resin",
+      "product_dimensions": "14cm(H)x9cm(W)x8cm(D)",
+      "price": "45.00",
+      "image": "dice-roller-tower.jpg"
+    }
   },
   {
-    "Item": "Dice Roller - Tower",
-    "Product Key": 40,
-    "Category": 4,
-    "Sku": 167729,
-    "Name": "Tower Dice Roller",
-    "Slug": "tower-dice-roller",
-    "Description": "The quintessential bastion of the arcane. This classic stone tower provides a reliable and authoritative tumble, making every roll feel like a decree from a high-seated wizard.",
-    "Image": "dice-roller-tower.jpg",
-    "Product Material": "100% Cast Stone Resin",
-    "Product Dimensions": "14 cm (H) x 9 cm (W) x 8 cm (D)"
+    "model": "products.product",
+    "pk": 41,
+    "fields": {
+      "category": 4,
+      "sku": "167730",
+      "name": "Ancient Oak Dice Roller",
+      "slug": "ancient-oak-dice-roller",
+      "description": "Gnarled and thick with history, this roller feels as though it was hewn from the oldest tree in the world. It carries the heavy, earthen spirit of the woods into every roll.",
+      "product_material": "100% Reclaimed Hardwood",
+      "product_dimensions": "17cm(H)x8cm(W)x8cm(D)",
+      "price": "80.00",
+      "image": "dice-roller-tower-tree.jpg"
+    }
   },
   {
-    "Item": "Dice Roller - Tree",
-    "Product Key": 41,
-    "Category": 4,
-    "Sku": 167730,
-    "Name": "Ancient Oak Dice Roller",
-    "Slug": "ancient-oak-dice-roller",
-    "Description": "Gnarled and thick with history, this roller feels as though it was hewn from the oldest tree in the world. It carries the heavy, earthen spirit of the woods into every roll.",
-    "Image": "dice-roller-tower-tree.jpg",
-    "Product Material": "100% Reclaimed Hardwood",
-    "Product Dimensions": "17cm (H) x 8cm (W) x 8cm (D)"
+    "model": "products.product",
+    "pk": 43,
+    "fields": {
+      "category": 6,
+      "sku": "167731",
+      "name": "Celestial Wooden Dice Box",
+      "slug": "celestial-wooden-dice-box",
+      "description": "Encased in polished wood, this vault features intricate carvings of the sun, moon, and stars, designed to hold dice that command the very forces of the cosmos.",
+      "product_material": "100% Natural Hardwood (Acacia, Rosewood, or Mango Wood depending on grain) / Zinc Alloy (Hinges & Latches)",
+      "product_dimensions": "Dimensions (External): 9.5cm(H)x3.2cm(W)x3.2cm(D). Dimensions (Internal Trench): 8.8cm(L)x2.5cm(W)",
+      "price": "30.00",
+      "image": "wooden-dice-box-carved-dark-oak.jpg"
+    }
   },
   {
-    "Item": "Wooden Dice Box - Celestial",
-    "Product Key": 43,
-    "Category": 6,
-    "Sku": 167731,
-    "Name": "Celestial Wooden Dice Box",
-    "Slug": "celestial-wooden-dice-box",
-    "Description": "Encased in polished wood, this vault features intricate carvings of the sun, moon, and stars, designed to hold dice that command the very forces of the cosmos.",
-    "Image": "wooden-dice-box-carved-dark-oak.jpg",
-    "Product Material": "100% Natural Hardwood (Acacia, Rosewood, or Mango Wood depending on grain) / Zinc Alloy (Hinges & Latches)",
-    "Product Dimensions": "Dimensions (External): 9.5cm (H) x 3.2cm (W) x 3.2cm (D)\nDimensions (Internal Trench): 8.8c(L) m x 2.5cm (W)"
+    "model": "products.product",
+    "pk": 44,
+    "fields": {
+      "category": 6,
+      "sku": "167732",
+      "name": "Celtic Knot Wooden Dice Box",
+      "slug": "celtic-knot-wooden-dice-box",
+      "description": "A masterwork of traditional craftsmanship, this box is adorned with eternal interlocking patterns that offer a protective ward over your rolls.",
+      "product_material": "100% Natural Hardwood (Acacia, Rosewood, or Mango Wood depending on grain) / Zinc Alloy (Hinges & Latches)",
+      "product_dimensions": "Dimensions (External): 9.5cm(H)x3.2cm(W)x3.2cm(D). Dimensions (Internal Trench): 8.8cm(L)x2.5cm(W)",
+      "price": "30.00",
+      "image": "wooden-dice-box-carved.jpg"
+    }
   },
   {
-    "Item": "Wooden Dice Box - Celtic",
-    "Product Key": 44,
-    "Category": 6,
-    "Sku": 167732,
-    "Name": "Celtic Knot Wooden Dice Box",
-    "Slug": "celtic-knot-wooden-dice-box",
-    "Description": "A masterwork of traditional craftsmanship, this box is adorned with eternal interlocking patterns that offer a protective ward over your rolls.",
-    "Image": "wooden-dice-box-carved.jpg",
-    "Product Material": "100% Natural Hardwood (Acacia, Rosewood, or Mango Wood depending on grain) / Zinc Alloy (Hinges & Latches)",
-    "Product Dimensions": "Dimensions (External): 9.5cm (H) x 3.2cm (W) x 3.2cm (D)\nDimensions (Internal Trench): 8.8c(L) m x 2.5cm (W)"
-  },
-  {
-    "Item": "Wooden Dice Box - Lion",
-    "Product Key": 45,
-    "Category": 6,
-    "Sku": 167733,
-    "Name": "Lion Hearted Wooden Dice Box",
-    "Slug": "lion-hearted-wooden-dice-box",
-    "Description": "Bearing the fierce and noble visage of a roaring lion, this sturdy chest is built for the warrior whose courage never falters under the pressure of a critical roll.",
-    "Image": "wooden-carved-lion-dice-box.jpg",
-    "Product Material": "100% Natural Hardwood (Acacia, Rosewood, or Mango Wood depending on grain) / Zinc Alloy (Hinges & Latches)",
-    "Product Dimensions": "Dimensions (External): 9.5cm (H) x 3.2cm (W) x 3.2cm (D)\nDimensions (Internal Trench): 8.8c(L) m x 2.5cm (W)"
+    "model": "products.product",
+    "pk": 45,
+    "fields": {
+      "category": 6,
+      "sku": "167733",
+      "name": "Lion Hearted Wooden Dice Box",
+      "slug": "lion-hearted-wooden-dice-box",
+      "description": "Bearing the fierce and noble visage of a roaring lion, this sturdy chest is built for the warrior whose courage never falters under the pressure of a critical roll.",
+      "product_material": "100% Natural Hardwood (Acacia, Rosewood, or Mango Wood depending on grain) / Zinc Alloy (Hinges & Latches)",
+      "product_dimensions": "Dimensions (External): 9.5cm(H)x3.2cm(W)x3.2cm(D). Dimensions (Internal Trench): 8.8cm(L)x2.5cm(W)",
+      "price": "30.00",
+      "image": "wooden-carved-lion-dice-box.jpg"
+    }
   }
 ]
