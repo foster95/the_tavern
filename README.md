@@ -246,6 +246,26 @@ Total | 25 | 100%
 * As a user, I want to be able to see information about the company, so I can know who I'm buying from
 * As a staff member (Admin role) I want to be able to update the information on the company, so that I can keep this up to date as the company grows and expands
 
+## Databse Design
+### Data Models
+Prior to building The Tavern, I created an ERD which helped me visualise all of the relationships between the different datasets and databases in the site. I used Miro to create this:
+
+## Website Features
+### Header
+The header extends the base.html template, and is a simple, minimalistic design which is visually appealing for users. On mobile the header is much simpler, displaying only the most crucial features of the website to allow users easy UX - these features are: a drop down burger icon which allows users to navigate to the following: all products, dice, other accessories, about us, FAQ and contact us. There is also a search button, allowing users to search the site, a my account button, and a basket button. On tablets and up, the header is much more elaborate, featuring a small version of the companies logo on the left hand side, a central search bar and the account and basket features on the right hand side of the screen. Running just below this in a seperate bar is the product catalogue, and seperated from this the FAQ and the contact us button can be found in the header. This allows users to easily navigate to the product directory, but requires them to search a little further for the other pages, which is the ultimate goal of an eCommerce site. 
+
+### Footer
+The footer also extends from base.html and is very simple, made up of a few links for users to navigate around the site, and to find the social media links for the company. All of the social media links apply the "rel=noopener" rule, and open to a new page away from the site. The footer is responsive to various screen sizes, stacking on mobiles, and stretching out from tablet onwards. 
+
+### Scrolling Bar - Home Page
+The scrolling bar is a fun little feature that allows users to see the free delivery threshold by scrolling across the screen. The scroll is slow so as not to be distracting, and can be stopped by hovering the mouse over the scroll bar. 
+
+### Product of the Month - Home Page
+
+### Reasons to Buy - Home Page 
+
+### Testimonials - Home Page
+
 ## Web Marketing
 ### Keyword and SEO research
 At the beginning of the project, I sat down and documented all of the keywords associated with The Tavern, in order to try and improve my SEO rating as much as possible. To start this process, I began by noting down all the general keywords associated with my website:
