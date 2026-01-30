@@ -177,7 +177,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero Image */
 #hero-image {
-    background-image: url('../media/header-2.png');
+    background-image: url('../images/header-2.png');
     background-position: center;
     height: 385px;
     margin-bottom: 2rem;

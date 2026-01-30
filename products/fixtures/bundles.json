@@ -19,7 +19,6 @@
       "price": "25.00"
     }
   },
-
   {
     "model": "products.bundle",
     "pk": 3,
@@ -40,7 +39,6 @@
       "price": "30.00"
     }
   },
-
   {
     "model": "products.bundle",
     "pk": 5,
