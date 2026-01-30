@@ -41,6 +41,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .overlay {
   padding-top: 20px;
+  z-index: -1;
 }
 
 #site-main {
@@ -191,8 +192,6 @@ h1, h2, h3, h4, h5, h6 {
     white-space: nowrap;
 }
 
-
-
 /* Hero Image */
 #hero-image {
     background-image: url('../images/header-2.png');
@@ -285,6 +284,15 @@ main,
     background-color: var(--primary-accent);
 }
 
+/* Product Catalouge Specific Styles */
+.card {
+    background-color: var(--primary-color);
+}
+
+.card-footer {
+    background-color: var(--primary-color) !important;
+}
+ 
 /* Media Queries */
 
 @media (min-width: 768px){
