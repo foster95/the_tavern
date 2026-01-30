@@ -11,7 +11,7 @@
       "product_material": "100% Genuine Leather (Exterior) / 100% Cotton Cord (Drawstring)",
       "product_dimensions": "12.5 cm x 10 cm - holding approximately 35 dice",
       "price": "40.00",
-      "image": "blue-dice-bag.jpg"
+      "image": "products/blue-dice-bag.jpg"
     }
   },
   {
@@ -26,7 +26,7 @@
       "product_material": "100% Heavy-Duty Cotton Duck Canvas  (Exterior and Interior) / Braided Jute (Drawstring)",
       "product_dimensions": "14 cm x 11 cm - holding approximately 55 dice",
       "price": "20.00",
-      "image": "brown-cloth-dice-bag.jpg"
+      "image": "products/brown-cloth-dice-bag.jpg"
     }
   },
   {
@@ -41,7 +41,7 @@
       "product_material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
       "product_dimensions": "15 cm x 12 cm - holding approximately 50 dice",
       "price": "15.00",
-      "image": "celestial-dice-bag.jpg"
+      "image": "products/celestial-dice-bag.jpg"
     }
   },
   {
@@ -56,7 +56,7 @@
       "product_material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
       "product_dimensions": "15 cm x 12 cm - holding approximately 50 dice",
       "price": "15.00",
-      "image": "deer-dice-bag.jpg"
+      "image": "products/deer-dice-bag.jpg"
     }
   },
   {
@@ -71,7 +71,7 @@
       "product_material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
       "product_dimensions": "15 cm x 12 cm - holding approximately 50 dice",
       "price": "15.00",
-      "image": "dragon-dice-bag.jpg"
+      "image": "products/dragon-dice-bag.jpg"
     }
   },
   {
@@ -86,7 +86,7 @@
       "product_material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
       "product_dimensions": "15 cm x 12 cm - holding approximately 50 dice",
       "price": "15.00",
-      "image": "illitid-dice-bag.jpg"
+      "image": "products/illithid-dice-bag.jpg"
     }
   },
   {
@@ -101,7 +101,7 @@
       "product_material": "100% Genuine Leather (Exterior) / 100% Cotton Cord (Drawstring)",
       "product_dimensions": "12.5 cm x 10 cm - holding approximately 35 dice",
       "price": "40.00",
-      "image": "kharki-dice-bag.jpg"
+      "image": "products/kharki-dice-bag.jpg"
     }
   },
   {
@@ -116,7 +116,7 @@
       "product_material": "100% Genuine Leather (Exterior) / 100% Cotton Cord (Drawstring)",
       "product_dimensions": "12.5 cm x 10 cm - holding approximately 35 dice",
       "price": "40.00",
-      "image": "leather-dice-bag.jpg"
+      "image": "products/leather-dice-bag-brown.jpg"
     }
   },
   {
@@ -131,7 +131,7 @@
       "product_material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
       "product_dimensions": "15 cm x 12 cm - holding approximately 50 dice",
       "price": "15.00",
-      "image": "moon-dice-bag.jpg"
+      "image": "products/moon-dice-bag.jpg"
     }
   },
   {
@@ -146,7 +146,7 @@
       "product_material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
       "product_dimensions": "15 cm x 12 cm - holding approximately 50 dice",
       "price": "15.00",
-      "image": "mushroom-dice-bag.jpg"
+      "image": "products/mushroom-dice-bag.jpg"
     }
   },
   {
@@ -161,7 +161,7 @@
       "product_material": "90% Polyester Velvet, 10% Nylon (Exterior) / 100% Satin (Inner Lining)",
       "product_dimensions": "15 cm x 12 cm - holding approximately 50 dice",
       "price": "15.00",
-      "image": "owl-dice-bag.jpg"
+      "image": "products/owl-dice-bag.jpg"
     }
   },
   {
@@ -176,7 +176,7 @@
       "product_material": "100% Genuine Leather (Exterior) / 100% Cotton Cord (Drawstring)",
       "product_dimensions": "12.5 cm x 10 cm - holding approximately 35 dice",
       "price": "40.00",
-      "image": "slate-grey-dice-bag.jpg"
+      "image": "products/slate-grey-dice-bag.jpg"
     }
   },
   {
@@ -191,7 +191,7 @@
       "product_material": "100% Heavy-Duty Cotton Duck Canvas  (Exterior and Interior) / Braided Jute (Drawstring)",
       "product_dimensions": "14 cm x 11 cm - holding approximately 55 dice",
       "price": "20.00",
-      "image": "white-cloth-dice-bag.jpg"
+      "image": "products/white-cloth-dice-bag.jpg"
     }
   },
 
@@ -207,7 +207,7 @@
       "product_material": "95% Zinc Alloy, 5% Electroplated Finish (Antique or High-Gloss)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 130g per set",
       "price": null,
-      "image": "aged-bronze-metal-dice.webp"
+      "image": "products/aged-bronze-metal-dice.webp"
     }
   },
   {
@@ -222,7 +222,7 @@
       "product_material": "95% Zinc Alloy, 5% Electroplated Finish (Antique or High-Gloss)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 130g per set",
       "price": null,
-      "image": "black-metal-dice.jpg"
+      "image": "products/black-metal-dice.jpg"
     }
   },
   {
@@ -237,7 +237,7 @@
       "product_material": "100% High-Density PMMA Acrylic (Polymethyl Methacrylate)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
       "price": null,
-      "image": "blue-acrylic-dice.jpg"
+      "image": "products/blue-acrylic-dice.jpg"
     }
   },
   {
@@ -252,7 +252,7 @@
       "product_material": "95% Zinc Alloy, 5% Electroplated Finish (Antique or High-Gloss)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 130g per set",
       "price": null,
-      "image": "bronze-metal-dice.jpg"
+      "image": "products/bronze-metal-dice.jpg"
     }
   },
   {
@@ -267,7 +267,7 @@
       "product_material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
       "price": null,
-      "image": "forest-green-resin-dice.jpg"
+      "image": "products/forest-green-resin-dice.jpg"
     }
   },
   {
@@ -282,7 +282,7 @@
       "product_material": "95% Zinc Alloy, 5% Electroplated Finish (Antique or High-Gloss)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 130g per set",
       "price": null,
-      "image": "gold-metal-dice.jpg"
+      "image": "products/gold-metal-dice.jpg"
     }
   },
   {
@@ -297,7 +297,7 @@
       "product_material": "100% High-Density PMMA Acrylic (Polymethyl Methacrylate)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
       "price": null,
-      "image": "green-acrylic-dice.jpg"
+      "image": "products/green-acrylic-dice.jpg"
     }
   },
   {
@@ -312,7 +312,7 @@
       "product_material": "95% Zinc Alloy, 5% Electroplated Finish (Antique or High-Gloss)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 130g per set",
       "price": null,
-      "image": "green-metal-dice.jpg"
+      "image": "products/green-metal-dice.jpg"
     }
   },
   {
@@ -327,7 +327,7 @@
       "product_material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
       "price": null,
-      "image": "green-resin-dice.jpg"
+      "image": "products/green-resin-dice.jpg"
     }
   },
   {
@@ -342,7 +342,7 @@
       "product_material": "100% High-Density PMMA Acrylic (Polymethyl Methacrylate)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
       "price": null,
-      "image": "grey-acrylic-dice.jpg"
+      "image": "products/grey-acrylic-dice.jpg"
     }
   },
   {
@@ -357,7 +357,7 @@
       "product_material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
       "price": null,
-      "image": "light-blue-resin-dice.jpg"
+      "image": "products/light-blue-resin-dice.jpg"
     }
   },
   {
@@ -372,7 +372,7 @@
       "product_material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
       "price": null,
-      "image": "nebula-resin-dice.jpg"
+      "image": "products/nebula-resin-dice.jpg"
     }
   },
   {
@@ -387,7 +387,7 @@
       "product_material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
       "price": null,
-      "image": "orange-resin-dice.jpg"
+      "image": "products/orange-resin-dice.jpg"
     }
   },
   {
@@ -402,7 +402,7 @@
       "product_material": "100% High-Density PMMA Acrylic (Polymethyl Methacrylate)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
       "price": null,
-      "image": "purple-acrylic-dice.jpg"
+      "image": "products/purple-acrylic-dice.jpg"
     }
   },
   {
@@ -417,7 +417,7 @@
       "product_material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
       "price": null,
-      "image": "purple-resin-dice.jpg"
+      "image": "products/purple-resin-dice.jpg"
     }
   },
   {
@@ -432,7 +432,7 @@
       "product_material": "100% High-Density PMMA Acrylic (Polymethyl Methacrylate)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
       "price": null,
-      "image": "red-acrylic-dice.jpg"
+      "image": "products/red-acrylic-dice.jpg"
     }
   },
   {
@@ -447,7 +447,7 @@
       "product_material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
       "price": null,
-      "image": "red-ressin-dice.jpg"
+      "image": "products/red-resin-dice.jpg"
     }
   },
   {
@@ -462,7 +462,7 @@
       "product_material": "95% Zinc Alloy, 5% Electroplated Finish (Antique or High-Gloss)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 130g per set",
       "price": null,
-      "image": "silver-metal-dice.jpg"
+      "image": "products/silver-metal-dice.jpg"
     }
   },
   {
@@ -477,7 +477,7 @@
       "product_material": "100% High-Density PMMA Acrylic (Polymethyl Methacrylate)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
       "price": null,
-      "image": "yellow-acrylic-dice.jpg"
+      "image": "products/yellow-acrylic-dice.jpg"
     }
   },
   {
@@ -492,7 +492,7 @@
       "product_material": "100% Epoxy Resin (with internal pigment and foil inclusions)",
       "product_dimensions": "D20 - 20mm, D12 - 18mm, D10 & D00 - 16mm, D8 - 16mm, D6 - 16mm, D4 - 18mm. Weight: 30g per set",
       "price": null,
-      "image": "yellow-resin-dice.jpg"
+      "image": "products/yellow-resin-dice.jpg"
     }
   },
   {
@@ -507,7 +507,7 @@
       "product_material": "100% High-Density Resin",
       "product_dimensions": "16cm(H)x6.5cm(W)x6.5cm(D)",
       "price": "65.00",
-      "image": "dice-roller-tower-belltower.jpg"
+      "image": "products/dice-roller-tower-belltower.jpg"
     }
   },
   {
@@ -522,7 +522,7 @@
       "product_material": "100% Cast Stone Resin",
       "product_dimensions": "14cm(H)x9cm(W)x8cm(D)",
       "price": "45.00",
-      "image": "dice-roller-tower-crumbling-castle.jpg"
+      "image": "products/dice-roller-tower-crumbling-castle.jpg"
     }
   },
   {
@@ -537,7 +537,7 @@
       "product_material": "95% Polyresin, 5% Fiber Reinforcement",
       "product_dimensions": "14cm(H)x9cm(W)x8cm(D)",
       "price": "55.00",
-      "image": "dice-roller-tower-dragon.jpg"
+      "image": "products/dice-roller-tower-dragon.jpg"
     }
   },
   {
@@ -552,7 +552,7 @@
       "product_material": "100% Sustainably Sourced Mango Wood",
       "product_dimensions": "17cm(H)x8cm(W)x8cm(D)",
       "price": "80.00",
-      "image": "dice-roller-tower-elvish-tree.jpg"
+      "image": "products/dice-roller-tower-elvish-tree.jpg"
     }
   },
   {
@@ -567,7 +567,7 @@
       "product_material": "100% Cast Resin",
       "product_dimensions": "14cm(H)x9cm(W)x8cm(D)",
       "price": "65.00",
-      "image": "dice-roller-tower-lighthouse.jpg"
+      "image": "products/dice-roller-tower-lighthouse.jpg"
     }
   },
   {
@@ -582,7 +582,7 @@
       "product_material": "100% Solid Rosewood",
       "product_dimensions": "15cm(H)x8.5cm(W)x8.5cm(D)",
       "price": "70.00",
-      "image": "dice-roller-tower-pagoda.jpg"
+      "image": "products/dice-roller-tower-pagoda.jpg"
     }
   },
   {
@@ -597,7 +597,7 @@
       "product_material": "90% Polyresin, 10% Crushed Stone",
       "product_dimensions": "15cm(H)x8.5cm(W)x8.5cm(D)",
       "price": "65.00",
-      "image": "dice-roller-tower-temple-of-doom.jpg"
+      "image": "products/dice-roller-tower-temple-of-doom.jpg"
     }
   },
   {
@@ -612,7 +612,7 @@
       "product_material": "100% Cast Stone Resin",
       "product_dimensions": "14cm(H)x9cm(W)x8cm(D)",
       "price": "45.00",
-      "image": "dice-roller-tower.jpg"
+      "image": "products/dice-roller-tower.jpg"
     }
   },
   {
@@ -627,7 +627,7 @@
       "product_material": "100% Reclaimed Hardwood",
       "product_dimensions": "17cm(H)x8cm(W)x8cm(D)",
       "price": "80.00",
-      "image": "dice-roller-tower-tree.jpg"
+      "image": "products/dice-roller-tower-tree.jpg"
     }
   },
   {
@@ -642,7 +642,7 @@
       "product_material": "100% Natural Hardwood (Acacia, Rosewood, or Mango Wood depending on grain) / Zinc Alloy (Hinges & Latches)",
       "product_dimensions": "Dimensions (External): 9.5cm(H)x3.2cm(W)x3.2cm(D). Dimensions (Internal Trench): 8.8cm(L)x2.5cm(W)",
       "price": "30.00",
-      "image": "wooden-dice-box-carved-dark-oak.jpg"
+      "image": "products/wooden-dice-box-carved-dark-oak.jpg"
     }
   },
   {
@@ -657,7 +657,7 @@
       "product_material": "100% Natural Hardwood (Acacia, Rosewood, or Mango Wood depending on grain) / Zinc Alloy (Hinges & Latches)",
       "product_dimensions": "Dimensions (External): 9.5cm(H)x3.2cm(W)x3.2cm(D). Dimensions (Internal Trench): 8.8cm(L)x2.5cm(W)",
       "price": "30.00",
-      "image": "wooden-dice-box-carved.jpg"
+      "image": "products/wooden-dice-box-carved.jpg"
     }
   },
   {
@@ -672,7 +672,7 @@
       "product_material": "100% Natural Hardwood (Acacia, Rosewood, or Mango Wood depending on grain) / Zinc Alloy (Hinges & Latches)",
       "product_dimensions": "Dimensions (External): 9.5cm(H)x3.2cm(W)x3.2cm(D). Dimensions (Internal Trench): 8.8cm(L)x2.5cm(W)",
       "price": "30.00",
-      "image": "wooden-carved-lion-dice-box.jpg"
+      "image": "products/wooden-carved-lion-dice-box.jpg"
     }
   }
 ]
