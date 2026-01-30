@@ -240,6 +240,23 @@ main,
     margin-bottom: 2rem;
 }
 
+
+.potm-image-wrapper {
+  max-width: 260px;  
+  margin-bottom: 1rem;
+}
+
+.potm-image-wrapper img {
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.potm-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 #reasonstobuy {
     margin-left: calc(var(--bs-gutter-x) * -0.5);
     margin-right: calc(var(--bs-gutter-x) * -0.5);
@@ -251,7 +268,6 @@ main,
   background: var(--secondary-accent);
   color: var(--primary-color);
 }
-
 
 #reasonstobuy .carousel-item {
   padding: 3rem 0;

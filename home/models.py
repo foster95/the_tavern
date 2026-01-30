@@ -1,14 +1,21 @@
+import calendar
 from django.db import models
 
-# Create your models here.
+MONTH_CHOICES = [(i, calendar.month_name[i]) for i in range(1, 13)]
 
 class ProductOfTheMonth(models.Model):
-    """ Model for featured product of the month """
+    year = models.PositiveIntegerField()
+    month = models.PositiveSmallIntegerField(choices=MONTH_CHOICES)
+    product = models.ForeignKey("products.Product", on_delete=models.CASCADE)
 
-    product = models.ForeignKey(
-        'products.Product', on_delete=models.CASCADE, related_name='featured_in_month'
-    )
-    month = models.DateField(unique=True)
+    class Meta:
+        unique_together = ("year", "month")
+        ordering = ["-year", "-month"]
 
     def __str__(self):
-        return f"Featured Product for {self.month.strftime('%B %Y')}: {self.product}"
+        try:
+            month_int = int(self.month)
+            month_label = calendar.month_name[month_int]
+        except (TypeError, ValueError, IndexError):
+            month_label = str(self.month)
+        return f"Featured Product for {month_label} {self.year}: {self.product}"
