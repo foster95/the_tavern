@@ -1,0 +1,8 @@
+[
+    {"pk": 1, "model": "products.category", "fields": {"name": "acrylic", "friendly_name": "Acrylic Dice"}},
+    {"pk": 2, "model": "products.category", "fields": {"name": "resin", "friendly_name": "Resin Dice"}},
+    {"pk": 3, "model": "products.category", "fields": {"name": "metalic", "friendly_name": "Metalic Dice"}}, 
+    {"pk": 4, "model": "products.category", "fields": {"name": "dice_roller", "friendly_name": "Dice Roller Towers"}}, 
+    {"pk": 5, "model": "products.category", "fields": {"name": "dice_bag", "friendly_name": "Dice Bags"}}, 
+    {"pk": 6, "model": "products.category", "fields": {"name": "dice_box", "friendly_name": "Dice Boxes"}}, 
+]

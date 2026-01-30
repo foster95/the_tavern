@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.twitter_oauth2', # To login via Twitter
     'allauth.socialaccount.providers.google', # To login via Google
     'home', # Home app
+    'products' #Products app
 
 ]
 

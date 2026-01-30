@@ -159,6 +159,7 @@ h1, h2, h3, h4, h5, h6 {
     width: max-content;
     animation: scroll-right 30s linear infinite;
     justify-content: flex-start; 
+    font-family: var(--font-primary)
 }
 
 .scroll-banner:hover .scroll-content {
