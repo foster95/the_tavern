@@ -33,6 +33,24 @@ h1, h2, h3, h4, h5, h6 {
     width: 1.5rem;
 }
 
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.overlay {
+  padding-top: 20px;
+}
+
+#site-main {
+    flex: 1;
+}
+
+#site-footer {
+    flex-shrink: 0;
+}
+
 /* Navbar Styles */
 #heading {
     background-color: var(--secondary-accent) !important;
