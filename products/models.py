@@ -5,6 +5,8 @@ from django.db import models
 class Category(models.Model):
     """ Model for product categories """
 
+    class Meta:
+        verbose_name_plural = 'Categories'
     name = models.CharField(max_length=254)
     slug = models.SlugField(max_length=254, unique=True)
     friendly_name = models.CharField(max_length=100, null=True, blank=True)
@@ -17,6 +19,9 @@ class Category(models.Model):
 
 class Product(models.Model):
     """ Model for products """
+
+    class Meta:
+        ordering = ['name']
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL, related_name='products'
     )

@@ -3,6 +3,23 @@ from .models import Category, Product, Bundle
 
 # Register your models here.
 
-admin.site.register(Category)
-admin.site.register(Product)
-admin.site.register(Bundle)
+class ProductAdmin(admin.ModelAdmin):
+    """ Admin model for products """
+    list_display = (
+        'sku',
+        'name', 
+        'category', 
+        'price', 
+        'image'
+        )
+    
+    ordering = ('sku',)
+
+class CategoryAdmin(admin.ModelAdmin):
+    """ Admin model for categories """
+    list_display = (
+        'friendly_name',
+    )
+
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Product, ProductAdmin)
