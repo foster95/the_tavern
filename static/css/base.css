@@ -39,11 +39,6 @@ h1, h2, h3, h4, h5, h6 {
     min-height: 100vh;
 }
 
-.overlay {
-  padding-top: 20px;
-  z-index: -1;
-}
-
 #site-main {
     flex: 1;
 }
@@ -53,13 +48,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Navbar Styles */
+
+#site-header {
+    z-index: 1040;
+}
+
 #heading {
     background-color: var(--secondary-accent) !important;
     border-color: var(--secondary-accent) !important;
-}
+    margin: 0;
+  }
 
 #heading .container {
     padding-bottom: 10px;
+}
+
+#logo {
+  padding-top: 10px;
 }
 
 #heading .input-group {
@@ -87,10 +92,22 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: -9px !important;
 }
 
+#mobile-header{
+  background-color: var(--primary-accent) !important;
+  padding: 2rem;
+}
+
+nav#mobile-heading {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
 #products-navigation {
     background-color: var(--primary-accent) !important;
     border-color: var(--secondary-accent) !important;
     color: var(--secondary-color) !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 #products-navigation a {
@@ -113,10 +130,6 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-color)
 }
 
-#main-nav {
-    padding-left: 10px;
-}
-
 .w-100.d-md-none.text-center.py-2{
   margin-left: 30px;
   margin-right: 30px;
@@ -127,9 +140,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #user-options + .dropdown-menu{
-  border: 2px solid var(--secondary-accent) !important;
   background-color: var(--primary-accent) !important;
   font-family: var(--font-primary);
+  z-index: 1050;
 }
 
 #user-options + .dropdown-menu .dropdown-item {
@@ -148,7 +161,6 @@ h1, h2, h3, h4, h5, h6 {
 
 #main-nav .dropdown-menu.border-0.show {
     background-color: var(--primary-accent);
-    border: 2px solid var(--secondary-accent) !important;
 }
 
 #main-nav .dropdown-item:active {
@@ -156,6 +168,8 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--primary-accent);
     font-family: var(--font-primary);
 }
+
+
 
 /* Scrolling Info Banner */
 
@@ -367,6 +381,18 @@ button.accordion-button.py-2 {
     #heading header .container{
     max-width: 90%;
 }
+
+#heading {
+    background-color: var(--secondary-accent) !important;
+    border-color: var(--secondary-accent) !important;
+    z-index: 1030;
+    margin: 0;
+  }
+}
+
+#products-navigation {
+    z-index: 1020;
+    margin: 0;
 }
 
 @media (min-width: 992px) {
@@ -380,6 +406,41 @@ button.accordion-button.py-2 {
   #site-header .dropdown:hover > .dropdown-menu {
     display: block;
   }
+
+  #user-options:hover {
+    color: var(--primary-accent) !important;
+}
+
+  #user-options + .dropdown-menu{
+    border: 2px solid var(--secondary-accent) !important;
+    background-color: var(--primary-accent) !important;
+    font-family: var(--font-primary);
+}
+
+  #user-options + .dropdown-menu .dropdown-item {
+    color: var(--secondary-color);
+    background-color: var(--primary-accent);
+}
+
+  #user-options + .dropdown-menu .dropdown-item:hover {
+    color: var(--secondary-accent) !important;
+}
+
+  #main-nav .dropdown-menu{
+    --bs-dropdown-link-hover-color: var(--secondary-accent);
+    --bs-dropdown-link-hover-bg: transparent;
+}
+
+  #main-nav .dropdown-menu.border-0.show {
+    background-color: var(--primary-accent);
+    border: 2px solid var(--secondary-accent) !important;
+}
+
+  #main-nav .dropdown-item:active {
+    color: var(--secondary-color);
+    background-color: var(--primary-accent);
+    font-family: var(--font-primary);
+}
 }
 
 @media (min-width: 1200px) {
@@ -387,3 +448,4 @@ button.accordion-button.py-2 {
     margin-right: 1.5rem;
 }
 }
+
