@@ -319,6 +319,40 @@ main,
     color: var(--primary-accent) !important;
     font-weight: bold;
 }
+
+/* Product Details Page Specific Styles */
+
+img#product-details-image {
+  max-width: 100%;
+  max-width: 80% !important;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+p#product-name {
+    font-family: var(--font-secondary) !important;
+    font-size: 20px;
+  }
+
+p#product-description {
+  font-style: italic;
+}
+
+p#product-description,
+#product-dimensions,
+#product-material {
+    font-family: var(--font-primary) !important;
+    font-size: 14px; 
+}
+
+button.accordion-button.py-2 {
+  background-color: var(--primary-accent) !important;
+}
+
+.accordion-body {
+  background-color: var(--primary-color) !important;
+}
  
 /* Media Queries */
 
