@@ -180,9 +180,10 @@ nav#mobile-heading {
 
 .scroll-banner {
     width: 100%;
-    background: var(--primary-color);
-    color: var(--secondary-color);
+    background: var(--secondary-color);
+    color: var(--primary-color);
     max-width: 100%;
+    border: var(--secondary-color) 2px solid;
 }
 
 .scroll-viewport {

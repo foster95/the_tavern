@@ -124,11 +124,15 @@
 
         </div>
       </nav>
+      <div id="nav-banner">
+        {% block banner %}
+        {% include "includes/scrolling-banner.html" %}
+        {% endblock %}
+      </div>
     </header>
 
     <!-- Main Body -->
     <main id="site-main">
-      {% block banner %}{% endblock %}
 
       <div class="message-container">
         {% if messages %}
