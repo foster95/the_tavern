@@ -171,48 +171,52 @@
 
 
     <!--Testimonials-->
-<section id="testimonials"> 
-    <div class="container mt-2 py-4">
-    <h2 class="text-center text-center">What Our Customers Say</h2>
+    <section id="testimonials"> 
+  <div class="container mt-2 py-4">
+    <h2 class="text-center mb-3">What Our Customers Say</h2>
+
     <div class="row g-4 text-center">
+
+      {% for t in testimonials %}
         <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <p class="card-text">
-                        “The balance on these dice is fantastic. You can feel the quality the
-                        moment they hit the table. Easily my new go-to set.”
-                    </p>
-                <h6 class="mt-3 mb-0">Rowan, Dungeon Master, London</h6>
+          <div class="card h-100 shadow-sm">
+            <div class="card-body d-flex flex-column justify-content-between">
+
+              <!-- Quote -->
+              <p class="card-text mb-3">
+                “{{ t.quote }}”
+              </p>
+
+              <!-- Name + tagline -->
+              <h6 class="mt-auto mb-0">
+                {{ t.name }} - 
+                {% if t.tagline %}
+                {{ t.tagline }}
+                {% endif %}
+              </h6>
+
             </div>
+          </div>
         </div>
-    </div>
+      {% empty %}
+        <div class="col-12">
+          <p class="text-muted mb-0">No testimonials to show yet.</p>
+        </div>
+      {% endfor %}
 
-    <div class="col-md-4">
-        <div class="card h-100 shadow-sm">
-            <div class="card-body">
-                <p class="card-text">
-                    “The dice roller has become part of our weekly ritual.
-                    Smooth, satisfying, and it just feels right for dramatic rolls.”
-                </p>
-            <h6 class="mt-3 mb-0">Eliza, Half Elf Bard, Manchester</h6>
-        </div>
-    </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="card h-100 shadow-sm">
-            <div class="card-body">
-                <p class="card-text">
-                    “Fast shipping, beautifully made, and clearly designed by people
-                    who actually play. I’ll definitely be ordering again.”
-                </p>
-            <h6 class="mt-3 mb-0">Tom, Gnome Barbarian, Birmingham</h6>
-        </div>
     </div>
   </div>
-</div>
-</div>
 </section>
+
+</div>
+
+
+</div>
+
+
+  </div>
+</section>
+
  
  
 

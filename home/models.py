@@ -25,10 +25,7 @@ class ProductOfTheMonth(models.Model):
 class Testimonial(models.Model):
     quote = models.TextField()
     name = models.CharField(max_length=80)
-    tagline = models.CharField(max_length=120, blank=True)  # e.g. "Dungeon Master, London"
-    rating = models.PositiveSmallIntegerField(null=True, blank=True)  # optional
-    is_featured = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=True)
+    tagline = models.CharField(max_length=120, blank=True) 
     sort_order = models.PositiveSmallIntegerField(default=0)
 
     created_at = models.DateTimeField(auto_now_add=True)

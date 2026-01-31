@@ -151,6 +151,12 @@ h1, h2, h3, h4, h5, h6 {
     border: 2px solid var(--secondary-accent) !important;
 }
 
+#main-nav .dropdown-item:active {
+    color: var(--secondary-color);
+    background-color: var(--primary-accent);
+    font-family: var(--font-primary);
+}
+
 /* Scrolling Info Banner */
 
 @keyframes scroll-right {

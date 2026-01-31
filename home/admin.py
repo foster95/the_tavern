@@ -24,9 +24,8 @@ class ProductOfTheMonthAdmin(admin.ModelAdmin):
 
 @admin.register(Testimonial)
 class TestimonialAdmin(admin.ModelAdmin):
-    list_display = ("customer_display", "is_featured", "is_active", "sort_order", "created_at")
-    list_filter = ("is_featured", "is_active")
-    search_fields = ("quote", "customer_name", "name")  # harmless if one field doesn't exist
+    list_display = ("customer_display", "quote", "created_at")
+    search_fields = ("quote", "customer_name", "name") 
     ordering = ("sort_order", "-created_at")
 
     def customer_display(self, obj):

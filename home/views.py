@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils import timezone
-from .models import ProductOfTheMonth
+from .models import ProductOfTheMonth, Testimonial
 
 def home_view(request):
     """
@@ -17,7 +17,6 @@ def home_view(request):
 
     testimonials = (
         Testimonial.objects
-        .filter(is_active=True)
         .order_by("sort_order", "-created_at")[:3]
     )
 
