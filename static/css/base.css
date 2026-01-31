@@ -169,8 +169,6 @@ nav#mobile-heading {
     font-family: var(--font-primary);
 }
 
-
-
 /* Scrolling Info Banner */
 
 @keyframes scroll-right {
@@ -336,6 +334,10 @@ main,
 }
 
 /* Product Details Page Specific Styles */
+
+#product-details-container {
+  margin-top: 2rem;
+}
 
 img#product-details-image {
   max-width: 100%;

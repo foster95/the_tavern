@@ -2,9 +2,6 @@
 {% load static %}
 
 <!-- Scrolling Info Banner -->
-  {% block banner %}
-  {% include "includes/scrolling-banner.html" %}
-  {% endblock %}
 
 {% block content %}
 
@@ -48,10 +45,12 @@
       {% if product_of_the_month %}
         <div class="potm-image-wrapper mx-auto mb-3">
           {% if product_of_the_month.image %}
+          <a href="{% url 'product_detail' product_of_the_month.slug %}">
             <img
               src="{{ product_of_the_month.image.url }}"
               class="img-fluid potm-image"
               alt="{{ product_of_the_month.name }}">
+          </a>
           {% else %}
             <img
               src="{% static 'images/noimage.png' %}"
@@ -164,7 +163,7 @@
   </div>
 
   <div class="container">
-    <p class="text-center mt-4 mb-0">Trusted by tables across the UK.</p>
+    <p class="text-center mt-4 mb-0 fst-italic">Trusted by tables across the UK.</p>
   </div>
 
 </section>
@@ -188,7 +187,7 @@
               </p>
 
               <!-- Name + tagline -->
-              <h6 class="mt-auto mb-0">
+              <h6 class="mt-auto mb-0 fw-bold">
                 {{ t.name }} - 
                 {% if t.tagline %}
                 {{ t.tagline }}

@@ -11,13 +11,13 @@ def product_list(request):
     context = {
         'products': products,
     }
-
+    
     return render(request, 'products/products.html', context)
 
-def product_detail(request, product_id):
+def product_detail(request, product_slug):
     """ A view to show individual product details """
 
-    product = get_object_or_404(Product, pk=product_id)
+    product = Product.objects.get(slug=product_slug)
 
     context = {
         'product': product,
