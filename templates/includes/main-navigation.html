@@ -15,26 +15,26 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font fw-bold nav-link text-dark me-5" href="#" id="clothing-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font fw-bold nav-link text-dark me-5" href="#" id="dice-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 DICE
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Acrylic Dice</a>
-                <a href="" class="dropdown-item">Resin Dice</a>
-                <a href="" class="dropdown-item">Metalic Dice</a>
-                <a href="" class="dropdown-item">All Dice</a>
+            <div class="dropdown-menu border-0" aria-labelledby="dice-link">
+                <a href="{% url 'products' %}?category=acrylic" class="dropdown-item">Acrylic Dice</a>
+                <a href="{% url 'products' %}?category=resin" class="dropdown-item">Resin Dice</a>
+                <a href="{% url 'products' %}?category=metalic" class="dropdown-item">Metalic Dice</a>
+                <a href="{% url 'products' %}?category=acrylic,resin,metalic" class="dropdown-item">All Dice</a>
             </div>
         </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font fw-bold nav-link text-dark me-5" href="#" id="homeware-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font fw-bold nav-link text-dark me-5" href="#" id="other-ttrpg-items-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 OTHER ACCESSORIES
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Dice Roller Towers</a>
-                <a href="" class="dropdown-item">Dice Bags</a>
-                <a href="" class="dropdown-item">Dice Boxes</a>
-                <a href="" class="dropdown-item">All Accessories</a>
+            <div class="dropdown-menu border-0" aria-labelledby="other-ttrpg-items-link">
+                <a href="{% url 'products' %}?category=dice_roller" class="dropdown-item">Dice Roller Towers</a>
+                <a href="{% url 'products' %}?category=dice_bag" class="dropdown-item">Dice Bags</a>
+                <a href="{% url 'products' %}?category=dice_box" class="dropdown-item">Dice Boxes</a>
+                <a href="{% url 'products' %}?category=dice_roller,dice_bag,dice_box" class="dropdown-item">All Accessories</a>
             </div>
         </li>
 

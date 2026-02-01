@@ -92,9 +92,18 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: -9px !important;
 }
 
-#mobile-header{
+#mobile-header {
   background-color: var(--primary-accent) !important;
   padding: 2rem;
+}
+
+.mobile-header {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+#main-nav {
+  padding-left: 5px !important;
 }
 
 nav#mobile-heading {
