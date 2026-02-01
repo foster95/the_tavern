@@ -373,6 +373,11 @@ button.accordion-button.py-2 {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
   }
+
+  #searchbar .input-group {
+    width: 100%;
+    flex-grow: inherit;
+  }
 }
 
 @media (min-width: 800px) {
@@ -393,21 +398,30 @@ button.accordion-button.py-2 {
     justify-content: center
   }
 
-  #searchbar .input-group {
-    width: 148%;
+   #searchbar .input-group {
+    width: 120%;
+    padding-right: 1rem;
   }
   
   #heading .row {
     align-items: center;
   }
-
-#products-navigation {
+  
+  #products-navigation {
     z-index: 1020;
     margin: 0;
   }
 }
 
+@media (min-width: 900px) {
+  #searchbar .input-group {
+    width: 145%;
+    padding-right: 10rem;
+  }
+}
+
 @media (min-width: 992px) {
+
   .navbar .dropdown:hover > .dropdown-menu {
     display: block;
     background-color: var(--primary-accent);
@@ -459,5 +473,10 @@ button.accordion-button.py-2 {
     .list-inline-item:not(:last-child) {
     margin-right: 1.5rem;
 }
+
+  #searchbar .input-group {
+    width: 150%;
+    padding-right: 10rem;
+  }
 }
 
