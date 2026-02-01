@@ -35,6 +35,7 @@
 <body>
   <div class="page-wrapper">
 
+    <!-- Header -->
     <header id="site-header" class="sticky-top">
       <div id="heading" class="d-none d-md-block">
         <div class="container py-2">
@@ -111,8 +112,10 @@
           </div>
         </div>
       </div>
+
+      <!-- Navigation -->
       <nav class="navbar navbar-expand-md py-0" id="products-navigation">
-        <div class="container">
+        <div class="container px-0 px-md-3">
 
           <div class="w-100 d-md-none mobile-header">
             {% include "includes/mobile-top-header.html" %}
@@ -121,10 +124,10 @@
           <div class="collapse navbar-collapse" id="main-nav">
             {% include "includes/main-navigation.html" %}
           </div>
-
         </div>
       </nav>
-      <div id="nav-banner">
+
+      <div id="scrolling-banner">
         {% block banner %}
         {% include "includes/scrolling-banner.html" %}
         {% endblock %}

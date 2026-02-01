@@ -39,32 +39,42 @@
   <div class="row align-items-start g-4 py-4">
 
     <!-- Product of the Month -->
-    <div class="col-12 col-md-6 mb-5 mb-md-0 text-center">
+     <div class="col-12 col-md-6 mb-5 mb-md-0 text-center">
       <h2 class="mb-4">Product of the Month</h2>
-
       {% if product_of_the_month %}
-        <div class="potm-image-wrapper mx-auto mb-3">
+      <div class="potm-image-wrapper mx-auto mb-3">
+        <a href="{% url 'product_detail' product_of_the_month.slug %}">
           {% if product_of_the_month.image %}
-          <a href="{% url 'product_detail' product_of_the_month.slug %}">
-            <img
-              src="{{ product_of_the_month.image.url }}"
-              class="img-fluid potm-image"
-              alt="{{ product_of_the_month.name }}">
-          </a>
+          <img
+          src="{{ product_of_the_month.image.url }}"
+          class="img-fluid potm-image"
+          alt="{{ product_of_the_month.name }}">
           {% else %}
-            <img
-              src="{% static 'images/noimage.png' %}"
-              class="img-fluid potm-image"
-              alt="{{ product_of_the_month.name }}">
+          <img
+          src="{% static 'images/noimage.png' %}"
+          class="img-fluid potm-image"
+          alt="{{ product_of_the_month.name }}">
           {% endif %}
-        </div>
-
-        <h4 class="mb-2">{{ product_of_the_month.name }}</h4>
-        <p class="fw-bold mb-4">£{{ product_of_the_month.price }}</p>
-      {% else %}
-        <p class="text-muted mb-0">No product of the month selected yet.</p>
+        </a>
+      </div>
+      
+      <h4 class="mb-2">{{ product_of_the_month.name }}</h4>
+      <div class="card-footer bg-white pt-0 border-0 text-center">
+        {% with bundles=product_of_the_month.category.bundle_prices.all %}
+        {% if bundles %}
+        <span class="fw-bold text-primary">
+          From £{{ product_of_the_month.price }}
+        </span>
+        {% else %}
+        <span class="fw-bold text-primary">
+          £{{ product_of_the_month.price }}
+        </span>
+        {% endif %}
+        {% endwith %}
+      </div>
       {% endif %}
     </div>
+
 
     <!-- Explore Our Wares -->
     <div class="col-12 col-md-6 text-center explore-wares">
