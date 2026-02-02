@@ -42,6 +42,34 @@
           {{ product.description }}
         </p>
 
+        <p class="mt-3 text-center fw-bold">
+            £<span id="product-price">{{ product.price }}</span>
+        </p>
+
+        {% if product.dice_set_price %}
+        <!-- Dice option selector -->
+         <p class="fw-bold mb-2">Choose option</p>
+         
+         <div class="d-flex gap-2" role="group" aria-label="Dice options">
+        <button
+            type="button"
+            class="btn btn-outline-dark active"
+            id="single-btn"
+            data-price="{{ product.price }}">
+            Single d20
+        </button>
+        
+        <button
+            type="button"
+            class="btn btn-outline-dark"
+            id="set-btn"
+            data-price="{{ product.dice_set_price }}">
+            Full set
+        </button>
+        </div>
+        {% endif %}
+
+
         <!-- Accordion (Dimensions + Material only) -->
         <div class="accordion mt-3 w-100" id="product-info-accordion">
 
@@ -105,4 +133,11 @@
 
   </div>
 </div>
+{% block post_load_js%}
+{{ block.super }}
+<script src="{% static 'products/js/products.js' %}"></script>
 {% endblock %}
+{% endblock %}
+
+
+
