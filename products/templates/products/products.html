@@ -27,17 +27,16 @@
                                     <p class="mb-0">{{ product.name }}</p>
                                 </div>
                                 <div class="card-footer bg-white pt-0 border-0 text-center">
-                                    {% with bundles=product.category.bundle_prices.all %}
-                                    {% if bundles %}
-                                    <span class="font-weight-bold text-primary">
+                                    {% if product.dice_set_price %}
+                                    <span class="fw-bold text-primary">
                                         From £{{ product.price }}
                                     </span>
-                                    {% else %} 
-                                    <span class="font-weight-bold text-primary">
+                                    {% else %}
+                                    <span class="fw-bold text-primary">
                                         £{{ product.price }}
                                     </span>
                                     {% endif %}
-                                    {% endwith %}
+
                                 </div>
                             </div>
                         </div>
