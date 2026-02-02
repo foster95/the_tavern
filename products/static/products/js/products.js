@@ -1,22 +1,63 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const priceEl = document.getElementById("product-price");
-  const singleBtn = document.getElementById("single-btn");
-  const setBtn = document.getElementById("set-btn");
+  /**
+ * Handles product list sorting.
+ * Updates the URL query params (sort & direction)
+ * and reloads the page with a small delay.
+ */
 
-  // If this product has no dice buttons (bags/rollers), do nothing
-  if (!priceEl || !singleBtn || !setBtn) return;
+    const sortSelector = document.getElementById("sort-selector");
+  if (!sortSelector) return;
 
-  function pick(activeBtn, otherBtn) {
-    activeBtn.classList.add("active");
-    otherBtn.classList.remove("active");
-    priceEl.textContent = activeBtn.dataset.price;
+  
+  /**
+   * Navigate to a URL with a short delay
+   * to make the reload feel less abrupt.
+   */
+
+  function goTo(url) {
+    setTimeout(() => {
+      window.location.assign(url);
+    }, 150);
   }
 
-  singleBtn.addEventListener("click", function () {
-    pick(singleBtn, setBtn);
-  });
+  sortSelector.addEventListener("change", function () {
+    const currentUrl = new URL(window.location.href);
 
-  setBtn.addEventListener("click", function () {
-    pick(setBtn, singleBtn);
+    // Reset sorting
+
+    if (this.value === "reset") {
+      currentUrl.searchParams.delete("sort");
+      currentUrl.searchParams.delete("direction");
+      goTo(currentUrl.toString());
+      return;
+    }
+
+    const [sort, direction] = this.value.split("_");
+    currentUrl.searchParams.set("sort", sort);
+    currentUrl.searchParams.set("direction", direction);
+
+    goTo(currentUrl.toString());
   });
 });
+
+const bttButton = document.querySelector(".btt-button");
+
+  if (bttButton) {
+    // Show / hide button on scroll
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 300) {
+        bttButton.classList.add("show");
+      } else {
+        bttButton.classList.remove("show");
+      }
+    });
+
+    // Smooth scroll to top
+    bttButton.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  }
