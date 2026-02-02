@@ -7,9 +7,9 @@
                 ALL PRODUCTS
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="{% url 'products' %}?sort=name&direction=asc" class="dropdown-item">By Alphabetical Order</a>
-                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
-                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
+                <a href="{% url 'products' %}?sort=name" class="dropdown-item">By Alphabetical Order</a>
+                <a href="{% url 'products' %}?sort=price" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?sort=category" class="dropdown-item ">By Category</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
@@ -21,7 +21,7 @@
             <div class="dropdown-menu border-0" aria-labelledby="dice-link">
                 <a href="{% url 'products' %}?category=acrylic" class="dropdown-item">Acrylic Dice</a>
                 <a href="{% url 'products' %}?category=resin" class="dropdown-item">Resin Dice</a>
-                <a href="{% url 'products' %}?category=metalic" class="dropdown-item">Metalic Dice</a>
+                <a href="{% url 'products' %}?category=metallic" class="dropdown-item">Metallic Dice</a>
                 <a href="{% url 'products' %}?category=acrylic,resin,metalic" class="dropdown-item">All Dice</a>
             </div>
         </li>

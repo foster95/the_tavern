@@ -32,6 +32,32 @@ def product_list(request):
                 Q(description__icontains=query)
             )
 
+        sort = request.GET.get('sort', '')
+        direction = request.GET.get('direction')
+
+        if sort:
+            sortkey= sort
+
+            if sortkey == 'name':
+                products = products.annotate(lower_name=Lower('name'))
+                sortkey = 'lower_name'
+
+            elif sortkey == 'category':
+                products = products.annotate(lower_category=Lower('category__friendly_name'))
+                sortkey = 'lower_category'
+            
+            if direction == 'desc':
+                sortkey = f'-{sortkey}'
+            
+            products = products.order_by(sortkey)
+        
+        else:
+            products = products.order_by('name')
+
+        current_sorting = f'{sort}_{direction}'
+
+            
+
     context = {
         'products': products,
         'search_term': query or '',
