@@ -1,14 +1,12 @@
 from decimal import Decimal
 from django.conf import settings
 from products.models import Product
+from django.shortcuts import get_object_or_404
 
 def bag_contents(request):
     """
     Context processor to retrieve the shopping bag contents
     and make it available across all templates.
-
-    Session bag format:
-        { "product_id": quantity_int }
     """
     bag = request.session.get("bag", {})
 
@@ -17,9 +15,9 @@ def bag_contents(request):
     product_count = 0
 
     for item_id, quantity in bag.items():
-        quantity = int(quantity)  # be safe
+        quantity = int(quantity)
 
-        product = Product.objects.get(pk=item_id)
+        product = get_object_or_404(Product, pk=item_id)
         price = product.price
 
         line_total = price * quantity

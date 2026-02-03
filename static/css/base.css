@@ -440,6 +440,25 @@ button.accordion-button.py-2 {
 .accordion-body {
   background-color: var(--primary-color) !important;
 }
+
+/* Shopping Bag CSS */
+
+#bag-summary table,
+#bag-summary thead,
+#bag-summary tbody,
+#bag-summary tr,
+#bag-summary th,
+#bag-summary td {
+  background-color: var(--primary-color) !important;
+}
+
+.bag-image {
+    max-width: 100px;      
+    height: auto;
+    display: block;      
+    margin: 0 auto;
+}
+
  
 /* Media Queries */
 
