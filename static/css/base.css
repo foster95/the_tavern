@@ -459,6 +459,21 @@ button.accordion-button.py-2 {
     margin: 0 auto;
 }
 
+#bag-summary #update-button {
+  color: var(--secondary-color);
+  padding-bottom: 2px;
+}
+
+#bag-summary .remove-quantity,
+#bag-summary .add-quantity {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+#bag-summary .update-button {
+  color: var(--secondary-color) !important;
+}
+
  
 /* Media Queries */
 
