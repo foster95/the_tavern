@@ -1,47 +1,62 @@
 from decimal import Decimal
 from django.conf import settings
+from products.models import Product
 
-def bag_contents (request):
+def bag_contents(request):
     """
     Context processor to retrieve the shopping bag contents
-    and make it available across all templates
+    and make it available across all templates.
+
+    Session bag format:
+        { "product_id": quantity_int }
     """
-    bag = request.session.get('bag', {})
+    bag = request.session.get("bag", {})
 
     bag_items = []
-    total = 0
+    total = Decimal("0.00")
     product_count = 0
 
-    if total < settings.FREE_DELIVERY_THRESHOLD:
-        delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE)
-        free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
-    else:
-        delivery = 0
-        free_delivery_delta = 0
+    for item_id, quantity in bag.items():
+        quantity = int(quantity)  # be safe
 
-    grand_total = delivery + total
+        product = Product.objects.get(pk=item_id)
+        price = product.price
 
-    for item_id, item_data in bag.items():
-        product_count += item_data['quantity']
-        price = item_data['price']
-        total += item_data['quantity'] * price
+        line_total = price * quantity
+
+        total += line_total
+        product_count += quantity
+
         bag_items.append({
-            'item_id': item_id,
-            'quantity': item_data['quantity'],
-            'price': price,
-            'total_price': item_data['quantity'] * price,
+            "item_id": item_id,
+            "product": product,
+            "quantity": quantity,
+            "price": price,
+            "total_price": line_total,
         })
 
-    grand_total = total 
+    free_threshold = Decimal(str(settings.FREE_DELIVERY_THRESHOLD))
 
-    context = {
-        'bag_items': bag_items,
-        'total': total,
-        'product_count': product_count,
-        'delivery': delivery,
-        'free_delivery_delta': free_delivery_delta,
-        'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
-        'grand_total': grand_total,
+    if total > 0 and total < free_threshold:
+        delivery_percent = Decimal(str(settings.STANDARD_DELIVERY_PERCENTAGE))
+
+        if delivery_percent > 1:
+            delivery_percent = delivery_percent / Decimal("100")
+
+        delivery = (total * delivery_percent).quantize(Decimal("0.01"))
+        free_delivery_delta = (free_threshold - total).quantize(Decimal("0.01"))
+    else:
+        delivery = Decimal("0.00")
+        free_delivery_delta = Decimal("0.00")
+
+    grand_total = total + delivery
+
+    return {
+        "bag_items": bag_items,
+        "total": total,
+        "product_count": product_count,
+        "delivery": delivery,
+        "free_delivery_delta": free_delivery_delta,
+        "free_delivery_threshold": free_threshold,
+        "grand_total": grand_total,
     }
-
-    return context
