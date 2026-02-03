@@ -92,7 +92,7 @@
                 </li>
 
                 <li class="list-inline-item">
-                  <a class="nav-link p-0 {% if grand_total %}text-info fw-bold{% else %}text-dark{% endif %}" href="">
+                  <a class="nav-link p-0 {% if grand_total %}text-info fw-bold{% else %}text-dark{% endif %}" href="{% url 'view_bag' %}">
                     <div class="text-center">
                       <div><i class="fa-solid fa-basket-shopping fa-lg"></i></div>
                       <p class="my-0">
@@ -147,11 +147,16 @@
         {% endif %}
       </div>
 
-      {% block page_header %}{% endblock %}
-      {% block content %}{% endblock %}
+      {% block page_header %}
+      {% endblock %}
+
+
+      {% block content %}
+      {% endblock %}
     </main>
 
-    {% block post_load_js %}{% endblock %}
+    {% block post_load_js %}
+    {% endblock %}
 
     <!-- Footer -->
     <footer id="site-footer">
