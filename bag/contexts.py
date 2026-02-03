@@ -1,12 +1,16 @@
 from decimal import Decimal
 from django.conf import settings
-from products.models import Product
 from django.shortcuts import get_object_or_404
+from products.models import Product
+
 
 def bag_contents(request):
     """
     Context processor to retrieve the shopping bag contents
     and make it available across all templates.
+    Bag keys:
+      - "item_id" for normal items / single
+      - "item_id:set" for set option
     """
     bag = request.session.get("bag", {})
 
@@ -14,11 +18,25 @@ def bag_contents(request):
     total = Decimal("0.00")
     product_count = 0
 
-    for item_id, quantity in bag.items():
+    for bag_key, quantity in bag.items():
         quantity = int(quantity)
 
+        # bag_key is either "item_id" OR "item_id:set"
+        option = None
+        if ":" in str(bag_key):
+            item_id, option = str(bag_key).split(":", 1)
+        else:
+            item_id = str(bag_key)
+
         product = get_object_or_404(Product, pk=item_id)
-        price = product.price
+
+        has_set_option = bool(product.dice_set_price)
+
+        # choose correct price
+        if has_set_option and option == "set":
+            price = product.dice_set_price
+        else:
+            price = product.price
 
         line_total = price * quantity
 
@@ -26,8 +44,11 @@ def bag_contents(request):
         product_count += quantity
 
         bag_items.append({
+            "key": str(bag_key),            
             "item_id": item_id,
             "product": product,
+            "option": option,               
+            "has_set_option": has_set_option,
             "quantity": quantity,
             "price": price,
             "total_price": line_total,
@@ -37,7 +58,6 @@ def bag_contents(request):
 
     if total > 0 and total < free_threshold:
         delivery_percent = Decimal(str(settings.STANDARD_DELIVERY_PERCENTAGE))
-
         if delivery_percent > 1:
             delivery_percent = delivery_percent / Decimal("100")
 

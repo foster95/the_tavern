@@ -49,7 +49,7 @@
                         SKU: {{ item.product.sku|upper }}
                     </div>
                     <div class="fs-4">
-                        <strong>Price:</strong> £{{ item.product.price }}
+                        <strong>Price:</strong> £{{ item.price }}
                     </div>
                 </div>
 
@@ -165,17 +165,25 @@
                                     src="{{ item.product.image.url }}"
                                     alt="{{ item.product.name }}"
                                     class="img-fluid rounded d-block mx-auto"
-                                    style="max-width: 80px;">
+                                    style="max-width: 90px;">
                             </td>
 
                             <td>
                                 <strong>{{ item.product.name }}</strong><br>
+
+                                {% if item.has_set_option %}
+                                {% if item.option == "set" %}
+                                <div class="small text-muted">Full set</div>
+                                {% else %}
+                                <div class="small text-muted">Single D20</div>
+                                {% endif %}
+                                {% endif %}
                                 <small class="text-muted">
                                     SKU: {{ item.product.sku|upper }}
                                 </small>
                             </td>
 
-                            <td class="text-end">£{{ item.product.price }}</td>
+                            <td class="text-end">£{{ item.price }}</td>
                             <td class="text-end">{{ item.quantity }}</td>
                             <td class="text-end">£{{ item.total_price }}</td>
                         </tr>

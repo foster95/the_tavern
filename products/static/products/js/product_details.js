@@ -3,29 +3,25 @@
  * between single dice and full set options.
  */
 
-document.addEventListener("DOMContentLoaded", function () {
-  const priceEl = document.getElementById("product-price");
+document.addEventListener("DOMContentLoaded", () => {
   const singleBtn = document.getElementById("single-btn");
   const setBtn = document.getElementById("set-btn");
+  const priceSpan = document.getElementById("product-price");
+  const diceOption = document.getElementById("dice-option");
 
-  if (!priceEl || !singleBtn || !setBtn) return;
+  // Only run on products that actually have the option selector
+  if (!singleBtn || !setBtn || !priceSpan || !diceOption) return;
 
-  /**
-   * Activates one button, deactivates the other,
-   * and updates the displayed price.
-   */
-  
-  function pick(activeBtn, otherBtn) {
-    activeBtn.classList.add("active");
-    otherBtn.classList.remove("active");
-    priceEl.textContent = activeBtn.dataset.price;
-  }
+  // default is single
+  diceOption.value = "single";
 
-  singleBtn.addEventListener("click", function () {
-    pick(singleBtn, setBtn);
+  singleBtn.addEventListener("click", () => {
+    diceOption.value = "single";
+    priceSpan.textContent = singleBtn.dataset.price;
   });
 
-  setBtn.addEventListener("click", function () {
-    pick(setBtn, singleBtn);
+  setBtn.addEventListener("click", () => {
+    diceOption.value = "set";
+    priceSpan.textContent = setBtn.dataset.price;
   });
 });
