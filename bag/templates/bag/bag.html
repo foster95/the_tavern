@@ -193,11 +193,11 @@
                     <tfoot>
                         <tr>
                             <td colspan="5" class="text-end pt-4">
-                                <h6 class="fw-bold">Bag Total: £{{ total|floatformat:2 }}</h6>
-                                <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
-                                <h4 class="fw-bold mt-3">
+                                <p class="fw-bold">Bag Total: £{{ total|floatformat:2 }}</p>
+                                <p>Delivery: £{{ delivery|floatformat:2 }}</p>
+                                <p class="fw-bold mt-3">
                                     Grand Total: £{{ grand_total|floatformat:2 }}
-                                </h4>
+                                </p>
 
                                 {% if free_delivery_delta > 0 %}
                                 <p class="text-danger mb-1">

@@ -389,6 +389,8 @@ span.p-2.mt-2.mb-3.badge.badge-white.text-black.border.border-dark:active {
 
 #product-details-container {
   margin-top: 2rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 img#product-details-image {
@@ -411,6 +413,8 @@ button#single-btn,
 button#set-btn {
   font-family: var(--font-primary);
   font-size: 14px !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
 }
 
 button#single-btn.active,
@@ -439,6 +443,12 @@ button.accordion-button.py-2 {
 
 .accordion-body {
   background-color: var(--primary-color) !important;
+}
+
+#product-details-container .add-to-bag-button {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+  font-size: 14px !important;
 }
 
 /* Shopping Bag CSS */
