@@ -81,16 +81,14 @@
       <form action="{% url 'add_to_bag' product.id %}" method="POST">
   {% csrf_token %}
 
-  <div class="row align-items-end g-3">
+  <div class="row align-items-center g-2">
 
-    <!-- Quantity -->
-    <div class="col-12 col-md-4">
-      <label for="id_qty_{{ product.id }}" class="fw-bold mb-2">
-        Quantity:
-      </label>
-      <div class="quantity-wrapper">
-        <button type="button" class="qty-btn minus">−</button>
-        <input
+  <!-- Quantity column -->
+  <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start">
+    <div class="quantity-wrapper">
+      <button type="button" class="qty-btn minus">−</button>
+
+      <input
         type="number"
         name="quantity"
         value="1"
@@ -98,21 +96,21 @@
         max="99"
         id="id_qty_{{ product.id }}"
         class="form-control qty-input"
-        >
-        <button type="button" class="qty-btn plus">+</button>
-      </div>
-    </div>
+      >
 
-    <!-- Add to Bag button -->
-    <div class="col-12 col-md-8 text-center text-md-start">
-      <button
-        type="submit"
-        class="btn btn-black add-to-bag-button">
-        Add to Bag
-      </button>
+      <button type="button" class="qty-btn plus">+</button>
     </div>
-
   </div>
+
+  <!-- Add to Bag column -->
+  <div class="col-12 col-md-6 d-flex justify-content-sm-center justify-content-md-start">
+    <button type="submit" class="btn btn-black add-to-bag-button">
+      Add to Bag
+    </button>
+  </div>
+
+</div>
+
 
 <input type="hidden" name="dice_option" id="dice-option" value="single">
 <input type="hidden" name="redirect_url" value="{{ request.path }}">
