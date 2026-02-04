@@ -289,7 +289,7 @@ The Product of the Month section of the homepage is linked to a template literal
 The reasons to buy carousel is a simple carousel made up of text which slides across every 7 seconds to the next item. The carousel is set to loop infinitely but is subtle enough that it should not cause any visual issues. Users can also toggle through to the next item using the arrows on either side of the page. 
 
 ### Testimonials - Home Page
-The testimonials are model testimonials from previous customers that were built in Bootstrap. They are not connected to any models and therefore can only be updated by going into the HTML. A future version of the project would have the ability to update and change the testimonials through the Admin platform.
+
 
 ## Web Marketing
 ### Keyword and SEO research

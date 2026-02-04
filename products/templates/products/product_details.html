@@ -84,23 +84,27 @@
   <div class="row align-items-end g-3">
 
     <!-- Quantity -->
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-4">
       <label for="id_qty_{{ product.id }}" class="fw-bold mb-2">
         Quantity:
       </label>
-      <input
+      <div class="quantity-wrapper">
+        <button type="button" class="qty-btn minus">−</button>
+        <input
         type="number"
         name="quantity"
         value="1"
         min="1"
         max="99"
         id="id_qty_{{ product.id }}"
-        class="form-control"
-      >
+        class="form-control qty-input"
+        >
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
     </div>
 
     <!-- Add to Bag button -->
-    <div class="col-12 col-md-6 text-center text-sm-start">
+    <div class="col-12 col-md-8 text-center text-md-start">
       <button
         type="submit"
         class="btn btn-black add-to-bag-button">
@@ -110,7 +114,9 @@
 
   </div>
 
-  <input type="hidden" name="redirect_url" value="{{ request.path }}">
+<input type="hidden" name="dice_option" id="dice-option" value="single">
+<input type="hidden" name="redirect_url" value="{{ request.path }}">
+
 </form>
 
 
@@ -173,9 +179,9 @@
     </div>
   </div>
 </div>
+{% endblock %}
 
 {% block post_load_js %}
   {{ block.super }}
   <script src="{% static 'products/js/product_details.js' %}"></script>
-{% endblock %}
 {% endblock %}

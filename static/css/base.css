@@ -409,23 +409,23 @@ p#product-description {
   font-style: italic;
 }
 
-button#single-btn,
-button#set-btn {
+#single-btn,
+#set-btn {
   font-family: var(--font-primary);
   font-size: 14px !important;
   padding-top: 8px !important;
   padding-bottom: 8px !important;
 }
 
-button#single-btn.active,
-button#set-btn.active {
+#single-btn.active,
+#set-btn.active {
   background-color: var(--primary-accent) !important;
   color: var(--primary-color);
   border: 3px solid var(--secondary-accent);
 }
 
-button#single-btn:hover,
-button#set-btn:hover {
+#single-btn:hover,
+#set-btn:hover {
   background-color: var(--primary-accent) !important;
 }
 
@@ -449,6 +449,49 @@ button.accordion-button.py-2 {
   padding-top: 8px !important;
   padding-bottom: 8px !important;
   font-size: 14px !important;
+}
+
+.quantity-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qty-btn {
+  width: 30px;
+  height: 30px;
+  background-color: var(--secondary-accent);
+  color: var(--primary-color);
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.qty-btn:disabled {
+  opacity: 0.4;
+}
+
+.qty-input {
+  width: 70px;
+  text-align: center;
+}
+
+label[for^="id_qty"] {
+  text-align: center;
+  display: block;
+}
+
+.quantity-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.add-to-bag-button {
+  display: block;
+  margin: 0 auto;
 }
 
 /* Shopping Bag CSS */
@@ -505,6 +548,20 @@ button.accordion-button.py-2 {
     height: 45px;
     right: 2.5rem;
 }
+
+label[for^="id_qty"] {
+    text-align: left;
+  }
+
+  .quantity-wrapper {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
+
+  .add-to-bag-button {
+    margin: 0;        
+    display: inline-block;
+  }
 }
 
 @media (min-width: 800px) {
