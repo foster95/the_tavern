@@ -569,6 +569,34 @@ label[for^="id_qty"] {
   color: var(--secondary-color) !important;
 }
 
+#bag-summary-desktop .bag-update-button {
+  background-color: transparent !important;
+  color: var(--secondary-color) !important;
+}
+
+.quantity-wrapper{
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;          /* makes it one pill */
+  border-radius: 999px;
+}
+
+.quantity-wrapper .qty-btn{
+  border-radius: 0;          /* corners come from wrapper */
+  min-width: 48px;
+  height: 44px;
+}
+
+.quantity-wrapper .qty-input{
+  border-radius: 0;
+  width: 56px;
+  height: 44px;
+  text-align: center;
+  border-left: 0;
+  border-right: 0;
+  margin: 0;                 /* no gaps */
+}
+
  
 /* Media Queries */
 
@@ -604,6 +632,15 @@ label[for^="id_qty"] {
     margin: 0;        
     display: inline-block;
   }
+
+  #bag-summary-desktop .bag-remove-button {
+  background-color: transparent !important;
+}
+
+#bag-summary-desktop .quantity-small {
+  transform: scale(0.7) !important;
+  transform-origin: right center;
+}
 }
 
 @media (min-width: 800px) {
