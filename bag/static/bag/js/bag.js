@@ -1,10 +1,8 @@
 /* Same JS as product_details bag quantity controls, but applied
  to quantity controls in the bag summary on the bag page. 
- This ensures consistent behavior across both pages and prevents
- invalid quantities from being submitted when updating the bag
- from the bag summary.
 */
 
+/* Bag quantity controls (basic: user clicks Update to submit form) */
 document.addEventListener("DOMContentLoaded", () => {
   const MIN_QTY = 1;
   const MAX_QTY = 99;
@@ -16,50 +14,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!minusBtn || !plusBtn || !input) return;
 
-    const updateButtons = () => {
-      minusBtn.disabled = parseInt(input.value) <= MIN_QTY;
+    const clamp = (val) => Math.min(MAX_QTY, Math.max(MIN_QTY, val));
+
+    const sync = () => {
+      const val = parseInt(input.value, 10);
+      input.value = clamp(isNaN(val) ? MIN_QTY : val);
+      minusBtn.disabled = parseInt(input.value, 10) <= MIN_QTY;
     };
 
-    if (!input.value || parseInt(input.value) < MIN_QTY) {
-      input.value = MIN_QTY;
-    }
-    updateButtons();
+    // Initialise
+    sync();
 
-    // Minus click
     minusBtn.addEventListener("click", () => {
-      let value = parseInt(input.value);
-
-      if (value > MIN_QTY) {
-        input.value = value - 1;
-      }
-
-      updateButtons();
+      input.value = clamp(parseInt(input.value, 10) - 1);
+      sync();
     });
 
-    // Plus click
     plusBtn.addEventListener("click", () => {
-      let value = parseInt(input.value);
-
-      if (value < MAX_QTY) {
-        input.value = value + 1;
-      }
-
-      updateButtons();
+      input.value = clamp(parseInt(input.value, 10) + 1);
+      sync();
     });
 
-    // Disallow invalid manual input
-    input.addEventListener("input", () => {
-      let value = parseInt(input.value);
-
-      if (isNaN(value) || value < MIN_QTY) {
-        input.value = MIN_QTY;
-      }
-
-      if (value > MAX_QTY) {
-        input.value = MAX_QTY;
-      }
-
-      updateButtons();
-    });
+    input.addEventListener("input", sync);
   });
 });

@@ -20,3 +20,29 @@ def add_to_bag(request, item_id):
     request.session["bag"] = bag
 
     return redirect(redirect_url)
+
+def adjust_bag(request, item_id):
+    quantity = int(request.POST.get("quantity", 1))
+    dice_option = request.POST.get("dice_option")  # "single" or "set" or None
+
+    bag = request.session.get("bag", {})
+    bag_key = f"{item_id}:set" if dice_option == "set" else str(item_id)
+
+    if quantity > 0:
+        bag[bag_key] = quantity
+    else:
+        bag.pop(bag_key, None)
+
+    request.session["bag"] = bag
+    return redirect("view_bag")
+
+def remove_from_bag(request, item_id):
+    dice_option = request.POST.get("dice_option")  # "single" or "set" or None
+
+    bag = request.session.get("bag", {})
+    bag_key = f"{item_id}:set" if dice_option == "set" else str(item_id)
+
+    bag.pop(bag_key, None)
+
+    request.session["bag"] = bag
+    return redirect("view_bag")
