@@ -24,6 +24,10 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-secondary) !important;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 /* from Bulma - taken from Boutique Ado walkthrough */
 .icon {
     align-items: center;
@@ -199,7 +203,7 @@ nav#mobile-heading {
     white-space: nowrap;
     gap: 8rem;
     width: max-content;
-    animation: scroll-right 30s linear infinite;
+    animation: scroll-right 40s linear infinite;
     justify-content: flex-start; 
     font-family: var(--font-primary)
 }
@@ -214,6 +218,83 @@ nav#mobile-heading {
     letter-spacing: 0.5px;
     white-space: nowrap;
 }
+
+/* Toasts */
+/* Toast card sizing like the example */
+.custom-toast {
+  width: 420px;
+  max-width: calc(100vw - 2rem);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,.18);
+}
+
+/* Keep the list tidy */
+.bag-notification-wrapper {
+  max-height: 220px;
+  overflow-y: auto;
+  padding-right: .25rem; /* avoids scrollbar overlay */
+}
+
+/* One item row */
+.toast-bag-row {
+  display: flex;
+  gap: .75rem;
+  align-items: center;
+  padding: .5rem 0;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+.toast-bag-row:last-child {
+  border-bottom: 0;
+}
+
+/* Thumbnail */
+.toast-bag-img {
+  width: 70px;
+  height: 54px;
+  flex: 0 0 70px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #f3f3f3;
+}
+.toast-bag-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text */
+.toast-bag-name {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.toast-bag-meta {
+  margin: 0;
+  color: rgba(0,0,0,.65);
+  font-size: .9rem;
+  line-height: 1.2;
+}
+
+/* Big CTA button like screenshot */
+.toast-checkout-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 1.25rem;
+  border-radius: 999px;
+  background: #2d5b44; /* you can swap to your theme green */
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: .5px;
+}
+.toast-checkout-btn:hover {
+  filter: brightness(.95);
+  color: #fff;
+}
+
 
 /* Hero Image */
 #hero-image {
