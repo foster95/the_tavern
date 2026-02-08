@@ -220,7 +220,6 @@ nav#mobile-heading {
 }
 
 /* Toasts */
-/* Toast card sizing like the example */
 .custom-toast {
   width: 420px;
   max-width: calc(100vw - 2rem);
@@ -229,14 +228,16 @@ nav#mobile-heading {
   box-shadow: 0 12px 30px rgba(0,0,0,.18);
 }
 
-/* Keep the list tidy */
+.toast-capper {
+  height: 6px;
+}
+
 .bag-notification-wrapper {
   max-height: 220px;
   overflow-y: auto;
-  padding-right: .25rem; /* avoids scrollbar overlay */
+  padding-right: .25rem; 
 }
 
-/* One item row */
 .toast-bag-row {
   display: flex;
   gap: .75rem;
@@ -247,11 +248,9 @@ nav#mobile-heading {
 .toast-bag-row:last-child {
   border-bottom: 0;
 }
-
-/* Thumbnail */
 .toast-bag-img {
-  width: 70px;
-  height: 54px;
+  width: 64px;
+  height: 64px;
   flex: 0 0 70px;
   overflow: hidden;
   border-radius: 4px;
@@ -264,7 +263,6 @@ nav#mobile-heading {
   display: block;
 }
 
-/* Text */
 .toast-bag-name {
   margin: 0;
   font-weight: 700;
@@ -277,24 +275,23 @@ nav#mobile-heading {
   line-height: 1.2;
 }
 
-/* Big CTA button like screenshot */
 .toast-checkout-btn {
   display: block;
   width: 100%;
   text-align: center;
   padding: 1rem 1.25rem;
   border-radius: 999px;
-  background: #2d5b44; /* you can swap to your theme green */
+  background: var(--secondary-accent);
   color: #fff;
   font-weight: 800;
   text-decoration: none;
   letter-spacing: .5px;
 }
+
 .toast-checkout-btn:hover {
   filter: brightness(.95);
   color: #fff;
 }
-
 
 /* Hero Image */
 #hero-image {
@@ -658,12 +655,12 @@ label[for^="id_qty"] {
 .quantity-wrapper{
   display: inline-flex;
   align-items: center;
-  overflow: hidden;          /* makes it one pill */
+  overflow: hidden;          
   border-radius: 999px;
 }
 
 .quantity-wrapper .qty-btn{
-  border-radius: 0;          /* corners come from wrapper */
+  border-radius: 0;          
   min-width: 48px;
   height: 44px;
 }
@@ -675,7 +672,7 @@ label[for^="id_qty"] {
   text-align: center;
   border-left: 0;
   border-right: 0;
-  margin: 0;                 /* no gaps */
+  margin: 0;                 
 }
 
  
@@ -754,6 +751,29 @@ label[for^="id_qty"] {
   #products-navigation {
     z-index: 1020;
     margin: 0;
+  }
+
+  .quantity-wrapper {
+    width: auto !important;
+    display: inline-flex;
+    flex-shrink: 0;    
+    margin-right: 0.75rem;
+  }
+
+  .qty-btn {
+  flex: 0 0 auto;         
+  min-width: 48px;        
+}
+
+  .qty-input {
+    flex: 0 0 auto;
+    width: 70px;
+    min-width: 70px;
+  }
+
+  .qty-row .col-md-6 {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 

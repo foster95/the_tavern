@@ -81,10 +81,10 @@
       <form action="{% url 'add_to_bag' product.id %}" method="POST">
   {% csrf_token %}
 
-  <div class="row align-items-center g-2">
+  <div class="row align-items-center justify-content-center justify-content-md-start g-2">
 
-  <!-- Quantity column -->
-  <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start">
+  <!-- Quantity (auto width) -->
+  <div class="col-auto">
     <div class="quantity-wrapper">
       <button type="button" class="qty-btn minus">−</button>
 
@@ -102,8 +102,8 @@
     </div>
   </div>
 
-  <!-- Add to Bag column -->
-  <div class="col-12 col-md-6 d-flex justify-content-sm-center justify-content-md-start">
+  <!-- Add to Bag (auto width) -->
+  <div class="col-auto">
     <button type="submit" class="btn btn-black add-to-bag-button">
       Add to Bag
     </button>

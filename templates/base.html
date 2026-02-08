@@ -122,18 +122,25 @@
       </div>
     </header>
 
-    <!-- ✅ Toasts (outside main content) -->
+    <!-- Toasts -->
     <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 2000;">
       {% if messages %}
         {% for message in messages %}
-          {% if message.tags == "success" %}
-            {% include "includes/toasts/toast_success.html" with message=message on_profile_page=False %}
-          {% elif message.tags == "error" %}
-            {% include "includes/toasts/toast_error.html" with message=message %}
-          {% endif %}
-        {% endfor %}
+        {% with message.level as level %}
+        {% if level == 40 %}
+          {% include "includes/toasts/toast_error.html" with message=message %}
+        {% elif level == 30 %}  
+          {% include "includes/toasts/toast_warning.html" %}
+        {% elif level == 25 %}
+          {% include "includes/toasts/toast_success.html" %}
+        {% else %}
+          {% include "includes/toasts/toast_info.html" with message=message %}
+        {% endif %}
+         {% endwith %}
+         {% endfor %}
       {% endif %}
     </div>
+
 
     <!-- Main Body -->
     <main id="site-main">

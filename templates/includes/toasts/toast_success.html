@@ -1,7 +1,7 @@
 {% load static %}
 
 <div
-  class="toast custom-toast rounded-0 border-top-0"
+  class="toast custom-toast rounded-0 border-top-0 bg-success"
   role="alert"
   aria-live="assertive"
   aria-atomic="true"
@@ -14,7 +14,7 @@
 
   <div class="toast-body bg-white text-dark">
     <p class="mb-2">{{ message }}</p>
-    <hr class="my-2">
+    <hr class="my-2 mt-1 mb-2">
 
     {% if grand_total and not on_profile_page %}
       <p class="text-uppercase fw-bold small mb-2">
@@ -52,7 +52,18 @@
         <strong>£{{ grand_total|floatformat:2 }}</strong>
       </div>
 
-      <a href="{% url 'view_bag' %}" class="toast-checkout-btn">
+      {% if free_delivery_delta > 0 %}
+      <p class="text-center small mt-2 mb-3 text-muted">
+        Spend <strong>£{{ free_delivery_delta|floatformat:2 }}</strong> more to get
+        <strong>FREE delivery</strong> on your order!
+    </p>
+    {% else %}
+    <p class="text-center small mt-2 mb-3 text-success fw-bold">
+        You qualify for FREE delivery!
+    </p>
+    {% endif %}
+
+      <a href="{% url 'view_bag' %}" class="toast-checkout-btn mt-3 mb-2">
         GO TO YOUR BAG OF HOLDING <i class="fa-solid fa-basket-shopping ms-2"></i>
       </a>
     {% endif %}
