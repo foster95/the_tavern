@@ -27,7 +27,9 @@ def add_to_bag(request, item_id):
     return redirect(redirect_url)
 
 def adjust_bag(request, item_id):
-    try: 
+    product = get_object_or_404(Product, pk=item_id)
+
+    try:
         quantity = int(request.POST.get("quantity", 1))
         dice_option = request.POST.get("dice_option")  # "single" or "set" or None
 
@@ -36,16 +38,22 @@ def adjust_bag(request, item_id):
 
         if quantity > 0:
             bag[bag_key] = quantity
+            messages.success(request, f'Updated quantity for {product.name} to {quantity}.')
         else:
             bag.pop(bag_key, None)
+            messages.success(request, f'Removed {product.name} from your Bag of Holding.')
 
         request.session["bag"] = bag
         return redirect("view_bag")
+
     except Exception as e:
-        print(f"Error adjusting bag: {e}")
+        messages.error(request, f"Error adjusting bag: {e}")
         return redirect("view_bag")
 
 def remove_from_bag(request, item_id):
+
+    product = get_object_or_404(Product, pk=item_id)
+
     try: 
         dice_option = request.POST.get("dice_option")  # "single" or "set" or None
 
@@ -53,9 +61,10 @@ def remove_from_bag(request, item_id):
         bag_key = f"{item_id}:set" if dice_option == "set" else str(item_id)
 
         bag.pop(bag_key, None)
+        messages.success(request, f'Removed {product.name} from your Bag of Holding.')
 
         request.session["bag"] = bag
         return redirect("view_bag")
     except Exception as e:
-        print(f"Error removing item from bag: {e}")
+        messages.error(request, f"Error removing item from bag: {e}")
         return redirect("view_bag")
