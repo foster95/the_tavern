@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mb-5">
+
+  <!-- Page title -->
+  <div class="row">
+    <div class="col text-center">
+      <h1 class="display-4 mt-4">Checkout</h1>
+      <hr class="w-100 mb-3">
+      <p class="fst-italic">
+        Review your Bag of Holding and enter your details.
+      </p>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+
+    <!--Checkout Form-->
+    <div class="col-12 col-lg-6 order-1">
+
+      <form method="POST" action="{% url 'checkout' %}" id="payment-form">
+        {% csrf_token %}
+
+        <!-- Personal Info -->
+        <fieldset class="border p-4 mb-4">
+          <legend class="w-auto px-2">Your Details</legend>
+
+          {{ order_form.full_name|as_crispy_field }}
+          {{ order_form.email|as_crispy_field }}
+          {{ order_form.phone_number|as_crispy_field }}
+
+        </fieldset>
+
+        <!-- Delivery Info -->
+        <fieldset class="border p-4 mb-4">
+          <legend class="w-auto px-2">Delivery</legend>
+
+          {{ order_form.street_address1|as_crispy_field }}
+          {{ order_form.street_address2|as_crispy_field }}
+          {{ order_form.town_or_city|as_crispy_field }}
+          {{ order_form.county|as_crispy_field }}
+          {{ order_form.postcode|as_crispy_field }}
+          {{ order_form.country|as_crispy_field }}
+
+          {% if user.is_authenticated %}
+            <div class="form-check mt-3">
+              <input class="form-check-input" type="checkbox" name="save_info" id="save-info">
+              <label class="form-check-label" for="save-info">
+                Save this information for next time
+              </label>
+            </div>
+          {% else %}
+            <p class="text-muted mt-3 mb-0">
+              <a href="{% url 'account_signup' %}">Create Account</a> |
+              <a href="{% url 'account_login' %}">Login</a>
+            </p>
+          {% endif %}
+        </fieldset>
+
+        <!-- Payment -->
+        <fieldset class="border p-4 mb-4">
+          <legend class="w-auto px-2">Payment</legend>
+
+          <div id="card-element" class="mb-3"></div>
+          <div id="card-errors" role="alert" class="text-danger mb-3"></div>
+        </fieldset>
+
+        <button type="submit" class="btn btn-dark w-100 mt-3">
+          Complete Order
+        </button>
+
+        <p class="small text-muted mt-2 text-center">
+          Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong>
+        </p>
+
+      </form>
+    </div>
+
+    <!-- Bag Summary -->
+    <div class="col-12 col-lg-6 order-2">
+
+      <div class="border p-4">
+
+        <h4 class="mb-3">Your Bag</h4>
+
+        {% for item in bag_items %}
+          <div class="row align-items-center mb-3">
+
+            <div class="col-3">
+              {% if item.product.image %}
+                <img src="{{ item.product.image.url }}"
+                     alt="{{ item.product.name }}"
+                     class="img-fluid rounded">
+              {% else %}
+                <img src="{{ MEDIA_URL }}noimage.png"
+                     alt="{{ item.product.name }}"
+                     class="img-fluid rounded">
+              {% endif %}
+            </div>
+
+            <div class="col-6">
+              <p class="mb-0 fw-bold">{{ item.product.name }}</p>
+
+              {% if item.has_set_option %}
+                <p class="small text-muted mb-0">
+                  {% if item.option == "set" %}
+                    Full set
+                  {% else %}
+                    Single D20
+                  {% endif %}
+                </p>
+              {% endif %}
+
+              <p class="small text-muted mb-0">
+                Qty: {{ item.quantity }}
+              </p>
+            </div>
+
+            <div class="col-3 text-end">
+              <p class="mb-0">
+                £{{ item.total_price|floatformat:2 }}
+              </p>
+            </div>
+
+          </div>
+          <hr>
+        {% endfor %}
+
+        <div class="d-flex justify-content-between fw-bold">
+          <span>Order Total</span>
+          <span>£{{ total|floatformat:2 }}</span>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <span>Delivery</span>
+          <span>£{{ delivery|floatformat:2 }}</span>
+        </div>
+
+        <hr>
+
+        <div class="d-flex justify-content-between fs-5 fw-bold">
+          <span>Grand Total</span>
+          <span>£{{ grand_total|floatformat:2 }}</span>
+        </div>
+
+        <a href="{% url 'view_bag' %}" class="btn btn-outline-dark mt-3">
+          Adjust Bag of Holding
+        </a>
+        <a href="" class="btn btn-outline-dark mt-3">
+          Complete Order
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block post_load_js %}
+  {{ block.super }}
+{% endblock %}

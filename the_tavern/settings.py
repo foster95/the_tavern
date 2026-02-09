@@ -57,6 +57,8 @@ INSTALLED_APPS = [
     'products', #Products app
     'bag', # Bag app
     'checkout', # Checkout app
+    'crispy_forms', # Django Crispy Forms
+    'crispy_bootstrap5', # Django Crispy Forms Bootstrap 5
 
 ]
 
@@ -73,6 +75,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'the_tavern.urls'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -88,6 +93,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth', # This package is required for Django AllAuth to run effectively
                 'django.contrib.messages.context_processors.messages',
                 'bag.contexts.bag_contents',  # To make the bag contents available globally
+            ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
             ],
         },
     },

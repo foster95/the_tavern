@@ -47,22 +47,39 @@ class Order(models.Model):
         return self.order_number
 
 class OrderLineItem(models.Model):
+    OPTION_SINGLE = "single"
+    OPTION_SET = "set"
 
-    option_single = "Single D20"
-    option_set = "Full set of 7"
-    option_choices = [
-        (option_single, "Single D20"),
-        (option_set, "Full set of 7"),
-    ]
+    OPTION_CHOICES = (
+        (OPTION_SINGLE, "Single D20"),
+        (OPTION_SET, "Full set of 7"),
+    )
 
-    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name="lineitems")
-    product = models.ForeignKey("products.Product", null=False, blank=False, on_delete=models.CASCADE)
-    option = models.CharField(max_length=20, choices=option_choices, default=option_single)
+    order = models.ForeignKey(
+        "checkout.Order",
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE,
+        related_name="lineitems",
+    )
+    product = models.ForeignKey(
+        "products.Product",
+        null=False,
+        blank=False,
+        on_delete=models.CASCADE,
+    )
+
+    option = models.CharField(
+        max_length=10,
+        choices=OPTION_CHOICES,
+        default=OPTION_SINGLE,
+    )
+
     quantity = models.IntegerField(null=False, blank=False)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False)
 
     def save(self, *args, **kwargs):
-        """ Override the original save method to set the lineitem total and update the order total """
+        """Set lineitem total and update order total."""
         if self.option == self.OPTION_SET and self.product.dice_set_price:
             unit_price = self.product.dice_set_price
         else:
@@ -71,6 +88,13 @@ class OrderLineItem(models.Model):
         self.lineitem_total = unit_price * self.quantity
         super().save(*args, **kwargs)
         self.order.update_grand_total()
+
+    @property
+    def option_label(self):
+        """Nice display label, showing N/A for products without set pricing."""
+        if not self.product.dice_set_price:
+            return "N/A"
+        return "Full set of 7" if self.option == self.OPTION_SET else "Single D20"
 
     def __str__(self):
         return f"SKU {self.product.sku} on order {self.order.order_number}"
