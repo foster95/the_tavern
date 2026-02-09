@@ -27,8 +27,8 @@ class Order(models.Model):
         """ Generate a random, unique order number using UUID """
         return uuid.uuid4().hex.upper()
 
-    def update_grand_total(self):
-        """ Update grand total each time a line item is added, accounting for delivery costs """
+    def update_total(self):
+        """ Update total each time a line item is added, accounting for delivery costs """
         self.order_total = sum(item.lineitem_total for item in self.lineitems.all())
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
             self.delivery_cost = self.order_total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
