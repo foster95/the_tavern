@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'home', # Home app
     'products', #Products app
     'bag', # Bag app
+    'checkout', # Checkout app
 
 ]
 

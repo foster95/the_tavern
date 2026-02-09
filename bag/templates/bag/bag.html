@@ -284,9 +284,12 @@
         <p class="text-center fst-italic">
             Your bag is currently empty.
         </p>
-        <a href="{% url 'products' %}" class="btn btn-outline-dark d-block mx-auto mt-3">
-            Continue Shopping
-        </a>
+        <div class="text-center mt-3">
+            <a href="{% url 'products' %}" class="btn btn-outline-dark mx-auto mt-3">
+                Continue Shopping
+            </a>
+        </div>
+
         {% endif %}
 
         </div>
