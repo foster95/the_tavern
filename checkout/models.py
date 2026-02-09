@@ -47,18 +47,28 @@ class Order(models.Model):
         return self.order_number
 
 class OrderLineItem(models.Model):
+
+    option_single = "Single D20"
+    option_set = "Full set of 7"
+    option_choices = [
+        (option_single, "Single D20"),
+        (option_set, "Full set of 7"),
+    ]
+
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name="lineitems")
     product = models.ForeignKey("products.Product", null=False, blank=False, on_delete=models.CASCADE)
-    set_option = models.BooleanField(default=False, blank=True)  
+    option = models.CharField(max_length=20, choices=option_choices, default=option_single)
     quantity = models.IntegerField(null=False, blank=False)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False)
 
     def save(self, *args, **kwargs):
         """ Override the original save method to set the lineitem total and update the order total """
-        if self.set_option:
-            self.lineitem_total = self.product.dice_set_price * self.quantity
+        if self.option == self.OPTION_SET and self.product.dice_set_price:
+            unit_price = self.product.dice_set_price
         else:
-            self.lineitem_total = self.product.price * self.quantity
+            unit_price = self.product.price
+
+        self.lineitem_total = unit_price * self.quantity
         super().save(*args, **kwargs)
         self.order.update_grand_total()
 
