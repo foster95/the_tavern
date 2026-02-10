@@ -87,7 +87,7 @@ class OrderLineItem(models.Model):
 
         self.lineitem_total = unit_price * self.quantity
         super().save(*args, **kwargs)
-        self.order.update_grand_total()
+        self.order.update_total()
 
     @property
     def option_label(self):

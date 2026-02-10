@@ -26,6 +26,8 @@ h1, h2, h3, h4, h5, h6 {
 
 html, body {
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 /* from Bulma - taken from Boutique Ado walkthrough */
@@ -45,6 +47,9 @@ html, body {
 
 #site-main {
     flex: 1;
+    display: flow-root;
+    margin: 0;
+    padding: 0;
 }
 
 #site-footer {
@@ -93,7 +98,7 @@ html, body {
 
 .message-container {
   padding-top: 0 !important;
-  margin-top: -9px !important;
+  margin-top: 0 !important;
 }
 
 #mobile-header {
@@ -189,7 +194,7 @@ nav#mobile-heading {
     background: var(--secondary-color);
     color: var(--primary-color);
     max-width: 100%;
-    border: var(--secondary-color) 2px solid;
+    border-top: var(--secondary-color) 2px solid;
 }
 
 .scroll-viewport {
@@ -301,6 +306,8 @@ nav#mobile-heading {
     background-position: center;
     height: 385px;
     margin-bottom: 2rem;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #hero-image,
