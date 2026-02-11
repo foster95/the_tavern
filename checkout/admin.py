@@ -1,5 +1,5 @@
 from decimal import Decimal
-from django.contrib import admin
+from django.contrib import admin, messages
 from .models import Order, OrderLineItem
 
 
@@ -8,6 +8,7 @@ class OrderLineItemAdminInline(admin.TabularInline):
     readonly_fields = ("lineitem_total",)
     fields = ("product", "option", "quantity", "lineitem_total")
     extra = 0
+    can_delete = True
 
 
 class OrderAdmin(admin.ModelAdmin):
@@ -39,7 +40,6 @@ class OrderAdmin(admin.ModelAdmin):
         """
         When adding a new Order in admin, it must have NOT NULL totals.
         Set them to 0.00 so the initial save succeeds.
-        We'll recalc after inlines are saved.
         """
         if not obj.pk:
             obj.order_total = obj.order_total or Decimal("0.00")
@@ -49,10 +49,32 @@ class OrderAdmin(admin.ModelAdmin):
 
     def save_related(self, request, form, formsets, change):
         """
-        After inline OrderLineItems are saved, compute totals properly.
+        After inline OrderLineItems are saved:
+        - If someone selected "set" for a product that doesn't have a real set price
+          (dice_set_price is None OR 0.00), flip it back to "single"
+        - Show a warning message listing corrected products
+        - Recalculate totals
         """
         super().save_related(request, form, formsets, change)
-        form.instance.update_total()
+
+        order = form.instance
+        corrected_products = []
+
+        for li in order.lineitems.select_related("product").all():
+            no_set_available = not li.product.dice_set_price  
+
+            if no_set_available and li.option == OrderLineItem.OPTION_SET:
+                OrderLineItem.objects.filter(pk=li.pk).update(option=OrderLineItem.OPTION_SINGLE)
+                corrected_products.append(li.product.name)
+
+        if corrected_products:
+            messages.warning(
+                request,
+                f"{', '.join(corrected_products)} cannot be sold as part of a dice set. "
+                f"This items has been changed to 'Single D20'."
+            )
+
+        order.update_total()
 
 
 admin.site.register(Order, OrderAdmin)

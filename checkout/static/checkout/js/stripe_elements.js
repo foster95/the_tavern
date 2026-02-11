@@ -51,7 +51,7 @@ card.addEventListener("change", function (event) {
   }
 });
 
-// Handle form submit (CI-style) + double-submit protection
+// Handle form submit and double-submit protection
 var form = document.getElementById("payment-form");
 var submitBtn = document.getElementById("complete-order-button");
 
@@ -109,7 +109,7 @@ form.addEventListener("submit", function (ev) {
       } else {
         // Success
         if (result.paymentIntent && result.paymentIntent.status === "succeeded") {
-          // Attach PI id so Django can store it (your setup)
+          // Attach PI id so Django can store it 
           var hidden = document.createElement("input");
           hidden.type = "hidden";
           hidden.name = "payment_intent_id";

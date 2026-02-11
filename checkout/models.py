@@ -29,7 +29,7 @@ class Order(models.Model):
 
     def update_total(self):
         """ Update total each time a line item is added, accounting for delivery costs """
-        self.order_total = sum(item.lineitem_total for item in self.lineitems.all())
+        self.order_total = sum(item.lineitem_total for item in self.lineitems.all()) or Decimal("0.00")
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
             self.delivery_cost = self.order_total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         else:
@@ -51,8 +51,8 @@ class OrderLineItem(models.Model):
     OPTION_SET = "set"
 
     OPTION_CHOICES = (
-        (OPTION_SINGLE, "Single D20"),
-        (OPTION_SET, "Full set of 7"),
+        (OPTION_SINGLE, "Single Item or Single D20"),
+        (OPTION_SET, "Full dice set of 7"),
     )
 
     order = models.ForeignKey(
@@ -77,24 +77,30 @@ class OrderLineItem(models.Model):
 
     quantity = models.IntegerField(null=False, blank=False)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False)
-
+    
     def save(self, *args, **kwargs):
         """Set lineitem total and update order total."""
-        if self.option == self.OPTION_SET and self.product.dice_set_price:
+        
+        # If quantity is 0 (or less), delete the line item instead of saving it
+        if self.quantity <= 0:
+            if self.pk:
+                self.delete()
+                self.order.update_total()
+            return
+        # If the product doesn't support a set price, force SINGLE
+        if self.product.dice_set_price is None:
+            self.option = self.OPTION_SINGLE
+
+        # Pick the right unit price
+        if self.option == self.OPTION_SET and self.product.dice_set_price is not None:
             unit_price = self.product.dice_set_price
         else:
             unit_price = self.product.price
+        # Safety: if price is missing, don't crash silently
+        if unit_price is None:
+            unit_price = 0
 
         self.lineitem_total = unit_price * self.quantity
         super().save(*args, **kwargs)
         self.order.update_total()
-
-    @property
-    def option_label(self):
-        """Nice display label, showing N/A for products without set pricing."""
-        if not self.product.dice_set_price:
-            return "N/A"
-        return "Full set of 7" if self.option == self.OPTION_SET else "Single D20"
-
-    def __str__(self):
-        return f"SKU {self.product.sku} on order {self.order.order_number}"
+       

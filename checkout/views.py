@@ -9,9 +9,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 
 from bag.contexts import bag_contents
 from products.models import Product
-
 from .forms import OrderForm
-from .models import OrderLineItem
+from .models import OrderLineItem, Order
 
 
 def checkout(request):
@@ -23,10 +22,10 @@ def checkout(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY
 
     if request.method == "POST":
-        form = OrderForm(request.POST)
+        order_form = OrderForm(request.POST)
 
-        if form.is_valid():
-            order = form.save(commit=False)
+        if order_form.is_valid():
+            order = order_form.save(commit=False)
 
             current_bag = bag_contents(request)
             order.order_total = current_bag["total"]
@@ -34,37 +33,57 @@ def checkout(request):
             order.grand_total = current_bag["grand_total"]
 
             payment_intent_id = request.POST.get("payment_intent_id", "")
-            print("🔥 POST received. payment_intent_id =", payment_intent_id)
-
             if hasattr(order, "stripe_pid"):
                 order.stripe_pid = payment_intent_id
 
             order.save()
 
-            for item_id, item_data in bag.items():
-                product = get_object_or_404(Product, pk=item_id)
+            for item_key, item_data in bag.items():
+                if ":" in str(item_key) and isinstance(item_data, int):
+                    item_id, option = str(item_key).split(":", 1)
+                    try:
+                        product = Product.objects.get(id=int(item_id))
+                    except Product.DoesNotExist:
+                        messages.error(request, "A product in your bag wasn't found. Please try again.")
+                        order.delete()
+                        return redirect(reverse("view_bag"))
 
-                if isinstance(item_data, dict) and "items_by_option" in item_data:
-                    for option, quantity in item_data["items_by_option"].items():
+                    OrderLineItem.objects.create(
+                        order=order,
+                        product=product,
+                        option=option,
+                        quantity=item_data,
+                    )
+                    continue
+
+                try:
+                    product = Product.objects.get(id=int(item_key))
+                except (ValueError, TypeError, Product.DoesNotExist):
+                    messages.error(request, "A product in your bag wasn't found. Please try again.")
+                    order.delete()
+                    return redirect(reverse("view_bag"))
+
+                # B1: simple quantity
+                if isinstance(item_data, int):
+                    OrderLineItem.objects.create(
+                        order=order,
+                        product=product,
+                        option="single",   
+                        quantity=item_data,
+                    )
+                else:
+                    items_by_option = item_data.get("items_by_option", {})
+                    for option, quantity in items_by_option.items():
                         OrderLineItem.objects.create(
                             order=order,
                             product=product,
                             option=option,
                             quantity=quantity,
                         )
-                else:
-                    OrderLineItem.objects.create(
-                        order=order,
-                        product=product,
-                        quantity=item_data,
-                    )
-
             order.update_total()
 
             request.session["bag"] = {}
-
-            messages.success(request, "Payment successful! Order placed.")
-            return redirect(reverse("products"))
+            return redirect(reverse("order_confirmation", args=[order.order_number]))
 
         messages.error(request, "There was an error with your form. Please check your details.")
 
@@ -78,16 +97,28 @@ def checkout(request):
         metadata={"bag": str(bag)},
     )
 
-    print(intent)
-
-    form = OrderForm()
-
     if not settings.STRIPE_PUBLIC_KEY:
         messages.warning(request, "Stripe public key is missing. Check your environment variables.")
 
     context = {
-        "order_form": form,
+        "order_form": OrderForm(),
         "stripe_public_key": settings.STRIPE_PUBLIC_KEY,
         "client_secret": intent.client_secret,
     }
     return render(request, "checkout/checkout.html", context)
+
+
+def order_confirmation(request, order_number):
+    save_info = request.session.get("save_info", False)
+    order = get_object_or_404(Order, order_number=order_number)
+    messages.success(request, f"Order successfully processed! Your order number is {order_number}.")
+
+    if "bag" in request.session:
+        del request.session["bag"]
+    
+    template = "checkout/order_confirmation.html"
+    context = {
+        "order": order,
+    }
+
+    return render(request, template, context)
