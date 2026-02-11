@@ -719,6 +719,104 @@ label[for^="id_qty"] {
   opacity: 0.8;
 }
 
+/* Order Confirmation CSS */
+
+.order-confirmation-table .table {
+    border: 0;
+    margin-bottom: 0;
+    background: transparent !important;
+}
+
+.order-confirmation-table .table td {
+    border: 0 !important;
+    padding: 0.4rem 0;
+    vertical-align: middle;
+}
+
+.order-confirmation-table .table,
+.order-confirmation-table .table thead,
+.order-confirmation-table .table tbody,
+.order-confirmation-table .table tr,
+.order-confirmation-table .table th,
+.order-confirmation-table .table td {
+  background-color: transparent !important;
+}
+
+order-confirmation-table .table > :not(caption) > * > * {
+  background-color: transparent !important;
+  box-shadow: none !important; /* removes Bootstrap's cell "inset" effect */
+}
+
+/* Section spacing */
+.order-confirmation-table small.text-muted {
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.order-details-table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+/* Product image column */
+.od-img {
+    width: 60px;
+}
+
+.od-thumb {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Product name column */
+.od-name {
+    padding-left: 0.5rem;
+    width: auto;
+}
+
+/* Quantity column */
+.od-qty {
+    width: 70px;
+    white-space: nowrap;
+}
+
+/* Price column */
+.od-price {
+    width: 90px;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+/* Tighten row spacing */
+.order-details-table tr {
+    line-height: 1.2;
+}
+
+.order-info-table td,
+.delivery-table td,
+.billing-table td {
+    padding: 0.35rem 0;
+}
+
+/* Label column width */
+.oi-label,
+.di-label,
+.bi-label {
+    width: 45%;
+}
+
+/* Value column alignment */
+.oi-value,
+.di-value,
+.bi-value {
+    width: 55%;
+    text-align: right;
+}
+
+
+
  
 /* Media Queries */
 
@@ -763,6 +861,23 @@ label[for^="id_qty"] {
   transform: scale(0.7) !important;
   transform-origin: right center;
 }
+
+    .od-qty,
+    .od-price {
+        font-size: 0.9rem;
+    }
+
+    .oi-value,
+    .di-value,
+    .bi-value {
+        text-align: left;
+        padding-top: 0.25rem;
+    }
+
+    .order-details-table td {
+        padding: 0.3rem 0;
+    }
+
 }
 
 @media (min-width: 800px) {

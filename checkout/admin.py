@@ -1,10 +1,43 @@
+# checkout/admin.py
+
 from decimal import Decimal
+
+from django import forms
 from django.contrib import admin, messages
+
 from .models import Order, OrderLineItem
+
+
+class OrderLineItemInlineForm(forms.ModelForm):
+    """
+    Inline form validation:
+    If someone selects "Full dice set of 7" for a product that has no set price
+    (dice_set_price is None or 0.00), we auto-change it to SINGLE and remember
+    the product name so the admin can show a warning message after save.
+    """
+    class Meta:
+        model = OrderLineItem
+        fields = "__all__"
+
+    def clean(self):
+        cleaned = super().clean()
+        product = cleaned.get("product")
+        option = cleaned.get("option")
+
+        # Treat None OR 0.00 as "no set price"
+        has_set_price = bool(product and product.dice_set_price)
+
+        if product and option == OrderLineItem.OPTION_SET and not has_set_price:
+            cleaned["option"] = OrderLineItem.OPTION_SINGLE
+            # flag for admin messaging later
+            self._corrected_to_single_name = product.name
+
+        return cleaned
 
 
 class OrderLineItemAdminInline(admin.TabularInline):
     model = OrderLineItem
+    form = OrderLineItemInlineForm
     readonly_fields = ("lineitem_total",)
     fields = ("product", "option", "quantity", "lineitem_total")
     extra = 0
@@ -38,8 +71,8 @@ class OrderAdmin(admin.ModelAdmin):
 
     def save_model(self, request, obj, form, change):
         """
-        When adding a new Order in admin, it must have NOT NULL totals.
-        Set them to 0.00 so the initial save succeeds.
+        When adding a new Order in admin, totals are NOT NULL in the DB.
+        Set them to 0.00 so the first save succeeds.
         """
         if not obj.pk:
             obj.order_total = obj.order_total or Decimal("0.00")
@@ -49,32 +82,27 @@ class OrderAdmin(admin.ModelAdmin):
 
     def save_related(self, request, form, formsets, change):
         """
-        After inline OrderLineItems are saved:
-        - If someone selected "set" for a product that doesn't have a real set price
-          (dice_set_price is None OR 0.00), flip it back to "single"
-        - Show a warning message listing corrected products
-        - Recalculate totals
+        After inline OrderLineItems are saved show warnings for any 
+        auto-corrected "set" selections and recalculate order totals
         """
         super().save_related(request, form, formsets, change)
 
-        order = form.instance
         corrected_products = []
 
-        for li in order.lineitems.select_related("product").all():
-            no_set_available = not li.product.dice_set_price  
+        for fs in formsets:
+            for inline_form in fs.forms:
+                name = getattr(inline_form, "_corrected_to_single_name", None)
+                if name:
+                    corrected_products.append(name)
 
-            if no_set_available and li.option == OrderLineItem.OPTION_SET:
-                OrderLineItem.objects.filter(pk=li.pk).update(option=OrderLineItem.OPTION_SINGLE)
-                corrected_products.append(li.product.name)
-
-        if corrected_products:
+        for name in sorted(set(corrected_products)):
             messages.warning(
                 request,
-                f"{', '.join(corrected_products)} cannot be sold as part of a dice set. "
-                f"This items has been changed to 'Single D20'."
+                f"{name} cannot be sold as part of a dice set. "
+                "This item has been changed to 'Single Item or Single D20'."
             )
 
-        order.update_total()
+        form.instance.update_total()
 
 
 admin.site.register(Order, OrderAdmin)

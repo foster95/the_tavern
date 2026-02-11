@@ -18,18 +18,165 @@
         Your order has been placed successfully. A confirmation email has been sent to {{ order.email }}.
       </p>
     </div>
+  </div>
 
-    <div class="row">
-        <div class="col-12 col-lg-7">
-            <h4 class="mb-3">Order Details</h4>
-            <p><strong>Order Number:</strong> {{ order.order_number }}</p>
-            <p><strong>Name:</strong> {{ order.full_name }}</p>
-            <p><strong>Email:</strong> {{ order.email }}</p>
-            <p><strong>Phone:</strong> {{ order.phone_number }}</p>
-            <p><strong>Address:</strong> {{ order.street_address1 }}, {% if order.street_address2 %}{{ order.street_address2 }}, {% endif %}{{ order.town_or_city }}, {{ order.postcode }}, {{ order.country }}</p>
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-7">
+      <div class="order-confirmation-table p-2 mt-4">
+
+        <!-- Order Information -->
+        <small class="text-muted d-block mb-2">Order Information</small>
+
+        <div class="table-responsive">
+          <table class="table table-sm align-middle order-info-table mb-0">
+            <tbody>
+              <tr>
+                <td class="fw-bold oi-label">Order Number:</td>
+                <td class="text-end oi-value">{{ order.order_number|slice:":12" }}</td>
+              </tr>
+              <tr>
+                <td class="fw-bold oi-label">Order Date:</td>
+                <td class="text-end oi-value">{{ order.date }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+
+        <!-- Order Details -->
+        <small class="text-muted d-block mt-4 mb-2">Order Details:</small>
+
+        <div class="table-responsive">
+          <table class="table order-details-table align-middle mb-0">
+
+            <thead>
+        <tr>
+            <th class="text-start"></th>
+            <th class="text-start">Product</th>
+            <th class="text-end">Qty</th>
+            <th class="text-end">Unit Price</th>
+            <th class="text-end">Total</th>
+        </tr>
+    </thead>
+
+            <tbody>
+              {% for item in order.lineitems.all %}
+              <tr>
+                <!-- Image -->
+                <td class="od-img">
+                  {% if item.product.image %}
+                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="od-thumb">
+                  {% else %}
+                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}" class="od-thumb">
+                  {% endif %}
+                </td>
+
+                <!-- Name + option -->
+                <td class="od-name">
+                  <span class="fw-bold">{{ item.product.name }}</span>
+
+                  {% if item.product.dice_set_price and item.product.dice_set_price > 0 %}
+                    {% if item.option == "single" %}
+                      <small class="text-muted ms-2">(Single D20)</small>
+                    {% elif item.option == "set" %}
+                      <small class="text-muted ms-2">(Full set of 7)</small>
+                    {% endif %}
+                  {% endif %}
+                </td>
+
+                <!-- Qty -->
+                <td class="od-qty text-end">
+                  x {{ item.quantity }}
+                </td>
+
+                <!-- Product Price -->
+                <td class="od-price text-end">
+                  £{{ item.product.price|floatformat:2 }}
+                </td>
+
+                <!-- Line Total Price -->
+                <td class="od-price text-end">
+                  £{{ item.lineitem_total|floatformat:2 }}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Delivery Details -->
+        <small class="text-muted d-block mt-4 mb-2">Delivery Details:</small>
+
+        <div class="table-responsive">
+          <table class="table table-sm align-middle delivery-table mb-0">
+            <tbody>
+              <tr>
+                <td class="fw-bold di-label">Full Name:</td>
+                <td class="text-end di-value">{{ order.full_name }}</td>
+              </tr>
+              <tr>
+                <td class="fw-bold di-label">Address Line 1:</td>
+                <td class="text-end di-value">{{ order.street_address1 }}</td>
+              </tr>
+              <tr>
+                <td class="fw-bold di-label">Address Line 2:</td>
+                <td class="text-end di-value">{{ order.street_address2 }}</td>
+              </tr>
+              <tr>
+                <td class="fw-bold di-label">Town or City:</td>
+                <td class="text-end di-value">{{ order.town_or_city }}</td>
+              </tr>
+              <tr>
+                <td class="fw-bold di-label">County:</td>
+                <td class="text-end di-value">{{ order.county }}</td>
+              </tr>
+              <tr>
+                <td class="fw-bold di-label">Country:</td>
+                <td class="text-end di-value">{{ order.country }}</td>
+              </tr>
+              <tr>
+                <td class="fw-bold di-label">Postcode:</td>
+                <td class="text-end di-value">{{ order.postcode }}</td>
+              </tr>
+              <tr>
+                <td class="fw-bold di-label">Phone Number:</td>
+                <td class="text-end di-value">{{ order.phone_number }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Billing Information -->
+        <small class="text-muted d-block mt-4 mb-2">Billing Information:</small>
+
+        <div class="table-responsive">
+          <table class="table table-sm align-middle billing-table mb-0">
+            <tbody>
+              <tr>
+                <td class="fw-bold bi-label">Order Total:</td>
+                <td class="text-end bi-value">£{{ order.order_total|floatformat:2 }}</td>
+              </tr>
+              <tr>
+                <td class="fw-bold bi-label">Delivery Charges:</td>
+                <td class="text-end bi-value">
+                  {% if order.delivery_cost > 0 %}
+                    £{{ order.delivery_cost|floatformat:2 }}
+                  {% else %}
+                    £0.00
+                  {% endif %}
+                </td>
+              </tr>
+              <tr>
+                <td class="fw-bold bi-label">Grand Total:</td>
+                <td class="text-end bi-value">£{{ order.grand_total|floatformat:2 }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
     </div>
   </div>
-  
+
+</div>
 {% endblock %}
 

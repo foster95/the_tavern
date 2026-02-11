@@ -88,7 +88,7 @@ class OrderLineItem(models.Model):
                 self.order.update_total()
             return
         # If the product doesn't support a set price, force SINGLE
-        if self.product.dice_set_price is None:
+        if not self.product.dice_set_price:
             self.option = self.OPTION_SINGLE
 
         # Pick the right unit price
