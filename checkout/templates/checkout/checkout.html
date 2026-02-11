@@ -89,14 +89,14 @@
       <form method="POST" action="{% url 'checkout' %}" id="payment-form">
         {% csrf_token %}
 
-        <fieldset class="border p-4 mb-4">
+        <fieldset class="p-4 mb-2">
           <legend class="w-auto px-2">Your Details</legend>
           {{ order_form.full_name|as_crispy_field }}
           {{ order_form.email|as_crispy_field }}
           {{ order_form.phone_number|as_crispy_field }}
         </fieldset>
 
-        <fieldset class="border p-4 mb-4">
+        <fieldset class="p-4 mb-4">
           <legend class="w-auto px-2">Delivery</legend>
           {{ order_form.street_address1|as_crispy_field }}
           {{ order_form.street_address2|as_crispy_field }}
@@ -120,7 +120,7 @@
           {% endif %}
         </fieldset>
 
-        <fieldset class="border p-4 mb-4">
+        <fieldset class="p-4 mb-4">
           <legend class="w-auto px-2">Payment</legend>
           <div id="card-element" class="mb-3"></div>
           <div id="card-errors" role="alert" class="text-danger mb-3"></div>

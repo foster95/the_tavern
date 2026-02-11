@@ -34,6 +34,8 @@ def checkout(request):
             order.grand_total = current_bag["grand_total"]
 
             payment_intent_id = request.POST.get("payment_intent_id", "")
+            print("🔥 POST received. payment_intent_id =", payment_intent_id)
+
             if hasattr(order, "stripe_pid"):
                 order.stripe_pid = payment_intent_id
 
@@ -76,7 +78,12 @@ def checkout(request):
         metadata={"bag": str(bag)},
     )
 
+    print(intent)
+
     form = OrderForm()
+
+    if not settings.STRIPE_PUBLIC_KEY:
+        messages.warning(request, "Stripe public key is missing. Check your environment variables.")
 
     context = {
         "order_form": form,

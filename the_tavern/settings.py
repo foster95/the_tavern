@@ -37,7 +37,7 @@ STRIPE_CURRENCY = "gbp"
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9ujzfmlw+mjf1_j$n)b5g-=@jpq7t*3%nk8-vnze45)ii09(hr'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
