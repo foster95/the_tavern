@@ -111,7 +111,7 @@ def checkout(request):
 def order_confirmation(request, order_number):
     save_info = request.session.get("save_info", False)
     order = get_object_or_404(Order, order_number=order_number)
-    messages.success(request, f"Order successfully processed! Your order number is {order_number}.")
+    messages.success(request, f"Order successfully processed! Your order number is {order_number[:12]}.")
 
     if "bag" in request.session:
         del request.session["bag"]
