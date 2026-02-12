@@ -719,6 +719,16 @@ label[for^="id_qty"] {
   opacity: 0.8;
 }
 
+select, 
+select option {
+  color: black;
+}
+
+select:invalid,
+select option [value=""] {
+color: var(--bs-secondary-color) !important;
+}
+
 /* Order Confirmation CSS */
 
 .order-confirmation-table .table {
