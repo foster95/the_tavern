@@ -1,5 +1,3 @@
-# checkout/views.py
-
 import stripe
 from decimal import Decimal
 

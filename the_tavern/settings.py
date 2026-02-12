@@ -30,6 +30,7 @@ STANDARD_DELIVERY_PERCENTAGE = 10  # 10% delivery rate
 
 STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY")
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
+STRIPE_WH_SECRET = os.environ.get("STRIPE_WH_SECRET")
 STRIPE_CURRENCY = "gbp"
 
 
@@ -42,10 +43,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
-# Application definition
+ALLOWED_HOSTS = [ 'localhost', 
+                 '127.0.0.1', ] 
 
 INSTALLED_APPS = [
     'django.contrib.admin',
