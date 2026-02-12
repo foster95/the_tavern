@@ -19,9 +19,11 @@ class Order(models.Model):
     country = models.CharField(max_length=40)
     postcode = models.CharField(max_length=20, blank=True)
     date = models.DateTimeField(auto_now_add=True)
-    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2)
-    order_total = models.DecimalField(max_digits=10, decimal_places=2)
-    grand_total = models.DecimalField(max_digits=10, decimal_places=2)
+    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, default=Decimal("0.00"))
+    order_total = models.DecimalField(max_digits=10, decimal_places=2, default=Decimal("0.00"))
+    grand_total = models.DecimalField(max_digits=10, decimal_places=2, default=Decimal("0.00"))
+    original_bag = models.TextField(null=False, blank=False, default="")
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default="")
 
     def _generate_order_number(self):
         """ Generate a random, unique order number using UUID """
