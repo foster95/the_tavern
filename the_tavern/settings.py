@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'checkout', # Checkout app
     'crispy_forms', # Django Crispy Forms
     'crispy_bootstrap5', # Django Crispy Forms Bootstrap 5
+    'profiles', # User profile app
 
 ]
 
