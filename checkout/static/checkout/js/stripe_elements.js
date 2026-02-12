@@ -1,4 +1,4 @@
-// Keys from Django json_script 
+// Keys from Django json_script
 var stripePublicKey = JSON.parse(
   document.getElementById("stripe-public-key").textContent
 );
@@ -10,16 +10,14 @@ var clientSecret = JSON.parse(
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 
-// Style 
+// Style
 var style = {
   base: {
     color: "#1A1A1D",
     fontFamily: "'Montserrat', sans-serif",
     fontSmoothing: "antialiased",
     fontSize: "16px",
-    "::placeholder": {
-      color: "#aab7c4",
-    },
+    "::placeholder": { color: "#aab7c4" },
   },
   invalid: {
     color: "#dc3545",
@@ -31,19 +29,18 @@ var style = {
 var card = elements.create("card", { style: style });
 card.mount("#card-element");
 
-// Handle realtime validation errors on the card element
+// Realtime validation errors
 card.addEventListener("change", function (event) {
   var errorDiv = document.getElementById("card-errors");
   var cardElement = document.getElementById("card-element");
 
   if (event.error) {
-    var html = `
+    errorDiv.innerHTML = `
       <span class="icon" role="alert">
         <i class="fas fa-times"></i>
       </span>
       <span>${event.error.message}</span>
     `;
-    errorDiv.innerHTML = html;
     if (cardElement) cardElement.classList.add("has-error");
   } else {
     errorDiv.textContent = "";
@@ -51,13 +48,14 @@ card.addEventListener("change", function (event) {
   }
 });
 
-// Handle form submit and double-submit protection
 var form = document.getElementById("payment-form");
 var submitBtn = document.getElementById("complete-order-button");
-
-// keep original label so we can restore it
 var originalBtnHTML = submitBtn ? submitBtn.innerHTML : "";
 var isSubmitting = false;
+
+function fieldValue(id) {
+  return (document.getElementById(id)?.value || "").trim();
+}
 
 form.addEventListener("submit", function (ev) {
   ev.preventDefault();
@@ -66,7 +64,7 @@ form.addEventListener("submit", function (ev) {
   if (isSubmitting) return;
   isSubmitting = true;
 
-  // Disable card + button
+  // Disable submit button and show spinner
   card.update({ disabled: true });
   if (submitBtn) {
     submitBtn.disabled = true;
@@ -76,65 +74,80 @@ form.addEventListener("submit", function (ev) {
     `;
   }
 
-  stripe
-    .confirmCardPayment(clientSecret, {
-      payment_method: {
-        card: card,
-        billing_details: {
-          name: document.getElementById("id_full_name")?.value || "",
-          email: document.getElementById("id_email")?.value || "",
-          phone: document.getElementById("id_phone_number")?.value || "",
-        },
-      },
-    })
-    .then(function (result) {
-      if (result.error) {
-        // Show error
-        var errorDiv = document.getElementById("card-errors");
-        var html = `
-          <span class="icon" role="alert">
-            <i class="fas fa-times"></i>
-          </span>
-          <span>${result.error.message}</span>
-        `;
-        errorDiv.innerHTML = html;
+  var saveInfo = Boolean($("#save-info").attr("checked"));
+  var csrfToken = $("input[name='csrfmiddlewaretoken']").val();
 
-        // Re-enable so user can try again
-        card.update({ disabled: false });
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalBtnHTML;
-        }
-        isSubmitting = false;
-      } else {
-        // Success
-        if (result.paymentIntent && result.paymentIntent.status === "succeeded") {
-          // Attach PI id so Django can store it 
-          var hidden = document.createElement("input");
-          hidden.type = "hidden";
-          hidden.name = "payment_intent_id";
-          hidden.value = result.paymentIntent.id;
-          form.appendChild(hidden);
+  var postData = {
+    csrfmiddlewaretoken: csrfToken,
+    client_secret: clientSecret,
+    save_info: saveInfo,
+  };
 
-          form.submit();
-        } else {
-          // Unexpected status: allow retry
+  $.post("/checkout/cache_checkout_data/", postData)
+    .done(function () {
+      // Confirm payment after caching
+      stripe
+        .confirmCardPayment(clientSecret, {
+          payment_method: {
+            card: card,
+            billing_details: {
+              name: fieldValue("id_full_name"),
+              email: fieldValue("id_email"),
+              phone: fieldValue("id_phone_number"),
+              address: {
+                line1: fieldValue("id_street_address1"),
+                line2: fieldValue("id_street_address2"),
+                city: fieldValue("id_town_or_city"),
+                state: fieldValue("id_county"),
+                country: fieldValue("id_country"),
+              },
+            },
+          },
+
+          shipping: {
+            name: fieldValue("id_full_name"),
+            phone: fieldValue("id_phone_number"),
+            address: {
+              line1: fieldValue("id_street_address1"),
+              line2: fieldValue("id_street_address2"),
+              city: fieldValue("id_town_or_city"),
+              state: fieldValue("id_county"),
+              postal_code: fieldValue("id_postcode"),
+              country: fieldValue("id_country"),
+            },
+          },
+        })
+        .then(function (result) {
+          if (result.error) {
+            // Show error
+            var errorDiv = document.getElementById("card-errors");
+            errorDiv.innerHTML = `
+              <span class="icon" role="alert">
+                <i class="fas fa-times"></i>
+              </span>
+              <span>${result.error.message}</span>
+            `;
+
+            card.update({ disabled: false });
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = originalBtnHTML;
+            }
+            isSubmitting = false;
+          } else {
+            form.submit();
+          }
+        })
+        .catch(function () {
           card.update({ disabled: false });
           if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalBtnHTML;
           }
           isSubmitting = false;
-        }
-      }
+        });
     })
-    .catch(function () {
-      // Any unexpected JS/network error: unlock UI
-      card.update({ disabled: false });
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalBtnHTML;
-      }
-      isSubmitting = false;
+    .fail(function () {
+      location.reload();
     });
 });
