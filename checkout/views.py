@@ -86,7 +86,6 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse("view_bag"))
 
-                # B1: simple quantity
                 if isinstance(item_data, int):
                     OrderLineItem.objects.create(
                         order=order,
