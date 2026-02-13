@@ -91,7 +91,8 @@
 
         <fieldset class="p-4 mb-2">
           <legend class="w-auto px-2">Your Details</legend>
-          {{ order_form.full_name|as_crispy_field }}
+          {{ order_form.first_name|as_crispy_field }}
+          {{ order_form.last_name|as_crispy_field }}
           {{ order_form.email|as_crispy_field }}
           {{ order_form.phone_number|as_crispy_field }}
         </fieldset>

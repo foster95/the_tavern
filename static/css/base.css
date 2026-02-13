@@ -825,6 +825,22 @@ order-confirmation-table .table > :not(caption) > * > * {
     text-align: right;
 }
 
+/* Profile Page CSS */
+#id_default_country {
+  color: var(--bs-secondary-color);
+}
+
+#id_default_country.country-selected {
+  color: #000;
+}
+
+#id_default_country option {
+  color: #000;
+}
+
+#id_default_country option[value=""] {
+  color: var(--bs-secondary-color);
+}
 
 /* Media Queries */
 
