@@ -1,12 +1,13 @@
-from urllib import request
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404
 
-# Create your views here.
+from .models import UserProfile
 
+
+@login_required
 def profile(request):
-    """ Display the user's profile """ 
-    
+    """Display the user's profile."""
+    profile = get_object_or_404(UserProfile, user=request.user)
     template = "profiles/profile.html"
-    context = {}
-    
+    context = {"profile": profile}
     return render(request, template, context)

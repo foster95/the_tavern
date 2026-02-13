@@ -9,7 +9,9 @@ from django.dispatch import receiver
 class UserProfile(models.Model):
     """ A model to create a user profile for storing
       default delivery information and order history """ 
-    user = models.OneToOneField(User, on_delete=models.CASCADE) 
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    default_first_name = models.CharField(max_length=50, null=True, blank=True)
+    default_last_name = models.CharField(max_length=50, null=True, blank=True)
     default_phone_number = models.CharField(max_length=20, null=True, blank=True) 
     default_street_address1 = models.CharField(max_length=80, null=True, blank=True) 
     default_street_address2 = models.CharField(max_length=80, null=True, blank=True) 
@@ -27,4 +29,4 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
     # Existing users: just save the profile
-    instance.userprofile.save()
+        instance.userprofile.save()

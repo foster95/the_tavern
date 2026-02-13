@@ -69,7 +69,7 @@
                      data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="text-center">
                       <div><i class="fas fa-user fa-lg"></i></div>
-                      <p class="my-0">My Account</p>
+                      <p class="my-0">Your Account</p>
                     </div>
                   </a>
 
@@ -78,7 +78,7 @@
                       {% if request.user.is_superuser %}
                         <a href="#" class="dropdown-item">Product Management</a>
                       {% endif %}
-                      <a href="#" class="dropdown-item">My Profile</a>
+                      <a href="{% url 'profile' %}" class="dropdown-item">Your Profile</a>
                       <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
                     {% else %}
                       <a href="{% url 'account_signup' %}" class="dropdown-item">Sign Up</a>
