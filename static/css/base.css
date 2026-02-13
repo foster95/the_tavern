@@ -842,6 +842,11 @@ order-confirmation-table .table > :not(caption) > * > * {
   color: var(--bs-secondary-color);
 }
 
+.order-history {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
 /* Media Queries */
 
 @media (min-width: 768px){

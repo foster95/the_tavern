@@ -35,12 +35,11 @@ card.addEventListener("change", function (event) {
   var cardElement = document.getElementById("card-element");
 
   if (event.error) {
-    errorDiv.innerHTML = `
-      <span class="icon" role="alert">
-        <i class="fas fa-times"></i>
-      </span>
-      <span>${event.error.message}</span>
-    `;
+    errorDiv.innerHTML =
+      '<span class="icon" role="alert"><i class="fas fa-times"></i></span>' +
+      "<span>" +
+      event.error.message +
+      "</span>";
     if (cardElement) cardElement.classList.add("has-error");
   } else {
     errorDiv.textContent = "";
@@ -54,28 +53,42 @@ var originalBtnHTML = submitBtn ? submitBtn.innerHTML : "";
 var isSubmitting = false;
 
 function fieldValue(id) {
-  return (document.getElementById(id)?.value || "").trim();
+  var el = document.getElementById(id);
+  return el ? (el.value || "").trim() : "";
+}
+
+function fullName() {
+  var first = fieldValue("id_first_name");
+  var last = fieldValue("id_last_name");
+  return (first + " " + last).trim();
 }
 
 form.addEventListener("submit", function (ev) {
   ev.preventDefault();
 
-  // Prevent multiple submissions
   if (isSubmitting) return;
   isSubmitting = true;
 
-  // Disable submit button and show spinner
+  // Disable submit + card
   card.update({ disabled: true });
   if (submitBtn) {
     submitBtn.disabled = true;
-    submitBtn.innerHTML = `
-      <i class="fa-solid fa-spinner fa-spin me-2"></i>
-      Processing...
-    `;
+    submitBtn.innerHTML =
+      '<i class="fa-solid fa-spinner fa-spin me-2"></i>Processing...';
   }
 
-  var saveInfo = Boolean($("#save-info").attr("checked"));
-  var csrfToken = $("input[name='csrfmiddlewaretoken']").val();
+  // Convert checkbox to "true"/"false" string
+  var saveInfo = document.getElementById("save-info")
+    ? document.getElementById("save-info").checked
+      ? "true"
+      : "false"
+    : "false";
+
+  // ✅ set hidden input that will POST to your checkout view
+  var hidden = document.getElementById("save-info-hidden");
+  if (hidden) hidden.value = saveInfo;
+
+  var csrfToken = document.querySelector("input[name='csrfmiddlewaretoken']").value;
 
   var postData = {
     csrfmiddlewaretoken: csrfToken,
@@ -85,13 +98,12 @@ form.addEventListener("submit", function (ev) {
 
   $.post("/checkout/cache_checkout_data/", postData)
     .done(function () {
-      // Confirm payment after caching
       stripe
         .confirmCardPayment(clientSecret, {
           payment_method: {
             card: card,
             billing_details: {
-              name: fieldValue("id_full_name"),
+              name: fullName(),
               email: fieldValue("id_email"),
               phone: fieldValue("id_phone_number"),
               address: {
@@ -99,13 +111,13 @@ form.addEventListener("submit", function (ev) {
                 line2: fieldValue("id_street_address2"),
                 city: fieldValue("id_town_or_city"),
                 state: fieldValue("id_county"),
+                // Stripe wants 2-letter country codes - your select likely provides that
                 country: fieldValue("id_country"),
               },
             },
           },
-
           shipping: {
-            name: fieldValue("id_full_name"),
+            name: fullName(),
             phone: fieldValue("id_phone_number"),
             address: {
               line1: fieldValue("id_street_address1"),
@@ -119,14 +131,12 @@ form.addEventListener("submit", function (ev) {
         })
         .then(function (result) {
           if (result.error) {
-            // Show error
             var errorDiv = document.getElementById("card-errors");
-            errorDiv.innerHTML = `
-              <span class="icon" role="alert">
-                <i class="fas fa-times"></i>
-              </span>
-              <span>${result.error.message}</span>
-            `;
+            errorDiv.innerHTML =
+              '<span class="icon" role="alert"><i class="fas fa-times"></i></span>' +
+              "<span>" +
+              result.error.message +
+              "</span>";
 
             card.update({ disabled: false });
             if (submitBtn) {
@@ -135,6 +145,7 @@ form.addEventListener("submit", function (ev) {
             }
             isSubmitting = false;
           } else {
+            // ✅ now submit the form (includes client_secret + save_info hidden)
             form.submit();
           }
         })

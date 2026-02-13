@@ -72,7 +72,8 @@ class StripeWebhookHandler:
                 time.sleep(1)
 
             order = Order.objects.create(
-                full_name=(getattr(shipping_details, "name", "") or ""),
+                first_name=(getattr(shipping_details, "first_name", "") or ""),
+                last_name=(getattr(shipping_details, "last_name", "") or ""),
                 email=billing_email,
                 phone_number=(getattr(shipping_details, "phone", "") or ""),
                 street_address1=(getattr(shipping_address, "line1", "") or ""),

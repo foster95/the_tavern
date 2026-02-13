@@ -179,6 +179,16 @@
           </table>
         </div>
 
+        {% if from_profile %}
+        <div class="text-center mt-4">
+          <a href="{% url 'profile' %}" class="btn btn-secondary">Back to Profile</a>
+        </div>
+        {% else %}
+        <div class="text-center mt-4">
+          <a href="{% url 'products' %}" class="btn btn-primary">Continue Shopping</a>
+        </div>
+        {% endif %}
+
       </div>
     </div>
   </div>

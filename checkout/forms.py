@@ -34,7 +34,6 @@ class OrderForm(forms.ModelForm):
         }
 
         self.fields["first_name"].widget.attrs["autofocus"] = True
-        self.fields["last_name"].widget.attrs["autofocus"] = True
 
         for field_name, field in self.fields.items():
             # Add your consistent styling class
