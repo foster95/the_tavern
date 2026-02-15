@@ -1,3 +1,5 @@
+# checkout/webhook_handler.py
+
 import json
 import time
 from decimal import Decimal
@@ -9,6 +11,7 @@ from django.shortcuts import get_object_or_404
 
 from products.models import Product
 from .models import Order, OrderLineItem
+from profiles.models import UserProfile
 
 
 class StripeWebhookHandler:
@@ -23,73 +26,130 @@ class StripeWebhookHandler:
 
     def handle_payment_intent_succeeded(self, event):
         """
-        Handle the payment_intent.succeeded webhook from Stripe.
-        If an order already exists for this PaymentIntent (stripe_pid), do nothing.
-        Otherwise create it (fallback).
+        Handle the payment_intent.succeeded webhook.
+
+        Normal flow:
+        - Your checkout view creates the Order already.
+        - This webhook should find it and just return 200.
+
+        Fallback:
+        - If no Order exists yet for this PaymentIntent, create it from Stripe data.
+        - If the user was logged in (metadata.username != anonymous) and save_info is truthy,
+          update the UserProfile default delivery fields.
         """
         stripe.api_key = settings.STRIPE_SECRET_KEY
 
         intent = event.data.object
-        pid = intent.id  
+        pid = intent.id
 
         metadata = getattr(intent, "metadata", {}) or {}
         bag = metadata.get("bag", "{}")
-        save_info = metadata.get("save_info", "false")  
+        username = metadata.get("username", "anonymous")
 
-        order = None
+        # IMPORTANT: "false" is truthy in Python unless you normalize it.
+        save_info = str(metadata.get("save_info", "false")).lower() in ("true", "1", "yes", "on")
+
+        # --- Pull billing email from the latest charge (safest) ---
+        billing_email = ""
+        stripe_total = Decimal("0.00")
 
         try:
-            stripe_charge = stripe.Charge.retrieve(intent.latest_charge)
-            billing_details = stripe_charge.billing_details
+            latest_charge_id = getattr(intent, "latest_charge", None)
+            if latest_charge_id:
+                stripe_charge = stripe.Charge.retrieve(latest_charge_id)
+                stripe_total = Decimal(str(stripe_charge.amount)) / Decimal("100")
+                billing_details = getattr(stripe_charge, "billing_details", None)
+                if billing_details:
+                    billing_email = getattr(billing_details, "email", "") or ""
+        except Exception:
+            # Don't fail the webhook just because we can't read billing email
+            billing_email = ""
 
-            billing_email = getattr(billing_details, "email", "") or ""
+        # --- Shipping details on the PaymentIntent ---
+        shipping = getattr(intent, "shipping", None)
+        shipping_name = getattr(shipping, "name", "") if shipping else ""
+        shipping_phone = getattr(shipping, "phone", "") if shipping else ""
+        shipping_address = getattr(shipping, "address", None) if shipping else None
 
-            shipping_details = getattr(intent, "shipping", None) or {}
-            shipping_address = getattr(shipping_details, "address", None) or {}
-            stripe_total = Decimal(str(stripe_charge.amount)) / Decimal("100")
+        # shipping_address fields: line1, line2, city, state, postal_code, country
+        line1 = getattr(shipping_address, "line1", "") if shipping_address else ""
+        line2 = getattr(shipping_address, "line2", "") if shipping_address else ""
+        city = getattr(shipping_address, "city", "") if shipping_address else ""
+        state = getattr(shipping_address, "state", "") if shipping_address else ""
+        postal_code = getattr(shipping_address, "postal_code", "") if shipping_address else ""
+        country = getattr(shipping_address, "country", "") if shipping_address else ""
 
-            for attr in ("line2", "state", "postal_code"):
-                try:
-                    if getattr(shipping_address, attr, None) == "":
-                        setattr(shipping_address, attr, None)
-                except Exception:
-                    pass
+        # --- Parse bag JSON safely ---
+        try:
+            bag_dict = json.loads(bag) if isinstance(bag, str) else bag
+        except json.JSONDecodeError:
+            # fallback if someone stored single quotes
+            bag_dict = json.loads(str(bag).replace("'", '"'))
 
+        # --- Get / update profile (DO NOT create user here; only profile if user exists) ---
+        profile = None
+        if username != "anonymous":
             try:
-                bag_dict = json.loads(bag)
-            except json.JSONDecodeError:
-                bag_dict = json.loads(bag.replace("'", '"'))
+                profile, _ = UserProfile.objects.get_or_create(user__username=username)
+            except Exception:
+                profile = None
 
-            attempt = 1
-            while attempt <= 10:
-                order = Order.objects.filter(stripe_pid=pid).first()
-                if order:
-                    return HttpResponse(
-                        content=f"Webhook received: {event['type']} | SUCCESS: Order already exists in database",
-                        status=200,
-                    )
-                attempt += 1
-                time.sleep(1)
+            if profile and save_info:
+                parts = (shipping_name or "").split()
+                profile.default_first_name = parts[0] if parts else ""
+                profile.default_last_name = " ".join(parts[1:]) if len(parts) > 1 else ""
+
+                profile.default_phone_number = shipping_phone or ""
+                profile.default_street_address1 = line1 or ""
+                profile.default_street_address2 = line2 or ""
+                profile.default_town_or_city = city or ""
+                profile.default_county = state or ""
+                profile.default_postcode = postal_code or ""
+                profile.default_country = country or ""
+
+                profile.save()
+
+        # --- Give your normal checkout view a moment to write the Order ---
+        # (prevents duplicate orders if webhook arrives quickly)
+        for _ in range(10):
+            existing = Order.objects.filter(stripe_pid=pid).first()
+            if existing:
+                return HttpResponse(
+                    content=f"Webhook received: {event['type']} | SUCCESS: Order already exists",
+                    status=200,
+                )
+            time.sleep(1)
+
+        # --- Fallback: create the Order if it still doesn't exist ---
+        order = None
+        try:
+            # Split name into first + last (basic)
+            name_parts = (shipping_name or "").split()
+            first_name = name_parts[0] if name_parts else ""
+            last_name = " ".join(name_parts[1:]) if len(name_parts) > 1 else ""
 
             order = Order.objects.create(
-                first_name=(getattr(shipping_details, "first_name", "") or ""),
-                last_name=(getattr(shipping_details, "last_name", "") or ""),
+                user_profile=profile,
+                first_name=first_name,
+                last_name=last_name,
                 email=billing_email,
-                phone_number=(getattr(shipping_details, "phone", "") or ""),
-                street_address1=(getattr(shipping_address, "line1", "") or ""),
-                street_address2=(getattr(shipping_address, "line2", "") or "") or "",
-                town_or_city=(getattr(shipping_address, "city", "") or ""),
-                county=(getattr(shipping_address, "state", "") or "") or "",
-                country=(getattr(shipping_address, "country", "") or ""),
-                postcode=(getattr(shipping_address, "postal_code", "") or "") or "",
+                phone_number=shipping_phone or "",
+                street_address1=line1 or "",
+                street_address2=line2 or "",
+                town_or_city=city or "",
+                county=state or "",
+                country=country or "",
+                postcode=postal_code or "",
                 order_total=Decimal("0.00"),
                 delivery_cost=Decimal("0.00"),
                 grand_total=Decimal("0.00"),
-                original_bag=bag,
+                original_bag=json.dumps(bag_dict),
                 stripe_pid=pid,
             )
 
+            # Create line items from bag contents
             for item_key, item_data in bag_dict.items():
+                # Your bag supports keys like "12:set" as int quantity
                 if ":" in str(item_key) and isinstance(item_data, int):
                     item_id, option = str(item_key).split(":", 1)
                     product = get_object_or_404(Product, id=int(item_id))
@@ -106,6 +166,8 @@ class StripeWebhookHandler:
                         lineitem_total=Decimal("0.00"),
                     )
                     continue
+
+                # Standard bag key is product id
                 product = get_object_or_404(Product, id=int(item_key))
 
                 if isinstance(item_data, int):
@@ -117,7 +179,8 @@ class StripeWebhookHandler:
                         lineitem_total=Decimal("0.00"),
                     )
                 else:
-                    for option, quantity in item_data.get("items_by_option", {}).items():
+                    items_by_option = item_data.get("items_by_option", {})
+                    for option, quantity in items_by_option.items():
                         option = (option or "").strip().lower()
                         if option not in (OrderLineItem.OPTION_SINGLE, OrderLineItem.OPTION_SET):
                             option = OrderLineItem.OPTION_SINGLE
@@ -133,7 +196,7 @@ class StripeWebhookHandler:
             order.update_total()
 
             return HttpResponse(
-                content=f"Webhook received: {event['type']} | SUCCESS: Order created by webhook (not found after 10 attempt(s))",
+                content=f"Webhook received: {event['type']} | SUCCESS: Order created by webhook fallback",
                 status=200,
             )
 
