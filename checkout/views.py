@@ -76,7 +76,16 @@ def checkout(request):
             pid = client_secret.split("_secret")[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
-
+            
+            # ✅ Make Stripe store the email on the PaymentIntent (reliable for webhooks)
+            try:
+                stripe.PaymentIntent.modify(
+                    pid,
+                    receipt_email=(order.email or "").strip(),  # <-- key line
+                    )
+            except Exception:
+                pass
+            
             order.save()
 
             for item_key, item_data in bag.items():
@@ -113,7 +122,6 @@ def checkout(request):
 
             order.update_total()
 
-            request.session["bag"] = {}
             return redirect(reverse("order_confirmation", args=[order.order_number]))
 
         messages.error(request, "There was an error with your form. Please check your details.")

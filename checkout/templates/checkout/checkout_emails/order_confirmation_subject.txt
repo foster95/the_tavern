@@ -1,0 +1,25 @@
+Hail, {{ order.first_name }}!
+
+The coins have been counted, the contract is signed, and your order has officially reached the bar at The Tavern.
+
+Our small team of artisans is already heading into the workshop to gather your gear. Because each piece is hand-finished right here in-house, we take a little extra time to ensure your dice are balanced, your wood is polished, and your bags are stitched to survive a dragon's breath. Your order information is below for you records:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date|date:"j M Y, H:i" }}
+Shipping To: {{ order.street_address1 }}, {{ order.town_or_city }}, {{ order.postcode }}, {{ order.country.name }}
+
+Items:
+{% for item in order.lineitems.all %}
+• {{ item.product.name }} (x{{ item.quantity }})
+{% endfor %}
+
+Order Total: £{{ order.order_total }}
+Delivery: £{{ order.delivery_cost }}
+Grand Total: £{{ order.grand_total }}
+
+If you have any questions, send a raven to {{ contact_email }}
+
+Thanks for your order!
+
+The team at The Tavern
+
