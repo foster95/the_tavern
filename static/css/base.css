@@ -472,6 +472,26 @@ span.p-2.mt-2.mb-3.badge.badge-white.text-black.border.border-dark:active {
   text-decoration: none;
 }
 
+.delete-link {
+    all: unset;                 /* nukes ALL button styling */
+    color: #dc3545;             /* red */
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: underline;
+    display: inline;            /* prevents weird inline-block box */
+}
+
+/* hover */
+.delete-link:hover {
+    color: #a71d2a;
+}
+
+/* accessibility focus */
+.delete-link:focus-visible {
+    outline: 2px dashed #dc3545;
+    outline-offset: 2px;
+}
+
 /* Product Details Page Specific Styles */
 
 #product-details-container {
