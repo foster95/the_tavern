@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 from .models import Product, Category
+from .forms import ProductForm
 
 
 def product_list(request):
@@ -80,3 +81,25 @@ def product_detail(request, product_slug):
     }
 
     return render(request, 'products/product_details.html', context)
+
+def add_product(request):
+    """ Add a product to the store """
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry, only store owners can do that.")
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            product = form.save()
+            messages.success(request, f'Product "{product.name}" added successfully!')
+            return redirect(reverse('product_detail', args=[product.slug]))
+        else:
+            messages.error(request, "Failed to add product. Please check the form for errors.")
+    else:
+        form = ProductForm()
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'products/add_product.html', context)
