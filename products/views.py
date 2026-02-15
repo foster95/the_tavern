@@ -93,7 +93,7 @@ def add_product(request):
         if form.is_valid():
             product = form.save()
             messages.success(request, f'Product "{product.name}" added successfully!')
-            return redirect(reverse('add_product'))
+            return redirect(reverse('product_detail', args=[product.slug]))
         else:
             messages.error(request, "Failed to add product. Please check the form for errors.")
     else:
@@ -128,3 +128,19 @@ def amend_product(request, product_slug):
         'product': product,
     }
     return render(request, 'products/amend_product.html', context)
+
+def delete_product(request, product_slug):
+    """ Delete a product from the store """
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry, only store owners can do that.")
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, slug=product_slug)
+
+    if request.method == "POST":
+        product_name = product.name
+        product.delete()
+        messages.success(request, f'"{product_name}" deleted successfully!')
+        return redirect(reverse('products'))
+
+    return redirect(reverse('product_detail', args=[product.slug]))
