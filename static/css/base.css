@@ -847,6 +847,15 @@ order-confirmation-table .table > :not(caption) > * > * {
   overflow-y: auto;
 }
 
+#order-history table,
+#order-history thead,
+#order-history tbody,
+#order-history tr,
+#order-history th,
+#order-history td {
+  background-color: var(--primary-color) !important;
+}
+
 /* Media Queries */
 
 @media (min-width: 768px){

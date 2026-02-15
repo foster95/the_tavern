@@ -7,6 +7,11 @@ from django.dispatch import receiver
 
 class UserProfile(models.Model):
     """Stores default delivery info and order history."""
+    profile_picture = models.ImageField(
+        upload_to="profile_pictures/", 
+        null=True, 
+        blank=True
+        )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_first_name = models.CharField(max_length=50, null=True, blank=True)
     default_last_name = models.CharField(max_length=50, null=True, blank=True)

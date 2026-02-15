@@ -9,26 +9,38 @@ from checkout.models import Order
 
 @login_required
 def profile(request):
-    """Display the user's profile."""
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == "POST":
-        form = UserProfileForm(request.POST, instance=profile)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Profile updated successfully.")
+        # Upload picture
+        if "update_picture" in request.POST and request.FILES.get("profile_picture"):
+            profile.profile_picture = request.FILES["profile_picture"]
+            profile.save()
+            messages.success(request, "Profile picture updated.")
+
+        # Remove picture
+        elif "remove_picture" in request.POST:
+            profile.profile_picture = None
+            profile.save()
+            messages.success(request, "Profile picture removed.")
+
+        # Update delivery fields
+        elif "update_delivery" in request.POST:
+            form = UserProfileForm(request.POST, instance=profile)
+            if form.is_valid():
+                form.save()
+                messages.success(request, "Profile updated successfully.")
 
     form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
 
-
-    template = "profiles/profile.html"
-    context = {
+    return render(request, "profiles/profile.html", {
+        "profile": profile,
         "form": form,
         "orders": orders,
         "on_profile_page": True,
-        }
-    return render(request, template, context)
+    })
+
 
 def order_history(request, order_number):
     """ Display the user's order history """
