@@ -11,9 +11,7 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = (
             "category", 
-            "sku",
             "name", 
-            "slug",
             "description",
             "product_material",
             "product_dimensions",
@@ -23,9 +21,7 @@ class ProductForm(forms.ModelForm):
         )
         labels = {
             'category': 'Category',
-            'sku': 'SKU',
             'name': 'Name',
-            'slug': 'Slug',
             'description': 'Description',
             'product_material': 'Material',
             'product_dimensions': 'Dimensions',

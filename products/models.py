@@ -1,4 +1,6 @@
 from django.db import models
+import uuid
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -17,6 +19,14 @@ class Category(models.Model):
     def get_friendly_name(self):
         return self.friendly_name
 
+def generate_sku(product):
+    category_code = product.category.slug[:3].upper() if product.category else "GEN"
+    material = (product.product_material or "STD")[:8].replace(" ", "").upper()
+    name_part = slugify(product.name).split("-")[-1][:6].upper()
+    unique = uuid.uuid4().hex[:4].upper()
+    return f"{category_code}-{material}-{name_part}-{unique}"
+        
+
 class Product(models.Model):
     """ Model for products """
 
@@ -25,7 +35,7 @@ class Product(models.Model):
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL, related_name='products'
     )
-    sku = models.CharField(max_length=50, null=True, blank=True)
+    sku = models.CharField(max_length=50, null=True, blank=True, unique=True)
     name = models.CharField(max_length=254)
     slug = models.SlugField(max_length=254, unique=True, null=True, blank=True)
     description = models.TextField()
@@ -34,10 +44,16 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
     dice_set_price= models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(null= True, blank=True)
 
-    class Meta:
-        ordering = ['name']
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+            
+        if not self.sku:
+            self.sku = generate_sku(self)
+                
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name

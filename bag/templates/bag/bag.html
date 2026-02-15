@@ -35,11 +35,19 @@
 
                 <!-- Image -->
                 <div class="text-center mb-3">
+                    {% if item.product.image %}
                     <img
-                        src="{{ item.product.image.url }}"
-                        alt="{{ item.product.name }}"
-                        class="img-fluid rounded-3"
-                        style="max-width: 320px; width: 100%;">
+                    src="{{ item.product.image.url }}"
+                    alt="{{ item.product.name }}"
+                    class="img-fluid rounded-3"
+                    style="max-width: 320px; width: 100%;">
+                    {% else %}
+                    <img
+                    src="/media/products/no-product-image.jpeg"
+                    alt="No product image"
+                    class="img-fluid rounded-3"
+                    style="max-width: 320px; width: 100%;">
+                    {% endif %}
                 </div>
 
                 <!-- Product info -->
@@ -164,11 +172,19 @@
                         {% for item in bag_items %}
                         <tr>
                             <td style="width: 90px;">
+                                {% if item.product.image %}
                                 <img
                                     src="{{ item.product.image.url }}"
                                     alt="{{ item.product.name }}"
                                     class="img-fluid rounded d-block mx-auto"
                                     style="max-width: 90px;">
+                                {% else %}
+                                <img
+                                    src="/media/products/no-product-image.jpeg"
+                                    alt="{{ item.product.name }}"
+                                    class="img-fluid rounded d-block mx-auto"
+                                    style="max-width: 90px;">
+                                {% endif %}
                             </td>
 
                             <td>

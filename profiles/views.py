@@ -12,34 +12,36 @@ def profile(request):
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == "POST":
-        # Upload picture
         if "update_picture" in request.POST and request.FILES.get("profile_picture"):
             profile.profile_picture = request.FILES["profile_picture"]
             profile.save()
             messages.success(request, "Profile picture updated.")
 
-        # Remove picture
         elif "remove_picture" in request.POST:
             profile.profile_picture = None
             profile.save()
             messages.success(request, "Profile picture removed.")
 
-        # Update delivery fields
         elif "update_delivery" in request.POST:
             form = UserProfileForm(request.POST, instance=profile)
             if form.is_valid():
                 form.save()
                 messages.success(request, "Profile updated successfully.")
+            else:
+                messages.error(request, "Failed to update profile. Please check the form for errors.")
+        else:
+            form = UserProfileForm(instance=profile)
+    else:
+        form = UserProfileForm(instance=profile)
 
-    form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
 
     return render(request, "profiles/profile.html", {
         "profile": profile,
         "form": form,
         "orders": orders,
-        "on_profile_page": True,
     })
+
 
 
 def order_history(request, order_number):
