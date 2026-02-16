@@ -105,3 +105,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const modalEl = document.getElementById("deleteReviewModal");
+  const formEl = document.getElementById("deleteReviewForm");
+
+  if (!modalEl || !formEl) return;
+
+  modalEl.addEventListener("show.bs.modal", function (event) {
+    const trigger = event.relatedTarget; // the button that opened the modal
+    if (!trigger) return;
+
+    const deleteUrl = trigger.getAttribute("data-delete-url");
+    if (deleteUrl) {
+      formEl.setAttribute("action", deleteUrl);
+    }
+  });
+});
+

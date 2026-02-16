@@ -11,6 +11,9 @@ from .models import Product, Category, ProductReview
 from .forms import ProductForm
 from .forms import ProductReviewForm
 
+def is_commenter_or_superuser(user, review: ProductReview) -> bool:
+    return user.is_superuser or review.user_id == user.id
+
 
 def product_list(request):
     """ Show all products """
@@ -211,8 +214,47 @@ def create_review(request, product_slug):
 
     return render(request, "reviews/create_review.html", {"product": product, "form": form})
 
+@login_required
+@require_POST
+def delete_review(request, review_id):
+    review = get_object_or_404(ProductReview, id=review_id)
+
+    if not is_commenter_or_superuser(request.user, review):
+        messages.error(request, "You don’t have permission to delete this review.")
+        return redirect("product_detail", product_slug=review.product.slug)
+
+    product_slug = review.product.slug
+    review.delete()
+    messages.success(request, "Review deleted.")
+    return redirect("product_detail", product_slug=product_slug)
+
+
 def staff_required(view_func):
     return user_passes_test(lambda u: u.is_active and u.is_staff)(view_func)
+
+@login_required
+@require_POST
+def edit_review(request, review_id):
+    review = get_object_or_404(ProductReview, id=review_id)
+
+    # only commenter or superuser
+    if not (request.user == review.user or request.user.is_superuser):
+        messages.error(request, "You cannot edit this review.")
+        return redirect("product_detail", product_slug=review.product.slug)
+
+    review.rating = request.POST.get("rating")
+    review.title = request.POST.get("title")
+    review.body = request.POST.get("body")
+
+    # send back to moderation
+    review.status = "pending"
+    review.approved_by = None
+    review.approved_at = None
+
+    review.save()
+
+    messages.success(request, "Review updated and sent for approval.")
+    return redirect("product_detail", product_slug=review.product.slug)
 
 
 @login_required
