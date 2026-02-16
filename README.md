@@ -289,6 +289,191 @@ The Product of the Month section of the homepage is linked to a template literal
 The reasons to buy carousel is a simple carousel made up of text which slides across every 7 seconds to the next item. The carousel is set to loop infinitely but is subtle enough that it should not cause any visual issues. Users can also toggle through to the next item using the arrows on either side of the page. 
 
 ### Testimonials - Home Page
+The testimonials section is made up of another simple model, allowing staff to update the testimonials shown on the website. The testimonial is made up of a quote, a name, and a tag line (often the typical character a player goes by). They are able to update any testimonial, as well as add, delete and change the order of the testimonials. On a mobile screen, the testimonials automatically stack. 
+
+        class Testimonial(models.Model):
+            quote = models.TextField()
+            name = models.CharField(max_length=80)
+            tagline = models.CharField(max_length=120, blank=True) 
+            sort_order = models.PositiveSmallIntegerField(default=0)
+
+            created_at = models.DateTimeField(auto_now_add=True)
+
+            class Meta:
+                ordering = ["sort_order", "-created_at"]
+
+            def __str__(self):
+                return f"{self.name} — {self.quote[:40]}..."
+
+### Product Catalog 
+The product catalog is a visual map for users of the website to navigate to the product details of each individual product they want to find out more information about. Every item is associated to an image, a product name, a price (which either reads as flat price or a from price) and a tag by which users can filter (ie metallic dice, dice bag, dice tower). If a product does not have an image, a file has been loaded up in the media folder which kicks in as a default. Products can be ordered by the following: alphabetical order, price and category. There are two models associated with the product page, the Category model and the Product model. Within the model, there is a further function which automatically generates a sku for employees, and a function which generates a slug for the product which appears in the admin panel. 
+
+        class Category(models.Model):
+            """ Model for product categories """
+
+            class Meta:
+                verbose_name_plural = 'Categories'
+                    name = models.CharField(max_length=254)
+                    slug = models.SlugField(max_length=254, unique=True)
+                    friendly_name = models.CharField(max_length=100, null=True, blank=True)
+
+                def __str__(self):
+                    return self.friendly_name or self.name
+    
+                def get_friendly_name(self):
+                    return self.friendly_name
+
+                def generate_sku(product):
+                    category_code = product.category.slug[:3].upper() if product.category else "GEN"
+                    material = (product.product_material or "STD")[:8].replace(" ", "").upper()
+                    name_part = slugify(product.name).split("-")[-1][:6].upper()
+                    unique = uuid.uuid4().hex[:4].upper()
+                    return f"{category_code}-{material}-{name_part}-{unique}"
+        
+
+        class Product(models.Model):
+            """ Model for products """
+
+            class Meta:
+                ordering = ['name']
+            category = models.ForeignKey(
+                'Category', null=True, blank=True, on_delete=models.SET_NULL, related_name='products'
+            )
+            sku = models.CharField(max_length=50, null=True, blank=True, unique=True)
+            name = models.CharField(max_length=254)
+            slug = models.SlugField(max_length=254, unique=True, null=True, blank=True)
+            description = models.TextField()
+            product_material = models.CharField(max_length=254, null=True, blank=True)
+            product_dimensions = models.CharField(max_length=254, null=True, blank=True)
+            price = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
+            dice_set_price= models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
+            image_url = models.URLField(max_length=1024, null=True, blank=True)
+            image = models.ImageField(null= True, blank=True)
+
+            def save(self, *args, **kwargs):
+                if not self.slug:
+                    self.slug = slugify(self.name)
+            
+                if not self.sku:
+                    self.sku = generate_sku(self)
+                
+                super().save(*args, **kwargs)
+
+            def __str__(self):
+                return self.name
+
+The product catalog is designed mobile first, and products stack into individual rows on a mobile, rows of two on a tablet and rows of four on desktop and above. There is a small arrow that floats on the right hand side of the items which takes users from the bottom of the page to the top using a small chunk of javascript. This code was inspired by the Boutique Ado walkthrough and adjusted for the project needs. 
+
+## Product Details Page
+Upon clicking any of the items on the product catalog, the user is taken to the individual product description page. Products are searched for using their slug, rather than their indiviudal ID number, providing better UX for users as they can understand the product they are searching for much easier than if they were required to know the product number. The product details page includes the following - the product tag, a product image, a product title, a product description, a product price, a product quantity toggler and a dimensions and materials drop down accordion. When accessed via mobile, the columns automatically stack on top of each other but on tablet and larger screens, the columns split into two showing the product image on the left hand side and the product details on the right. 
+
+As dice can be sold either individually or as part of a seven piece set, dice have an additional option where users can choose whether or not they are buying the individual price, or the full set, which affects the price shown on the site. Dice products will automatically default to the single D20 price when the user loads onto the website. To determine whether or not the product is considered to be a flat price or part of the single vs set cost, the below model was created: 
+
+        class Bundle(models.Model):
+            """ Model for product bundles - ie is customer buying one d20 or a full set? """
+            category = models.ForeignKey(
+                Category,
+                on_delete=models.CASCADE,
+                related_name='bundle_prices'
+            )
+            name = models.CharField(max_length=100)
+            quantity = models.PositiveIntegerField()
+            price = models.DecimalField(max_digits=8, decimal_places=2)
+
+            class Meta:
+                unique_together = ('category', 'name')
+
+            def __str__(self):
+                return f"{self.category.name} - {self.name}"
+
+A small portion of javascript was written to help the user in clicking between the single dice price and the full set price. 
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const singleBtn = document.getElementById("single-btn");
+            const setBtn = document.getElementById("set-btn");
+            const priceSpan = document.getElementById("product-price");
+            const diceOption = document.getElementById("dice-option");
+
+            if (!singleBtn || !setBtn || !priceSpan || !diceOption) return;
+
+            diceOption.value = "single";
+            singleBtn.classList.add("active");
+            setBtn.classList.remove("active");
+
+            singleBtn.addEventListener("click", () => {
+                diceOption.value = "single";
+                priceSpan.textContent = singleBtn.dataset.price;
+
+                singleBtn.classList.add("active");
+                setBtn.classList.remove("active");
+            });
+
+            setBtn.addEventListener("click", () => {
+                diceOption.value = "set";
+                priceSpan.textContent = setBtn.dataset.price;
+
+                setBtn.classList.add("active");
+                singleBtn.classList.remove("active");
+            });
+        });
+
+Users of the website can also input the quantity of the item they would like to add to their shopping bag. To avoid a user being able to input 0, a guard has been introduced through javascript, which does not allow the number 0 to be inputted and automatically defaults to 1 if they user does try and manually type to override:
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const MIN_QTY = 1;
+            const MAX_QTY = 99;
+
+            document.querySelectorAll(".quantity-wrapper").forEach((wrapper) => {
+                const minusBtn = wrapper.querySelector(".qty-btn.minus");
+                const plusBtn = wrapper.querySelector(".qty-btn.plus");
+                const input = wrapper.querySelector(".qty-input");
+
+                if (!minusBtn || !plusBtn || !input) return;
+
+                const updateButtons = () => {
+                    minusBtn.disabled = parseInt(input.value) <= MIN_QTY;
+                };
+
+                if (!input.value || parseInt(input.value) < MIN_QTY) {
+                    input.value = MIN_QTY;
+                }
+                updateButtons();
+
+                minusBtn.addEventListener("click", () => {
+                    let value = parseInt(input.value);
+
+                if (value > MIN_QTY) {
+                    input.value = value - 1;
+                }
+
+                updateButtons();
+                });
+
+                plusBtn.addEventListener("click", () => {
+                    let value = parseInt(input.value);
+
+                if (value < MAX_QTY) {
+                    input.value = value + 1;
+                }
+
+                updateButtons();
+                });
+
+                input.addEventListener("input", () => {
+                    let value = parseInt(input.value);
+
+                if (isNaN(value) || value < MIN_QTY) {
+                    input.value = MIN_QTY;
+                }
+
+                if (value > MAX_QTY) {
+                    input.value = MAX_QTY;
+                }
+
+                updateButtons();
+                });
+            });
+        });
 
 
 ## Web Marketing
