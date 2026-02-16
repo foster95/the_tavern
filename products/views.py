@@ -4,8 +4,9 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib.auth.decorators import login_required
 
-from .models import Product, Category
+from .models import Product, Category, ProductReview
 from .forms import ProductForm
+from .forms import ProductReviewForm
 
 
 def product_list(request):
@@ -77,8 +78,34 @@ def product_detail(request, product_slug):
 
     product = get_object_or_404(Product, slug=product_slug)
 
+    if request.method == "POST" and request.user.is_authenticated:
+        form = ProductReviewForm(request.POST)
+
+        # prevent duplicate review
+        already_reviewed = ProductReview.objects.filter(
+            product=product,
+            user=request.user
+        ).exists()
+
+        if already_reviewed:
+            messages.info(request, "You have already reviewed this product.")
+            return redirect("product_detail", product_slug=product.slug)
+
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.product = product
+            review.user = request.user
+            review.status = ProductReview.Status.PENDING
+            review.save()
+
+            messages.success(request, "Your review has been submitted and is awaiting approval.")
+            return redirect("product_detail", product_slug=product.slug)
+    else:
+        form = ProductReviewForm()
+
     context = {
         'product': product,
+        'review_form': form,
     }
 
     return render(request, 'products/product_details.html', context)
@@ -156,3 +183,27 @@ def delete_product(request, product_slug):
         return redirect(reverse('products'))
 
     return redirect(reverse('product_detail', args=[product.slug]))
+
+@login_required
+def create_review(request, product_slug):
+    product = get_object_or_404(Product, slug=product_slug)
+
+    # Optional: prevent multiple reviews per product per user
+    if ProductReview.objects.filter(product=product, user=request.user).exists():
+        messages.info(request, "You’ve already reviewed this product.")
+        return redirect("product_detail", product_slug=product.slug)
+
+    if request.method == "POST":
+        form = ProductReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.product = product
+            review.user = request.user
+            review.status = ProductReview.Status.PENDING  # moderation gate
+            review.save()
+            messages.success(request, "Thanks! Your review is awaiting approval.")
+            return redirect("product_detail", product_slug=product.slug)
+    else:
+        form = ProductReviewForm()
+
+    return render(request, "reviews/create_review.html", {"product": product, "form": form})

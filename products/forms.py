@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product
+from .models import Product, ProductReview
 
 
 class ProductForm(forms.ModelForm):
@@ -60,3 +60,20 @@ class ProductForm(forms.ModelForm):
             cleaned["dice_set_price"] = None
 
         return cleaned
+
+
+from django import forms
+from .models import ProductReview
+
+
+class ProductReviewForm(forms.ModelForm):
+    rating = forms.IntegerField(widget=forms.HiddenInput())
+
+    class Meta:
+        model = ProductReview
+        fields = ["rating", "title", "body"]
+
+        widgets = {
+            "title": forms.TextInput(attrs={"class": "form-control"}),
+            "body": forms.Textarea(attrs={"class": "form-control", "rows": 4}),
+        }

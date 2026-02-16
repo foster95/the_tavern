@@ -38,7 +38,7 @@
           {{ product.name }}
         </p>
 
-         {% if product.category %}
+        {% if product.category %}
           <p class="small mt-1 mb-0">
             <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
               <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
@@ -51,7 +51,6 @@
         </p>
 
         {% if product.dice_set_price %}
-          <!-- Dice option selector -->
           <p class="mb-2 text-start">Choose option:</p>
 
           <div class="d-flex gap-2 justify-content-center" role="group" aria-label="Dice options">
@@ -78,45 +77,40 @@
         </p>
 
         <!-- Add to Bag form -->
-      <form action="{% url 'add_to_bag' product.id %}" method="POST">
-  {% csrf_token %}
+        <form action="{% url 'add_to_bag' product.id %}" method="POST">
+          {% csrf_token %}
 
-  <div class="row align-items-center justify-content-center justify-content-md-start g-2">
+          <div class="row align-items-center justify-content-center justify-content-md-start g-2">
 
-  <!-- Quantity (auto width) -->
-  <div class="col-auto">
-    <div class="quantity-wrapper">
-      <button type="button" class="qty-btn minus">−</button>
+            <div class="col-auto">
+              <div class="quantity-wrapper">
+                <button type="button" class="qty-btn minus">−</button>
 
-      <input
-        type="number"
-        name="quantity"
-        value="1"
-        min="1"
-        max="99"
-        id="id_qty_{{ product.id }}"
-        class="form-control qty-input"
-      >
+                <input
+                  type="number"
+                  name="quantity"
+                  value="1"
+                  min="1"
+                  max="99"
+                  id="id_qty_{{ product.id }}"
+                  class="form-control qty-input"
+                >
 
-      <button type="button" class="qty-btn plus">+</button>
-    </div>
-  </div>
+                <button type="button" class="qty-btn plus">+</button>
+              </div>
+            </div>
 
-  <!-- Add to Bag (auto width) -->
-  <div class="col-auto">
-    <button type="submit" class="btn btn-black add-to-bag-button">
-      Add to Bag
-    </button>
-  </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-black add-to-bag-button">
+                Add to Bag
+              </button>
+            </div>
 
-</div>
+          </div>
 
-
-<input type="hidden" name="dice_option" id="dice-option" value="single">
-<input type="hidden" name="redirect_url" value="{{ request.path }}">
-
-</form>
-
+          <input type="hidden" name="dice_option" id="dice-option" value="single">
+          <input type="hidden" name="redirect_url" value="{{ request.path }}">
+        </form>
 
         <!-- Accordion (Dimensions + Material only) -->
         <div class="accordion mt-3 w-100" id="product-info-accordion">
@@ -173,8 +167,108 @@
 
         </div>
       </div>
+    </div>
+
+    <!-- ================= REVIEWS (FULL WIDTH UNDER BOTH COLUMNS) ================= -->
+    <div class="col-12 col-lg-10 mt-5">
+
+      <h2 class="text-center mb-4">Customer Reviews</h2>
+
+      <div class="text-center mb-4">
+        {% if user.is_authenticated %}
+          <button class="btn btn-black" type="button" data-bs-toggle="collapse" data-bs-target="#review-form">
+            Write a Review
+          </button>
+
+          <div id="review-form" class="collapse mt-4 text-start">
+            <div class="card p-4">
+
+              <form method="POST">
+                {% csrf_token %}
+
+                <!-- Rating: clickable FA stars + hidden input from the form -->
+                <div class="mb-3">
+                  <label class="form-label d-block">Rating</label>
+
+                  <div id="star-rating" class="star-rating mb-2" aria-label="Select a rating">
+                    <i class="far fa-star" data-value="1" role="button" tabindex="0" aria-label="1 star"></i>
+                    <i class="far fa-star" data-value="2" role="button" tabindex="0" aria-label="2 stars"></i>
+                    <i class="far fa-star" data-value="3" role="button" tabindex="0" aria-label="3 stars"></i>
+                    <i class="far fa-star" data-value="4" role="button" tabindex="0" aria-label="4 stars"></i>
+                    <i class="far fa-star" data-value="5" role="button" tabindex="0" aria-label="5 stars"></i>
+                  </div>
+
+                  {{ review_form.rating }}
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Title</label>
+                  {{ review_form.title }}
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Your Review</label>
+                  {{ review_form.body }}
+                </div>
+
+                <button type="submit" class="btn btn-black">
+                  Submit Review
+                </button>
+              </form>
+
+              <small class="text-muted mt-2 d-block">
+                Reviews are moderated before appearing publicly.
+              </small>
+
+            </div>
+          </div>
+        {% else %}
+          <a href="{% url 'account_login' %}" class="btn btn-black">
+            Log in to write a review
+          </a>
+        {% endif %}
+      </div>
+
+      <!-- Review List -->
+      {% for review in product.reviews.all %}
+        {% if review.status == "approved" or review.user == request.user %}
+          <div class="card mb-3">
+            <div class="card-body text-start">
+
+              <!-- Font Awesome stars display -->
+              <div class="review-stars mb-2" aria-label="Rating: {{ review.rating }} out of 5">
+                {% for i in "12345" %}
+                  {% if forloop.counter <= review.rating %}
+                    <i class="fas fa-star"></i>
+                  {% else %}
+                    <i class="far fa-star"></i>
+                  {% endif %}
+                {% endfor %}
+              </div>
+
+              {% if review.title %}
+                <h5 class="mt-2">{{ review.title }}</h5>
+              {% endif %}
+
+              <p class="mb-2">{{ review.body }}</p>
+
+              <small class="text-muted">
+                by {{ review.user }} • {{ review.created_at|date:"d M Y" }}
+                {% if review.status != "approved" %}
+                  • <em>{{ review.get_status_display }}</em>
+                {% endif %}
+              </small>
+
+            </div>
+          </div>
+        {% endif %}
+      {% empty %}
+        <p class="text-center">No reviews yet — be the first!</p>
+      {% endfor %}
 
     </div>
+    <!-- =========================================================================== -->
+
   </div>
 </div>
 {% endblock %}
@@ -182,4 +276,5 @@
 {% block additional_js %}
   {{ block.super }}
   <script src="{% static 'products/js/product_details.js' %}"></script>
+  <script src="{% static 'products/js/product_review.js' %}"></script>
 {% endblock %}
