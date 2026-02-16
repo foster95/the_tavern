@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 
 from .models import UserProfile
@@ -11,28 +11,40 @@ from checkout.models import Order
 def profile(request):
     profile = get_object_or_404(UserProfile, user=request.user)
 
-    if request.method == "POST":
-        if "update_picture" in request.POST and request.FILES.get("profile_picture"):
-            profile.profile_picture = request.FILES["profile_picture"]
-            profile.save()
-            messages.success(request, "Profile picture updated.")
+    # Default form (always defined)
+    form = UserProfileForm(instance=profile)
 
-        elif "remove_picture" in request.POST:
+    if request.method == "POST":
+
+        # Upload / change picture
+        if "update_picture" in request.POST:
+            uploaded = request.FILES.get("profile_picture")
+            if uploaded:
+                profile.profile_picture = uploaded
+                profile.save()
+                messages.success(request, "Profile picture updated.")
+            else:
+                messages.error(request, "Please choose an image to upload.")
+
+            return redirect("profile")
+
+        # Remove picture
+        if "remove_picture" in request.POST:
             profile.profile_picture = None
             profile.save()
             messages.success(request, "Profile picture removed.")
+            return redirect("profile")
 
-        elif "update_delivery" in request.POST:
+        # Update delivery info (this one needs to re-render errors if invalid)
+        if "update_delivery" in request.POST:
             form = UserProfileForm(request.POST, instance=profile)
             if form.is_valid():
                 form.save()
                 messages.success(request, "Profile updated successfully.")
+                return redirect("profile")
             else:
                 messages.error(request, "Failed to update profile. Please check the form for errors.")
-        else:
-            form = UserProfileForm(instance=profile)
-    else:
-        form = UserProfileForm(instance=profile)
+                # fall through to render with bound form + errors
 
     orders = profile.orders.all()
 

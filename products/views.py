@@ -3,6 +3,9 @@ from django.shortcuts import redirect, reverse, render, get_object_or_404
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import user_passes_test
+from django.utils import timezone
 
 from .models import Product, Category, ProductReview
 from .forms import ProductForm
@@ -207,3 +210,32 @@ def create_review(request, product_slug):
         form = ProductReviewForm()
 
     return render(request, "reviews/create_review.html", {"product": product, "form": form})
+
+def staff_required(view_func):
+    return user_passes_test(lambda u: u.is_active and u.is_staff)(view_func)
+
+
+@login_required
+@staff_required
+@require_POST
+def approve_review(request, review_id):
+    review = get_object_or_404(ProductReview, id=review_id)
+    review.status = ProductReview.Status.APPROVED
+    review.approved_at = timezone.now()
+    review.approved_by = request.user
+    review.save(update_fields=["status", "approved_at", "approved_by"])
+    messages.success(request, "Review approved.")
+    return redirect("product_detail", product_slug=review.product.slug)
+
+
+@login_required
+@staff_required
+@require_POST
+def reject_review(request, review_id):
+    review = get_object_or_404(ProductReview, id=review_id)
+    review.status = ProductReview.Status.REJECTED
+    review.approved_at = None
+    review.approved_by = None
+    review.save(update_fields=["status", "approved_at", "approved_by"])
+    messages.info(request, "Review rejected.")
+    return redirect("product_detail", product_slug=review.product.slug)

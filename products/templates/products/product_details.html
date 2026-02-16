@@ -169,105 +169,147 @@
       </div>
     </div>
 
-    <!-- ================= REVIEWS (FULL WIDTH UNDER BOTH COLUMNS) ================= -->
-    <div class="col-12 col-lg-10 mt-5">
+<!-- ================= REVIEWS (FULL WIDTH UNDER BOTH COLUMNS) ================= -->
+<div class="col-12 col-lg-10 mt-5">
 
-      <h2 class="text-center mb-4">Customer Reviews</h2>
+  <h2 class="text-center mb-4">Customer Reviews</h2>
 
-      <div class="text-center mb-4">
-        {% if user.is_authenticated %}
-          <button class="btn btn-black" type="button" data-bs-toggle="collapse" data-bs-target="#review-form">
-            Write a Review
-          </button>
+  <!-- Write review button + collapsible form -->
+  <div class="text-center mb-4">
+    {% if user.is_authenticated %}
+      <button class="btn btn-black" type="button" data-bs-toggle="collapse" data-bs-target="#review-form">
+        Write a Review
+      </button>
 
-          <div id="review-form" class="collapse mt-4 text-start">
-            <div class="card p-4">
+      <div id="review-form" class="collapse mt-4 text-start">
+        <div class="card p-4">
 
-              <form method="POST">
-                {% csrf_token %}
+          <form method="POST">
+            {% csrf_token %}
 
-                <!-- Rating: clickable FA stars + hidden input from the form -->
-                <div class="mb-3">
-                  <label class="form-label d-block">Rating</label>
+            <div class="mb-3">
+              <label class="form-label d-block">Rating</label>
 
-                  <div id="star-rating" class="star-rating mb-2" aria-label="Select a rating">
-                    <i class="far fa-star" data-value="1" role="button" tabindex="0" aria-label="1 star"></i>
-                    <i class="far fa-star" data-value="2" role="button" tabindex="0" aria-label="2 stars"></i>
-                    <i class="far fa-star" data-value="3" role="button" tabindex="0" aria-label="3 stars"></i>
-                    <i class="far fa-star" data-value="4" role="button" tabindex="0" aria-label="4 stars"></i>
-                    <i class="far fa-star" data-value="5" role="button" tabindex="0" aria-label="5 stars"></i>
-                  </div>
+              <div id="star-rating" class="star-rating mb-2">
+                <i class="far fa-star" data-value="1"></i>
+                <i class="far fa-star" data-value="2"></i>
+                <i class="far fa-star" data-value="3"></i>
+                <i class="far fa-star" data-value="4"></i>
+                <i class="far fa-star" data-value="5"></i>
+              </div>
 
-                  {{ review_form.rating }}
-                </div>
-
-                <div class="mb-3">
-                  <label class="form-label">Title</label>
-                  {{ review_form.title }}
-                </div>
-
-                <div class="mb-3">
-                  <label class="form-label">Your Review</label>
-                  {{ review_form.body }}
-                </div>
-
-                <button type="submit" class="btn btn-black">
-                  Submit Review
-                </button>
-              </form>
-
-              <small class="text-muted mt-2 d-block">
-                Reviews are moderated before appearing publicly.
-              </small>
-
+              {{ review_form.rating }}
             </div>
-          </div>
+
+            <div class="mb-3">
+              <label class="form-label">Title</label>
+              {{ review_form.title }}
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Your Review</label>
+              {{ review_form.body }}
+            </div>
+
+            <button type="submit" class="btn btn-black">Submit Review</button>
+          </form>
+
+          <small class="text-muted mt-2 d-block">
+            Reviews are moderated before appearing publicly.
+          </small>
+
+        </div>
+      </div>
+
+    {% else %}
+      <a href="{% url 'account_login' %}" class="btn btn-black">
+        Log in to write a review
+      </a>
+    {% endif %}
+  </div>
+
+  <!-- Reviews list -->
+
+  <div class="d-flex flex-column gap-3">
+
+{% for review in product.reviews.all %}
+  {% if review.status == "approved" or review.user == request.user or request.user.is_staff %}
+
+  <div class="card p-3">
+
+    <div class="d-flex gap-3">
+
+      <!-- Avatar -->
+      <div class="flex-shrink-0">
+        {% if review.user.userprofile and review.user.userprofile.profile_picture %}
+          <img src="{{ review.user.userprofile.profile_picture.url }}"
+               alt="{{ review.user.username }}"
+               style="width:48px;height:48px;object-fit:cover;border-radius:50%;">
         {% else %}
-          <a href="{% url 'account_login' %}" class="btn btn-black">
-            Log in to write a review
-          </a>
+          <img src="{% static 'images/default-avatar.png' %}"
+               alt="Default avatar"
+               style="width:48px;height:48px;object-fit:cover;border-radius:50%;">
         {% endif %}
       </div>
 
-      <!-- Review List -->
-      {% for review in product.reviews.all %}
-        {% if review.status == "approved" or review.user == request.user %}
-          <div class="card mb-3">
-            <div class="card-body text-start">
+      <!-- Content -->
+      <div class="flex-grow-1">
 
-              <!-- Font Awesome stars display -->
-              <div class="review-stars mb-2" aria-label="Rating: {{ review.rating }} out of 5">
-                {% for i in "12345" %}
-                  {% if forloop.counter <= review.rating %}
-                    <i class="fas fa-star"></i>
-                  {% else %}
-                    <i class="far fa-star"></i>
-                  {% endif %}
-                {% endfor %}
-              </div>
+        <!-- Stars -->
+        <div class="review-stars mb-1">
+          {% for i in "12345" %}
+            {% if forloop.counter <= review.rating %}
+              <i class="fas fa-star"></i>
+            {% else %}
+              <i class="far fa-star"></i>
+            {% endif %}
+          {% endfor %}
+        </div>
 
-              {% if review.title %}
-                <h5 class="mt-2">{{ review.title }}</h5>
-              {% endif %}
-
-              <p class="mb-2">{{ review.body }}</p>
-
-              <small class="text-muted">
-                by {{ review.user }} • {{ review.created_at|date:"d M Y" }}
-                {% if review.status != "approved" %}
-                  • <em>{{ review.get_status_display }}</em>
-                {% endif %}
-              </small>
-
-            </div>
-          </div>
+        <!-- Title -->
+        {% if review.title %}
+          <div class="fw-bold mb-1">{{ review.title }}</div>
         {% endif %}
-      {% empty %}
-        <p class="text-center">No reviews yet — be the first!</p>
-      {% endfor %}
 
+        <!-- Body -->
+        <div class="mb-2">{{ review.body }}</div>
+
+        <!-- Meta -->
+        <small class="text-muted">
+          by {{ review.user.username }} • {{ review.created_at|date:"d M Y" }}
+          {% if review.status != "approved" %}
+            • <strong>{{ review.get_status_display }}</strong>
+          {% endif %}
+        </small>
+
+        <!-- Staff moderation -->
+        {% if request.user.is_staff and review.status != "approved" and review.id %}
+        <div class="mt-2 d-flex gap-2">
+          <form method="POST" action="{% url 'approve_review' review.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-sm btn-success">Approve</button>
+          </form>
+
+          <form method="POST" action="{% url 'reject_review' review.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-sm btn-outline-danger">Reject</button>
+          </form>
+        </div>
+        {% endif %}
+
+      </div>
     </div>
-    <!-- =========================================================================== -->
+
+  </div>
+
+  {% endif %}
+{% empty %}
+  <p class="text-center">No reviews yet — be the first!</p>
+{% endfor %}
+
+</div>
+
+<!-- =========================================================================== -->
 
   </div>
 </div>
