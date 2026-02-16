@@ -41,6 +41,7 @@ class Product(models.Model):
     description = models.TextField()
     product_material = models.CharField(max_length=254, null=True, blank=True)
     product_dimensions = models.CharField(max_length=254, null=True, blank=True)
+    is_dice_set = models.BooleanField(default=False)
     price = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
     dice_set_price= models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)

@@ -475,6 +475,14 @@ Users of the website can also input the quantity of the item they would like to 
             });
         });
 
+On putting an item in the shopping bag, the website utilises Bootstraps built in toast system to indicate to the user that the item has been added to their bag. The toast has a X for users to close, but will also automatically fade after 5 seconds. Within the toast, the user is able to see the item that has been placed into the bag, the quantity of the item and the cost as well as see if they have put enough things in their shopping bag to get free delivery. Finally, the user is shown a button which takes them to the shopping bag page. 
+
+## Shopping Bag
+
+## Checkout
+
+
+
 
 ## Web Marketing
 ### Keyword and SEO research

@@ -4,7 +4,6 @@
 {% block content %}
 <div class="container mb-5">
 
-  <!-- Page Title -->
   <div class="row">
     <div class="col text-center">
       <h1 class="display-4 mt-4">Product Management</h1>
@@ -15,14 +14,43 @@
 
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
-      <form method="post"class="bg-light p-4 rounded-4 shadow-sm" action="{% url 'amend_product' product.slug %}" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form |crispy }}
-        <button type="submit" class="btn btn-primary mt-3">Update Product</button>
-        <button type="reset" class="btn btn-secondary mt-3">Reset</button>
-        <a href="{% url 'products' %}" class="btn btn-outline-secondary mt-3">Cancel</a>
-      </form>
+
+      <form method="post" class="p-4 rounded-4" action="{% url 'amend_product' product.slug %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{ form.category|as_crispy_field }}
+    {{ form.name|as_crispy_field }}
+    {{ form.description|as_crispy_field }}
+    {{ form.product_material|as_crispy_field }}
+    {{ form.product_dimensions|as_crispy_field }}
+
+    <!-- DO NOT SHOW CHECKBOX ON EDIT -->
+    {{ form.is_dice_set.as_hidden }}
+
+    <!-- Single price always visible -->
+    <div id="single-price">
+        {{ form.price|as_crispy_field }}
     </div>
+
+    <!-- Only show if this product already has a set price -->
+    <div id="set-price" {% if not product.dice_set_price %}class="d-none"{% endif %}>
+        {{ form.dice_set_price|as_crispy_field }}
+    </div>
+
+    {{ form.image|as_crispy_field }}
+
+    <button type="submit" class="btn btn-primary mt-3">Update Product</button>
+    <button type="reset" class="btn btn-secondary mt-3">Reset</button>
+    <a href="{% url 'products' %}" class="btn btn-outline-secondary mt-3">Cancel</a>
+</form>
+
+
+    </div>
+  </div>
 </div>
 {% endblock %}
 
+{% block post_load_js %}
+{{ block.super }}
+<script src="{% static 'products/js/product_form.js' %}"></script>
+{% endblock %}

@@ -4,37 +4,59 @@ from .models import Product
 
 class ProductForm(forms.ModelForm):
     """
-    Form for creating and editing products in the admin/store dashboard
+    Form for creating and editing products
     """
+
+    is_dice_set = forms.BooleanField(
+        required=False,
+        widget=forms.CheckboxInput(attrs={"class": "form-check-input"}),
+        label="Is this a dice set?"
+    )
 
     class Meta:
         model = Product
         fields = (
-            "category", 
-            "name", 
+            "category",
+            "name",
             "description",
             "product_material",
             "product_dimensions",
-            "price", 
+            "is_dice_set",
+            "price",
             "dice_set_price",
-            "image"
+            "image",
         )
+
         labels = {
-            'category': 'Category',
-            'name': 'Name',
-            'description': 'Description',
-            'product_material': 'Material',
-            'product_dimensions': 'Dimensions',
-            'price': 'Price',
-            'dice_set_price': 'Dice Set Price',
-            'image': 'Image'
+            "price": "Flat Price (for single dice or non-dice products)",
+            "dice_set_price": "Full Set Price",
         }
 
     def __init__(self, *args, **kwargs):
-        """
-        Add consistent styling to all fields
-        """
         super().__init__(*args, **kwargs)
 
         for field_name, field in self.fields.items():
-            field.widget.attrs["class"] = "border-black rounded-3"
+
+            if field_name == "is_dice_set":
+                field.widget.attrs["class"] = "form-check-input"
+                continue
+
+            if field.widget.__class__.__name__ in ("Select", "SelectMultiple"):
+                field.widget.attrs["class"] = "form-select rounded-3"
+            else:
+                field.widget.attrs["class"] = "form-control rounded-3"
+        self.fields["category"].label_from_instance = lambda obj: obj.friendly_name or obj.name
+
+    def clean(self):
+        cleaned = super().clean()
+        is_dice_set = cleaned.get("is_dice_set")
+        price = cleaned.get("price")
+        dice_set_price = cleaned.get("dice_set_price")
+
+        if is_dice_set:
+            if not dice_set_price:
+                self.add_error("dice_set_price", "Please add a full set price.")
+        else:
+            cleaned["dice_set_price"] = None
+
+        return cleaned
