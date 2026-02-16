@@ -26,6 +26,21 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+if 'USE_AWS' in os.environ:
+    AWS_STORAGE_BUCKET_NAME = 'the-tavern'
+    AWS_S3_REGION_NAME = 'eu-north-1'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    MEDIAFILES_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
 FREE_DELIVERY_THRESHOLD = 25.00
 STANDARD_DELIVERY_PERCENTAGE = 10  # 10% delivery rate
 
@@ -71,6 +86,7 @@ INSTALLED_APPS = [
     'crispy_forms', # Django Crispy Forms
     'crispy_bootstrap5', # Django Crispy Forms Bootstrap 5
     'profiles', # User profile app
+    'storages' #to host media files on AWS S3
 
 ]
 
