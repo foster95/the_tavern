@@ -23,17 +23,3 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(initDiceToggle, 50);
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-
-    const setPrice = document.getElementById("set-price");
-    const priceInput = document.getElementById("id_dice_set_price");
-
-    if (!setPrice || !priceInput) return;
-
-    priceInput.addEventListener("input", function() {
-        if (priceInput.value) {
-            setPrice.classList.remove("d-none");
-        }
-    });
-
-});

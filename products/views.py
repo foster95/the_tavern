@@ -108,29 +108,37 @@ def add_product(request):
 
 @login_required
 def amend_product(request, product_slug):
-    """ Edit a product in the store """
+    """Edit a product in the store"""
     if not request.user.is_superuser:
         messages.error(request, "Sorry, only store owners can do that.")
-        return redirect(reverse('home'))
+        return redirect(reverse("home"))
 
     product = get_object_or_404(Product, slug=product_slug)
 
-    if request.method == 'POST':
-        form = ProductForm(request.POST, request.FILES, instance=product)
+    if request.method == "POST":
+        post = request.POST.copy()
+
+        # ✅ Preserve existing dice flag if the checkbox isn't being sent
+        # (unchecked / not-rendered checkboxes don't appear in POST)
+        if "is_dice_set" not in post:
+            if product.is_dice_set:
+                post["is_dice_set"] = "on"   # checkbox "checked" value
+            else:
+                post["is_dice_set"] = ""     # treated as unchecked
+
+        form = ProductForm(post, request.FILES, instance=product)
+
         if form.is_valid():
             product = form.save()
             messages.success(request, f'Product "{product.name}" updated successfully!')
-            return redirect(reverse('product_detail', args=[product.slug]))
+            return redirect(reverse("product_detail", args=[product.slug]))
         else:
             messages.error(request, "Failed to update product. Please check the form for errors.")
     else:
         form = ProductForm(instance=product)
 
-    context = {
-        'form': form,
-        'product': product,
-    }
-    return render(request, 'products/amend_product.html', context)
+    return render(request, "products/amend_product.html", {"form": form, "product": product})
+
 
 @login_required
 def delete_product(request, product_slug):

@@ -4,6 +4,7 @@
 {% block content %}
 <div class="container mb-5">
 
+  <!-- Title -->
   <div class="row">
     <div class="col text-center">
       <h1 class="display-4 mt-4">Product Management</h1>
@@ -15,42 +16,37 @@
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
 
-      <form method="post" class="p-4 rounded-4" action="{% url 'amend_product' product.slug %}" enctype="multipart/form-data">
-    {% csrf_token %}
+      <form method="post" class="p-4 rounded-4"
+            action="{% url 'amend_product' product.slug %}"
+            enctype="multipart/form-data">
 
-    {{ form.category|as_crispy_field }}
-    {{ form.name|as_crispy_field }}
-    {{ form.description|as_crispy_field }}
-    {{ form.product_material|as_crispy_field }}
-    {{ form.product_dimensions|as_crispy_field }}
+        {% csrf_token %}
 
-    <!-- DO NOT SHOW CHECKBOX ON EDIT -->
-    {{ form.is_dice_set.as_hidden }}
+        {{ form.category|as_crispy_field }}
+        {{ form.name|as_crispy_field }}
+        {{ form.description|as_crispy_field }}
+        {{ form.product_material|as_crispy_field }}
+        {{ form.product_dimensions|as_crispy_field }}
 
-    <!-- Single price always visible -->
-    <div id="single-price">
+        <!-- ALWAYS show single price -->
         {{ form.price|as_crispy_field }}
-    </div>
 
-    <!-- Only show if this product already has a set price -->
-    <div id="set-price" {% if not product.dice_set_price %}class="d-none"{% endif %}>
-        {{ form.dice_set_price|as_crispy_field }}
-    </div>
+        <!-- ONLY show set price if product is dice -->
+        {% if product.is_dice_set %}
+            {{ form.dice_set_price|as_crispy_field }}
+        {% endif %}
 
-    {{ form.image|as_crispy_field }}
+        {{ form.image|as_crispy_field }}
 
-    <button type="submit" class="btn btn-primary mt-3">Update Product</button>
-    <button type="reset" class="btn btn-secondary mt-3">Reset</button>
-    <a href="{% url 'products' %}" class="btn btn-outline-secondary mt-3">Cancel</a>
-</form>
+        <div class="mt-4">
+          <button type="submit" class="btn btn-primary">Update Product</button>
+          <button type="reset" class="btn btn-secondary">Reset</button>
+          <a href="{% url 'products' %}" class="btn btn-outline-secondary">Cancel</a>
+        </div>
 
+      </form>
 
     </div>
   </div>
 </div>
-{% endblock %}
-
-{% block post_load_js %}
-{{ block.super }}
-<script src="{% static 'products/js/product_form.js' %}"></script>
 {% endblock %}
