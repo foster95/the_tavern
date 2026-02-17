@@ -9,7 +9,7 @@ import uuid
 # Create your models here.
 
 class Order(models.Model):
-    order_number = models.CharField(max_length=12, unique=True, editable=False)
+    order_number = models.CharField(max_length=32, unique=True, editable=False)
     user_profile = models.ForeignKey(
     "profiles.UserProfile",
     on_delete=models.SET_NULL,
