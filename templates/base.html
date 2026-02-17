@@ -208,11 +208,37 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       document.querySelectorAll(".toast").forEach(function (toastEl) {
-        new bootstrap.Toast(toastEl).show();
+
+        // ignore the JS-only hidden toast (it gets shown manually when needed)
+        if (toastEl.id === "js-toast-warning") return;
+
+        // Create a stable key from the toast text
+        const text = (toastEl.innerText || "")
+          .trim()
+          .replace(/\s+/g, " ")
+          .slice(0, 200);
+
+        const key = "shown_toast_" + text;
+
+        // If already shown in this tab session, remove so it can't reappear on back/forward
+        if (sessionStorage.getItem(key)) {
+          toastEl.remove();
+          return;
+        }
+
+        // Mark as shown and display
+        sessionStorage.setItem(key, "1");
+        const toast = new bootstrap.Toast(toastEl);
+        toast.show();
+
+        // Remove element after it hides (prevents "ghost" HTML when navigating)
+        toastEl.addEventListener("hidden.bs.toast", function () {
+          toastEl.remove();
+        });
       });
     });
   </script>
 
-{% block additional_js %}{% endblock %}
+  {% block additional_js %}{% endblock %}
 </body>
 </html>

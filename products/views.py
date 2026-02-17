@@ -238,8 +238,8 @@ def edit_review(request, review_id):
     review = get_object_or_404(ProductReview, id=review_id)
 
     # only commenter or superuser
-    if not (request.user == review.user or request.user.is_superuser):
-        messages.error(request, "You cannot edit this review.")
+    if request.user != review.user:
+        messages.error(request, "Only the original reviewer can edit this review.")
         return redirect("product_detail", product_slug=review.product.slug)
 
     review.rating = request.POST.get("rating")
@@ -247,7 +247,7 @@ def edit_review(request, review_id):
     review.body = request.POST.get("body")
 
     # send back to moderation
-    review.status = "pending"
+    review.status = ProductReview.Status.PENDING
     review.approved_by = None
     review.approved_at = None
 

@@ -241,7 +241,7 @@
           </a>
         {% endif %}
       </div>
-
+      
       <!-- Reviews list -->
       <div class="d-flex flex-column gap-3">
 
@@ -298,40 +298,41 @@
                     {% endif %}
                   </small>
 
-                  <!-- Actions: commenter OR superuser (link-style) -->
+                  <!-- Actions -->
                   {% if user.is_authenticated %}
-                  {% if review.user == request.user or request.user.is_superuser %}
                     <div class="mt-1" style="font-size:0.85rem; line-height:1;">
-                      <a
-                        href="#"
-                        class="text-success"
-                        style="text-decoration:none; font-weight:500;"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#edit-review-{{ review.id }}"
-                      >Edit</a>
 
-                      <span class="mx-1 text-muted">•</span>
+                      {# EDIT: only the author #}
+                      {% if review.user == request.user %}
+                        <a
+                          href="#"
+                          class="text-success"
+                          style="text-decoration:none; font-weight:500;"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#edit-review-{{ review.id }}"
+                        >Edit</a>
 
-                      <form
-                        method="POST"
-                        action="{% url 'delete_review' review.id %}"
-                        class="d-inline"
-                        onsubmit="return confirm('Delete this review?');"
-                      >
-                        {% csrf_token %}
+                        <span class="mx-1 text-muted">•</span>
+                      {% endif %}
+
+                      {# DELETE: author OR superuser #}
+                      {% if review.user == request.user or request.user.is_superuser %}
                         <button
-                        type="button"
-                        class="text-danger"
-                        style="background:none;border:none;padding:0;margin:0;cursor:pointer;font-weight:500;"
-                        data-bs-toggle="modal"
-                        data-bs-target="#deleteReviewModal"
-                        data-delete-url="{% url 'delete_review' review.id %}">
-                        Delete
-                      </button>
-                      </form>
-                    </div>
+                          type="button"
+                          class="text-danger"
+                          style="background:none;border:none;padding:0;margin:0;cursor:pointer;font-weight:500;"
+                          data-bs-toggle="modal"
+                          data-bs-target="#deleteReviewModal"
+                          data-delete-url="{% url 'delete_review' review.id %}">
+                          Delete
+                        </button>
+                      {% endif %}
 
-                    <!-- Edit form (collapsible) -->
+                    </div>
+                  {% endif %}
+
+                  <!-- Edit form (author only) -->
+                  {% if user.is_authenticated and review.user == request.user %}
                     <div id="edit-review-{{ review.id }}" class="collapse mt-3">
                       <div class="card p-3">
                         <form method="POST" action="{% url 'edit_review' review.id %}">
@@ -370,7 +371,6 @@
                       </div>
                     </div>
                   {% endif %}
-                  {% endif %}
 
                   <!-- Superuser moderation (approve/reject) -->
                   {% if request.user.is_superuser and review.status != "approved" and review.id %}
@@ -396,7 +396,7 @@
           <p class="text-center">No reviews yet — be the first!</p>
         {% endfor %}
 
-      </div>
+</div>
 
     </div>
 </div>

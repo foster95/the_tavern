@@ -1,31 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* -----------------------------
-       QUANTITY BUTTONS
-    ----------------------------- */
-    const minusBtns = document.querySelectorAll(".qty-btn.minus");
-    const plusBtns = document.querySelectorAll(".qty-btn.plus");
+    // Star Rating Input
 
-    minusBtns.forEach(btn => {
-        btn.addEventListener("click", function () {
-            const input = this.nextElementSibling;
-            let value = parseInt(input.value) || 1;
-            if (value > 1) input.value = value - 1;
-        });
-    });
-
-    plusBtns.forEach(btn => {
-        btn.addEventListener("click", function () {
-            const input = this.previousElementSibling;
-            let value = parseInt(input.value) || 1;
-            if (value < 99) input.value = value + 1;
-        });
-    });
-
-
-    /* -----------------------------
-       STAR RATING INPUT (WRITE REVIEW)
-    ----------------------------- */
     const stars = document.querySelectorAll("#star-rating i");
     const ratingInput = document.querySelector("#id_rating");
 
@@ -77,9 +53,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* -----------------------------
-       PRODUCT AVERAGE RATING STARS
-    ----------------------------- */
+    // Averages the rating stars on the product 
+    // listing page and product detail page
+
     const avgWrappers = document.querySelectorAll(".js-average-rating");
 
     avgWrappers.forEach(wrapper => {
@@ -93,9 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-/* -----------------------------
-   DELETE REVIEW MODAL
------------------------------ */
+// Modal to confirm review deletion
+
 document.addEventListener("DOMContentLoaded", function () {
     const modalEl = document.getElementById("deleteReviewModal");
     const formEl = document.getElementById("deleteReviewForm");
