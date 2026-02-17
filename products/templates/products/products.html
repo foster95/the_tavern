@@ -24,17 +24,14 @@
         <!-- Products count -->
         <div class="col-12 col-md-6 text-center text-md-start mb-3 mb-md-0">
             <p class="text-muted mb-0">
-                {% if search_term or current_categories or current_sorting != 'None_None' %}
-                    <span class="small">
-                        <a href="{% url 'products' %}"></a>
-                    </span>
-                {% endif %}
                 {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
             </p>
         </div>
 
         <!-- Sort dropdown -->
         <div class="col-12 col-md-6 text-center text-md-end">
+            <label for="sort-selector" class="visually-hidden">Sort products</label>
+            
             <select
                 id="sort-selector"
                 class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}"
@@ -59,11 +56,37 @@
 
                     {% if product.image %}
                         <a href="{% url 'product_detail' product.slug %}" aria-label="View details for {{ product.name }}" class="d-block w-100">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }} details">
+                            <img 
+                            class="card-img-top img-fluid" 
+                            src="{{ product.image.url }}"
+                            srcset="
+                            {{ product.image.url }} 1024w,
+                            {{ product.image.url }} 768w,
+                            {{ product.image.url }} 480w,
+                            {{ product.image.url }} 320w"
+                            sizes="
+                            (max-width: 576px) 45vw,
+                            (max-width: 992px) 30vw,
+                            (max-width: 1400px) 22vw,
+                            250px"
+                            alt="{{ product.name }} details"
+                            loading="lazy"
+                            decoding="async"
+                            width="400"
+                            height="400"
+                            style="aspect-ratio:1/1; object-fit:cover;">
                         </a>
                     {% else %}
                         <a href="{% url 'product_detail' product.slug %}" aria-label="View details for {{ product.name }}" class="d-block w-100">
-                            <img class="card-img-top img-fluid" src="{% static 'images/no-product-image.jpeg' %}" alt="{{ product.name }} details">
+                            <img 
+                            class="card-img-top img-fluid" 
+                            src="{% static 'images/no-product-image.jpeg' %}" 
+                            alt="{{ product.name }} details"
+                            loading="lazy"
+                            decoding="async"
+                            width="400"
+                            height="400"
+                            style="aspect-ratio:1/1; object-fit:cover;">
                         </a>
                     {% endif %}
 

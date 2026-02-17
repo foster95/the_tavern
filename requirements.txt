@@ -9,13 +9,17 @@ cryptography==46.0.3
 dj-database-url==0.5.0
 Django==6.0.1
 django-allauth==65.14.0
+django-appconf==1.2.0
 django-countries==8.2.0
 django-crispy-forms==2.5
+django-imagekit==6.0.0
 django-storages==1.14.6
 gunicorn==25.1.0
 idna==3.11
 jmespath==1.1.0
+oauthlib==3.3.1
 packaging==26.0
+pilkit==3.0
 pillow==12.1.0
 psycopg2-binary==2.9.11
 pycparser==3.0

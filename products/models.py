@@ -4,6 +4,9 @@ from django.utils.text import slugify
 from django.conf import settings
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models import Avg
+from PIL import Image
+from io import BytesIO
+from django.core.files.base import ContentFile
 
 # Create your models here.
 
@@ -51,13 +54,14 @@ class Product(models.Model):
     image = models.ImageField(null= True, blank=True)
 
     def save(self, *args, **kwargs):
+
         if not self.slug:
             self.slug = slugify(self.name)
-            
+
         if not self.sku:
             self.sku = generate_sku(self)
-                
-        super().save(*args, **kwargs)
+
+        super().save(*args, **kwargs)  # save first so S3 has the file
 
     def __str__(self):
         return self.name
@@ -145,4 +149,3 @@ class ProductReview(models.Model):
 
     def __str__(self):
         return f"{self.product.name} review by {self.user} ({self.status})"
-

@@ -99,7 +99,7 @@ INSTALLED_APPS = [
     'crispy_forms', # Django Crispy Forms
     'crispy_bootstrap5', # Django Crispy Forms Bootstrap 5
     'profiles', # User profile app
-    'storages' #to host media files on AWS S3
+    'storages', #to host media files on AWS S3
 
 ]
 

@@ -1,11 +1,16 @@
 from django.contrib import admin
 from django.utils import timezone
 from .models import Category, Product, Bundle, ProductReview
+from .forms import ProductForm
+
 
 # Register your models here.
 
 class ProductAdmin(admin.ModelAdmin):
     """ Admin model for products """
+
+    form = ProductForm
+
     list_display = (
         'sku',
         'name', 
