@@ -46,6 +46,20 @@
           </p>
         {% endif %}
 
+            {% if product.approved_review_count > 0 %}
+              <div class="review-stars mb-1 js-average-rating"
+                  data-rating="{{ product.average_rating|floatformat:1 }}">
+                <i class="far fa-star" data-value="1"></i>
+                <i class="far fa-star" data-value="2"></i>
+                <i class="far fa-star" data-value="3"></i>
+                <i class="far fa-star" data-value="4"></i>
+                <i class="far fa-star" data-value="5"></i>
+
+                <span class="ms-2 text-muted">({{ product.approved_review_count }})</span>
+              </div>
+            {% endif %}
+
+
         <p class="mt-3 text-start fw-bold">
           £<span id="product-price">{{ product.price }}</span>
         </p>

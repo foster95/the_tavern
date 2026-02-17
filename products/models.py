@@ -3,6 +3,7 @@ import uuid
 from django.utils.text import slugify
 from django.conf import settings
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.db.models import Avg
 
 # Create your models here.
 
@@ -60,6 +61,16 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    
+    @property
+    def approved_review_count(self):
+        return self.reviews.filter(status="approved").count()
+
+    @property
+    def average_rating(self):
+        return self.reviews.filter(status="approved").aggregate(
+            Avg("rating")
+        )["rating__avg"]
     
 
 class Bundle(models.Model):
