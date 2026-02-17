@@ -168,6 +168,14 @@ LOGIN_REDIRECT_URL = '/'  # Redirect back to homepage after successful login
 
 WSGI_APPLICATION = 'the_tavern.wsgi.application'
 
+SOCIALACCOUNT_PROVIDERS = {
+    "facebook": {
+        "SCOPE": ["public_profile"],  
+        "FIELDS": ["id", "name", "first_name", "last_name", "picture"],
+        "VERIFIED_EMAIL": False,
+    }
+}
+
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
