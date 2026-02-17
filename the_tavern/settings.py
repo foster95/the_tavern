@@ -14,9 +14,6 @@ import os
 import dj_database_url
 from pathlib import Path
 
-import logging
-import sys
-
 if os.path.isfile('env.py'):
     import env
 
@@ -234,18 +231,3 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "handlers": {
-        "console": {"class": "logging.StreamHandler"},
-    },
-    "root": {
-        "handlers": ["console"],
-        "level": "INFO",
-    },
-    "loggers": {
-        "django": {"handlers": ["console"], "level": "INFO", "propagate": True},
-        "django.request": {"handlers": ["console"], "level": "ERROR", "propagate": True},
-    },
-}

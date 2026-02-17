@@ -18,11 +18,11 @@
             >
           </a>
         {% else %}
-          <a href="/media/products/no-product-image.jpeg" target="_blank" rel="noopener">
+          <a href="{% static 'images/no-product-image.jpeg' %}" target="_blank" rel="noopener">
             <img
               class="card-img-top img-fluid mx-auto d-block"
               id="product-details-image"
-              src="/media/products/no-product-image.jpeg"
+              src="{% static 'images/no-product-image.jpeg' %}"
               alt="{{ product.name }}"
             >
           </a>

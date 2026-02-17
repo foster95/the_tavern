@@ -66,7 +66,7 @@
                   {% if item.product.image %}
                     <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="od-thumb">
                   {% else %}
-                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}" class="od-thumb">
+                    <img src="{% static 'images/no-product-image.jpeg' %}" alt="{{ item.product.name }}" class="od-thumb">
                   {% endif %}
                 </td>
 
