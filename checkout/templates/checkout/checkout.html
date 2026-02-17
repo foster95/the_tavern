@@ -104,7 +104,10 @@
           {{ order_form.town_or_city|as_crispy_field }}
           {{ order_form.county|as_crispy_field }}
           {{ order_form.postcode|as_crispy_field }}
-          {{ order_form.country|as_crispy_field }}
+          <label for="{{ form.country.id_for_label }}" class="visually-hidden">
+            Country
+          </label>
+          {{ order_form.country }}
 
           {% if user.is_authenticated %}
             <div class="form-check mt-3">

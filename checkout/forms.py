@@ -30,27 +30,24 @@ class OrderForm(forms.ModelForm):
             "street_address2": "Street Address 2 (optional)",
             "town_or_city": "Town or City",
             "county": "County (optional)",
-            "postcode": "Postcode",
+            "postcode": "Postcode (optional)",
         }
 
+        # autofocus only on first_name
         self.fields["first_name"].widget.attrs["autofocus"] = True
 
         for field_name, field in self.fields.items():
-            # Add your consistent styling class
             existing_classes = field.widget.attrs.get("class", "")
             field.widget.attrs["class"] = f"{existing_classes} stripe-style-input".strip()
 
             if field_name != "country":
                 placeholder = placeholders.get(field_name, field_name.replace("_", " ").title())
-
-                # optional: show * in placeholder if required
                 if field.required:
                     placeholder = f"{placeholder} *"
-
                 field.widget.attrs["placeholder"] = placeholder
-                field.label = False  # hide label for inputs
+                field.label = False  # hide labels for text inputs
 
-        # Country select: keep label hidden if you want, but set an empty_label instead
+        # Country select: keep it styled + accessible for Lighthouse
         self.fields["country"].label = False
-        # If you are using django-countries CountryField, this works:
         self.fields["country"].empty_label = "Select Country"
+        self.fields["country"].widget.attrs["aria-label"] = "Country"
