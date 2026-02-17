@@ -214,4 +214,6 @@ def order_confirmation(request, order_number):
         f"Order successfully processed! Your order number is {order_number[:12]}."
     )
 
-    return render(request, "checkout/order_confirmation.html", {"order": order})
+    return render(request, "checkout/order_confirmation.html", 
+                  {"order": order, 
+                   })

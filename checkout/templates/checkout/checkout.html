@@ -131,14 +131,14 @@
       </fieldset>
 
         <div class="d-flex justify-content-center gap-3 mt-3 mb-2 flex-wrap">
-            <a href="{% url 'view_bag' %}" class="btn btn-outline-secondary">
+            <a href="{% url 'view_bag' %}" class="btn btn-outline-secondary" aria-label="Return to your bag of holding">
                 <span class="icon"><i class="fas fa-chevron-left"></i></span>
                 Adjust Bag
             </a>
             
             <button type="submit"
             id="complete-order-button"
-            class="btn btn-primary">
+            class="btn btn-primary" aria-label="Complete your order">
             Complete Order
             <span class="icon"><i class="fas fa-lock"></i></span>
         </button>

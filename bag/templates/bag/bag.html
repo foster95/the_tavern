@@ -107,7 +107,8 @@
 
                         <!-- Update (link-style submit) -->
                         <button type="submit"
-                                class="update-button btn p-0 fw-bold fs-4 text-decoration-underline bg-transparent border-0">
+                                class="update-button btn p-0 fw-bold fs-4 text-decoration-underline bg-transparent border-0"
+                                aria-label="Update quantity for {{ item.product.name }}">
                             Update
                         </button>
                     </form>
@@ -139,12 +140,12 @@
             </div>
 
             <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3 mt-3">
-  <a href="{% url 'products' %}" class="btn btn-outline-black btn-lg checkout-btn">
+  <a href="{% url 'products' %}" class="btn btn-outline-black btn-lg checkout-btn" aria-label="Return to products page">
     <i class="fas fa-chevron-left me-2"></i>
     Keep Shopping
   </a>
 
-  <a href="{% url 'checkout' %}" class="btn btn-black btn-lg checkout-btn">
+  <a href="{% url 'checkout' %}" class="btn btn-black btn-lg checkout-btn" aria-label="Proceed to secure checkout">
     Secure Checkout
     <i class="fas fa-lock ms-2"></i>
   </a>
@@ -282,11 +283,11 @@
                         <tr>
                             <td colspan="5" class="text-end">
                                 <a href="{% url 'products' %}"
-                                   class="btn btn-outline-black btn-lg me-2">
+                                   class="btn btn-outline-black btn-lg me-2" aria-label="Return to products">
                                     <i class="fas fa-chevron-left me-2"></i>
                                     Keep Shopping
                                 </a>
-                                <a href="{% url 'checkout' %}" class="btn btn-black btn-lg">
+                                <a href="{% url 'checkout' %}" class="btn btn-black btn-lg" aria-label="Proceed to secure checkout">
                                     Secure Checkout
                                     <i class="fas fa-lock ms-2"></i>
                                 </a>
