@@ -11,7 +11,7 @@ from checkout.models import Order
 def profile(request):
     profile = get_object_or_404(UserProfile, user=request.user)
 
-    # Default form (always defined)
+    # Default form
     form = UserProfileForm(instance=profile)
 
     if request.method == "POST":
@@ -35,7 +35,7 @@ def profile(request):
             messages.success(request, "Profile picture removed.")
             return redirect("profile")
 
-        # Update delivery info (this one needs to re-render errors if invalid)
+        # Update delivery info
         if "update_delivery" in request.POST:
             form = UserProfileForm(request.POST, instance=profile)
             if form.is_valid():
@@ -44,7 +44,6 @@ def profile(request):
                 return redirect("profile")
             else:
                 messages.error(request, "Failed to update profile. Please check the form for errors.")
-                # fall through to render with bound form + errors
 
     orders = profile.orders.order_by('-date')
 
@@ -70,5 +69,4 @@ def order_history(request, order_number):
         "from_profile": True,
     }
 
-    
     return render(request, template, context)

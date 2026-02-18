@@ -38,11 +38,12 @@
 
         {{ form.image|as_crispy_field }}
 
-        <div class="mt-4">
-          <button type="submit" class="btn btn-primary">Update Product</button>
-          <button type="reset" class="btn btn-secondary">Reset</button>
-          <a href="{% url 'products' %}" class="btn btn-outline-secondary">Cancel</a>
+        <div class="mt-4 d-flex flex-column flex-md-row gap-2 align-items-center align-items-md-start" id="action-buttons">
+            <button type="submit" class="btn btn-primary">Update Product</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+            <a href="{% url 'products' %}" class="btn btn-outline-secondary">Cancel</a>
         </div>
+
 
       </form>
 

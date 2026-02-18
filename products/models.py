@@ -51,7 +51,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
     dice_set_price= models.DecimalField(max_digits=8, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(null= True, blank=True)
+    image = models.ImageField(upload_to="products/", null= True, blank=True)
 
     def save(self, *args, **kwargs):
 
