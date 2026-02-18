@@ -2,7 +2,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block extra_css %}
+{% block additional_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
@@ -165,6 +165,6 @@
 {{ block.super}}
 {{ stripe_public_key|json_script:"stripe-public-key" }}
 {{ client_secret|json_script:"client-secret" }}
-<script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+<script src="{% static 'checkout/js/stripe_elements.js' %}" defer></script>
 {% endblock %}
 

@@ -978,6 +978,21 @@ label[for^="id_qty"] {
         padding: 0.3rem 0;
     }
 
+/* Social Sign In */
+.btn-cancel {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  text-decoration: none;
+  color: var(--secondary-color);
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-cancel:hover {
+  color: var(--primary-accent);
+  text-decoration: none;
+}
+
 }
 
 @media (min-width: 800px) {
