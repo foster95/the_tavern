@@ -15,6 +15,7 @@
     width="1600"
     height="900"
     fetchpriority="high"
+    decoding="async"
     >
    </div>
 
@@ -53,7 +54,11 @@
           <img
           src="{{ product_of_the_month.image.url }}"
           class="img-fluid potm-image"
-          alt="{{ product_of_the_month.name }}">
+          alt="{{ product_of_the_month.name }}"
+          width="300"
+          height="300"
+          loading="lazy"
+          decoding="async">
           {% else %}
           <img
           src="{% static 'images/noimage.png' %}"
@@ -61,9 +66,9 @@
           alt="{{ product_of_the_month.name }}">
           {% endif %}
         </a>
-      </div>
-      
-      <h4 class="mb-2">{{ product_of_the_month.name }}</h4>
+        </div>
+        
+      <h3 class="mb-2">{{ product_of_the_month.name }}</h3>
       <div class="card-footer bg-white pt-0 border-0 text-center">
         {% with bundles=product_of_the_month.category.bundle_prices.all %}
         {% if bundles %}
