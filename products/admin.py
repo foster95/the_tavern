@@ -13,13 +13,14 @@ class ProductAdmin(admin.ModelAdmin):
 
     list_display = (
         'sku',
-        'name', 
-        'category', 
-        'price', 
+        'name',
+        'category',
+        'price',
         'image'
         )
-    
+
     ordering = ('sku',)
+
 
 class CategoryAdmin(admin.ModelAdmin):
     """ Admin model for categories """
@@ -27,15 +28,37 @@ class CategoryAdmin(admin.ModelAdmin):
         'friendly_name',
     )
 
+
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
 
+
 @admin.register(ProductReview)
 class ProductReviewAdmin(admin.ModelAdmin):
-    list_display = ("product", "user", "rating", "status", "created_at")
-    list_filter = ("status", "rating", "created_at")
-    search_fields = ("product__name", "user__username", "title", "body")
-    readonly_fields = ("created_at", "updated_at", "approved_at", "approved_by")
+    list_display = (
+        "product",
+        "user",
+        "rating",
+        "status",
+        "created_at"
+        )
+    list_filter = (
+        "status",
+        "rating",
+        "created_at"
+        )
+    search_fields = (
+        "product__name",
+        "user__username",
+        "title",
+        "body"
+        )
+    readonly_fields = (
+        "created_at",
+        "updated_at",
+        "approved_at",
+        "approved_by"
+    )
 
     actions = ["approve_reviews", "reject_reviews"]
 

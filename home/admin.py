@@ -3,6 +3,7 @@ import calendar
 from .models import ProductOfTheMonth
 from .models import Testimonial
 
+
 @admin.register(ProductOfTheMonth)
 class ProductOfTheMonthAdmin(admin.ModelAdmin):
     list_display = ("month_display", "year", "product")
@@ -22,10 +23,11 @@ class ProductOfTheMonthAdmin(admin.ModelAdmin):
 
     month_display.short_description = "Month"
 
+
 @admin.register(Testimonial)
 class TestimonialAdmin(admin.ModelAdmin):
     list_display = ("customer_display", "quote", "created_at")
-    search_fields = ("quote", "customer_name", "name") 
+    search_fields = ("quote", "customer_name", "name")
     ordering = ("sort_order", "-created_at")
 
     def customer_display(self, obj):

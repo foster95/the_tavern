@@ -6,10 +6,10 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import user_passes_test
 from django.utils import timezone
-
 from .models import Product, Category, ProductReview
 from .forms import ProductForm
 from .forms import ProductReviewForm
+
 
 def is_commenter_or_superuser(user, review: ProductReview) -> bool:
     return user.is_superuser or review.user_id == user.id
@@ -44,7 +44,7 @@ def product_list(request):
 
     # Sorting
     sort = request.GET.get('sort', '')
-    direction = request.GET.get('direction') 
+    direction = request.GET.get('direction')
 
     if sort:
         sortkey = sort
@@ -54,7 +54,9 @@ def product_list(request):
             sortkey = 'lower_name'
         elif sortkey == 'category':
             sortkey = 'category__friendly_name'
-            products = products.annotate(lower_category=Lower('category__friendly_name'))
+            products = products.annotate(
+                lower_category=Lower('category__friendly_name')
+            )
             sortkey = 'lower_category'
 
         if direction == 'desc':
@@ -65,8 +67,12 @@ def product_list(request):
         products = products.order_by('name')
 
     current_sorting = f'{sort}_{direction}' if sort else None
-    available_categories = Category.objects.filter(products__in=products).distinct().order_by('friendly_name')
-    
+    available_categories = (
+        Category.objects
+        .filter(products__in=products)
+        .distinct()
+        .order_by('friendly_name')
+    )
 
     context = {
         'products': products,
@@ -104,7 +110,13 @@ def product_detail(request, product_slug):
             review.status = ProductReview.Status.PENDING
             review.save()
 
-            messages.success(request, "Your review has been submitted and is awaiting approval.")
+            messages.success(
+                request,
+                (
+                    "Your review has been submitted and"
+                    "is awaiting approval."
+                ),
+            )
             return redirect("product_detail", product_slug=product.slug)
     else:
         form = ProductReviewForm()
@@ -115,6 +127,7 @@ def product_detail(request, product_slug):
     }
 
     return render(request, 'products/product_details.html', context)
+
 
 @login_required
 def add_product(request):
@@ -127,10 +140,18 @@ def add_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
-            messages.success(request, f'Product "{product.name}" added successfully!')
+            messages.success(
+                request, f'Product "{product.name}" added successfully!'
+                )
             return redirect(reverse('product_detail', args=[product.slug]))
         else:
-            messages.error(request, "Failed to add product. Please check the form for errors.")
+            messages.error(
+                request,
+                (
+                    "Failed to add product. Please check "
+                    "the form for errors."
+                ),
+            )
     else:
         form = ProductForm()
 
@@ -138,6 +159,7 @@ def add_product(request):
         'form': form,
     }
     return render(request, 'products/add_product.html', context)
+
 
 @login_required
 def amend_product(request, product_slug):
@@ -151,26 +173,40 @@ def amend_product(request, product_slug):
     if request.method == "POST":
         post = request.POST.copy()
 
-        # ✅ Preserve existing dice flag if the checkbox isn't being sent
-        # (unchecked / not-rendered checkboxes don't appear in POST)
         if "is_dice_set" not in post:
             if product.is_dice_set:
-                post["is_dice_set"] = "on"   # checkbox "checked" value
+                post["is_dice_set"] = "on"
             else:
-                post["is_dice_set"] = ""     # treated as unchecked
+                post["is_dice_set"] = ""
 
         form = ProductForm(post, request.FILES, instance=product)
 
         if form.is_valid():
             product = form.save()
-            messages.success(request, f'Product "{product.name}" updated successfully!')
+            messages.success(
+                request, f'Product "{product.name}" updated successfully!'
+                )
             return redirect(reverse("product_detail", args=[product.slug]))
         else:
-            messages.error(request, "Failed to update product. Please check the form for errors.")
+            messages.error(
+                request,
+                (
+                    "Failed to update product. Please check the form "
+                    "for errors."
+                )
+            )
     else:
         form = ProductForm(instance=product)
 
-    return render(request, "products/amend_product.html", {"form": form, "product": product})
+    return render(
+        request, "products/amend_product.html",
+
+        {
+            "form": form,
+            "product": product
+
+        }
+    )
 
 
 @login_required
@@ -190,12 +226,16 @@ def delete_product(request, product_slug):
 
     return redirect(reverse('product_detail', args=[product.slug]))
 
+
 @login_required
 def create_review(request, product_slug):
     product = get_object_or_404(Product, slug=product_slug)
 
-    # Optional: prevent multiple reviews per product per user
-    if ProductReview.objects.filter(product=product, user=request.user).exists():
+    if (
+        ProductReview.objects
+        .filter(product=product, user=request.user)
+        .exists()
+    ):
         messages.info(request, "You’ve already reviewed this product.")
         return redirect("product_detail", product_slug=product.slug)
 
@@ -205,14 +245,25 @@ def create_review(request, product_slug):
             review = form.save(commit=False)
             review.product = product
             review.user = request.user
-            review.status = ProductReview.Status.PENDING  # moderation gate
+            review.status = ProductReview.Status.PENDING
             review.save()
-            messages.success(request, "Thanks! Your review is awaiting approval.")
+            messages.success(
+                request, "Thanks! Your review is awaiting approval."
+                )
             return redirect("product_detail", product_slug=product.slug)
     else:
         form = ProductReviewForm()
 
-    return render(request, "reviews/create_review.html", {"product": product, "form": form})
+    return render(
+        request, "reviews/create_review.html",
+
+        {
+            "product": product,
+            "form": form
+
+        }
+    )
+
 
 @login_required
 @require_POST
@@ -220,7 +271,9 @@ def delete_review(request, review_id):
     review = get_object_or_404(ProductReview, id=review_id)
 
     if not is_commenter_or_superuser(request.user, review):
-        messages.error(request, "You don’t have permission to delete this review.")
+        messages.error(
+            request, "You don’t have permission to delete this review."
+            )
         return redirect("product_detail", product_slug=review.product.slug)
 
     product_slug = review.product.slug
@@ -232,6 +285,7 @@ def delete_review(request, review_id):
 def staff_required(view_func):
     return user_passes_test(lambda u: u.is_active and u.is_staff)(view_func)
 
+
 @login_required
 @require_POST
 def edit_review(request, review_id):
@@ -239,7 +293,9 @@ def edit_review(request, review_id):
 
     # only commenter or superuser
     if request.user != review.user:
-        messages.error(request, "Only the original reviewer can edit this review.")
+        messages.error(
+            request, "Only the original reviewer can edit this review."
+            )
         return redirect("product_detail", product_slug=review.product.slug)
 
     review.rating = request.POST.get("rating")

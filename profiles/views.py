@@ -1,7 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
-
 from .models import UserProfile
 from .forms import UserProfileForm
 from checkout.models import Order
@@ -43,7 +42,13 @@ def profile(request):
                 messages.success(request, "Profile updated successfully.")
                 return redirect("profile")
             else:
-                messages.error(request, "Failed to update profile. Please check the form for errors.")
+                messages.error(
+                    request,
+                    (
+                        "Failed to update profile. Please check "
+                        "the form for errors."
+                    )
+                )
 
     orders = profile.orders.order_by('-date')
 
@@ -54,14 +59,14 @@ def profile(request):
     })
 
 
-
 def order_history(request, order_number):
     """ Display the user's order history """
     order = get_object_or_404(Order, order_number=order_number)
 
-    messages.info(request, 
-                  f"This is a past confirmation for order number {order_number}. "
-                  "A confirmation email was sent on the order date.")
+    messages.info(request,
+                  "This is a past confirmation for order "
+                  f"number {order_number}. A confirmation email "
+                  "was sent on the order date.")
 
     template = "checkout/checkout_success.html"
     context = {

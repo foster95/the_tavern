@@ -2,7 +2,6 @@ from django import forms
 from .models import Product, ProductReview
 
 
-
 class ProductForm(forms.ModelForm):
     """
     Form for creating and editing products
@@ -46,7 +45,9 @@ class ProductForm(forms.ModelForm):
                 field.widget.attrs["class"] = "form-select rounded-3"
             else:
                 field.widget.attrs["class"] = "form-control rounded-3"
-        self.fields["category"].label_from_instance = lambda obj: obj.friendly_name or obj.name
+        self.fields["category"].label_from_instance = (
+            lambda obj: obj.friendly_name or obj.name
+        )
 
     def clean(self):
         cleaned = super().clean()
@@ -56,11 +57,14 @@ class ProductForm(forms.ModelForm):
 
         if is_dice_set:
             if not dice_set_price:
-                self.add_error("dice_set_price", "Please add a full set price.")
+                self.add_error(
+                    "dice_set_price", "Please add a full set price."
+                    )
         else:
             cleaned["dice_set_price"] = None
 
         return cleaned
+
 
 class ProductReviewForm(forms.ModelForm):
     rating = forms.IntegerField(widget=forms.HiddenInput())

@@ -3,6 +3,7 @@ from django.db import models
 
 MONTH_CHOICES = [(i, calendar.month_name[i]) for i in range(1, 13)]
 
+
 class ProductOfTheMonth(models.Model):
     year = models.PositiveIntegerField()
     month = models.PositiveSmallIntegerField(choices=MONTH_CHOICES)
@@ -20,12 +21,15 @@ class ProductOfTheMonth(models.Model):
             month_label = calendar.month_name[month_int]
         except (TypeError, ValueError, IndexError):
             month_label = str(self.month)
-        return f"Featured Product for {month_label} {self.year}: {self.product}"
+        return (
+            f"Featured Product for {month_label} {self.year}: {self.product}"
+            )
+
 
 class Testimonial(models.Model):
     quote = models.TextField()
     name = models.CharField(max_length=80)
-    tagline = models.CharField(max_length=120, blank=True) 
+    tagline = models.CharField(max_length=120, blank=True)
     sort_order = models.PositiveSmallIntegerField(default=0)
 
     created_at = models.DateTimeField(auto_now_add=True)
