@@ -6,10 +6,17 @@
 {% block content %}
 
     <!-- Hero Image and Welcome Message -->
-    <div>
-        <div id="hero-image" alt="The Tavern - Your one-stop shop for all things tabletop RPG!">
-        </div>
-    </div>
+  <!-- Hero Image -->
+   <div id="hero-image">
+    <img
+    src="{% static 'images/header.webp' %}"
+    alt="The Tavern Hero Image"
+    class="hero-image"
+    width="1600"
+    height="900"
+    fetchpriority="high"
+    >
+   </div>
 
     <!-- Introductory Blurb -->
     <div id="intro-blurb">

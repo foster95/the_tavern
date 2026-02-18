@@ -15,6 +15,10 @@
               id="product-details-image"
               src="{{ product.image.url }}"
               alt="{{ product.name }}"
+              width="360"
+              height="360"
+              loading="lazy"
+              decoding="async"
             >
           </a>
         {% else %}
@@ -24,6 +28,10 @@
               id="product-details-image"
               src="{% static 'images/no-product-image.jpeg' %}"
               alt="{{ product.name }}"
+              width="360"
+              height="360"
+              loading="lazy"
+              decoding="async"
             >
           </a>
         {% endif %}

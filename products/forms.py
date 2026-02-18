@@ -1,10 +1,5 @@
 from django import forms
 from .models import Product, ProductReview
-from PIL import Image
-import io
-import os
-from django.utils.text import slugify
-from django.core.files.base import ContentFile
 
 
 
@@ -66,37 +61,6 @@ class ProductForm(forms.ModelForm):
             cleaned["dice_set_price"] = None
 
         return cleaned
-    
-    def clean_image(self):
-        """
-        If an image is uploaded, convert it to WEBP.
-        If no new image uploaded (editing product without changing image), do nothing.
-        """
-        image = self.cleaned_data.get("image")
-        if not image:
-            return image
-
-        # If it's already a webp, don't re-encode it
-        name_lower = (getattr(image, "name", "") or "").lower()
-        if name_lower.endswith(".webp"):
-            return image
-
-        # Convert to WEBP
-        img = Image.open(image)
-
-        # Handle transparency safely (convert to RGB)
-        if img.mode in ("RGBA", "P"):
-            img = img.convert("RGB")
-
-        buf = io.BytesIO()
-        img.save(buf, format="WEBP", quality=80, method=6)
-        buf.seek(0)
-
-        base, _ext = os.path.splitext(image.name)
-        webp_name = f"{base}.webp"
-
-        return ContentFile(buf.read(), name=webp_name)
-
 
 class ProductReviewForm(forms.ModelForm):
     rating = forms.IntegerField(widget=forms.HiddenInput())

@@ -297,19 +297,34 @@ nav#mobile-heading {
   color: #fff;
 }
 
-/* Hero Image */
-#hero-image {
-    background-image: url('../images/header.webp');
-    background-position: center;
-    height: 385px;
-    margin-bottom: 2rem;
-    background-repeat: no-repeat;
-    background-size: cover;
+/* Hero banner crop */
+#hero-image{
+  overflow: hidden;
+  height: 45vh;
+  min-height: 240px;
+  max-height: 520px;
+  line-height: 0;
+}
+
+#hero-image img.hero-image{
+  display: block;
+  width: 100%;
+  height: 100% !important;   /* wins over global img rules */
+  object-fit: cover;          /* crops */
+  object-position: center;    /* keeps center framed */
 }
 
 #hero-image,
 #welcome-section {
   color: var(--secondary-color);
+}
+
+#welcome-section {
+  min-height: auto !important;
+  height: auto !important;
+  padding-top: 2rem;     /* adjust */
+  padding-bottom: 2rem;  /* adjust */
+  margin-top: 0 !important;
 }
 
 main,
@@ -408,6 +423,11 @@ main,
 
 /* Product Catalouge Specific Styles */
 
+#product-name a {
+    color: var(--secondary-color) !important;
+    text-decoration: none;
+}
+
 .card-img-top {
     aspect-ratio: 1 / 1;
     object-fit: cover;
@@ -492,6 +512,10 @@ span.p-2.mt-2.mb-3.badge.badge-white.text-black.border.border-dark:active {
 .delete-link:focus-visible {
     outline: 2px dashed #dc3545;
     outline-offset: 2px;
+}
+
+#delete-product {
+  text-decoration: none;
 }
 
 /* Product Details Page Specific Styles */

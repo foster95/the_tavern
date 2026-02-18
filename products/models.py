@@ -61,8 +61,8 @@ class Product(models.Model):
         if not self.sku:
             self.sku = generate_sku(self)
 
-        super().save(*args, **kwargs)  # save first so S3 has the file
-
+        super().save(*args, **kwargs)  
+        
     def __str__(self):
         return self.name
     
