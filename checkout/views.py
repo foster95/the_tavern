@@ -32,7 +32,7 @@ def cache_checkout_data(request):
                 "username": (
                     request.user.get_username()
                     if request.user.is_authenticated
-                    else "anonymous",
+                    else "anonymous"
                 ),
             },
         )
@@ -43,7 +43,7 @@ def cache_checkout_data(request):
         messages.error(
             request,
             (
-                "Sorry, your payment cannot be processed right now."
+                "Sorry, your payment cannot be processed right now. "
                 "Please try again later."
             )
         )
