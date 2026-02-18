@@ -17,7 +17,7 @@
   <p class="text-center mb-3">
     {% blocktrans with site.name as site_name %}
       Please sign in with one of your existing third party accounts.
-      Or, <a class="allauth-link" href="{{ signup_url }}">sign up</a>
+      Or, <a class="allauth-link sign-up-link" href="{{ signup_url }}">sign up</a>
       for a {{ site_name }} account and sign in below:
     {% endblocktrans %}
   </p>
@@ -41,7 +41,7 @@
 
   </div>
 
-  <div class="auth-divider my-4">
+  <div class="auth-divider my-4 text-center fw-bold">
     <span>{% trans "or" %}</span>
   </div>
 

@@ -1,97 +1,84 @@
-<!-- Burger -->
-<nav class="navbar navbar-expand-md py-0" id="mobile-heading">
+<!-- MOBILE HEADER -->
+<nav class="navbar navbar-expand-md d-md-none py-2" id="mobile-heading">
+  <div class="container-fluid px-3 d-flex align-items-center">
 
-  <button class="navbar-toggler" type="button"
-          data-bs-toggle="collapse" data-bs-target="#main-nav"
-          aria-controls="main-nav" aria-expanded="false"
-          aria-label="Toggle navigation">
-    <i class="fa-solid fa-bars nav-icon"></i>
-  </button>
+    <!-- Burger -->
+    <button class="navbar-toggler border-0 p-2"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#main-nav"
+            aria-controls="main-nav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars fa-lg"></i>
+    </button>
 
-  <!-- Mobile icons (must be inside a UL for valid HTML) -->
-  <ul class="list-inline mb-0 mx-auto d-flex align-items-center">
-    
-    <!-- Search -->
-    <li class="list-inline-item dropdown me-4">
-      <a class="text-black nav-link py-1 d-block d-md-none"
-         href="#"
-         id="mobile-search"
-         data-bs-toggle="dropdown"
-         aria-haspopup="true"
-         aria-expanded="false">
-        <div class="text-center">
-          <div><i class="fas fa-search fa-lg"></i></div>
-          <p class="my-0">Search</p>
-        </div>
-      </a>
+    <!-- Mobile icons -->
+ <ul class="list-inline mb-0 d-flex align-items-center justify-content-center flex-grow-1" id="mobile-icons">
 
-      <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0"
-           aria-labelledby="mobile-search">
-        <form class="form" method="GET" action="{% url 'products' %}">
-          <div class="input-group w-100">
-            <input class="form-control border border-black rounded-0"
-                   type="text"
-                   name="q"
-                   placeholder="Search our site">
-            <button class="btn btn-black border border-black rounded-0"
-                    type="submit"
-                    aria-label="Search">
-              <span class="icon">
-                <i class="fas fa-search"></i>
-              </span>
-            </button>
+
+      <!-- Search (NOW uses collapse, NOT dropdown) -->
+      <li class="list-inline-item">
+        <button class="nav-link p-0 bg-transparent border-0"
+                type="button"
+                id="mobile-search-toggle"
+                data-bs-toggle="collapse"
+                data-bs-target="#mobile-search-collapse"
+                aria-expanded="false"
+                aria-controls="mobile-search-collapse"
+                aria-label="Search">
+          <div class="text-center">
+            <div><i class="fas fa-search fa-lg"></i></div>
+            <small class="d-block">Search</small>
           </div>
-        </form>
-      </div>
-    </li>
+        </button>
+      </li>
 
-    <!-- Account -->
-    <li class="list-inline-item dropdown me-4">
-      <a class="text-black nav-link py-1 d-block d-md-none"
-         href="#"
-         id="user-options-mobile"
-         data-bs-toggle="dropdown"
-         aria-haspopup="true"
-         aria-expanded="false">
-        <div class="text-center">
-          <div><i class="fas fa-user fa-lg"></i></div>
-          <p class="my-0">My Account</p>
-        </div>
-      </a>
+      <!-- Account -->
+      <li class="list-inline-item dropdown">
+        <a class="nav-link p-0"
+           href="#"
+           id="mobile-account-toggle"
+           data-bs-toggle="dropdown"
+           aria-expanded="false"
+           aria-label="My Account">
+          <div class="text-center">
+            <div><i class="fas fa-user fa-lg"></i></div>
+            <small class="d-block">My Account</small>
+          </div>
+        </a>
 
-      <div class="dropdown-menu border-0"
-           aria-labelledby="user-options-mobile">
-        {% if request.user.is_authenticated %}
-          {% if request.user.is_superuser %}
-            <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-          {% endif %}
-          <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-          <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-        {% else %}
-          <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-          <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-        {% endif %}
-      </div>
-    </li>
-
-    <!-- Bag -->
-    <li class="list-inline-item me-4">
-      <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link py-1 d-block d-md-none"
-         aria-label="View bag"
-         href="{% url 'view_bag' %}">
-        <div class="text-center">
-          <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-          <p class="my-0">
-            {% if grand_total %}
-              £{{ grand_total|floatformat:2 }}
-            {% else %}
-              £0.00
+        <div class="dropdown-menu dropdown-menu-end border-0 shadow rounded-3"
+             aria-labelledby="mobile-account-toggle">
+          {% if request.user.is_authenticated %}
+            {% if request.user.is_superuser %}
+              <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
             {% endif %}
-          </p>
+            <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+          {% else %}
+            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+          {% endif %}
         </div>
-      </a>
-    </li>
+      </li>
 
-  </ul>
+      <!-- Bag -->
+      <li class="list-inline-item">
+        <a class="nav-link p-0" href="{% url 'view_bag' %}" aria-label="View bag">
+          <div class="text-center">
+            <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+            <small class="d-block">
+              {% if grand_total %}
+                £{{ grand_total|floatformat:2 }}
+              {% else %}
+                £0.00
+              {% endif %}
+            </small>
+          </div>
+        </a>
+      </li>
 
+    </ul>
+  </div>
 </nav>

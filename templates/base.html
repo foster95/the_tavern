@@ -120,10 +120,33 @@
             {% include "includes/mobile-top-header.html" %}
           </div>
           <div class="collapse navbar-collapse" id="main-nav">
-            {% include "includes/main-navigation.html" %}
+            
+            <!-- MOBILE SEARCH (sits ABOVE HOME link) -->
+          <div class="collapse d-md-none px-3 pt-3 pb-3"
+              id="mobile-search-collapse">
+
+            <form method="GET" action="{% url 'products' %}">
+              <div class="input-group">
+                <input class="form-control"
+                      type="text"
+                      name="q"
+                      placeholder="Search our site"
+                      aria-label="Search our site">
+                <button class="btn btn-primary"
+                        type="submit"
+                        aria-label="Submit search">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </form>
+
           </div>
+
+          {% include "includes/main-navigation.html" %}
+
         </div>
       </nav>
+
 
       <div id="scrolling-banner">
         {% block banner %}
