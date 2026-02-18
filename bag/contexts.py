@@ -44,10 +44,10 @@ def bag_contents(request):
         product_count += quantity
 
         bag_items.append({
-            "key": str(bag_key),            
+            "key": str(bag_key),
             "item_id": item_id,
             "product": product,
-            "option": option,               
+            "option": option,
             "has_set_option": has_set_option,
             "quantity": quantity,
             "price": price,
@@ -62,7 +62,8 @@ def bag_contents(request):
             delivery_percent = delivery_percent / Decimal("100")
 
         delivery = (total * delivery_percent).quantize(Decimal("0.01"))
-        free_delivery_delta = (free_threshold - total).quantize(Decimal("0.01"))
+        free_delivery_delta = (
+            free_threshold - total).quantize(Decimal("0.01"))
     else:
         delivery = Decimal("0.00")
         free_delivery_delta = Decimal("0.00")

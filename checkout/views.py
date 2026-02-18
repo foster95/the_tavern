@@ -1,15 +1,11 @@
-# checkout/views.py
-
 import json
 from decimal import Decimal
-
 import stripe
 from django.conf import settings
 from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.views.decorators.http import require_POST
-
 from bag.contexts import bag_contents
 from products.models import Product
 from .forms import OrderForm
@@ -21,8 +17,7 @@ from profiles.forms import UserProfileForm
 @require_POST
 def cache_checkout_data(request):
     """
-    CI-style: store bag + prefs on the PaymentIntent metadata before confirming payment.
-    Called from JS.
+    Store bag + prefs on the PaymentIntent metadata before confirming payment.
     """
     try:
         client_secret = request.POST.get("client_secret", "")
@@ -34,7 +29,11 @@ def cache_checkout_data(request):
             metadata={
                 "bag": json.dumps(request.session.get("bag", {})),
                 "save_info": request.POST.get("save_info", "false"),
-                "username": request.user.get_username() if request.user.is_authenticated else "anonymous",
+                "username": (
+                    request.user.get_username()
+                    if request.user.is_authenticated
+                    else "anonymous",
+                ),
             },
         )
         request.session["save_info"] = request.POST.get("save_info", "false")
@@ -43,7 +42,10 @@ def cache_checkout_data(request):
     except Exception as e:
         messages.error(
             request,
-            "Sorry, your payment cannot be processed right now. Please try again later."
+            (
+                "Sorry, your payment cannot be processed right now."
+                "Please try again later."
+            )
         )
         return HttpResponse(content=str(e), status=400)
 
@@ -51,7 +53,9 @@ def cache_checkout_data(request):
 def checkout(request):
     bag = request.session.get("bag", {})
     if not bag:
-        messages.error(request, "Your bag is empty. Please add items before checking out.")
+        messages.error(
+            request,
+            "Your bag is empty. Please add items before checking out.")
         return redirect(reverse("products"))
 
     stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -65,19 +69,21 @@ def checkout(request):
             current_bag = bag_contents(request)
             order.order_total = current_bag.get("total", Decimal("0.00"))
             order.delivery_cost = current_bag.get("delivery", Decimal("0.00"))
-            order.grand_total = current_bag.get("grand_total", order.order_total + order.delivery_cost)
+            order.grand_total = current_bag.get(
+                "grand_total", order.order_total + order.delivery_cost)
 
             client_secret = request.POST.get("client_secret", "")
             if not client_secret or "_secret" not in client_secret:
-                messages.error(request, "Missing Stripe client secret. Please try again.")
+                messages.error(
+                    request, "Missing Stripe client secret. Please try again.")
                 return redirect(reverse("checkout"))
 
-            order.save_info = (request.POST.get("save_info", "false") == "true")
+            order.save_info = (
+                request.POST.get("save_info", "false") == "true")
             pid = client_secret.split("_secret")[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
-            
-            # ✅ Make Stripe store the email on the PaymentIntent (reliable for webhooks)
+
             try:
                 stripe.PaymentIntent.modify(
                     pid,
@@ -85,7 +91,7 @@ def checkout(request):
                     )
             except Exception:
                 pass
-            
+
             order.save()
 
             for item_key, item_data in bag.items():
@@ -122,13 +128,18 @@ def checkout(request):
 
             order.update_total()
 
-            return redirect(reverse("order_confirmation", args=[order.order_number]))
+            return redirect(reverse(
+                "order_confirmation", args=[order.order_number]))
 
-        messages.error(request, "There was an error with your form. Please check your details.")
+        messages.error(
+            request, (
+                "There was an error with your form. Please check your details."
+                )
+            )
 
     current_bag = bag_contents(request)
     grand_total = Decimal(str(current_bag.get("grand_total", Decimal("0.00"))))
-    amount = int((grand_total * Decimal("100")).to_integral_value())  # pounds -> pence
+    amount = int((grand_total * Decimal("100")).to_integral_value())
 
     intent = stripe.PaymentIntent.create(
         amount=amount,
@@ -155,34 +166,36 @@ def checkout(request):
         order_form = OrderForm()
 
     if not settings.STRIPE_PUBLIC_KEY:
-        messages.warning(request, "Stripe public key is missing. Check your environment variables.")
+        messages.warning(
+            request,
+            (
+                "Stripe public key is missing."
+                "Check your environment variables."
+            ),
+        )
 
     context = {
-        "order_form": order_form, 
+        "order_form": order_form,
         "stripe_public_key": settings.STRIPE_PUBLIC_KEY,
         "client_secret": intent.client_secret,
     }
     return render(request, "checkout/checkout.html", context)
 
+
 def order_confirmation(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
 
-    # Save bag cleanup regardless
     if "bag" in request.session:
         del request.session["bag"]
 
-    # If user is logged in, attach profile + optionally save defaults
     if request.user.is_authenticated:
         profile, _ = UserProfile.objects.get_or_create(user=request.user)
 
-        # Attach order to profile if not already attached
         if order.user_profile_id != profile.id:
             order.user_profile = profile
             order.save(update_fields=["user_profile"])
 
         save_info = request.session.get("save_info", "false")
-
-        # Normalize truthy values (covers JS booleans/strings)
         save_info_truthy = str(save_info).lower() in ("true", "1", "on", "yes")
 
         if save_info_truthy:
@@ -201,19 +214,26 @@ def order_confirmation(request, order_number):
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
-                messages.success(request, "Saved your delivery info for next time.")
+                messages.success(
+                    request, "Saved your delivery info for next time.")
             else:
                 print(user_profile_form.errors)
                 messages.warning(
                     request,
-                    "We couldn't save your delivery info automatically. You can update it in your profile."
+                    (
+                        "We couldn't save your delivery info automatically."
+                        "You can update it in your profile."
+                    ),
                 )
 
     messages.success(
         request,
-        f"Order successfully processed! Your order number is {order_number[:12]}."
+        (
+            "Order successfully processed!"
+            f"Your order number is {order_number[:12]}."
+        ),
     )
 
-    return render(request, "checkout/order_confirmation.html", 
-                  {"order": order, 
+    return render(request, "checkout/order_confirmation.html",
+                  {"order": order,
                    })
