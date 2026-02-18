@@ -2,9 +2,11 @@ Hail, {{ order.first_name }}!
 
 The coins have been counted, the contract is signed, and your order has officially reached the bar at The Tavern.
 
-Our small team of artisans is already heading into the workshop to gather your gear. Because each piece is hand-finished right here in-house, we take a little extra time to ensure your dice are balanced, your wood is polished, and your bags are stitched to survive a dragon's breath. Your order information is below for you records:
+Our small team of artisans is already heading into the workshop to gather your gear. Because each piece is hand-finished right here in-house, we take a little extra time to ensure your dice are balanced, your wood is polished, and your bags are stitched to survive a dragon's breath. 
 
-Order Number: {{ order.order_number }}
+Your order information is below for you records:
+
+Order Number: {{ order.order_number|slice:":12" }}
 Order Date: {{ order.date|date:"j M Y, H:i" }}
 Shipping To: {{ order.street_address1 }}, {{ order.town_or_city }}, {{ order.postcode }}, {{ order.country.name }}
 

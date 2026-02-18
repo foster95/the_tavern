@@ -1,1 +1,1 @@
-Congratulations Adventurer, your order {{ order.order_number }} is on the way! 
+Congratulations Adventurer, your order {{ order.order_number|slice:":12" }} is on the way! 
