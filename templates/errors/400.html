@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container text-center">
+    <h1 class="display-1">400 - A Garbled Incantation</h1>
+    <p class="lead">
+        The message you sent has arrived as a tangled mess of ink and nonsense. Perhaps the messenger bird was caught in a storm, or the scribe had one too many ales at the Tavern before picking up the quill. Either way, our archives are baffled; they cannot read your intent.
+        Check your syntax, traveler. Ensure your scrolls are clearly marked and your seals are intact, then try to cast your request again
+    <a href="{% url 'home' %}" class="btn btn-primary mt-3">Grab a Fresh Scroll</a>
+</div>
+{% endblock %}
