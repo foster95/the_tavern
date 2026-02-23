@@ -114,39 +114,41 @@
         </div>
       </div>
 
-      <!-- Navigation -->
-      <nav class="navbar navbar-expand-md py-0" id="products-navigation">
-        <div class="container px-0 px-md-3">
-          <div class="w-100 d-md-none mobile-header">
-            {% include "includes/mobile-top-header.html" %}
+    <!-- Navigation -->
+<nav class="navbar navbar-expand-md py-0" id="products-navigation">
+  <div class="container-fluid px-0 px-md-3">
+
+    <div class="w-100 d-md-none mobile-header">
+      {% include "includes/mobile-top-header.html" %}
+    </div>
+
+    <!-- ✅ MOBILE SEARCH must be OUTSIDE #main-nav -->
+    <div class="collapse d-md-none pt-3 pb-3" id="mobile-search-collapse" style="width: 100%">
+      <div class="container-fluid px-3">
+        <form method="GET" action="{% url 'products' %}">
+          <div class="input-group w-100">
+            <input class="form-control"
+                  type="text"
+                  name="q"
+                  placeholder="Search our site"
+                  aria-label="Search our site">
+            <button class="btn btn-primary"
+                    type="submit"
+                    aria-label="Submit search">
+              <i class="fas fa-search"></i>
+            </button>
           </div>
-          <div class="collapse navbar-collapse" id="main-nav">
-            
-            <!-- MOBILE SEARCH (sits ABOVE HOME link) -->
-          <div class="collapse d-md-none px-3 pt-3 pb-3"
-              id="mobile-search-collapse">
+        </form>
+      </div>
+    </div>
 
-            <form method="GET" action="{% url 'products' %}">
-              <div class="input-group">
-                <input class="form-control"
-                      type="text"
-                      name="q"
-                      placeholder="Search our site"
-                      aria-label="Search our site">
-                <button class="btn btn-primary"
-                        type="submit"
-                        aria-label="Submit search">
-                  <i class="fas fa-search"></i>
-                </button>
-              </div>
-            </form>
+    <!-- ✅ MAIN NAV collapse -->
+    <div class="collapse navbar-collapse" id="main-nav">
+      {% include "includes/main-navigation.html" %}
+    </div>
 
-          </div>
-
-          {% include "includes/main-navigation.html" %}
-
-        </div>
-      </nav>
+  </div>
+</nav>
 
 
       <div id="scrolling-banner">

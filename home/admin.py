@@ -35,10 +35,10 @@ class TestimonialAdmin(admin.ModelAdmin):
 
 @admin.register(ContactForm)
 class ContactFormAdmin(admin.ModelAdmin):
-    list_display = ("name", "email", "subject", "created_at", "is_read", "is_resolved")
-    list_filter = ("is_read", "is_resolved", "created_at")
-    search_fields = ("name", "email", "subject", "message")
-    readonly_fields = ("name", "email", "subject", "message", "created_at")
+    list_display = ("topic", "name", "email", "created_at", "is_read", "is_resolved")
+    list_filter = ("topic","is_read", "is_resolved", "created_at")
+    search_fields = ("name", "email", "message")
+    readonly_fields = ("topic", "name", "email", "message", "created_at")
     ordering = ("-created_at",)
 
     actions = ["mark_read", "mark_resolved"]

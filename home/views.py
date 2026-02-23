@@ -44,6 +44,7 @@ def contact(request):
     if request.method == "POST":
         form = ContactMessageForm(request.POST)
         if form.is_valid():
+            obj = form.save(commit=False)
             form.save()
             messages.success(request, "Thanks! Your message has been sent.")
             return redirect("contact")
@@ -51,3 +52,6 @@ def contact(request):
         form = ContactMessageForm()
 
     return render(request, "home/contact.html", {"form": form})
+
+def privacy(request):
+    return render(request, "home/privacy-policy.html")

@@ -8,13 +8,13 @@
             <h2 class="d-none">Socials</h2>
             <ul class="list-unstyled d-flex gap-3 mb-0 justify-content-center">
                 <li>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
                 </li>
                 <li>
-                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.tiktok.com/en-GB/" aria-label="TikTok" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
                 </li>
                 <li>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61575603567894" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
                 </li>
             </ul>
         </div>
@@ -25,7 +25,7 @@
           <ul class="list-unstyled mb-0">
             <li><a href="{% url 'about' %}">Our Story</a></li>
             <li><a href="{% url 'faq' %}">FAQ</a></li>
-            <li><a href="">Privacy Policy</a></li>
+            <li><a href="{% url 'privacy-policy' %}">Privacy Policy</a></li>
           </ul>
         </div>
 
@@ -33,7 +33,7 @@
         <div class="col-12 col-md-4">
           <h2>Customer Services</h2>
           <ul class="list-unstyled mb-0">
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="{% url 'contact' %}">Contact Us</a></li>
             <li><a href="{% url 'shipping' %}">Shipping Information</a></li>
             <li><a href="{% url 'returns' %}">Returns &amp; Exchanges</a></li>
           </ul>

@@ -1,184 +1,181 @@
 {% extends "base.html" %}
 {% load static %}
 
-{%block content %}
+{% block content %}
+
 <div class="container my-5">
-    <h2 class="display-4 mb-4 text-center">Frequently Asked Questions</h2>
-    <hr>
-    <p class="text-center">Have a question about The Tavern, our products, or how we deliver? You might find the answer below...</p>
-    
-    <!-- Accordion (Dimensions + Material only) -->
-        <div class="accordion mt-3 w-100" id="product-info-accordion" aria-label="Product information accordion">
+  <div class="mx-auto faq-wrap">
 
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="where">
-              <button
-                class="accordion-button collapsed py-2"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapse-dimensions"
-                aria-expanded="false"
-                aria-controls="collapse-dimensions">
-                Where are you based?
-              </button>
-            </h2>
-            <div
-              id="collapse-dimensions"
-              class="accordion-collapse collapse"
-              aria-labelledby="heading-dimensions">
-              <div class="accordion-body">
-                <p class="mb-0" id="where">
-                  We are based in the heart of the United Kingdom, in Kent. Every item is inspected and dispatched from our local workshop by our small team of artisans.
-                </p>
-              </div>
-            </div>
-          </div>
+    <h2 class="text-center mb-3">Frequently Asked Questions</h2>
 
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="who">
-              <button
-                class="accordion-button collapsed py-2"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapse-material"
-                aria-expanded="false"
-                aria-controls="collapse-material">
-                Who actually makes the items?
-              </button>
-            </h2>
-            <div
-              id="collapse-material"
-              class="accordion-collapse collapse"
-              aria-labelledby="who">
-              <div class="accordion-body">
-                <p class="mb-0" id="who">
-                  The Tavern was founded by two brothers, and today we work with a tight-knit guild of artisans. We don’t just move boxes; we handle, check, and finish every individual item to ensure it meets the "Artisan" standard we set for our own gaming tables.
-                </p>
-              </div>
-            </div>
-          </div>
+    <p class="text-center mb-4 faq-intro">
+      Have a question about The Tavern, our products, or how we deliver?
+      You might find the answer below...
+    </p>
 
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="product-shipping">
-              <button
-                class="accordion-button collapsed py-2"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapse-shipping"
-                aria-expanded="false"
-                aria-controls="collapse-shipping">
-                How is shipping calculated?
-              </button>
-            </h2>
-            <div
-              id="collapse-shipping"
-              class="accordion-collapse collapse"
-              aria-labelledby="heading-shipping">
-              <div class="accordion-body">
-                <p class="mb-0" id="product-shipping">
-                  We keep the math simple: Shipping is a flat 10% of your total order value, regardless of where you are in the world. Whether you’re ordering a single d20 or a heavy-duty dice vault, the 10% rate ensures your loot is tracked and secured.
-                </p>
-              </div>
-            </div>
-          </div>
+    <div class="accordion" id="faq-accordion">
 
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="location">
-              <button
-                class="accordion-button collapsed py-2"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapse-location"
-                aria-expanded="false"
-                aria-controls="collapse-location">
-                Do you ship to my kingdom?
-              </button>
-            </h2>
-            <div
-              id="collapse-location"
-              class="accordion-collapse collapse"
-              aria-labelledby="heading-location">
-              <div class="accordion-body">
-                <p class="mb-0" id="location">
-                  We ship worldwide! From the Highlands of Scotland to the farthest reaches of the globe, as long as a courier can find you, we can get your dice to you.
-                </p>
-              </div>
-            </div>
+      <!-- Where are you based -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingWhere">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseWhere">
+            Where are you based?
+          </button>
+        </h2>
+        <div id="collapseWhere"
+             class="accordion-collapse collapse"
+             data-bs-parent="#faq-accordion">
+          <div class="accordion-body">
+            We are based in the heart of the United Kingdom, in Kent.
+            Every item is inspected and dispatched from our local workshop
+            by our small team of artisans.
           </div>
+        </div>
+      </div>
 
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="tracking">
-              <button
-                class="accordion-button collapsed py-2"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapse-tracking"
-                aria-expanded="false"
-                aria-controls="collapse-tracking">
-                Can I track my order?
-              </button>
-            </h2>
-            <div
-              id="collapse-tracking"
-              class="accordion-collapse collapse"
-              aria-labelledby="heading-tracking">
-              <div class="accordion-body">
-                <p class="mb-0" id="tracking">
-                  Yes. Once the guild has dispatched your order (usually within 2–4 business days), you will receive an automated scroll (email) with your tracking number.
-                </p>
-              </div>
-            </div>
+      <!-- Who makes items -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingWho">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseWho">
+            Who actually makes the items?
+          </button>
+        </h2>
+        <div id="collapseWho"
+             class="accordion-collapse collapse"
+             data-bs-parent="#faq-accordion">
+          <div class="accordion-body">
+            The Tavern was founded by two brothers, and today we work
+            with a tight-knit guild of artisans. We don’t just move boxes;
+            we handle, check, and finish every individual item to ensure it
+            meets the “Artisan” standard we set for our own gaming tables.
           </div>
+        </div>
+      </div>
 
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="cleaning">
-              <button
-                class="accordion-button collapsed py-2"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapse-cleaning"
-                aria-expanded="false"
-                aria-controls="collapse-cleaning">
-                How do I clean my dice?
-              </button>
-            </h2>
-            <div
-              id="collapse-cleaning"
-              class="accordion-collapse collapse"
-              aria-labelledby="heading-cleaning">
-              <div class="accordion-body">
-                <p class="mb-0" id="cleaning">
-                  A soft, damp cloth is all you need. Avoid harsh chemicals or abrasive cleaners, as these can dull the high-gloss finish or damage the hand-inked copper numbering.
-              </div>
-            </div>
+      <!-- Shipping -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingShipping">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseShipping">
+            How is shipping calculated?
+          </button>
+        </h2>
+        <div id="collapseShipping"
+             class="accordion-collapse collapse"
+             data-bs-parent="#faq-accordion">
+          <div class="accordion-body">
+            Shipping is a flat 10% of your total order value, regardless
+            of where you are in the world. Whether you’re ordering a single
+            d20 or a heavy-duty dice vault, the 10% rate ensures your loot
+            is tracked and secured.
           </div>
+        </div>
+      </div>
 
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="tray">
-              <button
-                class="accordion-button collapsed py-2"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapse-tray"
-                aria-expanded="false"
-                aria-controls="collapse-tray">
-                Do I need a dice tray?
-              </button>
-            </h2>
-            <div
-              id="collapse-tray"
-              class="accordion-collapse collapse"
-              aria-labelledby="heading-tray">
-              <div class="accordion-body">
-                <p class="mb-0" id="tray">
-                 While our acrylic is durable, we always recommend rolling on a padded surface or a leather dice tray—not just to protect your dice, but to protect your table from the "Critical Hit" of a heavy roll! We currently don't sell dice trays, but watch this space for future additions to the Tavern's arsenal.
-              </div>
-            </div>
+      <!-- Worldwide shipping -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingLocation">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseLocation">
+            Do you ship to my kingdom?
+          </button>
+        </h2>
+        <div id="collapseLocation"
+             class="accordion-collapse collapse"
+             data-bs-parent="#faq-accordion">
+          <div class="accordion-body">
+            We ship worldwide! From the Highlands of Scotland to the farthest
+            reaches of the globe, as long as a courier can find you,
+            we can get your dice to you.
           </div>
-        </div> 
-        <hr class="my-4">
-        <p class="text-center">Still have questions? <a href="">Contact us</a> and we’ll be happy to help.</p>
+        </div>
+      </div>
+
+      <!-- Tracking -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTracking">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTracking">
+            Can I track my order?
+          </button>
+        </h2>
+        <div id="collapseTracking"
+             class="accordion-collapse collapse"
+             data-bs-parent="#faq-accordion">
+          <div class="accordion-body">
+            Yes. Once the guild has dispatched your order (usually within
+            2–4 business days), you will receive an automated scroll (email)
+            with your tracking number.
+          </div>
+        </div>
+      </div>
+
+      <!-- Cleaning -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingCleaning">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseCleaning">
+            How do I clean my dice?
+          </button>
+        </h2>
+        <div id="collapseCleaning"
+             class="accordion-collapse collapse"
+             data-bs-parent="#faq-accordion">
+          <div class="accordion-body">
+            A soft, damp cloth is all you need. Avoid harsh chemicals
+            or abrasive cleaners, as these can dull the high-gloss finish
+            or damage the hand-inked copper numbering.
+          </div>
+        </div>
+      </div>
+
+      <!-- Dice tray -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTray">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTray">
+            Do I need a dice tray?
+          </button>
+        </h2>
+        <div id="collapseTray"
+             class="accordion-collapse collapse"
+             data-bs-parent="#faq-accordion">
+          <div class="accordion-body">
+            While our acrylic is durable, we recommend rolling on a padded
+            surface or a leather dice tray—not just to protect your dice,
+            but your table too. We don’t currently sell trays, but watch
+            this space for future additions.
+          </div>
+        </div>
+      </div>
+
     </div>
 
+    <hr class="my-4">
 
-    {% endblock %}
+    <p class="text-center">
+      Still have questions?
+      <a href="{% url 'contact' %}">Contact us</a>
+      and we’ll be happy to help.
+    </p>
+
+  </div>
+</div>
+
+{% endblock %}

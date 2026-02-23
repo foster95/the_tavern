@@ -1,40 +1,52 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="py-5">
-  <div class="container">
-    <h2 class="text-center">Get in Touch</h2>
-    <p class="text-center">Whether you’ve encountered a glitch in the weave, a delay in your shipment’s journey, or simply wish to discuss the finer points of artisan dice, our ears are open. Drop your message into the collection box below, and one of our guild members will get back to you before the next long rest.</p>
+<div class="container">
+  <div class="mx-auto contact-wrap pt-5 pb-5">
 
-  <form method="post" class="mt-4">
-    {% csrf_token %}
-    {{ form.non_field_errors }}
+    <h2 class="text-center mb-2">Get in Touch</h2>
 
-    <div class="mb-3">
-      <label class="form-label">Name</label>
-      {{ form.name }}
-      {{ form.name.errors }}
-    </div>
+    <p class="text-center mb-4 contact-intro">
+      Whether you’ve encountered a glitch in the weave, a delay in your shipment’s journey,
+      or simply wish to discuss the finer points of artisan dice, our ears are open.
+      Drop your message into the collection box below, and one of our guild members
+      will get back to you before the next long rest.
+    </p>
 
-    <div class="mb-3">
-      <label class="form-label">Email</label>
-      {{ form.email }}
-      {{ form.email.errors }}
-    </div>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
 
-    <div class="mb-3">
-      <label class="form-label">Subject</label>
-      {{ form.subject }}
-      {{ form.subject.errors }}
-    </div>
+      <div class="mb-2">
+        <label class="form-label small-label">Adventurer’s Name</label>
+        {{ form.name }}
+        {{ form.name.errors }}
+      </div>
 
-    <div class="mb-3">
-      <label class="form-label">Message</label>
-      {{ form.message }}
-      {{ form.message.errors }}
-    </div>
+      <div class="mb-2">
+        <label class="form-label small-label">Email</label>
+        {{ form.email }}
+        {{ form.email.errors }}
+      </div>
 
-    <button class="btn btn-primary" type="submit">Send</button>
-  </form>
+      <div class="mb-2">
+        <label class="form-label small-label">Topic</label>
+        {{ form.topic }}
+        {{ form.topic.errors }}
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label small-label">Message</label>
+        {{ form.message }}
+        {{ form.message.errors }}
+      </div>
+
+      <div class="text-center mt-3">
+      <button class="btn btn-primary px-4" type="submit">Send</button>
+      </div>
+    </form>
+
+  </div>
 </div>
+
 {% endblock %}

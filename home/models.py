@@ -41,9 +41,24 @@ class Testimonial(models.Model):
         return f"{self.name} — {self.quote[:40]}..."
 
 class ContactForm(models.Model):
+    TOPIC_ORDER = "order"
+    TOPIC_MATERIALS = "materials"
+    TOPIC_RETURNS = "returns"
+    TOPIC_TECHICNAL = "technical"
+    TOPIC_OTHER = "other"
+
+    TOPIC_CHOICES = [
+        (TOPIC_ORDER, "I have a question about my order"),
+        (TOPIC_MATERIALS, "A question about materials or dice care"),
+        (TOPIC_RETURNS, "My loot arrived damaged/faulty"),
+        (TOPIC_TECHICNAL, "Report a glitch in the weave"),
+        (TOPIC_OTHER, "General feedback or tavern tales"),
+    ]
+
+    topic = models.CharField(max_length=20, choices=TOPIC_CHOICES)
+
     name = models.CharField(max_length=120)
     email = models.EmailField()
-    subject = models.CharField(max_length=200, blank=True)
     message = models.TextField()
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -54,4 +69,4 @@ class ContactForm(models.Model):
         ordering = ["-created_at"]
 
     def __str__(self):
-        return f"{self.name} — {self.subject or 'No subject'}"
+        return f"{self.name} — {self.get_topic_display() or 'No topic'}"

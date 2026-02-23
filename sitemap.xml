@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/accounts/signup/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/accounts/login/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/bag/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/?sort=name</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/?sort=price</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/?sort=category</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/?category=acrylic</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/?category=resin</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/?category=metallic</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/?category=acrylic,resin,metallic</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/?category=dice_roller</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/?category=dice_bag</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/?category=dice_box</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/?category=dice_roller,dice_bag,dice_box</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/about/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/faq/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/velvet-dice-bag-moon-and-stars/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/shipping/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/returns/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/accounts/google/login/?process=login</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/accounts/facebook/login/?process=login</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/accounts/password/reset/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/aged-bronze-metal-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/ancient-oak-dice-roller/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/belltower-dice-roller/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/canvas-dice-bag-brown/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/canvas-dice-bag-cotton-white/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/celestial-wooden-dice-box/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/celtic-knot-wooden-dice-box/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/copper-coins-metal-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/crumbling-castle-dice-roller/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/dragons-blood-acrylic-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/dragons-gold-resin-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/dragons-lair-dice-roller/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/dusty-coal-metal-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/elvish-emerald-resin-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/elvish-tree-dice-roller/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/endless-night-acrylic-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/fire-and-soot-resin-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/golden-coins-metal-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/hellfire-resin-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/leather-dice-bag-blue/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/leather-dice-bag-kharki/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/leather-dice-bag-slate-grey/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/leather-dice-bag-brown/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/lighthouse-dice-roller/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/lion-hearted-wooden-dice-box/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/moss-metal-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/nebula-resin-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/night-sky-acrylic-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/the-obelisk-of-the-infernal-pact-dice-tower/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/pagoda-dice-roller/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/shadowfell-mist-acrylic-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/silver-coins-metal-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/snowstorm-resin-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/starburst-acrylic-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/stardust-orchid-resin-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/swamp-acrylic-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/temple-of-doom-dice-roller/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/the-night-owls-sanctuary-dice-box/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/tower-dice-roller/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/velvet-dice-bag-celestial/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/velvet-dice-bag-dragon/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/velvet-dice-bag-funghi/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/velvet-dice-bag-illithid/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/velvet-dice-bag-owl/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/velvet-dice-bag-stag/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://the-tavern-d30d8391b571.herokuapp.com/products/verdant-forest-resin-dice/</loc>
+  <lastmod>2026-02-23T18:36:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
