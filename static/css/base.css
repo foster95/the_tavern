@@ -262,10 +262,6 @@ nav#mobile-heading {
     font-family: var(--font-primary);
 }
 
-#main-nav.collapse:not(.show) {
-    display: none !important;
-}
-
 /* Scrolling Info Banner */
 
 @keyframes scroll-right {

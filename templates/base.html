@@ -122,7 +122,27 @@
             {% include "includes/mobile-top-header.html" %}
           </div>
 
-          <div class="collapse navbar-collapse" id="main-nav">
+          <!-- Mobile search collapse (target for the Search icon) -->
+          <div class="collapse d-md-none pt-3 pb-3" id="mobile-search-collapse" style="width: 100%">
+            <div class="container-fluid px-3">
+              <form method="GET" action="{% url 'products' %}">
+                <div class="input-group w-100">
+                  <input class="form-control"
+                        type="text"
+                        name="q"
+                        placeholder="Search our site"
+                        aria-label="Search our site">
+                  <button class="btn btn-primary"
+                          type="submit"
+                          aria-label="Submit search">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="collapse navbar-collapse justify-content-center" id="main-nav">
             {% include "includes/main-navigation.html" %}
           </div>
 
@@ -180,7 +200,7 @@
     {% include "includes/mailing-list-sign-up.html" %}
     {% include "includes/main-footer.html" %}
 
-  </div>  <!-- ✅ page-wrapper closes here -->
+  </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
