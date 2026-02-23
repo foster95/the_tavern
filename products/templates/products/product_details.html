@@ -190,6 +190,54 @@
             </div>
           </div>
 
+          {% if user.is_superuser %}
+            <!-- Admin-only info -->
+             <div class="mt-2">
+              <a href="{% url 'amend_product' product.slug %} " aria-label="Edit {{ product.name }}"
+              class="text-success text-decoration-none fw-semibold me-3">
+              Edit
+            </a>
+            <!-- Trigger -->
+             <button type="button"
+             id="delete-product"
+             class="delete-link"
+             data-bs-toggle="modal"
+             data-bs-target="#deleteModal-{{ product.id }}">
+             Delete
+            </button>
+          </div>
+          
+          <!-- Modal -->
+           <div class="modal fade" id="deleteModal-{{ product.id }}" tabindex="-1"
+           aria-labelledby="deleteModalLabel-{{ product.id }}" aria-hidden="true">
+           <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4">
+              <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel-{{ product.id }}">Delete product?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              
+              <div class="modal-body">
+                Are you sure you want to delete <strong>{{ product.name }}</strong>?
+                <div class="text-muted small mt-2">This can’t be undone.</div>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                  Cancel
+                </button>
+                <form method="POST" action="{% url 'delete_product' product.slug %}" class="m-0">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-danger">
+                    Delete
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+          {% endif %}
+
         </div>
       </div>
     </div>
@@ -254,7 +302,7 @@
       </div>
 
       <!-- Reviews list -->
-      <div class="d-flex flex-column gap-3">
+      <div class="d-flex flex-column gap-3 pb-4">
 
         {% for review in product.reviews.all %}
           {% if review.status == "approved" or review.user == request.user or request.user.is_superuser %}

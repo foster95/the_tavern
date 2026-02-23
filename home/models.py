@@ -39,3 +39,19 @@ class Testimonial(models.Model):
 
     def __str__(self):
         return f"{self.name} — {self.quote[:40]}..."
+
+class ContactForm(models.Model):
+    name = models.CharField(max_length=120)
+    email = models.EmailField()
+    subject = models.CharField(max_length=200, blank=True)
+    message = models.TextField()
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    is_read = models.BooleanField(default=False)
+    is_resolved = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"{self.name} — {self.subject or 'No subject'}"

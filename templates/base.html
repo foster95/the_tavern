@@ -21,6 +21,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
     <link rel="preload" href="https://ka-f.fontawesome.com/releases/v6.5.1/webfonts/free-fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
   {% endblock %}
 
@@ -199,39 +200,8 @@
   {% block content %}{% endblock %}
 </main>
 
-
-    <!-- Footer -->
-    <footer id="site-footer">
-      <div id="footer-section">
-        <div class="footer-band pt-4 mt-5">
-          <div class="container-fluid px-0">
-            <div class="container">
-              <div class="row text-center text-end">
-                <div class="col-md-6 mb-3 mb-md-0">
-                  <h2>About The Tavern</h2>
-                  <ul class="list-unstyled">
-                    <li><a href="#" aria-label="FAQ">FAQ</a></li>
-                    <li><a href="#" aria-label="About Us">About Us</a></li>
-                    <li><a href="#" aria-label="Privacy Policy">Privacy Policy</a></li>
-                  </ul>
-                </div>
-
-                <div class="col-md-6">
-                  <h2>Customer Services</h2>
-                  <ul class="list-unstyled">
-                    <li><a href="#" aria-label="Contact Us">Contact Us</a></li>
-                    <li><a href="#" aria-label="Shipping Information">Shipping Information</a></li>
-                    <li><a href="#" aria-label="Returns &amp; Exchanges">Returns &amp; Exchanges</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-  </div>
+{% include "includes/mailing-list-sign-up.html" %}
+{% include "includes/main-footer.html" %}
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -266,6 +236,8 @@
       });
     });
   </script>
+
+  <script src="{% static 'js/newsletter.js' %}"></script>
 
   {% block additional_js %}{% endblock %}
 </body>

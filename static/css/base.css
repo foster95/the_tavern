@@ -54,6 +54,34 @@ html, body {
     padding: 0;
 }
 
+.mailer-sign-up {
+  background-color: var(--primary-accent) !important;
+}
+
+.mailer-sign-up .signup-row {
+  width: 100%;
+  max-width: 950px;
+}
+
+.mailer-sign-up .signup-email {
+  width: 100%;
+  max-width: 500px; 
+}
+
+#mc-alert {
+  font-family: var(--font-primary);
+}
+
+.subscribe-button {
+  background-color: var(--secondary-accent) !important;
+  color: var(--primary-color) !important;
+}
+
+.subscribe-button:hover {
+  background-color: var(--primary-color) !important;
+  color: var(--secondary-color) !important;
+}
+
 #site-footer {
     flex-shrink: 0;
 }
@@ -61,6 +89,13 @@ html, body {
 #site-footer h2 {
   font-size: 20px !important;
 }
+
+#socials i {
+  padding-top: 2rem;
+  font-size: 1.75rem;
+}
+
+
 
 /* Navbar Styles */
 
