@@ -191,6 +191,14 @@ nav#mobile-heading {
   padding-bottom: 10px !important;
 }
 
+#mobile-heading i {
+  color: var(--primary-color) !important;
+}
+
+#mobile-heading span {
+  color: var(--primary-color) !important;
+}
+
 
 #products-navigation {
     background-color: var(--primary-accent) !important;
@@ -252,6 +260,10 @@ nav#mobile-heading {
     color: var(--secondary-color);
     background-color: var(--primary-accent);
     font-family: var(--font-primary);
+}
+
+#main-nav.collapse:not(.show) {
+    display: none !important;
 }
 
 /* Scrolling Info Banner */
