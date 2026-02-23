@@ -48,8 +48,7 @@
           </div>
         </a>
 
-        <div class="dropdown-menu dropdown-menu-end border-0 shadow rounded-3"
-             aria-labelledby="mobile-account-toggle">
+        <div class="dropdown-menu dropdown-menu-end border-0 shadow rounded-3">
           {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
               <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>

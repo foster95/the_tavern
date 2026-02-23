@@ -17,7 +17,7 @@
             <a class="logo-font fw-bold nav-link me-5" href="#" id="all-products-link" data-bs-toggle="dropdown" aria-label="All products dropdown" aria-haspopup="true" aria-expanded="false">
                 ALL PRODUCTS
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+            <div class="dropdown-menu border-0">
                 <a href="{% url 'products' %}?sort=name" class="dropdown-item">By Alphabetical Order</a>
                 <a href="{% url 'products' %}?sort=price" class="dropdown-item">By Price</a>
                 <a href="{% url 'products' %}?sort=category" class="dropdown-item ">By Category</a>
@@ -29,7 +29,7 @@
             <a class="logo-font fw-bold nav-link text-dark me-5" href="#" id="dice-link" data-bs-toggle="dropdown" aria-label="Dice dropdown" aria-haspopup="true" aria-expanded="false">
                 DICE
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="dice-link">
+            <div class="dropdown-menu border-0">
                 <a href="{% url 'products' %}?category=acrylic" class="dropdown-item">Acrylic Dice</a>
                 <a href="{% url 'products' %}?category=resin" class="dropdown-item">Resin Dice</a>
                 <a href="{% url 'products' %}?category=metallic" class="dropdown-item">Metallic Dice</a>
@@ -41,7 +41,7 @@
             <a class="logo-font fw-bold nav-link text-dark me-5" href="#" id="other-ttrpg-items-link" data-bs-toggle="dropdown" aria-label="Other accessories dropdown" aria-haspopup="true" aria-expanded="false">
                 OTHER ACCESSORIES
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="other-ttrpg-items-link">
+            <div class="dropdown-menu border-0">
                 <a href="{% url 'products' %}?category=dice_roller" class="dropdown-item">Dice Towers</a>
                 <a href="{% url 'products' %}?category=dice_bag" class="dropdown-item">Dice Bags</a>
                 <a href="{% url 'products' %}?category=dice_box" class="dropdown-item">Dice Boxes</a>

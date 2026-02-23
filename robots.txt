@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /admin/
 Disallow: /accounts/
 Disallow: /profiles/
-Sitemap: 
+Sitemap: https://the-tavern-d30d8391b571.herokuapp.com/sitemap.xml

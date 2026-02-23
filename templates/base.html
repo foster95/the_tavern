@@ -79,7 +79,7 @@
                     </div>
                   </a>
 
-                  <div class="dropdown-menu dropdown-menu-end border-0" aria-labelledby="user-options">
+                  <div class="dropdown-menu dropdown-menu-end border-0">
                     {% if request.user.is_authenticated %}
                       {% if request.user.is_superuser %}
                         <a href="{% url 'add_product' %}" class="dropdown-item" aria-label="Product Management">Product Management</a>
@@ -199,7 +199,8 @@
 
 <!-- Main Body -->
 <main id="site-main">
-  {% block content %}{% endblock %}
+  {% block content %}
+  {% endblock %}
 </main>
 
 {% include "includes/mailing-list-sign-up.html" %}
