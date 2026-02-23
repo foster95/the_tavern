@@ -15,7 +15,7 @@
     <!-- Page title -->
     <div class="row">
         <div class="col text-center">
-            <h1 class="display-4 mt-4">Bag of Holding</h1>
+            <h2 class="display-4 mt-4">Bag of Holding</h2>
             <hr class="w-100 mb-3">
             <p class="fst-italic">
                 Items you have added to your bag are shown below.
@@ -52,7 +52,7 @@
 
                 <!-- Product info -->
                 <div class="text-center">
-                    <h4 class="fw-bold mb-2">{{ item.product.name }}</h4>
+                    <h3 class="fw-bold mb-2">{{ item.product.name }}</h3>
                     <div class="text-muted mb-2">
                         SKU: {{ item.product.sku|upper }}
                     </div>
@@ -67,9 +67,11 @@
                     <!-- Remove -->
                     <form method="POST" action="{% url 'remove_from_bag' item.product.id %}" class="m-0 mb-3">
                         {% csrf_token %}
-                        <button type="submit" class="text-danger fs-2 bg-transparent border-0" aria-label="Remove item">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
+                        <button type="submit"
+                        class="btn btn-link text-danger p-0 bag-remove-button remove-item"
+                        aria-label="Remove item">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
                     </form>
 
                     <!-- Quantity form -->
@@ -128,9 +130,9 @@
 
             <!-- Mobile totals -->
             <div class="text-end pt-3">
-                <h6 class="fw-bold">Bag Total: £{{ total|floatformat:2 }}</h6>
-                <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
-                <h4 class="mt-3 fw-bold">Grand Total: £{{ grand_total|floatformat:2 }}</h4>
+                <h3 class="fw-bold">Bag Total: £{{ total|floatformat:2 }}</h3>
+                <h3 class="fw-bold">Delivery: £{{ delivery|floatformat:2 }}</h3>
+                <h3 class="mt-3 fw-bold">Grand Total: £{{ grand_total|floatformat:2 }}</h3>
 
                 {% if free_delivery_delta > 0 %}
                 <p class="mb-1 text-danger">
@@ -251,11 +253,11 @@
                                     <input type="hidden" name="dice_option" value="set">
                                     {% endif %}
 
-                                    <button type="submit" class="btn btn-link text-danger p-0 bag-remove-button" aria-label="Remove item">
-                                        <a class="remove-item text-danger" id="remove_{{ item.item_id }}">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </a>
-                                    </button>
+                                    <button type="submit"
+                                    class="btn btn-link text-danger p-0 bag-remove-button remove-item"
+                                    aria-label="Remove item">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
                                 </form>
                             </td>
                             <td class="text-end">£{{ item.total_price }}</td>
@@ -265,7 +267,7 @@
 
                     <tfoot>
                         <tr>
-                            <td colspan="5" class="text-end pt-4">
+                            <td colspan="6" class="text-end pt-4">
                                 <p class="fw-bold">Bag Total: £{{ total|floatformat:2 }}</p>
                                 <p>Delivery: £{{ delivery|floatformat:2 }}</p>
                                 <p class="fw-bold mt-3">
@@ -282,7 +284,7 @@
                         </tr>
 
                         <tr>
-                            <td colspan="5" class="text-end">
+                            <td colspan="6" class="text-end">
                                 <a href="{% url 'products' %}"
                                    class="btn btn-outline-black btn-lg me-2" aria-label="Return to products">
                                     <i class="fas fa-chevron-left me-2"></i>

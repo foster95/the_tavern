@@ -971,6 +971,31 @@ order-confirmation-table .table > :not(caption) > * > * {
 }
 
 /* Profile Page CSS */
+
+.profile-info {
+  min-width: 0;
+}
+
+/* Mobile-first: stack header + make upload full width */
+.profile-header {
+  flex-direction: column;
+  align-items: center !important;
+  text-align: center;
+}
+
+.upload-wrap {
+  max-width: 100%;
+  width: 100%;
+}
+
+.upload-actions {
+  justify-content: center;
+}
+
+.upload-actions .btn {
+  flex: 1 1 100%;
+}
+
 #id_default_country {
   color: var(--bs-secondary-color);
 }
@@ -1122,6 +1147,25 @@ label[for^="id_qty"] {
     .order-details-table td {
         padding: 0.3rem 0;
     }
+
+    .profile-header {
+    flex-direction: row;
+    align-items: flex-start !important;
+    text-align: left;
+  }
+
+  .upload-wrap {
+    max-width: 420px;
+    width: auto;
+  }
+
+  .upload-actions {
+    justify-content: flex-start;
+  }
+
+  .upload-actions .btn {
+    flex: 0 0 auto;
+  }
 
 /* Social Sign In */
 

@@ -117,33 +117,33 @@
                 <td class="fw-bold di-label">Address Line 1:</td>
                 <td class="text-end di-value">{{ order.street_address1 }}</td>
               </tr>
+              {% if order.street_address2 %}
               <tr>
-                {% if order.street_address2 %}
                 <td class="fw-bold di-label">Address Line 2:</td>
                 <td class="text-end di-value">{{ order.street_address2 }}</td>
-                {% endif %}
-              </tr>
+            </tr>
+            {% endif %}
               <tr>
                 <td class="fw-bold di-label">Town or City:</td>
                 <td class="text-end di-value">{{ order.town_or_city }}</td>
               </tr>
+              {% if order.county %}
               <tr>
-                {% if order.county %}
                 <td class="fw-bold di-label">County:</td>
                 <td class="text-end di-value">{{ order.county }}</td>
-              </tr>
-                {% endif %}
-              <tr>
-                {% if order.country %}
+            </tr>
+            {% endif %}
+            {% if order.country %}
+            <tr>
                 <td class="fw-bold di-label">Country:</td>
                 <td class="text-end di-value">{{ order.country }}</td>
-              </tr>
-                {% endif %}
-              <tr>
+            </tr>
+            {% endif %}
+            <tr>
                 <td class="fw-bold di-label">Postcode:</td>
                 <td class="text-end di-value">{{ order.postcode }}</td>
-              </tr>
-              <tr>
+            </tr>
+            <tr>
                 <td class="fw-bold di-label">Phone Number:</td>
                 <td class="text-end di-value">{{ order.phone_number }}</td>
               </tr>
