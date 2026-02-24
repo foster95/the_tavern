@@ -84,16 +84,14 @@ html, body {
   max-width: 900px;
 }
 
-/* Input full width */
 .signup-email {
   width: 100%;
 }
 
-/* Button NOT full width */
 .subscribe-button {
-  align-self: center;      /* centers button */
-  width: auto;             /* prevents full width */
-  padding: 0.75rem 2.5rem; /* extra horizontal padding */
+  align-self: center;      
+  width: auto;             
+  padding: 0.75rem 2.5rem; 
 }
 
 #mc-alert {
@@ -177,9 +175,8 @@ html, body {
   padding-right: 10px !important;
 }
 
-/* keep mobile icons spaced */
 #mobile-icons {
-  gap: 2rem; /* change this for more/less gap */
+  gap: 2rem; 
 }
 
 #main-nav {
@@ -199,6 +196,10 @@ nav#mobile-heading {
   color: var(--primary-color) !important;
 }
 
+.mobile-dropdown {
+  background-color: var(--primary-accent) !important;
+  border: 2px solid var(--secondary-accent) !important;
+}
 
 #products-navigation {
     background-color: var(--primary-accent) !important;
@@ -305,6 +306,7 @@ nav#mobile-heading {
 }
 
 /* Toasts */
+
 .custom-toast {
   width: 420px;
   max-width: calc(100vw - 2rem);
@@ -392,9 +394,9 @@ nav#mobile-heading {
 #hero-image img.hero-image{
   display: block;
   width: 100%;
-  height: 100% !important;   /* wins over global img rules */
-  object-fit: cover;          /* crops */
-  object-position: center;    /* keeps center framed */
+  height: 100% !important;   
+  object-fit: cover;          
+  object-position: center;    
 }
 
 #hero-image,
@@ -405,8 +407,8 @@ nav#mobile-heading {
 #welcome-section {
   min-height: auto !important;
   height: auto !important;
-  padding-top: 2rem;     /* adjust */
-  padding-bottom: 2rem;  /* adjust */
+  padding-top: 2rem;     
+  padding-bottom: 2rem;  
   margin-top: 0 !important;
 }
 
@@ -580,20 +582,17 @@ span.p-2.mt-2.mb-3.badge.badge-white.text-black.border.border-dark:active {
 }
 
 .delete-link {
-    all: unset;                 /* nukes ALL button styling */
-    color: #dc3545;             /* red */
+    all: unset;                 
+    color: #dc3545;             
     cursor: pointer;
     font-weight: 600;
-    text-decoration: underline;
-    display: inline;            /* prevents weird inline-block box */
+    display: inline;           
 }
 
-/* hover */
 .delete-link:hover {
     color: #a71d2a;
 }
 
-/* accessibility focus */
 .delete-link:focus-visible {
     outline: 2px dashed #dc3545;
     outline-offset: 2px;
@@ -816,6 +815,7 @@ label[for^="id_qty"] {
 }
 
 /* Stripe Card Element container */
+
 #card-element {
   background-color: #ffffff;
   padding: 14px 16px;
@@ -823,13 +823,11 @@ label[for^="id_qty"] {
   border: 1px solid #ccc;
 }
 
-/* Focus state */
 #card-element.StripeElement--focus {
   border-color: var(--primary-accent);
   box-shadow: 0 0 0 0.2rem rgba(166, 138, 86, 0.25);
 }
 
-/* Invalid state */
 #card-element.StripeElement--invalid {
   border-color: #dc3545;
 }
@@ -860,10 +858,9 @@ select option [value=""] {
 color: var(--bs-secondary-color) !important;
 }
 
-/* One rule for both input + select */
 input.stripe-style-input,
 select.stripe-style-input {
-  background-color: #fff;          /* set exact colour here */
+  background-color: #fff;          
   border: 1px solid #ced4da;
   border-radius: 8px;
   height: 45px;
@@ -871,8 +868,6 @@ select.stripe-style-input {
   box-sizing: border-box;
   width: 100%;
 }
-
-
 
 /* Order Confirmation CSS */
 
@@ -899,10 +894,9 @@ select.stripe-style-input {
 
 order-confirmation-table .table > :not(caption) > * > * {
   background-color: transparent !important;
-  box-shadow: none !important; /* removes Bootstrap's cell "inset" effect */
+  box-shadow: none !important; 
 }
 
-/* Section spacing */
 .order-confirmation-table small.text-muted {
     font-size: 0.85rem;
     letter-spacing: 0.5px;
@@ -913,7 +907,6 @@ order-confirmation-table .table > :not(caption) > * > * {
     width: 100%;
 }
 
-/* Product image column */
 .od-img {
     width: 60px;
 }
@@ -925,26 +918,22 @@ order-confirmation-table .table > :not(caption) > * > * {
     border-radius: 6px;
 }
 
-/* Product name column */
 .od-name {
     padding-left: 0.5rem;
     width: auto;
 }
 
-/* Quantity column */
 .od-qty {
     width: 70px;
     white-space: nowrap;
 }
 
-/* Price column */
 .od-price {
     width: 90px;
     white-space: nowrap;
     font-weight: 500;
 }
 
-/* Tighten row spacing */
 .order-details-table tr {
     line-height: 1.2;
 }
@@ -955,14 +944,12 @@ order-confirmation-table .table > :not(caption) > * > * {
     padding: 0.35rem 0;
 }
 
-/* Label column width */
 .oi-label,
 .di-label,
 .bi-label {
     width: 45%;
 }
 
-/* Value column alignment */
 .oi-value,
 .di-value,
 .bi-value {
@@ -976,7 +963,6 @@ order-confirmation-table .table > :not(caption) > * > * {
   min-width: 0;
 }
 
-/* Mobile-first: stack header + make upload full width */
 .profile-header {
   flex-direction: column;
   align-items: center !important;
@@ -1027,19 +1013,17 @@ order-confirmation-table .table > :not(caption) > * > * {
 }
 
 /* Contact Form CSS */
-/* Narrower form width */
+
 .contact-wrap {
   max-width: 760px;
 }
 
-/* Tighter labels */
 .small-label {
   margin-bottom: .25rem;
   font-size: .9rem;
   font-family: var(--font-primary);
 }
 
-/* Reduce input padding */
 .contact-wrap .form-control,
 .contact-wrap .form-select {
   padding-top: .45rem;
@@ -1047,12 +1031,10 @@ order-confirmation-table .table > :not(caption) > * > * {
   font-size: 1rem;
 }
 
-/* Smaller textarea */
 .contact-wrap textarea.form-control {
   min-height: 150px;
 }
 
-/* Reduce intro spacing slightly */
 .contact-intro {
   font-size: 0.95rem;
 }
@@ -1167,8 +1149,6 @@ label[for^="id_qty"] {
     flex: 0 0 auto;
   }
 
-/* Social Sign In */
-
 .sign-up-link {
   color: var(--primary-accent) !important;
   text-decoration: none;
@@ -1196,23 +1176,21 @@ label[for^="id_qty"] {
   .signup-email {
     flex: 1;
     width: auto;
-    min-width: 320px; /* optional */
+    min-width: 320px;
   }
 
   .subscribe-button {
     width: auto;
     white-space: nowrap;
   }
-
 }
 
 @media (min-width: 800px) {
-
   #socials i {
   padding-top: 2rem;
 }
 
-    #heading .container {
+  #heading .container {
     max-width: 90%;
   }
 
@@ -1249,10 +1227,10 @@ label[for^="id_qty"] {
     flex-shrink: 0;    
     margin-right: 0.75rem;
   }
-
+  
   .qty-btn {
-  flex: 0 0 auto;         
-  min-width: 48px;        
+    flex: 0 0 auto;         
+    min-width: 48px;        
 }
 
   .qty-input {
@@ -1275,7 +1253,6 @@ label[for^="id_qty"] {
 }
 
 @media (min-width: 992px) {
-
   .navbar .dropdown:hover > .dropdown-menu {
     display: block;
     background-color: var(--primary-accent);

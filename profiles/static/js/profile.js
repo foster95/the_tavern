@@ -1,3 +1,6 @@
+/* jshint esversion: 6 */
+/* global $ */
+
 $(function () {
   const $country = $("#id_default_country");
 

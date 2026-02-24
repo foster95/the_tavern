@@ -24,13 +24,11 @@ def product_list(request):
     query = None
     categories = None
 
-    # Filter by category
     if 'category' in request.GET:
         category_slugs = request.GET.get('category', '').split(',')
         products = products.filter(category__slug__in=category_slugs)
         categories = Category.objects.filter(slug__in=category_slugs)
 
-    # Search functionality
     if 'q' in request.GET:
         query = request.GET.get('q', '').strip()
         if not query:
@@ -42,7 +40,6 @@ def product_list(request):
             Q(description__icontains=query)
         )
 
-    # Sorting
     sort = request.GET.get('sort', '')
     direction = request.GET.get('direction')
 
@@ -93,7 +90,6 @@ def product_detail(request, product_slug):
     if request.method == "POST" and request.user.is_authenticated:
         form = ProductReviewForm(request.POST)
 
-        # prevent duplicate review
         already_reviewed = ProductReview.objects.filter(
             product=product,
             user=request.user
@@ -291,7 +287,6 @@ def staff_required(view_func):
 def edit_review(request, review_id):
     review = get_object_or_404(ProductReview, id=review_id)
 
-    # only commenter or superuser
     if request.user != review.user:
         messages.error(
             request, "Only the original reviewer can edit this review."
@@ -302,7 +297,6 @@ def edit_review(request, review_id):
     review.title = request.POST.get("title")
     review.body = request.POST.get("body")
 
-    # send back to moderation
     review.status = ProductReview.Status.PENDING
     review.approved_by = None
     review.approved_at = None

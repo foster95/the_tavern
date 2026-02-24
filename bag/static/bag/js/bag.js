@@ -1,3 +1,6 @@
+/* jshint esversion: 6 */
+/* global bootstrap */
+
 /* Bag quantity controls + prevent Update if quantity hasn't changed */
 
 document.addEventListener("DOMContentLoaded", () => {

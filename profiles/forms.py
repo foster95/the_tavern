@@ -25,7 +25,8 @@ class UserProfileForm(forms.ModelForm):
             self.fields["default_first_name"].widget.attrs["autofocus"] = True
 
         for field_name, field in self.fields.items():
-            field.label = False
+            if field_name != "default_country":
+                field.label = False
 
             field.widget.attrs["class"] = "stripe-style-input"
 

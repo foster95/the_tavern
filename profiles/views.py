@@ -10,12 +10,10 @@ from checkout.models import Order
 def profile(request):
     profile = get_object_or_404(UserProfile, user=request.user)
 
-    # Default form
     form = UserProfileForm(instance=profile)
 
     if request.method == "POST":
 
-        # Upload / change picture
         if "update_picture" in request.POST:
             uploaded = request.FILES.get("profile_picture")
             if uploaded:
@@ -27,14 +25,12 @@ def profile(request):
 
             return redirect("profile")
 
-        # Remove picture
         if "remove_picture" in request.POST:
             profile.profile_picture = None
             profile.save()
             messages.success(request, "Profile picture removed.")
             return redirect("profile")
 
-        # Update delivery info
         if "update_delivery" in request.POST:
             form = UserProfileForm(request.POST, instance=profile)
             if form.is_valid():

@@ -21,7 +21,6 @@ def bag_contents(request):
     for bag_key, quantity in bag.items():
         quantity = int(quantity)
 
-        # bag_key is either "item_id" OR "item_id:set"
         option = None
         if ":" in str(bag_key):
             item_id, option = str(bag_key).split(":", 1)
@@ -32,7 +31,6 @@ def bag_contents(request):
 
         has_set_option = bool(product.dice_set_price)
 
-        # choose correct price
         if has_set_option and option == "set":
             price = product.dice_set_price
         else:

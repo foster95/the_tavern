@@ -1,3 +1,6 @@
+/* jshint esversion: 6 */
+/* global Stripe, $ */
+
 // Keys from Django json_script
 var stripePublicKey = JSON.parse(
   document.getElementById("stripe-public-key").textContent
@@ -78,11 +81,8 @@ form.addEventListener("submit", function (ev) {
   }
 
   // Convert checkbox to "true"/"false" string
-  var saveInfo = document.getElementById("save-info")
-    ? document.getElementById("save-info").checked
-      ? "true"
-      : "false"
-    : "false";
+  var saveCheckbox = document.getElementById("save-info");
+  var saveInfo = (saveCheckbox && saveCheckbox.checked) ? "true" : "false";
 
   // ✅ set hidden input that will POST to your checkout view
   var hidden = document.getElementById("save-info-hidden");

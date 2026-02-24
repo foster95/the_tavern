@@ -15,7 +15,6 @@ class ContactMessageForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        # Add placeholder option at the top
         self.fields["topic"].choices = [
             ("", "How can the Guild assist you?")
         ] + list(self.fields["topic"].choices)

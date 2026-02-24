@@ -116,18 +116,15 @@ class OrderLineItem(models.Model):
     def save(self, *args, **kwargs):
         """Set lineitem total and update order total."""
 
-        # If quantity is 0 (or less), delete the line item instead of saving it
         if self.quantity <= 0:
             if self.pk:
                 self.delete()
                 self.order.update_total()
             return
 
-        # If the product doesn't support a set price, force SINGLE
         if not self.product.dice_set_price:
             self.option = self.OPTION_SINGLE
 
-        # Pick the right unit price
         if (
             self.option == self.OPTION_SET
             and self.product.dice_set_price is not None
@@ -135,7 +132,6 @@ class OrderLineItem(models.Model):
             unit_price = self.product.dice_set_price
         else:
             unit_price = self.product.price
-        # Safety: if price is missing, don't crash silently
         if unit_price is None:
             unit_price = 0
 

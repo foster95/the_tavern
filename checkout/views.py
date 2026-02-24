@@ -87,7 +87,7 @@ def checkout(request):
             try:
                 stripe.PaymentIntent.modify(
                     pid,
-                    receipt_email=(order.email or "").strip(),  # <-- key line
+                    receipt_email=(order.email or "").strip(), 
                     )
             except Exception:
                 pass

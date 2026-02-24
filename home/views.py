@@ -44,9 +44,11 @@ def contact(request):
     if request.method == "POST":
         form = ContactMessageForm(request.POST)
         if form.is_valid():
-            obj = form.save(commit=False)
             form.save()
-            messages.success(request, "Thanks! Your message has been sent.")
+            messages.success(
+                request,
+                "Your raven is on the way! We aim to respond within 2–4 working days."
+            )
             return redirect("contact")
     else:
         form = ContactMessageForm()
