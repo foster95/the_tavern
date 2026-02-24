@@ -593,7 +593,7 @@ The code has two versions - a mobile version and a desktop version, which change
 Home | Desktop | 
 Home | Mobile | 
 Products | Desktop | 
-Products | Mobile | 0%
+Products | Mobile |
 Product Details | Desktop | 
 Product Details | Mobile | 
 Add Product | Desktop | 
@@ -630,86 +630,92 @@ Sign Up | Mobile
 ### HTML Validation
 | Page | Report | Notes
 --- | --- |---
-Home |  |
-Products | | 
-Product Details | |
-Add Product | |
-Amend Product | | 
-Bag | |
-Checkout | |
-Order Confirmation | |
-Profile | |
-Contact | |
-About | |
-FAQ | |
-Privacy | |
-Returns | |
-Shipping | |
+Home | ![HTML Validation - Home](https://github.com/foster95/the_tavern/blob/main/documentation/html/home.png) |
+Products | ![HTML Validation - Products](https://github.com/foster95/the_tavern/blob/main/documentation/html/products.png) | 
+Product Details | ![HTML Validation - Product Details](https://github.com/foster95/the_tavern/blob/main/documentation/html/product-details.png) |
+Add Product | ![HTML Validation - Add Product](https://github.com/foster95/the_tavern/blob/main/documentation/html/product-add.png) |
+Amend Product | ![HTML Validation - Amend Product](https://github.com/foster95/the_tavern/blob/main/documentation/html/product-amend.png) | 
+Bag | ![HTML Validation - Bag](https://github.com/foster95/the_tavern/blob/main/documentation/html/bag.png) |
+Checkout | ![HTML Validation - Checkout](https://github.com/foster95/the_tavern/blob/main/documentation/html/checkout.png) |
+Order Confirmation | ![HTML Validation - Order Confirmation](https://github.com/foster95/the_tavern/blob/main/documentation/html/checkout-confirmation.png) |
+Profile | ![HTML Validation - Profile](https://github.com/foster95/the_tavern/blob/main/documentation/html/profile.png) | Minor info warning due to trailing slashes implented by Django forms. Unfixed due to insignificance. 
+Contact | ![HTML Validation - Contact](https://github.com/foster95/the_tavern/blob/main/documentation/html/contact.png) |
+About | ![HTML Validation - About](https://github.com/foster95/the_tavern/blob/main/documentation/html/about.png) |
+FAQ | ![HTML Validation - FAQ](https://github.com/foster95/the_tavern/blob/main/documentation/html/faq.png) |
+Privacy | ![HTML Validation - Privacy](https://github.com/foster95/the_tavern/blob/main/documentation/html/privacy.png) |
+Returns | ![HTML Validation - Returns](https://github.com/foster95/the_tavern/blob/main/documentation/html/returns.png)|
+Shipping | ![HTML Validation - Shipping](https://github.com/foster95/the_tavern/blob/main/documentation/html/shipping.png) |
+Sign In | ![HTML Validation - Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/html/login.png) |
+Sign Out | ![HTML Validation - Sign Out](https://github.com/foster95/the_tavern/blob/main/documentation/html/logout.png) |
+Sign Up | ![HTML Validation - Sign Up](https://github.com/foster95/the_tavern/blob/main/documentation/html/signup.png) |
+Sign In - Google | ![HTML Validation - Sign In - Google](https://github.com/foster95/the_tavern/blob/main/documentation/html/google-login.png) |
+Sign In - Facebook | ![HTML Validation - Sign In - Facebook](https://github.com/foster95/the_tavern/blob/main/documentation/html/facebook-login.png) |
+
 
 ### PEP8 Validation
 #### Home
 | File | PEP8 Response
 --- | ---
-Admin | 
-Apps |
-Models |
-URLs |
-Views |
+Admin | ![PEP8 Validation - Home/Admin](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/home-admin.png)
+Apps | ![PEP8 Validation - Home/Apps](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/home-apps.png)
+Models | ![PEP8 Validation - Home/Models](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/home-models.png)
+URLs | ![PEP8 Validation - Home/URLS](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/home-urls.png)
+Views | ![PEP8 Validation - Home/Views](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/home-views.png)
 
 #### Products
 | File | PEP8 Response
 --- | ---
-Admin | 
-Apps |
-Forms |
-Models |
-URLs |
-Views |
+Admin | ![PEP8 Validation - Products/Admin](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/products-admin.png)
+Apps | ![PEP8 Validation - Products/Apps](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/products-apps.png)
+Forms | ![PEP8 Validation - Products/Forms](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/products-forms.png)
+Models | ![PEP8 Validation - Products/Models](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/products-models.png)
+URLs | ![PEP8 Validation - Products/URLS](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/products-urls.png)
+Views | ![PEP8 Validation - Products/Views](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/products-views.png)
 
 #### Bag
 | File | PEP8 Response
 --- | ---
-Admin | 
-Apps |
-Contexts |
-Models |
-URLs |
-Views |
+Admin | ![PEP8 Validation - Bag/Admin](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/bag-admin.png)
+Apps | ![PEP8 Validation - Bag/Apps](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/bag-apps.png)
+Contexts | ![PEP8 Validation - Bag/Contexts](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/bag-contexts.png)
+Models | ![PEP8 Validation - Bag/Models](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/bag-models.png)
+URLs | ![PEP8 Validation - Bag/URLS](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/bag-urls.png)
+Views | ![PEP8 Validation - Bag/Views](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/bag-views.png)
 
 #### Checkout
 | File | PEP8 Response
 --- | ---
-Admin | 
-Apps |
-Forms |
-Models |
-Signals |
-URLs |
-Views |
-Webhook-Handler |
-Webhooks
+Admin | ![PEP8 Validation - Checkout/Admin](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/checkout-admin.png)
+Apps | ![PEP8 Validation - Checkout/Apps](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/checkout-apps.png)
+Forms | ![PEP8 Validations - Checkout/Forms]()
+Models | ![PEP8 Validation - Checkout/Models](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/checkout-models.png)
+Signals | ![PEP8 Validation - Checkout/Signals](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/checkout-signals.png)
+URLs | ![PEP8 Validation - Checkout/URLS](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/checkout-urls.png)
+Views | ![PEP8 Validation - Checkout/Views](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/checkout-views.png)
+Webhook-Handler | ![PEP8 Validation - Checkout/Webhook-Handler](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/checkout-webhook-handler.png)
+Webhooks | ![PEP8 Validation - Checkout/Webhooks](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/checkout-webhooks.png)
 
 #### Profiles
 | File | PEP8 Response
 --- | ---
-Admin | 
-Apps |
-Models |
-Forms |
-URLs |
-Views |
+Admin | ![PEP8 Validation - Profiles/Admin](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/profiles-admin.png)
+Apps | ![PEP8 Validation - Profiles/Apps](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/profiles-apps.png)
+Forms | ![PEP8 Validation - Profiles/Forms](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/profiles-forms.png)
+Models | ![PEP8 Validation - Profiles/Models](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/profiles-models.png)
+URLs | ![PEP8 Validation - Profile/URLS](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/profiles-urls.png)
+Views | ![PEP8 Validation - Profile/Views](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/profiles-views.png)
 
 ### JShint
 | File | JShint
 --- | ---
-newsletter.js | 
-bag.js |
-stripe_elements.js |
-product_details.js |
-product_form.js |
-product_review.js |
-products.js |
-profile.js |
+newsletter.js | ![JShint Validation - Newsletter](https://github.com/foster95/the_tavern/blob/main/documentation/jshint/newsletter.png)
+bag.js | ![JShint Validation - Bag](https://github.com/foster95/the_tavern/blob/main/documentation/jshint/bag.png)
+stripe_elements.js | ![JShint Validation - Stripe_Elements](https://github.com/foster95/the_tavern/blob/main/documentation/jshint/stripe-elements.png)
+product_details.js | ![JShint Validation - Product_Details](https://github.com/foster95/the_tavern/blob/main/documentation/jshint/product-details.png)
+product_form.js | ![JShint Validation - Product_Form](https://github.com/foster95/the_tavern/blob/main/documentation/jshint/product-form.png)
+product_review.js | ![JShint Validation - Product_Review](https://github.com/foster95/the_tavern/blob/main/documentation/jshint/product-review.png)
+products.js | ![JShint Validation - Products](https://github.com/foster95/the_tavern/blob/main/documentation/jshint/products.png)
+profile.js | ![JShint Validation - Profile](https://github.com/foster95/the_tavern/blob/main/documentation/jshint/profile.png)
 
 
 
