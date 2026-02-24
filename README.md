@@ -254,6 +254,9 @@ Prior to building The Tavern, I created an ERD which helped me visualise all of 
 ### Header
 The header extends the base.html template, and is a simple, minimalistic design which is visually appealing for users. On mobile the header is much simpler, displaying only the most crucial features of the website to allow users easy UX - these features are: a drop down burger icon which allows users to navigate to the following: all products, dice, other accessories, about us, FAQ and contact us. There is also a search button, allowing users to search the site, a my account button, and a basket button. On tablets and up, the header is much more elaborate, featuring a small version of the companies logo on the left hand side, a central search bar and the account and basket features on the right hand side of the screen. Running just below this in a seperate bar is the product catalogue, and seperated from this the FAQ and the contact us button can be found in the header. This allows users to easily navigate to the product directory, but requires them to search a little further for the other pages, which is the ultimate goal of an eCommerce site. 
 
+### Newsletter Sign Up
+The newsletter sign up extends from base.html and acts as part of an elongated footer. The newsletter is connected to Mailchimp, and on the user providing their email this is tracked in Mailchimp's dashboard. On providing the email, the user is shown a success message confirming that their information has been collected. 
+
 ### Footer
 The footer also extends from base.html and is very simple, made up of a few links for users to navigate around the site, and to find the social media links for the company. All of the social media links apply the "rel=noopener" rule, and open to a new page away from the site. The footer is responsive to various screen sizes, stacking on mobiles, and stretching out from tablet onwards. 
 
@@ -364,7 +367,7 @@ The product catalog is a visual map for users of the website to navigate to the 
 
 The product catalog is designed mobile first, and products stack into individual rows on a mobile, rows of two on a tablet and rows of four on desktop and above. There is a small arrow that floats on the right hand side of the items which takes users from the bottom of the page to the top using a small chunk of javascript. This code was inspired by the Boutique Ado walkthrough and adjusted for the project needs. 
 
-## Product Details Page
+### Product Details Page
 Upon clicking any of the items on the product catalog, the user is taken to the individual product description page. Products are searched for using their slug, rather than their indiviudal ID number, providing better UX for users as they can understand the product they are searching for much easier than if they were required to know the product number. The product details page includes the following - the product tag, a product image, a product title, a product description, a product price, a product quantity toggler and a dimensions and materials drop down accordion. When accessed via mobile, the columns automatically stack on top of each other but on tablet and larger screens, the columns split into two showing the product image on the left hand side and the product details on the right. 
 
 As dice can be sold either individually or as part of a seven piece set, dice have an additional option where users can choose whether or not they are buying the individual price, or the full set, which affects the price shown on the site. Dice products will automatically default to the single D20 price when the user loads onto the website. To determine whether or not the product is considered to be a flat price or part of the single vs set cost, the below model was created: 
@@ -477,9 +480,239 @@ Users of the website can also input the quantity of the item they would like to 
 
 On putting an item in the shopping bag, the website utilises Bootstraps built in toast system to indicate to the user that the item has been added to their bag. The toast has a X for users to close, but will also automatically fade after 5 seconds. Within the toast, the user is able to see the item that has been placed into the bag, the quantity of the item and the cost as well as see if they have put enough things in their shopping bag to get free delivery. Finally, the user is shown a button which takes them to the shopping bag page. 
 
-## Shopping Bag
+### Shopping Bag
+The shopping bag, or the Bag of Holding as it is called on the website in line with the D&D theme, is the next step in the purchasing process for a user, and is designed to give the user an immediate detailed overview of the products they are in the process of purchasing. The page is designed to be as simple as ossible, with a table which includes the product image, the item that is being purchased, the quantity and the subtotal. Underneath this, the user can see the bag total, delivery costs and the grand total. If the user has not reached the threshold for free delivery, they are informed how much more they need to spend to reach the free checkout threshold. Within the table, users are able to amend their product quantity, increasing or reducing it (no lower than 1) or removing the entire item from the bag. To wire up the quantity and remove buttons and make them functional, a small amount of JS was written which was inspired by the Boutique Ado code: 
 
-## Checkout
+
+        /* Bag quantity controls + prevent Update if quantity hasn't changed */
+
+            document.addEventListener("DOMContentLoaded", () => {
+            const MIN_QTY = 1;
+            const MAX_QTY = 99;
+
+            /* Quantity + / - controls */
+            document.querySelectorAll(".quantity-wrapper").forEach((wrapper) => {
+                const minusBtn = wrapper.querySelector(".qty-btn.minus");
+                const plusBtn = wrapper.querySelector(".qty-btn.plus");
+                const input = wrapper.querySelector(".qty-input");
+
+                if (!minusBtn || !plusBtn || !input) return;
+
+                const clamp = (val) => Math.min(MAX_QTY, Math.max(MIN_QTY, val));
+
+                const sync = () => {
+                const val = parseInt(input.value, 10);
+                input.value = clamp(isNaN(val) ? MIN_QTY : val);
+                minusBtn.disabled = parseInt(input.value, 10) <= MIN_QTY;
+                };
+
+                sync();
+
+                minusBtn.addEventListener("click", () => {
+                input.value = clamp(parseInt(input.value, 10) - 1);
+                sync();
+                });
+
+                plusBtn.addEventListener("click", () => {
+                input.value = clamp(parseInt(input.value, 10) + 1);
+                sync();
+                });
+
+                input.addEventListener("input", sync);
+            });
+
+            /* Block Update if unchanged */
+            let warningShown = false;
+
+            document.querySelectorAll("form").forEach((form) => {
+                const input = form.querySelector(".qty-input");
+                const updateBtn = form.querySelector(".bag-update-button, .update-button");
+
+                // Only target update forms
+                if (!input || !updateBtn) return;
+
+                // Reset warning if user changes quantity
+                input.addEventListener("input", () => {
+                warningShown = false;
+                });
+
+                form.addEventListener("submit", (e) => {
+                const original = parseInt(input.dataset.original, 10);
+                const current = parseInt(input.value, 10);
+
+                if (isNaN(original)) return;
+
+                if (original === current) {
+                    e.preventDefault();
+
+                    if (!warningShown) {
+                    showBagMessage("Quantity hasn’t changed.");
+                    warningShown = true;
+                    }
+                }
+                });
+            });
+            });
+
+            /* Block Update if unchanged */
+            function showBagMessage(text) {
+            const toastEl = document.getElementById("js-toast-warning");
+            const textEl = document.getElementById("js-toast-warning-text");
+
+            if (!toastEl || !textEl) return;
+
+            textEl.textContent = text;
+
+            // unhide the toast only when needed
+            toastEl.classList.remove("d-none");
+
+            const toast = bootstrap.Toast.getOrCreateInstance(toastEl);
+            toast.show();
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+            const toastEl = document.getElementById("js-toast-warning");
+            if (!toastEl) return;
+
+            toastEl.addEventListener("hidden.bs.toast", () => {
+                toastEl.classList.add("d-none");
+            });
+            });
+
+The code has two versions - a mobile version and a desktop version, which changes dependent on how the user is accessing the bag. On mobile the table cannot be seen and all of the items stack into readable columns. The buttons are still accessible, allowing users to increase or decrease quantity, and the bin button can be used to remove the item from the bag. Provided the user is happy with everything, they are able to proceed to the next stage of the secure checkout via a button. If they would like to go back and add more items to their shopping bag, there is another button which returns them to the product catalog. 
+
+### Checkout
+
+## Testing
+### Summary of Testing
+
+
+### Lighthouse
+| Page | Format | Lighthouse Grades
+--- | --- | --- 
+Home | Desktop | 
+Home | Mobile | 
+Products | Desktop | 
+Products | Mobile | 0%
+Product Details | Desktop | 
+Product Details | Mobile | 
+Add Product | Desktop | 
+Add Product | Mobile | 
+Amend Product | Desktop | 
+Amend Product | Mobile | 
+Bag | Desktop | 
+Bag | Mobile | 
+Checkout | Desktop | 
+Checkout | Mobile | 
+Order Confirmation | Desktop | 
+Order Confirmation | Mobile | 
+Profile | Desktop | 
+Profile | Mobile | 
+Contact | Desktop | 
+Contact | Mobile | 
+About | Desktop | 
+About | Mobile | 
+FAQ | Desktop | 
+FAQ | Mobile | 
+Privacy | Desktop | 
+Privacy | Mobile | 
+Returns | Desktop | 
+Returns | Mobile | 
+Shipping | Desktop | 
+Shipping | Mobile | 
+Sign In | Dekstop |
+Sing In | Mobile |
+Sign Out | Desktop
+Sign Out | Mobile
+Sign Up | Desktop
+Sign Up | Mobile 
+
+### HTML Validation
+| Page | Report | Notes
+--- | --- |---
+Home |  |
+Products | | 
+Product Details | |
+Add Product | |
+Amend Product | | 
+Bag | |
+Checkout | |
+Order Confirmation | |
+Profile | |
+Contact | |
+About | |
+FAQ | |
+Privacy | |
+Returns | |
+Shipping | |
+
+### PEP8 Validation
+#### Home
+| File | PEP8 Response
+--- | ---
+Admin | 
+Apps |
+Models |
+URLs |
+Views |
+
+#### Products
+| File | PEP8 Response
+--- | ---
+Admin | 
+Apps |
+Forms |
+Models |
+URLs |
+Views |
+
+#### Bag
+| File | PEP8 Response
+--- | ---
+Admin | 
+Apps |
+Contexts |
+Models |
+URLs |
+Views |
+
+#### Checkout
+| File | PEP8 Response
+--- | ---
+Admin | 
+Apps |
+Forms |
+Models |
+Signals |
+URLs |
+Views |
+Webhook-Handler |
+Webhooks
+
+#### Profiles
+| File | PEP8 Response
+--- | ---
+Admin | 
+Apps |
+Models |
+Forms |
+URLs |
+Views |
+
+### JShint
+| File | JShint
+--- | ---
+newsletter.js | 
+bag.js |
+stripe_elements.js |
+product_details.js |
+product_form.js |
+product_review.js |
+products.js |
+profile.js |
+
+
+
 
 
 
@@ -593,6 +826,16 @@ The Tavern do have a small marketing budget, however I would personally suggest 
 * Our Own Thing - Font pairing website
 * Google Fonts - Fonts across the full website
 * Canva - Wireframes
+* Online Convert - Convert images from jpg to webp
+* Compress or Die - Webp compressor
 
 ### Database
 * Miro - ERD creation
+* Mailchimp - Newsletter sign up database
+
+## Debugging and Testing
+* ChatGPT
+* W3C HTML Validation
+* W3C CSS Validation
+* JShint
+* Lighthouse
