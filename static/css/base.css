@@ -508,7 +508,7 @@ main,
 
 /* Product Catalouge Specific Styles */
 
-#product-name a {
+.product-name{
     color: var(--secondary-color) !important;
     text-decoration: none;
 }
