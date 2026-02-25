@@ -814,6 +814,10 @@ label[for^="id_qty"] {
   margin: 0;                 
 }
 
+.bag-remove-button {
+  background-color: transparent !important;
+}
+
 /* Stripe Card Element container */
 
 #card-element {
