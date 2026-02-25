@@ -43,9 +43,9 @@
     <div class="col-12 col-md-6 col-lg-5">
       <div class="product-details-container mb-5 mt-2">
 
-        <p class="mb-0 fw-bold text-start" id="product-name">
+        <h1 class="mb-0 fw-bold text-start" id="product-name">
           {{ product.name }}
-        </p>
+        </h1>
 
         {% if product.category %}
           <p class="small mt-1 mb-0">
@@ -143,7 +143,7 @@
 
           <!-- Dimensions -->
           <div class="accordion-item">
-            <h2 class="accordion-header" id="heading-dimensions">
+            <p class="accordion-header" id="heading-dimensions">
               <button
                 class="accordion-button collapsed py-2"
                 type="button"
@@ -153,7 +153,7 @@
                 aria-controls="collapse-dimensions">
                 Dimensions
               </button>
-            </h2>
+            </p>
             <div
               id="collapse-dimensions"
               class="accordion-collapse collapse">
@@ -167,7 +167,7 @@
 
           <!-- Material -->
           <div class="accordion-item">
-            <h2 class="accordion-header" id="heading-material">
+            <p class="accordion-header" id="heading-material">
               <button
                 class="accordion-button collapsed py-2"
                 type="button"
@@ -177,7 +177,7 @@
                 aria-controls="collapse-material">
                 Material
               </button>
-            </h2>
+            </p>
             <div
               id="collapse-material"
               class="accordion-collapse collapse">
