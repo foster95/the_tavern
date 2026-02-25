@@ -100,20 +100,20 @@ I created a series of wireframes illustrating the mobile and desktop experience 
 
 | Page | Mobile | Desktop
 --- | --- | ---
-Index | |
-About | |
-Products | |
-Product Detail | |
-Bag | |
-Checkout | |
-Order Confirmation ||
-Sign In | |
-Sign Up | |
-Sign Out | |
-Profile | |
-Add Product | |
-Amend a Product | |
-Error 404 | |
+Index | [Mobile - Index Wireframe](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-index.png) | ![Desktop - Index Wireframe](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-index.png)
+About | ![Mobile - About Wireframe](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-about.png) | ![Desktop - About Wireframe](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-about.png)
+Products | ![Mobile - Products](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-categories.png) | ![Desktop - Products Wireframe](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-categories.png)
+Product Detail | ![Mobile - Product Detail Wireframes](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-product-details.png) | ![Desktop - Product Detail Wireframes](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-product-detail.png)
+Bag | ![Mobile - Bag Wireframe](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-bag.png) | ![Desktop - Bag Wireframes](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-bag.png)
+Checkout | ![Mobile - Checkout Wireframe](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-checkout.png)| ![Desktop - Checkout Wireframe](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-checkout.png)
+Order Confirmation | ![Mobile - Order Confirmation](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-order-confirmation.png) | ![Desktop - Order Confirmation](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-order-confirmation.png)
+Sign In | ![Mobile - Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-sign-in.png) | ![Desktop - Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-sign-in.png)
+Sign Up | ![Mobile - Sign Up](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-sign-up.png) | ![Desktop - Sign Up](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-sign-up.png)
+Sign Out | ![Mobile - Sign Out](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-sign-out.png) | ![Desktop - Sign Out](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-sign-out.png)
+Profile | ![Mobile - Profile](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-profile.png) | ![Desktop - Profile](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-profile.png)
+Add Product | ![Mobile - Add Product](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-add-product.png) | ![Desktop - Add Product Wireframe](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-add-product.png)
+Amend a Product | ![Mobile - Amend Product](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-amend-product.png) | ![Desktop - Amend Product Wireframe](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-amend-product.png)
+Error 404 | ![Mobile - Error 404](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-error-404.png) | ![Desktop - Error 404](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-error-404.png)
 
 ### Surface
 #### Colour Palette
@@ -590,42 +590,46 @@ The code has two versions - a mobile version and a desktop version, which change
 ### Lighthouse
 | Page | Format | Lighthouse Grades
 --- | --- | --- 
-Home | Desktop | 
-Home | Mobile | 
-Products | Desktop | 
-Products | Mobile |
-Product Details | Desktop | 
-Product Details | Mobile | 
-Add Product | Desktop | 
-Add Product | Mobile | 
-Amend Product | Desktop | 
-Amend Product | Mobile | 
-Bag | Desktop | 
-Bag | Mobile | 
-Checkout | Desktop | 
-Checkout | Mobile | 
-Order Confirmation | Desktop | 
-Order Confirmation | Mobile | 
-Profile | Desktop | 
-Profile | Mobile | 
-Contact | Desktop | 
-Contact | Mobile | 
-About | Desktop | 
-About | Mobile | 
-FAQ | Desktop | 
-FAQ | Mobile | 
-Privacy | Desktop | 
-Privacy | Mobile | 
-Returns | Desktop | 
-Returns | Mobile | 
-Shipping | Desktop | 
-Shipping | Mobile | 
-Sign In | Dekstop |
-Sing In | Mobile |
-Sign Out | Desktop
-Sign Out | Mobile
-Sign Up | Desktop
-Sign Up | Mobile 
+Home | Desktop | ![Desktop - Home Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-base.png)
+Home | Mobile | ![Mobile - Home Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-base.png)
+Products | Desktop | ![Desktop - Products Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-products.png)
+Products | Mobile | ![Mobile - Products Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-products.png)
+Product Details | Desktop | ![Desktop - Product Details Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-product-details.png)
+Product Details | Mobile | ![Mobile - Product Details Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-product-details.png)
+Add Product | Desktop | ![Desktop - Add Product Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-add-product.png)
+Add Product | Mobile | ![Mobile - Add Product Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-add-product.png)
+Amend Product | Desktop | ![Desktop - Amend Product Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-amend-product.png)
+Amend Product | Mobile | ![Mobile - Amend Product Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-amend-product.png)
+Bag | Desktop | ![Desktop - Bag Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-bag.png) 
+Bag | Mobile | ![Mobile - Bag Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-bag.png)
+Checkout | Desktop | ![Desktop - Checkout Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-checkout.png)
+Checkout | Mobile | ![Mobile - Checkout Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-checkout.png)
+Order Confirmation | Desktop | ![Desktop - Order Confirmation Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-order-confirmation.png)
+Order Confirmation | Mobile | ![Mobile - Order Confirmation Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-order-confirmation.png)
+Profile | Desktop | ![Desktop - Profile Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-profile.png)
+Profile | Mobile | ![Mobile - Profile Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-profile.png)
+Contact | Desktop | ![Desktop - Contact Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-contact.png)
+Contact | Mobile | ![Mobile - Contact Lightouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-contact.png)
+About | Desktop | ![Desktop - About Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-about.png)
+About | Mobile | ![Mobile - About Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-about.png)
+FAQ | Desktop | ![Desktop - FAQ Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-faq.png)
+FAQ | Mobile | ![Mobile - FAQ Lightouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-faq.png)
+Privacy | Desktop | ![Desktop - Privacy Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-privacy.png)
+Privacy | Mobile | ![Mobile - Privacy Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-privacy.png) 
+Returns | Desktop | ![Desktop - Returns Ligthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-returns.png)
+Returns | Mobile | ![Mobile - Returns Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-returns.png)
+Shipping | Desktop | ![Desktop - Shipping Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-shipping.png)
+Shipping | Mobile | ![Mobile - Shipping Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-shipping.png)
+Sign In | Desktop | ![Desktop - Sign In Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-sign-in.png)
+Sing In | Mobile | ![Mobile - Sign In Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-sign-in.png)
+Sign In - Google | Dekstop | ![Desktop - Sign In - Google](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-sign-in-google.png)
+Sing In - Google | Mobile | ![Mobile - Sign In - Google](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-sign-in-google.png)
+Sign In - Facebook | Desktop | ![Desktop - Sign In - Facebook](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-sign-in-facebook.png)
+Sing In - Facebook | Mobile | ![Mobile - Sign In - Facebook](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-sign-in-facebook.png)
+Sign Out | Desktop | ![Desktop - Sign Out](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-sign-out.png)
+Sign Out | Mobile | ![Mobile - Sign Out](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-sign-out.png)
+Sign Up | Desktop | ![Desktop - Sign Up](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-sign-up.png)
+Sign Up | Mobile | ![Mobile - Sign Up](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-sign-up.png)
 
 ### HTML Validation
 | Page | Report | Notes
@@ -633,8 +637,8 @@ Sign Up | Mobile
 Home | ![HTML Validation - Home](https://github.com/foster95/the_tavern/blob/main/documentation/html/home.png) |
 Products | ![HTML Validation - Products](https://github.com/foster95/the_tavern/blob/main/documentation/html/products.png) | 
 Product Details | ![HTML Validation - Product Details](https://github.com/foster95/the_tavern/blob/main/documentation/html/product-details.png) |
-Add Product | ![HTML Validation - Add Product](https://github.com/foster95/the_tavern/blob/main/documentation/html/product-add.png) |
-Amend Product | ![HTML Validation - Amend Product](https://github.com/foster95/the_tavern/blob/main/documentation/html/product-amend.png) | 
+Add Product | ![HTML Validation - Add Product](https://github.com/foster95/the_tavern/blob/main/documentation/html/product-add.png) | Minor info warning due to trailing slashes implented by Django forms. Unfixed due to insignificance. 
+Amend Product | ![HTML Validation - Amend Product](https://github.com/foster95/the_tavern/blob/main/documentation/html/product-amend.png) | Minor info warning due to trailing slashes implented by Django forms. Unfixed due to insignificance. 
 Bag | ![HTML Validation - Bag](https://github.com/foster95/the_tavern/blob/main/documentation/html/bag.png) |
 Checkout | ![HTML Validation - Checkout](https://github.com/foster95/the_tavern/blob/main/documentation/html/checkout.png) |
 Order Confirmation | ![HTML Validation - Order Confirmation](https://github.com/foster95/the_tavern/blob/main/documentation/html/checkout-confirmation.png) |
@@ -716,11 +720,6 @@ product_form.js | ![JShint Validation - Product_Form](https://github.com/foster9
 product_review.js | ![JShint Validation - Product_Review](https://github.com/foster95/the_tavern/blob/main/documentation/jshint/product-review.png)
 products.js | ![JShint Validation - Products](https://github.com/foster95/the_tavern/blob/main/documentation/jshint/products.png)
 profile.js | ![JShint Validation - Profile](https://github.com/foster95/the_tavern/blob/main/documentation/jshint/profile.png)
-
-
-
-
-
 
 
 ## Web Marketing
@@ -827,7 +826,7 @@ The Tavern do have a small marketing budget, however I would personally suggest 
 
 ## Tools and Technologies
 ### Media and Design
-* Google Gemini - Product images
+* Google Gemini - Product images and product copy 
 * Coolors - Colour Palettes
 * Our Own Thing - Font pairing website
 * Google Fonts - Fonts across the full website
