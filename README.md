@@ -100,7 +100,7 @@ I created a series of wireframes illustrating the mobile and desktop experience 
 
 | Page | Mobile | Desktop
 --- | --- | ---
-Index | [Mobile - Index Wireframe](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-index.png) | ![Desktop - Index Wireframe](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-index.png)
+Index | ![Mobile - Index Wireframe](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-index.png) | ![Desktop - Index Wireframe](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-index.png)
 About | ![Mobile - About Wireframe](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-about.png) | ![Desktop - About Wireframe](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-about.png)
 Products | ![Mobile - Products](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-categories.png) | ![Desktop - Products Wireframe](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-categories.png)
 Product Detail | ![Mobile - Product Detail Wireframes](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/mobile-product-details.png) | ![Desktop - Product Detail Wireframes](https://github.com/foster95/the_tavern/blob/main/documentation/wireframes/desktop-product-detail.png)
@@ -584,10 +584,30 @@ The code has two versions - a mobile version and a desktop version, which change
 ### Checkout
 
 ## Testing
+Multiple testing methods were carried out to ensure the quality, functionality, and responsiveness of The Tavern. These included automated validation tools, device and browser testing, Lighthouse analysis, accessibility checks, and user-story-based manual testing. All core functionality works as expected, and at the the time of submission any bugs have been fixed.
+
+Testing was carried out using a mix of automated tools and manual user-story-based methods.
+
 ### Summary of Testing
+Testing Method | Tools Used | Purpose | Result 
+--- | --- | --- | ---
+Performance | Google Lighthouse | Measure performance & best practices | Good overall 
+HTML Validation | Nu HTML Checker | Check HTML structure | Passed – 0 errors 
+CSS Validation | W3C CSS Validator | Validate custom CSS | Passed – 0 errors 
+JavaScript Validation | JSHint | Validate ES6 syntax | Passed after config 
+Python Validation | CI PEP8 Linter | Check PEP8 compliance | Passed across apps 
+Accessibility | WAVE | WCAG & ARIA validation | Minor contrast issue 
+Browser Testing | Chrome, Safari, Firefox, Edge | Cross-browser consistency | Passed 
+Device Testing | iPhone, Android, Tablet, Desktop | Cross-device consistency | Passed
+Manual Testing | Developer testing | To test that all website features were working manually | Passed
+Device Testing | iOS, Android, Tablets, Laptops | Responsiveness testing | Passed 
+User Story Testing | Manual testing table | Verify all features against stories | Good overall 
 
 
 ### Lighthouse
+
+As part of general testing, I conducted a series of lighthouse tests across both mobile and desktop formatting. As a rule of thumb, all of the tests for mobile came back weaker than desktop, however from doing research this seems to be an issue connected to the fact that the website is hosted through Heroku on eco dynos and therefore is not primed to hit high grades. The weakest page was the products directory page, which was to be expected as the page is very image and link heavy, due to being an eCommerce website. To try and reduce image size, all images were reformatted from JEPGs to WebPs and were then further supressed. Lazy loading was also used on almost all of the photos, helping reduce the photo weight. 
+
 | Page | Format | Lighthouse Grades
 --- | --- | --- 
 Home | Desktop | ![Desktop - Home Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-base.png)

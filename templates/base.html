@@ -59,9 +59,21 @@
 
             <div class="col-12 col-md-7 px-md-3" id="searchbar">
               <form method="get" action="{% url 'products' %}" class="m-0">
+                
+                <label for="site-search" class="visually-hidden">
+                  Search for products
+                </label>
+
                 <div class="input-group" style="max-width: 720px;">
-                  <input type="text" name="q" class="form-control" placeholder="Search for products...">
-                  <button type="submit" class="btn btn-primary" aria-label="Search for products">
+                  <input 
+                    type="search"
+                    id="site-search"
+                    name="q"
+                    class="form-control"
+                    placeholder="Search for products..."
+                  >
+
+                  <button type="submit" class="btn btn-primary" aria-label="Search">
                     <i class="fas fa-search"></i>
                   </button>
                 </div>

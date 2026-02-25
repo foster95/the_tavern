@@ -55,8 +55,11 @@ class ProductForm(forms.ModelForm):
         price = cleaned.get("price")
         dice_set_price = cleaned.get("dice_set_price")
 
+        if price is None:
+            self.add_error("price", "Please enter a price for this product.")
+
         if is_dice_set:
-            if not dice_set_price:
+            if not dice_set_price is None:
                 self.add_error(
                     "dice_set_price", "Please add a full set price."
                     )
