@@ -23,6 +23,31 @@ The Tavern is an online e-commerce website store, designed for the Dungeons and 
         * [User Account and Authentication](#user-account-and-authentication-1)
         * [Shopping Bag and Checkout](#shopping-bag-and-checkout-1)
         * [Brand Experience](#brand-experience-1)
+    * [MoSCoW Prioritisation](#moscow-prioritisation)
+        * [MoSCoW summary](#moscow-summary) 
+        * [Must Have](#must-have)
+        * [Could Have](#could-have)
+        * [Should Have](#should-have)
+    * [Database Design](#databse-design)
+    * [Website Features](#website-features)
+    * [Testing](#testing)
+        * [Summary of Testing](#summary-of-testing)
+        * [Lighthouse](#lighthouse)
+        * [HTML Validation](#html-validation)
+        * [CSS Validation]
+        * [PEP8 Validation](#pep8-validation)
+        * [JShint Validation](#jshint-validation)
+        * [Manual Testing](#manual-testing)
+        * [Testing Against User Stories](#testing-against-user-stories)
+    * [Web Marketing](#web-marketing)
+        * [Keywords and SEO Research](#keyword-and-seo-research)
+        * [Marketing Strategies](#marketing-strategies)
+    * [Deployment and Cloning]
+    * [Forking and Cloning]
+    * [Tools and Technologies](#tools-and-technologies)
+    * [Credits and Acknowledgments]
+    * [A Final Word from the Developer]
+
 
 ## UX
 ### Five Planes of UX Design
@@ -45,7 +70,6 @@ To guide the initial development stages of The Tavern, I used the theory of the 
 * Users should be able to sign up to be a registered user
 * Registered users should be able to see their own profile with shipping details which they can update and amend. 
 * Registered users should be able to see their past orders 
-
 
 #### Business Goals
 * To provide a website that gives a fun, theatrical experience with aesthetics expected for the D&D/TTPG community
@@ -120,19 +144,20 @@ Error 404 | ![Mobile - Error 404](https://github.com/foster95/the_tavern/blob/ma
 As The Tavern is a website for TTRPG/D&D items, the website should have a rich, luxurious fantasy feel, similar to the aesthetics seen in games like Baldurs Gate and other D&D based games. I used coolors to help create the initial colour palette, which is focussed on this richness and warmth of an adventuring party, without leaning into the more cliche reds and golds that you often see associated with D&D and TTRPG games.
 
 The initial colour palette created for The Tavern can be found below:
-
+![Initial Colour Palette for The Tavern](https://github.com/foster95/the_tavern/blob/main/documentation/brand/initial-colour-palette.png)
 
 At the end of the devlopment of the website I undertook WAVE testing, which raised contrast issues with the current colour palette. With that in mind, the primary accent was tweaked slightly to make it darker and pass the AIM minimum checker, whilst still keeping the original colour palette in mind. The refined palette can be seen below:
+![Refined Colour Palette for The Tavern](https://github.com/foster95/the_tavern/blob/main/documentation/brand/refined-colour-palette.png)
 
 #### Typography
 Using Our Own Thing's font matching extension, I settled on using Montserrat for the main body of the website, and Almendra for any headers. Montserrat is a standard font used across the industry, noted for its readability and simplicity. Almendra is a more decorative font which evokes the fantasy world, making it suited for The Tavern's aesthetics. Font Awesome was used for the social media icons in the footer. 
 
 #### The Tavern's Logo & Wordmark
-
 ### Wordmark
+![Wordmark for The Tavern](https://github.com/foster95/the_tavern/blob/main/documentation/brand/wordmark-3.png)
 
 ### Logo
-
+![Logo for The Tavern](https://github.com/foster95/the_tavern/blob/main/documentation/brand/outline-logo.webp)
 
 #### Development Using Agile Methodology
 Using the Agile Methodology, I first created a set of epics, which then got broken down into 
@@ -256,9 +281,16 @@ Total | 25 | 100%
 * As a user, I want to be able to see information about the company, so I can know who I'm buying from
 * As a staff member (Admin role) I want to be able to update the information on the company, so that I can keep this up to date as the company grows and expands
 
+### GitHub Issues
+From the beginning of development, I used GitHub Issues as means to manage and create epics with user stories inside them, as well as build out the acceptance criteria for each user story.
+
+### GitHub Boards
+In the later stages of development I used GitHub Projects kanban board as a tracker. epics with user stories inside them, were placed in the To-do section and were steadily moved over as they were completed.
+
 ## Databse Design
 ### Data Models
 Prior to building The Tavern, I created an ERD which helped me visualise all of the relationships between the different datasets and databases in the site. I used Miro to create this:
+![Databse ERD](https://github.com/foster95/the_tavern/blob/main/documentation/database/erd.png)
 
 ## Website Features
 ### Header
@@ -593,6 +625,27 @@ The code has two versions - a mobile version and a desktop version, which change
 
 ### Checkout
 
+## Developmental Bugs
+Throughout development I came across numerous issues, bugs and difficulties with the website. At the time of submission, I am confident there are no bugs remaining, however I cannot guarantee this 100% as I cannot account for all user behaviour that would try to break the website and its integrity. The vast majority of the bugs that I came across were to do with minor CSS and responsivity issues, however the major bug that I struggled with has been documented below:
+
+### AWS S3 Media Storage
+As part of preparing The Tavern for production, I migrated media storage from local filesystem storage to AWS S3. The goal was to ensure scalable, persistent media storage suitable for deployment on Heroku. Although the initial configuration appeared successful, the migration introduced a series of subtle but significant issues that required deep debugging across storage configuration, database records, and template rendering.
+
+After implementing S3, I observed inconsistent behaviour in production. Some product images rendered correctly, while others failed to display. Newly uploaded images sometimes appeared, but older ones did not. Additionally, the default “missing image” fallback — which worked locally — did not display at all in production. At first glance, the issue seemed unpredictable, but further investigation revealed that the inconsistencies were rooted in how Django stores file paths in the database and how those paths map to S3 object keys. I discovered that some products had been created before the migration, and their stored file paths did not align with the S3 folder structure. As a result, Django generated URLs that pointed to non-existent objects in the bucket. This explained why some images worked and others returned 404 errors — the database was referencing files that did not exist in the expected S3 location.
+
+The issue with the default fallback image was slightly different. The file existed locally in the project’s media directory, but it had never been uploaded to S3. To fix this I moved the missing image from the media products folder to the static images folder. 
+
+To resolve this issue, I conducted systematic checks between Django admin, the folders in VSCode and S3 in AWS. In the end, I decided to remove all of the original file photos from the media file, and reuploading them through the deployed website to ensure that the files were saved into AWS rather than locally. The same files were then duplicated and placed into folders in local development to avoid any confusion for myself. This also supported my performance issues, as Google Lighthouse was highlighting that the photos being hosted were too large and were causing loading issues. As such all of the files that exist within the website have been reformatted to WebPs that were further supressed to reduce the file size. At the time of submission, this issue has been fully fixed.
+
+### Stripe Webhooks
+Similarly to the AWS issue, the issue with webhooks wasn't uncovered until the the website was put into production and I was conducting general testing with the full checkout path from browsing to purchase. Post purchase, I discovered that emails were not being sent automatically due to the set up of the Webhooks. To discover this I did a combination of close monitoring of the webooks event section, and using Heroku's live logging system which allowed me to see in realtime that the webhooks weren't triggering for email sending. 
+
+Part of this issue was resolved quickly after I realised that there were a number of issues and inconsistencies with my env.py credentials and in the settings.py folder for email settings, which I fixed. On fixing this, the emails did begin to send, however they began to send in duplicate, particularly when the website was running slowly. To fix this, I added the following to the order model:
+
+            confirmation_email_sent = models.BooleanField(default=False)
+
+After running the standard migrations required for the model, I updated the webhook logic which searched for the confirmation email sent boolean and decides whether or not to send an email. Further, this webhook acted so if it sent the email, it was automatically toggle that boolean from false to true, which wouldn't allow for duplicate emails. 
+
 ## Testing
 Multiple testing methods were carried out to ensure the quality, functionality, and responsiveness of The Tavern. These included automated validation tools, device and browser testing, Lighthouse analysis, accessibility checks, and user-story-based manual testing. All core functionality works as expected, and at the the time of submission any bugs have been fixed.
 
@@ -611,7 +664,6 @@ Browser Testing | Chrome, Safari, Firefox, Edge | Cross-browser consistency | Pa
 Device Testing | iPhone, Android, Tablet, Desktop | Cross-device consistency | Passed
 Manual Testing | Developer testing | To test that all website features were working manually | Passed
 User Story Testing | Manual testing table | Verify all features against stories | Good overall 
-
 
 ### Lighthouse
 
@@ -650,11 +702,11 @@ Returns | Mobile | ![Mobile - Returns Lighthouse Grade](https://github.com/foste
 Shipping | Desktop | ![Desktop - Shipping Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-shipping.png)
 Shipping | Mobile | ![Mobile - Shipping Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-shipping.png)
 Sign In | Desktop | ![Desktop - Sign In Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-sign-in.png)
-Sing In | Mobile | ![Mobile - Sign In Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-sign-in.png)
+Sign In | Mobile | ![Mobile - Sign In Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-sign-in.png)
 Sign In - Google | Dekstop | ![Desktop - Sign In - Google](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-sign-in-google.png)
-Sing In - Google | Mobile | ![Mobile - Sign In - Google](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-sign-in-google.png)
+Sign In - Google | Mobile | ![Mobile - Sign In - Google](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-sign-in-google.png)
 Sign In - Facebook | Desktop | ![Desktop - Sign In - Facebook](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-sign-in-facebook.png)
-Sing In - Facebook | Mobile | ![Mobile - Sign In - Facebook](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-sign-in-facebook.png)
+Sign In - Facebook | Mobile | ![Mobile - Sign In - Facebook](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-sign-in-facebook.png)
 Sign Out | Desktop | ![Desktop - Sign Out](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-sign-out.png)
 Sign Out | Mobile | ![Mobile - Sign Out](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-sign-out.png)
 Sign Up | Desktop | ![Desktop - Sign Up](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-sign-up.png)
@@ -766,8 +818,8 @@ Footer | Social Media links and other internal links | Social media links should
 --- | --- | --- | ---
 Home Page loads | User opens to The Tavern | User opens The Tavern and is automatically taken to the homepage | User opens The Tavern and is automatically taken to the homepage
 Logo (tablets and desktops only) | User clicks on the logo and the page reloads to the homepage | User clicks on the logo and the page reloads to the homepage
-Hero Image | Hero image shows | Hero image should be seen at the top of the page underneath the scroll bar. The hero image should be responsive to the device | Hero image is seen at the top of the page underneath the scroll bar. The hero image is be responsive to the device
-Product of the Month/Explore our Wares | Section is responsive | On mobiles, Product of the Month should stack on top of the Explore our Wares section. On tablets and up, this should stretch out into one long row, with the Product of the Month section on the left, and the Explore our Wares section on the right. The buttons for Explore our Wares should remain stacked regardless of whether accessed on a mobile, tablet or desktop
+Hero Image | Hero image shows | Hero image should be seen at the top of the page underneath the scroll bar. The hero image should be responsive to the device | Hero image should be seen at the top of the page underneath the scroll bar. The hero image should be responsive to the device | Hero image is seen at the top of the page underneath the scroll bar. The hero image is responsive to the device
+Product of the Month/Explore our Wares | Section is responsive | On mobiles, Product of the Month should stack on top of the Explore our Wares section. On tablets and up, this should stretch out into one long row, with the Product of the Month section on the left, and the Explore our Wares section on the right. The buttons for Explore our Wares should remain stacked regardless of whether accessed on a mobile, tablet or desktop | On mobiles, Product of the Month stacks on top of the Explore our Wares section. On tablets and up, this stretches out into one long row, with the Product of the Month section on the left, and the Explore our Wares section on the right. The buttons for Explore our Wares remain stacked regardless of whether accessed on a mobile, tablet or desktop
 Product of the Month | Product of the Month can be seen and is showing accurate information | Product of the Month image should show the relevant item as decided by the Django admin panel. Users should also be able to see the name of the product, and the cost. The name of the product should be a clickable link that takes the user to the product details page for that item. The Product of the Month should be set by the admin panel, which can be pre-planned by the superadmin who is logged in. | Product of the Month image shows the relevant item as decided by the Django admin panel. Users are able to see the name of the product, and the cost. The name of the product is a clickable link that takes the user to the product details page for that item. The Product of the Month is be set by the admin panel, which can be pre-planned by the superadmin who is logged in.
 Explore our Wares Buttons | Buttons are working | The relevant buttons should take the user to the associated part of the site. On hovering over the button the colour should invert to indicate to the user where they are clicking | The relevant buttons take the user to the associated part of the site. On hovering over the button the colour inverts to indicate to the user where they are clicking
 Reasons to Purchase Carousel | Carousel shows carousel of text which slides automatically | Carousel should render as a full green block that stretches across the entire page, regardless of device. The carousel should change on a slide every seven sessions, but there should also be arrows on either side for users to click through if they desire. The reason should be broken up into a small header, and slightly more explanation underneath. Underneath the entire carousel, users should see "Trusted by tables across the UK." | Carousel renders as a full green block that stretches across the entire page, regardless of device. The carousel changes on a slide every seven sessions, and there are also arrows on either side for users to click through if they desire. The reason is be broken up into a small header, and slightly more explanation underneath. Underneath the entire carousel, users can see "Trusted by tables across the UK."
@@ -778,7 +830,7 @@ Testimonials | Testimonials should render and should show accurate testimonials 
 | Feature Tested | Action | Expected Result | Actual Result
 --- | --- | --- | ---
 Products Page | Products page renders showing the product catalog and is responsive | The product page should render when loaded and display the catalog. It should be responsive to the device used, stacking into a single column on mobiles, and stretching out into four columns per row on desktops. | The product page renders when loaded and displays the catalog. It is responsive to the device used, stacking into a single column on mobiles, and stretching out into four columns per row on desktops.
-Products Page | Filter | The sort by filter works | The sort by filters should work as the following: Price (low to high), Price (high to low), Name (A-Z), Name (Z-A), Category (A-Z), Category (Z-A). They should all be reset by clicking back onto the "Sort by" option which reloads all of the categories by A-Z | The sort by filters works as the following: Price (low to high), Price (high to low), Name (A-Z), Name (Z-A), Category (A-Z), Category (Z-A). They can all be reset by clicking back onto the "Sort by" option which reloads all of the categories by A-Z 
+Products Page | Filter | The sort by filters should work as the following: Price (low to high), Price (high to low), Name (A-Z), Name (Z-A), Category (A-Z), Category (Z-A). They should all be reset by clicking back onto the "Sort by" option which reloads all of the categories by A-Z | The sort by filters works as the following: Price (low to high), Price (high to low), Name (A-Z), Name (Z-A), Category (A-Z), Category (Z-A). They can all be reset by clicking back onto the "Sort by" option which reloads all of the categories by A-Z 
 Product Page | Product image renders | Product image should render regardless of device | Product image renders regardless of device
 Product Page | Product name, price and category renders and is correct according to Django Admin | Product name, price and category should render underneath the product image, and should match the information in the Django Admin | Product name, price and category renders underneath the product image, and matches the information in the Django Admin
 Product Page | Product Price | Product price should show as the flat cost for dice towers, dice bags and dice boxes. Dice should show as a "From" price, which should be the lowest possible price of the dice set as declared in the Django Admin | Product price is shown as the flat cost for dice towers, dice bags and dice boxes. Dice show as a "From" price, which is the lowest possible price of the dice set as declared in the Django Admin 
@@ -788,9 +840,9 @@ Products Page | Back to Top button | The Back to Top button should appear once t
 #### Product Details
 | Feature Tested | Action | Expected Result | Actual Result
 --- | --- | --- | ---
-Product Details | Product Details page renders and is responsive to device | Product page should render with the following: a product image, the product title, the product description, the product materials and dimensions accordion, the product quantity toggle, the add to bag button, and the product image and customer reviews if they have been provided by users. On mobiles this should all stack into one long column, on desktops this should stretch out where the product and product details should be two columns on the same row, with the image on the left handside and the product details on the right. The product reviews should show under this in a completely different row.
+Product Details | Product Details page renders and is responsive to device | Product page should render with the following: a product image, the product title, the product description, the product materials and dimensions accordion, the product quantity toggle, the add to bag button, and the product image and customer reviews if they have been provided by users. On mobiles this should all stack into one long column, on desktops this should stretch out where the product and product details should be two columns on the same row, with the image on the left handside and the product details on the right. The product reviews should show under this in a completely different row | Product page renders with the following: a product image, the product title, the product description, the product materials and dimensions accordion, the product quantity toggle, the add to bag button, and the product image and customer reviews if they have been provided by users. On mobiles this stacks into one long column, on desktops this stretches out and the product and product details are in two columns on the same row, with the image on the left handside and the product details on the right. The product reviews show under this in a completely different row.
 Product Details | Choose option renders on dice | If a user loads the product details for a dice set, they should be able to see the option of the single D20 or the full set. The page should automatically load to the single D20 cost. The price shown on the page should reflect the costs set in the Django Admin for the single D20 vs the full set when the user flicks between the buttons and should update in realtime | If a user loads the product details for a dice set, they are able to see the option of the single D20 or the full set. The page automatically loads to the single D20 cost. The price shown on the page reflects the costs set in the Django Admin for the single D20 vs the full set, and when the user flicks between the buttons updates in realtime
-Product Details | Product quantity increase and decrease button works and updates quantity in real time| The product quantity increase and decrease buttons should update when being clicked by a user. The quantity number should update as this goes up and down in real time and should the user add the item to their bag, the quantity should match the quantity in the bag. 
+Product Details | Product quantity increase and decrease button works and updates quantity in real time | The product quantity increase and decrease buttons should update when being clicked by a user. The quantity number should update as this goes up and down in real time and should the user add the item to their bag, the quantity should match the quantity in the bag. | The product quantity increase and decrease buttons update when being clicked by a user. The quantity number updates as this goes up and down in real time and should the user add the item to their bag, the quantity matches the quantity in the bag.
 Product Details | Product quantity cannot be reduced lower than 1 | The product quantity should not be able to be reduced lower than 1, even if the user tries to override this by manually typing 0 | Product quantity cannot be reduced lower than 1, even when the user tries to override this by manually typing 0
 Product Details | Add to bag button | Add to bag button should add the items to a session bag, which is connected to the quantity shown in the product quantity toggle. On clicking add to bag, a toast should be launched which says the item has been added to the bag | Add to bag button adds the items to a session bag, which is connected to the quantity shown in the product quantity toggle. On clicking add to bag, a toast launches which says the item has been added to the bag
 Product Details | Product Material and Dimension Accordion | The "Product Material" and "Product Dimensions" accordion should activate when a user clicks the accordion bar. The accordions should be able to be opened independently and closed independently rather than opening and closing together | The "Product Material" and "Product Dimensions" accordion activates when a user clicks the accordion bar. The accordions can be opened independently and closed independently rather than opening and closing together 
@@ -804,11 +856,11 @@ Product Details | Reviews | Rating gets aggregated with multiple reviews | If a 
 | Feature Tested | Action | Expected Result | Actual Result
 --- | --- | --- | ---
 Bag | Bag page renders and is responsive to device | The bag page should render according to how it is being accessed. On mobiles, the product bag should render into a single column, with a horizontal divider between each item to segregate. On tablets and above it should render into a table with columns and rows underneath. On mobiles the bag should render as the following: an image, the product name, the SKU, the price, the product quantity toggler, a bin icon, an update button and a subtotal. Underneath the horizontal divider, there should be a bag total, a delivery cost and a grand total. Under this, two buttons should show which allow the user to either return to the product page or proceed to the checkout. On tablets and above the bag should render as a table, with the following: the product image, the product title and SKU, the price, the quantity, an update button, a bin icon and a subtotal. Underneath the table, there should be a bag total, a delivery cost and a grand total. Under this, two buttons should show which allow the user to either return to the product page or proceed to the checkout. | The bag page renders according to how it is being accessed. On mobiles, the product bag renders into a single column, with a horizontal divider between each item to segregate. On tablets and above it renders into a table with columns and rows underneath. On mobiles the bag renders as the following: an image, the product name, the SKU, the price, the product quantity toggler, a bin icon, an update button and a subtotal. Underneath the horizontal divider, there is the bag total, a delivery cost and a grand total. Under this, two buttons show which allow the user to either return to the product page or proceed to the checkout. On tablets and above the bag renders as a table, with the following: the product image, the product title and SKU, the price, the quantity, an update button, a bin icon and a subtotal. Underneath the table, there is a bag total, a delivery cost and a grand total. Under this, two buttons  show which allow the user to either return to the product page or proceed to the checkout.
-Product Details | Product quantity increase and decrease button works and updates quantity in real time | The product quantity increase and decrease buttons should update when being clicked by a user. The quantity number should update as this goes up and down in real time and should the user add the item to their bag, the quantity should match the quantity in the bag. 
-Product Details | Product quantity cannot be reduced lower than 1 | The product quantity should not be able to be reduced lower than 1, even if the user tries to override this by manually typing 0 | Product quantity cannot be reduced lower than 1, even when the user tries to override this by manually typing 0
-Product Details | Bag update button works | On clicking the update button, the following should update: the quantity, the subtotal, bag total, grand total and any delivery costs associated. A toast should launch with the updated details | On clicking the update button, the following updates: the quantity, the subtotal, bag total, grand total and any delivery costs associated. A toast launches with the updated details
-Product Details | Bin button works | On clicking the bin button, the item is removed from the shopping bag and updates the total costs. The bag reloads with the updated items, and if removing that item takes the products to zero, a message should show that there are no items in the bag | On clicking the bin button, the item is removed from the shopping bag and updates the total costs. The bag reloads with the updated items, and if removing that item takes the products to zero, a message should show that there are no items in the bag
-Product Details | Keep Shopping and Secure Checkout buttons work | The "Keep Shopping" button should return the user to the product catalog, the "Secure Checkout" should send the user onto the checkout page | The "Keep Shopping" button returns the user to the product catalog, the "Secure Checkout" sends the user onto the checkout page
+Bag | Product quantity increase and decrease button works and updates quantity in real time | The product quantity increase and decrease buttons should update when being clicked by a user. The quantity number should update as this goes up and down in real time and should the user add the item to their bag, the quantity should match the quantity in the bag. 
+Bag | Product quantity cannot be reduced lower than 1 | The product quantity should not be able to be reduced lower than 1, even if the user tries to override this by manually typing 0 | Product quantity cannot be reduced lower than 1, even when the user tries to override this by manually typing 0
+Bag | Bag update button works | On clicking the update button, the following should update: the quantity, the subtotal, bag total, grand total and any delivery costs associated. A toast should launch with the updated details | On clicking the update button, the following updates: the quantity, the subtotal, bag total, grand total and any delivery costs associated. A toast launches with the updated details
+Bag | Bin button works | On clicking the bin button, the item is removed from the shopping bag and updates the total costs. The bag reloads with the updated items, and if removing that item takes the products to zero, a message should show that there are no items in the bag | On clicking the bin button, the item is removed from the shopping bag and updates the total costs. The bag reloads with the updated items, and if removing that item takes the products to zero, a message should show that there are no items in the bag
+Bag | Keep Shopping and Secure Checkout buttons work | The "Keep Shopping" button should return the user to the product catalog, the "Secure Checkout" should send the user onto the checkout page | The "Keep Shopping" button returns the user to the product catalog, the "Secure Checkout" sends the user onto the checkout page
 
 #### Checkout
 | Feature Tested | Action | Expected Result | Actual Result
@@ -829,33 +881,31 @@ Product Details | Keep Shopping and Secure Checkout buttons work | The "Keep Sho
 ### Testing Against User Stories
 | User Story | Category (MoSCoW) | Met?
 --- | --- | --- 
-As a user of the website, I want to be able to browse products so that I can find items to purchase | Must Have |
+As a user of the website, I want to be able to browse products so that I can find items to purchase | Must Have | Met
 As a user of the website, I want to be able to view product details for each individual product, so that I can understand if the product is suited for my needs | Must Have |
-As a staff member (Admin role), I want to be able to add, amend and delete products from the website | Must Have |
-As a user, I can sign up to become a registered user, so that I can track have a profile that tracks previous orders and automatically populate fields with my details at checkout | Must Have | 
-As a user, I will recieve a confirmation email when I have created an account, so that I can securely validate my account | Must Have | 
-As a registered user I am able to securely log in and log out of my profile so that I know that my account is safe | Must Have |
-As a user of the website, I can add items to a shopping bag and see how much the grand total is, so that I can track how much I am spending | Must Have |
-As a user of the website, I can change the quantity of the items in my shopping bag and an updated grand total, so that I can track how much I am spending | Must Have |
-As a user of the website I can remove items from my shopping bag and see an updated grand total, so that I can remove items I do not need anymore | Must Have
-As a user of the website I can be shown all the items I am buying, plus the subtotal, shipping details and grand total before I complete the purchase, so that I can decide that I definitely want to complete the purchase | Must Have |
-As a user of the website I can enter my details into the checkout securely, using the Stripe API, so that I can purchase items safely and securely | Must Have |
-As a user, I want to be able to sign up to The Tavern's newsletter, so I can learn about their community | Must Have |
-As a user of the website, I want to be able to read product reviews, so that I can see how other people have experienced the item and decide if it suits my needs | Should Have |
-As a registered user of the website, I want to be able to leave product reviews, so that I can help inform other potential buyers about my opinion of the product | Should Have |
-As a staff member (Admin role), I want to be able to approve product reviews, so that I can ensure that only quality reviews end up on the website | Should Have |
-As a staff member (Admin role), I want to be able to delete product reviews, so that I can ensure that innapropriate reviews do not end up on the website | Should Have |
-As a registered user, I am able to update my profile information, so that I can be sure that my details are up to date | Should Have |
-As a registered user, I am able to reset my password at any time, so that I can keep my account secure | Should Have |
-As a registered user, I am able to see my previous orders, so that I can track any orders I have made in the past | Should Have |
-As a user of the website, I can be shown my order details once my order is confirmed, so that I can see that my order has been completed | Should Have |
-As a user of the website, I can recieve an email confirming my order once my order has been succesfully submitted | Should Have |
-As a user, I want to be able to contact the team behind The Tavern, so I can know that I can message directly with questions, queries or suggestions | Should Have
-As a registered user, I am able to give myself a profile picture, so that I can have a photo on my profile | Should Have |
-As a user, I want to be able to see information about the company, so I can know who I'm buying from | Should Have |
-As a staff member (Admin role) I want to be able to update the information on the company, so that I can keep this up to date as the company grows and expands | Should Have |
-
-
+As a staff member (Admin role), I want to be able to add, amend and delete products from the website | Must Have | Met
+As a user, I can sign up to become a registered user, so that I can track have a profile that tracks previous orders and automatically populate fields with my details at checkout | Must Have | Met
+As a user, I will recieve a confirmation email when I have created an account, so that I can securely validate my account | Must Have | Met
+As a registered user I am able to securely log in and log out of my profile so that I know that my account is safe | Must Have | Met
+As a user of the website, I can add items to a shopping bag and see how much the grand total is, so that I can track how much I am spending | Must Have | Met
+As a user of the website, I can change the quantity of the items in my shopping bag and an updated grand total, so that I can track how much I am spending | Must Have | Met
+As a user of the website I can remove items from my shopping bag and see an updated grand total, so that I can remove items I do not need anymore | Must Have | Met
+As a user of the website I can be shown all the items I am buying, plus the subtotal, shipping details and grand total before I complete the purchase, so that I can decide that I definitely want to complete the purchase | Must Have | Met
+As a user of the website I can enter my details into the checkout securely, using the Stripe API, so that I can purchase items safely and securely | Must Have | Met
+As a user, I want to be able to sign up to The Tavern's newsletter, so I can learn about their community | Must Have | Met
+As a user of the website, I want to be able to read product reviews, so that I can see how other people have experienced the item and decide if it suits my needs | Should Have | Met
+As a registered user of the website, I want to be able to leave product reviews, so that I can help inform other potential buyers about my opinion of the product | Should Have | Met
+As a staff member (Admin role), I want to be able to approve product reviews, so that I can ensure that only quality reviews end up on the website | Should Have | Met
+As a staff member (Admin role), I want to be able to delete product reviews, so that I can ensure that innapropriate reviews do not end up on the website | Should Have | Met
+As a registered user, I am able to update my profile information, so that I can be sure that my details are up to date | Should Have | Met
+As a registered user, I am able to reset my password at any time, so that I can keep my account secure | Should Have | Not Met
+As a registered user, I am able to see my previous orders, so that I can track any orders I have made in the past | Should Have | Met
+As a user of the website, I can be shown my order details once my order is confirmed, so that I can see that my order has been completed | Should Have | Met
+As a user of the website, I can recieve an email confirming my order once my order has been succesfully submitted | Should Have | Met
+As a user, I want to be able to contact the team behind The Tavern, so I can know that I can message directly with questions, queries or suggestions | Should Have | Met
+As a registered user, I am able to give myself a profile picture, so that I can have a photo on my profile | Could Have | Met
+As a user, I want to be able to see information about the company, so I can know who I'm buying from | Could Have | Met
+As a staff member (Admin role) I want to be able to update the information on the company, so that I can keep this up to date as the company grows and expands | Could Have | Met
 
 ## Web Marketing
 ### Keyword and SEO research
