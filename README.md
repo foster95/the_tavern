@@ -33,17 +33,20 @@ The Tavern is an online e-commerce website store, designed for the Dungeons and 
     * [Testing](#testing)
         * [Summary of Testing](#summary-of-testing)
         * [Lighthouse](#lighthouse)
-        * [HTML Validation](#html-validation)
-        * [CSS Validation]
-        * [PEP8 Validation](#pep8-validation)
-        * [JShint Validation](#jshint-validation)
+        * [HTML Testing](#html-testing)
+        * [CSS Testing](#css-testing)
+        * [WAVE/Aim Web Accessibility Testing](#wave-aimweb-accessibility-testing)
+        * [PEP8 Testing](#pep8-testing)
+        * [JShint Testing](#jshint-testing)
+        * [Device Testing]
+        * [Browser Testing]
         * [Manual Testing](#manual-testing)
+        * [Automated Testing]
         * [Testing Against User Stories](#testing-against-user-stories)
     * [Web Marketing](#web-marketing)
         * [Keywords and SEO Research](#keyword-and-seo-research)
         * [Marketing Strategies](#marketing-strategies)
-    * [Deployment and Cloning]
-    * [Forking and Cloning]
+    * [Deployment](#deployment)
     * [Tools and Technologies](#tools-and-technologies)
     * [Credits and Acknowledgments]
     * [A Final Word from the Developer]
@@ -151,6 +154,7 @@ At the end of the devlopment of the website I undertook WAVE testing, which rais
 
 #### Typography
 Using Our Own Thing's font matching extension, I settled on using Montserrat for the main body of the website, and Almendra for any headers. Montserrat is a standard font used across the industry, noted for its readability and simplicity. Almendra is a more decorative font which evokes the fantasy world, making it suited for The Tavern's aesthetics. Font Awesome was used for the social media icons in the footer. 
+![Google Fonts chosen for The Tavern](https://github.com/foster95/the_tavern/blob/main/documentation/brand/google-fonts.png)
 
 #### The Tavern's Logo & Wordmark
 ### Wordmark
@@ -665,8 +669,7 @@ Device Testing | iPhone, Android, Tablet, Desktop | Cross-device consistency | P
 Manual Testing | Developer testing | To test that all website features were working manually | Passed
 User Story Testing | Manual testing table | Verify all features against stories | Good overall 
 
-### Lighthouse
-
+### Lighthouse Testing
 As part of general testing, I conducted a series of lighthouse tests across both mobile and desktop formatting. As a rule of thumb, all of the tests for mobile came back weaker than desktop, however from doing research this seems to be an issue connected to the fact that the website is hosted through Heroku on eco dynos and therefore is not primed to hit high grades. The weakest page was the products directory page, which was to be expected as the page is very image and link heavy, due to being an eCommerce website. To try and reduce image size, all images were reformatted from JEPGs to WebPs and were then further supressed. Lazy loading was also used on almost all of the photos, helping reduce the photo weight. 
 
 | Page | Format | Lighthouse Grades
@@ -712,7 +715,7 @@ Sign Out | Mobile | ![Mobile - Sign Out](https://github.com/foster95/the_tavern/
 Sign Up | Desktop | ![Desktop - Sign Up](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-sign-up.png)
 Sign Up | Mobile | ![Mobile - Sign Up](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-sign-up.png)
 
-### HTML Validation
+### HTML Testing
 | Page | Report | Notes
 --- | --- |---
 Home | ![HTML Validation - Home](https://github.com/foster95/the_tavern/blob/main/documentation/html/home.png) |
@@ -736,8 +739,12 @@ Sign Up | ![HTML Validation - Sign Up](https://github.com/foster95/the_tavern/bl
 Sign In - Google | ![HTML Validation - Sign In - Google](https://github.com/foster95/the_tavern/blob/main/documentation/html/google-login.png) |
 Sign In - Facebook | ![HTML Validation - Sign In - Facebook](https://github.com/foster95/the_tavern/blob/main/documentation/html/facebook-login.png) |
 
+### CSS Testing
 
-### PEP8 Validation
+### WAVE AimWeb Accessibility Testing
+
+
+### PEP8 Testing
 #### Home
 | File | PEP8 Response
 --- | ---
@@ -790,7 +797,7 @@ Models | ![PEP8 Validation - Profiles/Models](https://github.com/foster95/the_ta
 URLs | ![PEP8 Validation - Profile/URLS](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/profiles-urls.png)
 Views | ![PEP8 Validation - Profile/Views](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/profiles-views.png)
 
-### JShint
+### JShint Testing
 | File | JShint
 --- | ---
 newsletter.js | ![JShint Validation - Newsletter](https://github.com/foster95/the_tavern/blob/main/documentation/jshint/newsletter.png)
@@ -878,11 +885,14 @@ Bag | Keep Shopping and Secure Checkout buttons work | The "Keep Shopping" butto
 | Feature Tested | Action | Expected Result | Actual Result
 --- | --- | --- | ---
 
+### Automated Testing
+Due to time constraints within the project schedule, I chose not to implement automated testing. The priority was ensuring core functionality — including payments, media storage, and deployment stability — was fully working in production. Instead, I relied on thorough manual testing across different devices and environments, carefully checking key user flows such as account creation, checkout, order confirmation, and admin functionality. While automated tests would have strengthened the project further, particularly for long-term maintainability, the focus at this stage was on delivering a stable, fully functioning live application within the available timeframe.
+
 ### Testing Against User Stories
 | User Story | Category (MoSCoW) | Met?
 --- | --- | --- 
 As a user of the website, I want to be able to browse products so that I can find items to purchase | Must Have | Met
-As a user of the website, I want to be able to view product details for each individual product, so that I can understand if the product is suited for my needs | Must Have |
+As a user of the website, I want to be able to view product details for each individual product, so that I can understand if the product is suited for my needs | Must Have | Met
 As a staff member (Admin role), I want to be able to add, amend and delete products from the website | Must Have | Met
 As a user, I can sign up to become a registered user, so that I can track have a profile that tracks previous orders and automatically populate fields with my details at checkout | Must Have | Met
 As a user, I will recieve a confirmation email when I have created an account, so that I can securely validate my account | Must Have | Met
@@ -988,7 +998,7 @@ Following this, I developed a content strategy which would help me align my requ
 * Footer links to important information such as FAQs and contact information
 * 404 page for broken pages
 
-#### Marketing Strategies
+### Marketing Strategies
 As part of the building the website, I considered what The Tavern would use for marketing techniques, and came up with the following:
 
 #### Who?
@@ -1008,6 +1018,182 @@ The ultimate goal of The Tavern is to sell D&D accessories, but also to build a 
 
 #### Budget
 The Tavern do have a small marketing budget, however I would personally suggest to them that the rely on organic marketing rather than paid for marketing. You can often find that it is the outsiders and the misfits that drift towards D&D and TTPRG and those people can be especially cynical and shrewd about paid for marketing. After all reputation takes a lifetime to build and seconds to shatter. 
+
+### Social Media
+As part of the project, I created a Facebook page for The Tavern, which the team can use to launch products, engage with customers and build on the brand. This approach aligns with the needs of the TTRPG audience, which is increasingly a wide spread age group from the very young, to the very young at heart! Facebook is traditionally a market for older audiences, typically 40+ and acts as a bridge to get customers from their social media platform, over to the website itself. Please see a screenshot of the Facebook page below. Please note that due to Meta's careful monitoring of pages to ensure that they are active and accurate, the page may be subject to removal by Meta if flagged as non-authentic or not meeting platform verification requirements.
+
+Were the project be to developed further, I would strongly suggest that The Tavern move to launch platforms on TikTok and Instagram, which is why those two platforms have been linked in the footer. As TTRPGs grow in media presence due to platforms like Critical Roll and Dimension 20, the audience is getting younger and tech savvier, and these platforms are better suited to that environment. TikTok and Instagram work more with short content often called "reels", which capture an audience that is increasingly scrolling on the go. I would suggest that the company focus on building a sense of community within these platforms, offering followers tips, tricks and suggestions for them to incorporate into their home campaign, rather than solely focussing on using social media as a further tool to sell the product. Customers are increasingly suspicious of a company just selling to them, and therefore becoming a expert and trusted source for TTRPG information will build the trust that will make it easier to bridge that gap from follower to purchaser. 
+
+### Email Marketing
+Within the project I have implemented a mailing list sign up which sits just above the footer and appears on every page. This will allow the team at The Tavern to create and build a newsletter community and create brand awareness. As the project only required me to create the newsletter, I have gone no further in developing this. However, if the team were to further develop this, I would encourage a weekly newsletter, which includes promotions, however I would strongly advise against using the email marketing tool as a pure sales tool. Again, I would suggest that The Tavern work to build a community, so the newsletter becomes a helpful source of tips and tricks for improving gameplay as well as fun "race/class of the month", then it will be much easier to drip feed in some occasional product launches, rather than just inundating users with promotions and products. 
+
+## Deployment 
+This project has been developed using Django and deployed to Heroku, using PostgreSQL for the backend database and AWS S3 for static and media file storage. The static and media files are hosted on AWS S3 for efficient delivery. The deployment process involves several steps, including setting up the Heroku app, configuring environment variables, and ensuring that all dependencies are properly managed.
+
+The following steps describe how another developer can recreate the project locally and deploy it to Heroku:
+
+### Fork 
+Forking creates your own copy of the project repository on GitHub, allowing you to make changes without affecting the original project.
+
+1. Log in to your GitHub account.
+2. Navigate to the repository page.
+3. Click the Fork button in the upper right corner of the page.
+4. Select your GitHub account as the destination for the fork.
+
+### Clone
+Cloning the repository downloads a copy of the project to your local machine, allowing you to work on it offline.
+
+1. Open your terminal or command prompt.
+2. Navigate to the directory where you want to clone the project.
+3. Run the following command, replacing your-username with your GitHub username:
+
+            git clone https://github.com/your-username/your-repo
+            cd -
+
+### Create and Activate a Virtual Environment:
+A virtual environment isolates your project's dependencies from other Python projects on your machine.
+
+1. Create the virtual environment with the following command:
+
+            python3 -m venv venv
+
+2. To activate or relaunch the venv:
+On macOS/Linux:
+
+            source venv/bin/activate
+
+On Windows:
+            venv\Scripts\activate
+
+### Install Dependencies
+Install the required Python packages listed in the requirements.txt file:
+
+            pip install -r requirements.txt
+
+If requirements.txt is not present, you can create it by running:
+
+            pip freeze > requirements.txt
+
+### Set Up a Local Environment File
+Sensitive information such as API keys and database credentials should not be hardcoded in the codebase. Instead, they should be stored in environment variables which are not committed to Github.
+
+Create a .env file in the root directory of the project to store environment variables securely. Add the following variables, replacing the placeholder values with your own:
+
+| Key | Value
+--- | ---
+DATABASE_URL | user-inserts-own-postgres-database-url
+DISABLE_COLLECTSTATIC | 1 (this is temporary, and can be removed for the final deployment)
+EMAIL_HOST_PASS | user-inserts-own-gmail-api-key
+EMAIL_HOST_USER | user-inserts-own-gmail-email-address
+SECRET_KEY | any-random-secret-key
+STRIPE_PUBLIC_KEY | user-inserts-own-stripe-public-key
+STRIPE_SECRET_KEY | user-inserts-own-stripe-secret-key
+STRIPE_WH_SECRET | user-inserts-own-stripe-webhook-secret
+AWS_ACCESS_KEY_ID | user-inserts-aws-access-key-id
+AWS_SECRET_ACCESS_KEY | user-inserts-aws-access-secret-key-id
+
+<strong>Do not commit the .env file to version control. Add it to your .gitignore file to prevent accidental exposure of sensitive information.</strong>
+
+### Data Migrations
+1. Apply database migrations
+
+            python3 manage.py migrate
+
+2. If using fixtures, load them into the database (optional)
+
+            python3 manage.py loaddata your_fixture_file.json
+
+3. Create a superuser account for accessing the Django admin
+
+            python3 manage.py createsuperuser
+
+### Run Development Server
+Start the Django development server to test the application locally:
+
+            python3 manage.py runserver
+
+Open web browser and navigate to http://127.0.0.1:8000/ to view the application.
+
+### Set up AWS S3 for Static and Media Files
+1. Create an AWS account if you don't already have one.
+set up an S3 bucket for storing static and media files.
+2. Choose a unique name for your bucket and select the appropriate region.
+3. Make sure the uncheck "Block all public access" option to allow public read access to your files.
+4. Enable static webhosting on the bucket.
+5. Permission - Add a bucket policy to allow public read access to objects in the bucket. 
+6. Create an IAM user with programmatic access and attach a policy that grants the necessary permissions to access the S3 bucket:
+    1. Go to IAM → Users → Add users.
+    2. Create a user
+    3. Enable programmatic access
+    4. Attach a policy which allows S3 access to your bucket.
+    5. Save the Access Key ID and Secret Access Key for use in your .env file. These will also be added to Heroku Config Vars later.
+    6. Update the .env file with your AWS credentials and bucket information
+
+### Prepare for Deployment:
+1. Install Gunicorn, a production-ready web server:
+
+            pip install gunicorn
+
+2. Update requirements.txt:
+
+            pip freeze > requirements.txt
+
+3. Create a Procfile in the root directory with the following content:
+
+            web: gunicorn the_tavern.wsgi:application
+
+4. Update Django settings for production, including allowed hosts and static file handling.
+
+* Debug disabled in production
+
+            DEBUG = False
+
+* Set allowed hosts
+
+            ALLOWED_HOSTS = ['your-heroku-app-name.herokuapp.com', 'localhost', '127.0.0.1']
+
+* Static configurations for collectstatic
+
+            STATIC_URL = '/static/'
+            STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+* Configure AWS S3 storage settings for when enabled.
+
+            if USE_AWS in os.environ:
+                # AWS S3 settings here
+
+### Deploy to Heroku
+1. Log in to your Heroku account and create a new app - New → Create new app.
+2. Name the app (must be unique) and select your region.
+3. Go to resources tab and add the Heroku Postgres add-on for the database. Heroku will automatically set the DATABASE_URL environment variable.
+4. Go to the Settings tab and click on Reveal Config Vars. Add the environment variables from your .env file
+
+| Key | Value
+--- | ---
+DATABASE_URL | user-inserts-own-postgres-database-url
+DISABLE_COLLECTSTATIC | 1 (this is temporary, and can be removed for the final deployment)
+EMAIL_HOST_PASS | user-inserts-own-gmail-api-key
+EMAIL_HOST_USER | user-inserts-own-gmail-email-address
+SECRET_KEY | any-random-secret-key
+STRIPE_PUBLIC_KEY | user-inserts-own-stripe-public-key
+STRIPE_SECRET_KEY | user-inserts-own-stripe-secret-key
+STRIPE_WH_SECRET | user-inserts-own-stripe-webhook-secret
+AWS_ACCESS_KEY_ID | user-inserts-aws-access-key-id
+AWS_SECRET_ACCESS_KEY | user-inserts-aws-access-secret-key-id
+
+1. Go to the Deploy tab, select GitHub as the deployment method, and connect your GitHub repository.
+2. Choose the branch to deploy (usually main or master) and click Deploy Branch.
+3. After deployment, run database migrations on Heroku:
+
+            heroku run python3 manage.py migrate --app your-heroku-app-name
+
+4. Create a superuser on Heroku
+
+            heroku run python3 manage.py createsuperuser --app your-heroku-app-name
+
+5. Open your deployed application in the browser: ```bash heroku open --app your-heroku-app-name
+
+You have now successfully deployed to Heroku!
 
 ## Tools and Technologies
 ### Media and Design
