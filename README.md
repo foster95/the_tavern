@@ -41,7 +41,7 @@ The Tavern is an online e-commerce website store, designed for the Dungeons and 
         * [Device Testing]
         * [Browser Testing]
         * [Manual Testing](#manual-testing)
-        * [Automated Testing]
+        * [Automated Testing](#automated-testing)
         * [Testing Against User Stories](#testing-against-user-stories)
     * [Web Marketing](#web-marketing)
         * [Keywords and SEO Research](#keyword-and-seo-research)
@@ -110,16 +110,16 @@ The navigation bar should feature the following links: Home, Products (which sho
 #### User Flow
 | User | Function/Aim | Path
 --- | --- | ---
-User | Wishes to look for products | Home -> Products
-User | Wishes to add products to shopping bag | Home -> Products -> Chosen Product -> Add to Bag
-User | Wishes to make a purchase | Home -> Products -> Chosen Product -> Add to Bag -> Confirm purchase
-User | Wishes to create an account | Home -> Sign Up
-User | Wishes to login to account | Home -> Sign In
-User | Wishes to see previous orders | Home -> Sign In -> Profile
-User | Signs up to newsletter | Home -> Subscribe Form (mobile), Subscribe Form in footer (desktop)
-Staff | Wants to add a product | Home -> Login -> Product Management -> Add a Product
-Staff | Wants to amend a product | Home -> Login -> Product Management -> Amend a Product
-Staff | Wants to delete a product | Home -> Login -> Product Management -> Delete Product
+User | Wishes to look for products | Home → Products
+User | Wishes to add products to shopping bag | Home → Products → Chosen Product → Add to Bag
+User | Wishes to make a purchase | Home → Products → Chosen Product → Add to Bag → Confirm purchase
+User | Wishes to create an account | Home → Sign Up
+User | Wishes to login to account | Home → Sign In
+User | Wishes to see previous orders | Home → Sign In → Profile
+User | Signs up to newsletter | Home → Subscribe Form (mobile), Subscribe Form in footer (desktop)
+Staff | Wants to add a product | Home → Login → Product Management → Add a Product
+Staff | Wants to amend a product | Home → Login → Product Management → Amend a Product
+Staff | Wants to delete a product | Home → Login → Product Management → Delete Product
 
 ### Skeleton
 #### Wireframes
@@ -1021,6 +1021,8 @@ The Tavern do have a small marketing budget, however I would personally suggest 
 
 ### Social Media
 As part of the project, I created a Facebook page for The Tavern, which the team can use to launch products, engage with customers and build on the brand. This approach aligns with the needs of the TTRPG audience, which is increasingly a wide spread age group from the very young, to the very young at heart! Facebook is traditionally a market for older audiences, typically 40+ and acts as a bridge to get customers from their social media platform, over to the website itself. Please see a screenshot of the Facebook page below. Please note that due to Meta's careful monitoring of pages to ensure that they are active and accurate, the page may be subject to removal by Meta if flagged as non-authentic or not meeting platform verification requirements.
+
+![Facebook Page for The Tavern](https://github.com/foster95/the_tavern/blob/main/documentation/brand/facebook-page-01.png)
 
 Were the project be to developed further, I would strongly suggest that The Tavern move to launch platforms on TikTok and Instagram, which is why those two platforms have been linked in the footer. As TTRPGs grow in media presence due to platforms like Critical Roll and Dimension 20, the audience is getting younger and tech savvier, and these platforms are better suited to that environment. TikTok and Instagram work more with short content often called "reels", which capture an audience that is increasingly scrolling on the go. I would suggest that the company focus on building a sense of community within these platforms, offering followers tips, tricks and suggestions for them to incorporate into their home campaign, rather than solely focussing on using social media as a further tool to sell the product. Customers are increasingly suspicious of a company just selling to them, and therefore becoming a expert and trusted source for TTRPG information will build the trust that will make it easier to bridge that gap from follower to purchaser. 
 
