@@ -36,6 +36,8 @@ if 'USE_AWS' in os.environ:
     AWS_S3_REGION_NAME = os.environ.get('AWS_S3_REGION_NAME')
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = 'the-tavern'
+    AWS_S3_REGION_NAME = 'eu-north-1'
 
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
 
