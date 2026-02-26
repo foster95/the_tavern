@@ -68,7 +68,11 @@
         </a>
         </div>
         
-      <h3 class="mb-2">{{ product_of_the_month.name }}</h3>
+      <h3 class="mb-2">
+        <a href="{% url 'product_detail' product_of_the_month.slug %}" class="text-decoration-none text-dark">
+          {{ product_of_the_month.name }}
+        </a>
+      </h3>
       <div class="card-footer bg-white pt-0 border-0 text-center">
         {% with bundles=product_of_the_month.category.bundle_prices.all %}
         {% if bundles %}

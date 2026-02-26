@@ -119,10 +119,20 @@ Error 404 | ![Mobile - Error 404](https://github.com/foster95/the_tavern/blob/ma
 #### Colour Palette
 As The Tavern is a website for TTRPG/D&D items, the website should have a rich, luxurious fantasy feel, similar to the aesthetics seen in games like Baldurs Gate and other D&D based games. I used coolors to help create the initial colour palette, which is focussed on this richness and warmth of an adventuring party, without leaning into the more cliche reds and golds that you often see associated with D&D and TTRPG games.
 
+The initial colour palette created for The Tavern can be found below:
+
+
+At the end of the devlopment of the website I undertook WAVE testing, which raised contrast issues with the current colour palette. With that in mind, the primary accent was tweaked slightly to make it darker and pass the AIM minimum checker, whilst still keeping the original colour palette in mind. The refined palette can be seen below:
+
 #### Typography
 Using Our Own Thing's font matching extension, I settled on using Montserrat for the main body of the website, and Almendra for any headers. Montserrat is a standard font used across the industry, noted for its readability and simplicity. Almendra is a more decorative font which evokes the fantasy world, making it suited for The Tavern's aesthetics. Font Awesome was used for the social media icons in the footer. 
 
-#### The Tavern's Logo/Wordmark
+#### The Tavern's Logo & Wordmark
+
+### Wordmark
+
+### Logo
+
 
 #### Development Using Agile Methodology
 Using the Agile Methodology, I first created a set of epics, which then got broken down into 
@@ -594,13 +604,12 @@ Testing Method | Tools Used | Purpose | Result
 Performance | Google Lighthouse | Measure performance & best practices | Good overall 
 HTML Validation | Nu HTML Checker | Check HTML structure | Passed – 0 errors 
 CSS Validation | W3C CSS Validator | Validate custom CSS | Passed – 0 errors 
-JavaScript Validation | JSHint | Validate ES6 syntax | Passed after config 
+JavaScript Validation | JSHint | Validate ES6 syntax | Passed 
 Python Validation | CI PEP8 Linter | Check PEP8 compliance | Passed across apps 
 Accessibility | WAVE | WCAG & ARIA validation | Minor contrast issue 
 Browser Testing | Chrome, Safari, Firefox, Edge | Cross-browser consistency | Passed 
 Device Testing | iPhone, Android, Tablet, Desktop | Cross-device consistency | Passed
 Manual Testing | Developer testing | To test that all website features were working manually | Passed
-Device Testing | iOS, Android, Tablets, Laptops | Responsiveness testing | Passed 
 User Story Testing | Manual testing table | Verify all features against stories | Good overall 
 
 
@@ -741,6 +750,112 @@ product_review.js | ![JShint Validation - Product_Review](https://github.com/fos
 products.js | ![JShint Validation - Products](https://github.com/foster95/the_tavern/blob/main/documentation/jshint/products.png)
 profile.js | ![JShint Validation - Profile](https://github.com/foster95/the_tavern/blob/main/documentation/jshint/profile.png)
 
+### Manual Testing
+#### Base
+| Feature Tested | Action | Expected Result | Actual Result
+--- | --- | --- | ---
+Header Bar | Header Bar is responsive to device | On tablets and desktops the header bar should show in full, stretching out across the full page with the logo on the left handside, the search bar in the centre and the account icon and basket icon on the right hand side. On mobiles, this bar should not be seen at all, but the user sees the burger icon, the search icon, the account icon and the basket icon. On clicking the search icon, the search bar drops down and appears | On tablets and desktops the header bar shows in full, stretching out across the full page with the logo on the left handside, the search bar in the centre and the account icon and basket icon on the right hand side. On mobiles, this bar cannot be seen at all, but the user sees the burger icon, the search icon, the account icon and the basket icon. On clicking the search icon, the search bar drops down and appears
+Navigation Bar | Navigation Bar is responsive to device | On tablets and desktops the gold navigation bar should show, stretching across the full page. Within the navigation bar should be three columns - one for "All Products", one for "Dice" and one for "Other Accessories". On hovering over these, a further box should drop down from which the user can select what they would like. On mobiles, this bar should not show at all but a list of the items can be triggered by clicking the burger button. When the user clicks the burger button, they should also see the additional links to "Home", "Our Story", "FAQ", "Shipping", "Returns" and "Contact" | On tablets and desktops the gold navigation bar shows, stretching across the full page. Within the navigation bar are three columns - one for "All Products", one for "Dice" and one for "Other Accessories". On hovering over these, a further box drops down from which the user can select what they would like. On mobiles, this bar does not show at all but a list of the items can be triggered by clicking the burger button. When the user clicks the burger button, they can also see the additional links to "Home", "Our Story", "FAQ", "Shipping", "Returns" and "Contact" 
+Scrolling Bar | Scrolling bar shows and scrolls across the page | The scrolling bar should be seen at the top of the page, underneath the gold navigation bar. The scroll should be relatively slow and should stop when the user clicks or hovers over the bar. The price of the free delivery should be taken from the Free Delivery threshold in settings.py | The scrolling bar is seen at the top of the page, underneath the gold navigation bar. The scroll is relatively slow and stops when the user clicks or hovers over the bar. The price of the free delivery is taken from the Free Delivery threshold in settings.py
+Newsletter | Newsletter is functioning | The newsletter sign up function should be seen regardless of the device used. The user should be able to input their email and click subscribe. On clicking subscribe they should see the message "Welcome Adventurer! You are now subscribed to our newsletter!". The email should be recorded in the Mailchimp dashboard |  The newsletter sign up function can be seen regardless of the device used. The user is able to input their email and click subscribe. On clicking subscribe they  see the message "Welcome Adventurer! You are now subscribed to our newsletter!". The email is recorded in the Mailchimp dashboard
+Footer | Footer is responsive | Footer should be responsive to the device. On mobiles the footer should stack into one column, and on desktops this should stretch out into three seperate columns until it sits neatly. Social media icons should stretch out into one row when viewed on a desktop. | Footer is responsive to the device. On mobiles the footer stacks into one column, and on desktops this stretches out into three seperate columns until it sits neatly. Social media icons stretch out into one row when viewed on a desktop.
+Footer | Social Media links and other internal links | Social media links should open to a new tab. Internal links should just move the user to the correct page within the current tab | Social media links open to a new tab. Internal links move the user to the correct page within the current tab. 
+
+#### Home 
+| Feature Tested | Action | Expected Result | Actual Result
+--- | --- | --- | ---
+Home Page loads | User opens to The Tavern | User opens The Tavern and is automatically taken to the homepage | User opens The Tavern and is automatically taken to the homepage
+Logo (tablets and desktops only) | User clicks on the logo and the page reloads to the homepage | User clicks on the logo and the page reloads to the homepage
+Hero Image | Hero image shows | Hero image should be seen at the top of the page underneath the scroll bar. The hero image should be responsive to the device | Hero image is seen at the top of the page underneath the scroll bar. The hero image is be responsive to the device
+Product of the Month/Explore our Wares | Section is responsive | On mobiles, Product of the Month should stack on top of the Explore our Wares section. On tablets and up, this should stretch out into one long row, with the Product of the Month section on the left, and the Explore our Wares section on the right. The buttons for Explore our Wares should remain stacked regardless of whether accessed on a mobile, tablet or desktop
+Product of the Month | Product of the Month can be seen and is showing accurate information | Product of the Month image should show the relevant item as decided by the Django admin panel. Users should also be able to see the name of the product, and the cost. The name of the product should be a clickable link that takes the user to the product details page for that item. The Product of the Month should be set by the admin panel, which can be pre-planned by the superadmin who is logged in. | Product of the Month image shows the relevant item as decided by the Django admin panel. Users are able to see the name of the product, and the cost. The name of the product is a clickable link that takes the user to the product details page for that item. The Product of the Month is be set by the admin panel, which can be pre-planned by the superadmin who is logged in.
+Explore our Wares Buttons | Buttons are working | The relevant buttons should take the user to the associated part of the site. On hovering over the button the colour should invert to indicate to the user where they are clicking | The relevant buttons take the user to the associated part of the site. On hovering over the button the colour inverts to indicate to the user where they are clicking
+Reasons to Purchase Carousel | Carousel shows carousel of text which slides automatically | Carousel should render as a full green block that stretches across the entire page, regardless of device. The carousel should change on a slide every seven sessions, but there should also be arrows on either side for users to click through if they desire. The reason should be broken up into a small header, and slightly more explanation underneath. Underneath the entire carousel, users should see "Trusted by tables across the UK." | Carousel renders as a full green block that stretches across the entire page, regardless of device. The carousel changes on a slide every seven sessions, and there are also arrows on either side for users to click through if they desire. The reason is be broken up into a small header, and slightly more explanation underneath. Underneath the entire carousel, users can see "Trusted by tables across the UK."
+Testimonials | Testimonials should be responsive | Testimonials should stack on mobile and stretch into a full row of three seperate columns on desktops | Testimonials stack on mobile and stretch into a full row on three seperate columns on desktop
+Testimonials | Testimonials should render and should show accurate testimonials as set up in the Django Admin | Testimonials should render as the following - a small paragraph with the testimonial and underneath that, the name of the person providing a testimonial, the class/race they typically play, and their location as a subheader. The testimonial that shows should match the information that has been set in the Django Admin, including the order set on the admin | Testimonials render as the following - a small paragraph with the testimonial and underneath that, the name of the person providing a testimonial, the class/race they typically play, and their location as a subheader. The testimonial that shows matches the information that has been set in the Django Admin, including the order set on the admin
+
+#### Products
+| Feature Tested | Action | Expected Result | Actual Result
+--- | --- | --- | ---
+Products Page | Products page renders showing the product catalog and is responsive | The product page should render when loaded and display the catalog. It should be responsive to the device used, stacking into a single column on mobiles, and stretching out into four columns per row on desktops. | The product page renders when loaded and displays the catalog. It is responsive to the device used, stacking into a single column on mobiles, and stretching out into four columns per row on desktops.
+Products Page | Filter | The sort by filter works | The sort by filters should work as the following: Price (low to high), Price (high to low), Name (A-Z), Name (Z-A), Category (A-Z), Category (Z-A). They should all be reset by clicking back onto the "Sort by" option which reloads all of the categories by A-Z | The sort by filters works as the following: Price (low to high), Price (high to low), Name (A-Z), Name (Z-A), Category (A-Z), Category (Z-A). They can all be reset by clicking back onto the "Sort by" option which reloads all of the categories by A-Z 
+Product Page | Product image renders | Product image should render regardless of device | Product image renders regardless of device
+Product Page | Product name, price and category renders and is correct according to Django Admin | Product name, price and category should render underneath the product image, and should match the information in the Django Admin | Product name, price and category renders underneath the product image, and matches the information in the Django Admin
+Product Page | Product Price | Product price should show as the flat cost for dice towers, dice bags and dice boxes. Dice should show as a "From" price, which should be the lowest possible price of the dice set as declared in the Django Admin | Product price is shown as the flat cost for dice towers, dice bags and dice boxes. Dice show as a "From" price, which is the lowest possible price of the dice set as declared in the Django Admin 
+Product Page | Edit and Delete buttons show only when the Superuser is logged in | The Edit and Delete buttons which launch the product amendment pages or delete the product from the catalog should only be visible for Superadmins. Normal users should not see these buttons at all | The Edit and Delete buttons which launch the product amendment pages or delete the product from the catalog are only be visible for Superadmins. Normal users do not see these buttons at all
+Products Page | Back to Top button | The Back to Top button should appear once the user begins to scroll on the lower right hand side of the screen regardless of the device. On clicking this button, the site should scroll back to the top of the page | The Back to Top button appears once the user begins to scroll on the lower right hand side of the screen regardless of the device. On clicking this button, the site scrolls back to the top of the page
+
+#### Product Details
+| Feature Tested | Action | Expected Result | Actual Result
+--- | --- | --- | ---
+Product Details | Product Details page renders and is responsive to device | Product page should render with the following: a product image, the product title, the product description, the product materials and dimensions accordion, the product quantity toggle, the add to bag button, and the product image and customer reviews if they have been provided by users. On mobiles this should all stack into one long column, on desktops this should stretch out where the product and product details should be two columns on the same row, with the image on the left handside and the product details on the right. The product reviews should show under this in a completely different row.
+Product Details | Choose option renders on dice | If a user loads the product details for a dice set, they should be able to see the option of the single D20 or the full set. The page should automatically load to the single D20 cost. The price shown on the page should reflect the costs set in the Django Admin for the single D20 vs the full set when the user flicks between the buttons and should update in realtime | If a user loads the product details for a dice set, they are able to see the option of the single D20 or the full set. The page automatically loads to the single D20 cost. The price shown on the page reflects the costs set in the Django Admin for the single D20 vs the full set, and when the user flicks between the buttons updates in realtime
+Product Details | Product quantity increase and decrease button works and updates quantity in real time| The product quantity increase and decrease buttons should update when being clicked by a user. The quantity number should update as this goes up and down in real time and should the user add the item to their bag, the quantity should match the quantity in the bag. 
+Product Details | Product quantity cannot be reduced lower than 1 | The product quantity should not be able to be reduced lower than 1, even if the user tries to override this by manually typing 0 | Product quantity cannot be reduced lower than 1, even when the user tries to override this by manually typing 0
+Product Details | Add to bag button | Add to bag button should add the items to a session bag, which is connected to the quantity shown in the product quantity toggle. On clicking add to bag, a toast should be launched which says the item has been added to the bag | Add to bag button adds the items to a session bag, which is connected to the quantity shown in the product quantity toggle. On clicking add to bag, a toast launches which says the item has been added to the bag
+Product Details | Product Material and Dimension Accordion | The "Product Material" and "Product Dimensions" accordion should activate when a user clicks the accordion bar. The accordions should be able to be opened independently and closed independently rather than opening and closing together | The "Product Material" and "Product Dimensions" accordion activates when a user clicks the accordion bar. The accordions can be opened independently and closed independently rather than opening and closing together 
+Product Page | Edit and Delete buttons show only when the Superuser is logged in | The Edit and Delete buttons which launch the product amendment pages or delete the product from the catalog should only be visible for Superadmins. Normal users should not see these buttons at all | The Edit and Delete buttons which launch the product amendment pages or delete the product from the catalog are only be visible for Superadmins. Normal users do not see these buttons at all
+Product Details | Reviews | Reviews can only be provided by people who are logged in | Users should be logged in to provide a review. If the user is logged out, they should be sent to the login page. | Users must be logged in to provide a review. If the user is logged out, they are sent to the login page.
+Product Details | Reviews | Reviews do not automatically get submitted for view | Reviews provided and submitted should not immediately be published, instead the review should go to "pending" and should only be approved by a Superuser. Until the review has been approved, the user that provided the review should see the review as "pending" and it should not be published to the website | Reviews provided and submitted are not immediately published, instead the review goes to "pending" and can only be approved by a Superuser. Until the review has been approved, the user that provided the review should see the review as "pending" and it is not published to the website
+Product Details | Reviews | Edit reviews go back to pending | If a review has been approved and the user wishes to make a change, any change should force the comment back to a pending state which should be reapproved by the Superadmin again. Whilst the review is "pending" the review should show as "pending" | If a review has been approved and the user wishes to make a change, any change forces the comment back to a pending state which has to be reapproved by the Superadmin again. Whilst the review is "pending" the review shows as "pending" 
+Product Details | Reviews | Rating gets aggregated with multiple reviews | If a review has multiple reviews, the rating shown at the top should be an aggregate of the stars given | If a review has multiple reviews, the rating shown at the top is an aggregate of the stars given
+
+#### Bag
+| Feature Tested | Action | Expected Result | Actual Result
+--- | --- | --- | ---
+Bag | Bag page renders and is responsive to device | The bag page should render according to how it is being accessed. On mobiles, the product bag should render into a single column, with a horizontal divider between each item to segregate. On tablets and above it should render into a table with columns and rows underneath. On mobiles the bag should render as the following: an image, the product name, the SKU, the price, the product quantity toggler, a bin icon, an update button and a subtotal. Underneath the horizontal divider, there should be a bag total, a delivery cost and a grand total. Under this, two buttons should show which allow the user to either return to the product page or proceed to the checkout. On tablets and above the bag should render as a table, with the following: the product image, the product title and SKU, the price, the quantity, an update button, a bin icon and a subtotal. Underneath the table, there should be a bag total, a delivery cost and a grand total. Under this, two buttons should show which allow the user to either return to the product page or proceed to the checkout. | The bag page renders according to how it is being accessed. On mobiles, the product bag renders into a single column, with a horizontal divider between each item to segregate. On tablets and above it renders into a table with columns and rows underneath. On mobiles the bag renders as the following: an image, the product name, the SKU, the price, the product quantity toggler, a bin icon, an update button and a subtotal. Underneath the horizontal divider, there is the bag total, a delivery cost and a grand total. Under this, two buttons show which allow the user to either return to the product page or proceed to the checkout. On tablets and above the bag renders as a table, with the following: the product image, the product title and SKU, the price, the quantity, an update button, a bin icon and a subtotal. Underneath the table, there is a bag total, a delivery cost and a grand total. Under this, two buttons  show which allow the user to either return to the product page or proceed to the checkout.
+Product Details | Product quantity increase and decrease button works and updates quantity in real time | The product quantity increase and decrease buttons should update when being clicked by a user. The quantity number should update as this goes up and down in real time and should the user add the item to their bag, the quantity should match the quantity in the bag. 
+Product Details | Product quantity cannot be reduced lower than 1 | The product quantity should not be able to be reduced lower than 1, even if the user tries to override this by manually typing 0 | Product quantity cannot be reduced lower than 1, even when the user tries to override this by manually typing 0
+Product Details | Bag update button works | On clicking the update button, the following should update: the quantity, the subtotal, bag total, grand total and any delivery costs associated. A toast should launch with the updated details | On clicking the update button, the following updates: the quantity, the subtotal, bag total, grand total and any delivery costs associated. A toast launches with the updated details
+Product Details | Bin button works | On clicking the bin button, the item is removed from the shopping bag and updates the total costs. The bag reloads with the updated items, and if removing that item takes the products to zero, a message should show that there are no items in the bag | On clicking the bin button, the item is removed from the shopping bag and updates the total costs. The bag reloads with the updated items, and if removing that item takes the products to zero, a message should show that there are no items in the bag
+Product Details | Keep Shopping and Secure Checkout buttons work | The "Keep Shopping" button should return the user to the product catalog, the "Secure Checkout" should send the user onto the checkout page | The "Keep Shopping" button returns the user to the product catalog, the "Secure Checkout" sends the user onto the checkout page
+
+#### Checkout
+| Feature Tested | Action | Expected Result | Actual Result
+--- | --- | --- | ---
+
+#### Profile
+| Feature Tested | Action | Expected Result | Actual Result
+--- | --- | --- | ---
+
+#### AllAuth
+| Feature Tested | Action | Expected Result | Actual Result
+--- | --- | --- | ---
+
+#### Additional Pages
+| Feature Tested | Action | Expected Result | Actual Result
+--- | --- | --- | ---
+
+### Testing Against User Stories
+| User Story | Category (MoSCoW) | Met?
+--- | --- | --- 
+As a user of the website, I want to be able to browse products so that I can find items to purchase | Must Have |
+As a user of the website, I want to be able to view product details for each individual product, so that I can understand if the product is suited for my needs | Must Have |
+As a staff member (Admin role), I want to be able to add, amend and delete products from the website | Must Have |
+As a user, I can sign up to become a registered user, so that I can track have a profile that tracks previous orders and automatically populate fields with my details at checkout | Must Have | 
+As a user, I will recieve a confirmation email when I have created an account, so that I can securely validate my account | Must Have | 
+As a registered user I am able to securely log in and log out of my profile so that I know that my account is safe | Must Have |
+As a user of the website, I can add items to a shopping bag and see how much the grand total is, so that I can track how much I am spending | Must Have |
+As a user of the website, I can change the quantity of the items in my shopping bag and an updated grand total, so that I can track how much I am spending | Must Have |
+As a user of the website I can remove items from my shopping bag and see an updated grand total, so that I can remove items I do not need anymore | Must Have
+As a user of the website I can be shown all the items I am buying, plus the subtotal, shipping details and grand total before I complete the purchase, so that I can decide that I definitely want to complete the purchase | Must Have |
+As a user of the website I can enter my details into the checkout securely, using the Stripe API, so that I can purchase items safely and securely | Must Have |
+As a user, I want to be able to sign up to The Tavern's newsletter, so I can learn about their community | Must Have |
+As a user of the website, I want to be able to read product reviews, so that I can see how other people have experienced the item and decide if it suits my needs | Should Have |
+As a registered user of the website, I want to be able to leave product reviews, so that I can help inform other potential buyers about my opinion of the product | Should Have |
+As a staff member (Admin role), I want to be able to approve product reviews, so that I can ensure that only quality reviews end up on the website | Should Have |
+As a staff member (Admin role), I want to be able to delete product reviews, so that I can ensure that innapropriate reviews do not end up on the website | Should Have |
+As a registered user, I am able to update my profile information, so that I can be sure that my details are up to date | Should Have |
+As a registered user, I am able to reset my password at any time, so that I can keep my account secure | Should Have |
+As a registered user, I am able to see my previous orders, so that I can track any orders I have made in the past | Should Have |
+As a user of the website, I can be shown my order details once my order is confirmed, so that I can see that my order has been completed | Should Have |
+As a user of the website, I can recieve an email confirming my order once my order has been succesfully submitted | Should Have |
+As a user, I want to be able to contact the team behind The Tavern, so I can know that I can message directly with questions, queries or suggestions | Should Have
+As a registered user, I am able to give myself a profile picture, so that I can have a photo on my profile | Should Have |
+As a user, I want to be able to see information about the company, so I can know who I'm buying from | Should Have |
+As a staff member (Admin role) I want to be able to update the information on the company, so that I can keep this up to date as the company grows and expands | Should Have |
+
+
 
 ## Web Marketing
 ### Keyword and SEO research
@@ -859,8 +974,10 @@ The Tavern do have a small marketing budget, however I would personally suggest 
 * Mailchimp - Newsletter sign up database
 
 ## Debugging and Testing
-* ChatGPT
-* W3C HTML Validation
-* W3C CSS Validation
-* JShint
-* Lighthouse
+* ChatGPT - General Debugging Assistance
+* W3C HTML Validation - HTML Validation
+* W3C CSS Validation - CSS Validation
+* JShint - JavaScript Validation
+* Lighthouse - Performance Checker
+* WAVE from WebAim - Accessibility Checker
+* Blisk - Device Compatability Checker 

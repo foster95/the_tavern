@@ -47,6 +47,11 @@ class ContactForm(models.Model):
     TOPIC_TECHICNAL = "technical"
     TOPIC_OTHER = "other"
 
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "Customer Message"
+        verbose_name_plural = "Customer Messages"
+
     TOPIC_CHOICES = [
         (TOPIC_ORDER, "I have a question about my order"),
         (TOPIC_MATERIALS, "A question about materials or dice care"),
