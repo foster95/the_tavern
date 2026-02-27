@@ -1074,6 +1074,12 @@ order-confirmation-table .table > :not(caption) > * > * {
   background-color: var(--primary-accent);
 }
 
+/* AllAuth CSS */
+.tavern-link {
+  color: var(--primary-accent)!important;
+  font-weight: bold;
+}
+
 /* Media Queries */
 
 @media (min-width: 768px){
