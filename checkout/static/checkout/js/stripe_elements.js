@@ -80,11 +80,9 @@ form.addEventListener("submit", function (ev) {
       '<i class="fa-solid fa-spinner fa-spin me-2"></i>Processing...';
   }
 
-  // Convert checkbox to "true"/"false" string
   var saveCheckbox = document.getElementById("save-info");
   var saveInfo = (saveCheckbox && saveCheckbox.checked) ? "true" : "false";
 
-  // ✅ set hidden input that will POST to your checkout view
   var hidden = document.getElementById("save-info-hidden");
   if (hidden) hidden.value = saveInfo;
 
@@ -111,7 +109,6 @@ form.addEventListener("submit", function (ev) {
                 line2: fieldValue("id_street_address2"),
                 city: fieldValue("id_town_or_city"),
                 state: fieldValue("id_county"),
-                // Stripe wants 2-letter country codes - your select likely provides that
                 country: fieldValue("id_country"),
               },
             },
@@ -145,7 +142,6 @@ form.addEventListener("submit", function (ev) {
             }
             isSubmitting = false;
           } else {
-            // ✅ now submit the form (includes client_secret + save_info hidden)
             form.submit();
           }
         })

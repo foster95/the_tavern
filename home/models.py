@@ -44,7 +44,7 @@ class ContactForm(models.Model):
     TOPIC_ORDER = "order"
     TOPIC_MATERIALS = "materials"
     TOPIC_RETURNS = "returns"
-    TOPIC_TECHICNAL = "technical"
+    TOPIC_TECHNICAL = "technical"
     TOPIC_OTHER = "other"
 
     class Meta:
@@ -56,7 +56,7 @@ class ContactForm(models.Model):
         (TOPIC_ORDER, "I have a question about my order"),
         (TOPIC_MATERIALS, "A question about materials or dice care"),
         (TOPIC_RETURNS, "My loot arrived damaged/faulty"),
-        (TOPIC_TECHICNAL, "Report a glitch in the weave"),
+        (TOPIC_TECHNICAL, "Report a glitch in the weave"),
         (TOPIC_OTHER, "General feedback or tavern tales"),
     ]
 

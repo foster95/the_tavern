@@ -1016,6 +1016,11 @@ order-confirmation-table .table > :not(caption) > * > * {
   background-color: var(--primary-color) !important;
 }
 
+#order-history a {
+  color: var(--primary-accent) !important;
+  font-weight: bold;
+}
+
 /* Contact Form CSS */
 
 .contact-wrap {
