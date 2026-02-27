@@ -39,7 +39,7 @@ The Tavern is an online e-commerce website store, designed for the Dungeons and 
         * [PEP8 Testing](#pep8-testing)
         * [JShint Testing](#jshint-testing)
         * [Device Testing](#device-testing)
-        * [Browser Testing]
+        * [Browser Testing](#browser-testing)
         * [Manual Testing](#manual-testing)
         * [Automated Testing](#automated-testing)
         * [Testing Against User Stories](#testing-against-user-stories)
@@ -782,7 +782,7 @@ Views | ![PEP8 Validation - Bag/Views](https://github.com/foster95/the_tavern/bl
 --- | ---
 Admin | ![PEP8 Validation - Checkout/Admin](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/checkout-admin.png)
 Apps | ![PEP8 Validation - Checkout/Apps](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/checkout-apps.png)
-Forms | ![PEP8 Validations - Checkout/Forms]()
+Forms | ![PEP8 Validations - Checkout/Forms](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/checkout-forms.png)
 Models | ![PEP8 Validation - Checkout/Models](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/checkout-models.png)
 Signals | ![PEP8 Validation - Checkout/Signals](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/checkout-signals.png)
 URLs | ![PEP8 Validation - Checkout/URLS](https://github.com/foster95/the_tavern/blob/main/documentation/pep8/checkout-urls.png)
@@ -831,14 +831,14 @@ iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | S
 iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Sign In - Facebook | ![Mobile - Facebook Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-facebook-login.png) | No issues 
 iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Sign Up | ![Mobile - Sign Up](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-sign-up.png) | No issues 
 iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Sign Out | ![Mobile - Sign Out](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-sign-up.png) | No issues 
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | About ![Mobile - About](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-about.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | About | ![Mobile - About](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-about.png) | No issues 
 iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | FAQ | ![Mobile - FAQ](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-faq.png) | No issues 
 iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Contact | ![Mobile - Contact](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-contact.png) | No issues 
 iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Returns | ![Mobile - Returns ](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-returns.png) | No issues 
 iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Shipping | ![Mobile - Shipping](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-shipping.png) | No issues 
 iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Privacy Policy | ![Mobile - Privacy](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-privacy-policy.png) | No issues 
 iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Add Product | ![Mobile - Add Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-admin-add-product.png) | No issues 
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Amend Product ![Mobile - Amend Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-admin-amend-product.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Amend Product | ![Mobile - Amend Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-admin-amend-product.png) | No issues 
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Home | ![Desktop - Home](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-about.png) | No issues 
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Products | ![Desktop - Products](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-products.png) | No issues 
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Product Details | ![Desktop - Product Details](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-product-details.png) | No issues 
@@ -858,7 +858,7 @@ Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Returns | !
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Shipping | ![Desktop - Shipping](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-shipping.png) | No issues 
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Privacy Policy | ![Desktop - Privacy](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-privacy.png) | No issues 
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Add Product | ![Desktop - Add Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-add-product.png) | No issues 
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Amend Product ![Desktop - Amend Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-amend-profile.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Amend Product ! | [Desktop - Amend Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-amend-profile.png) | No issues 
 
 ### Browser Testing
 I used BrowserStack to test the website under various different browser conditions

@@ -1080,6 +1080,18 @@ order-confirmation-table .table > :not(caption) > * > * {
   font-weight: bold;
 }
 
+/* Privacy Policy CSS */
+.privacy-policy a {
+  color: var(--primary-accent) !important;
+  font-weight: bold;
+}
+
+/* FAQ CSS */
+.further-questions a {
+  color: var(--primary-accent) !important;
+  font-weight: bold;
+}
+
 /* Media Queries */
 
 @media (min-width: 768px){
