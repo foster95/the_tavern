@@ -98,10 +98,10 @@ To guide the initial development stages of The Tavern, I used the theory of the 
 * A footer must include contact details, FAQ, shipping details, privacy policies. For desktop users the newsletter subscribe form should be visible in the footer. 
 * The index page will have a hero image
 * Product images will be seen throughout the website, along with product details
-Users should be recieve messages to let them know of any state changes. These messages should fade after 4 seconds but also have a X to manually close the message. 
+Users should be receive messages to let them know of any state changes. These messages should fade after 4 seconds but also have a X to manually close the message. 
 * Registered Users should be able to identify when they have logged in
 * A customised 404 page for when users end up off the main site landscape
-* Users should recieve an email after their order has been paid for and recieved which is tailored to The Tavern's branding guidelines. 
+* Users should receive an email after their order has been paid for and received which is tailored to The Tavern's branding guidelines. 
 
 ### Structure
 #### Information Architecture 
@@ -147,13 +147,16 @@ Error 404 | ![Mobile - Error 404](https://github.com/foster95/the_tavern/blob/ma
 As The Tavern is a website for TTRPG/D&D items, the website should have a rich, luxurious fantasy feel, similar to the aesthetics seen in games like Baldurs Gate and other D&D based games. I used coolors to help create the initial colour palette, which is focussed on this richness and warmth of an adventuring party, without leaning into the more cliche reds and golds that you often see associated with D&D and TTRPG games.
 
 The initial colour palette created for The Tavern can be found below:
+
 ![Initial Colour Palette for The Tavern](https://github.com/foster95/the_tavern/blob/main/documentation/brand/initial-colour-palette.png)
 
 At the end of the devlopment of the website I undertook WAVE testing, which raised contrast issues with the current colour palette. With that in mind, the primary accent was tweaked slightly to make it darker and pass the AIM minimum checker, whilst still keeping the original colour palette in mind. The refined palette can be seen below:
+
 ![Refined Colour Palette for The Tavern](https://github.com/foster95/the_tavern/blob/main/documentation/brand/refined-colour-palette.png)
 
 #### Typography
-Using Our Own Thing's font matching extension, I settled on using Montserrat for the main body of the website, and Almendra for any headers. Montserrat is a standard font used across the industry, noted for its readability and simplicity. Almendra is a more decorative font which evokes the fantasy world, making it suited for The Tavern's aesthetics. Font Awesome was used for the social media icons in the footer. 
+Using Our Own Thing's font matching extension, I settled on using Montserrat for the main body of the website, and Almendra for any headers. Montserrat is a standard font used across the industry, noted for its readability and simplicity. Almendra is a more decorative font which evokes the fantasy world, making it suited for The Tavern's aesthetics. Font Awesome was used for the social media icons in the footer and the general icons across the full website.  
+
 ![Google Fonts chosen for The Tavern](https://github.com/foster95/the_tavern/blob/main/documentation/brand/google-fonts.png)
 
 #### The Tavern's Logo & Wordmark
@@ -180,7 +183,7 @@ Registered users are able to leave reviews of products
 
 #### User Account and Authentication
 * Users are able to sign up to become registered users
-* Users are able to recieve a confirmation email once they have completed a product purchase  §a
+* Users are able to receive a confirmation email once they have completed a product purchase  §a
 * Registered users are able to securely log in and log out of their account
 * Registered users are able to manage their own personal details in their profile, including a profile picture
 * Registered users are able to reset their password at any time
@@ -208,12 +211,12 @@ Registered users are able to leave reviews of products
 * As a user of the website, I want to be able to read product reviews, so that I can see how other people have experienced the item and decide if it suits my needs
 * As a registered user of the website, I want to be able to leave product reviews, so that I can help inform other potential buyers about my opinion of the product
 * As a staff member (Admin role), I want to be able to approve product reviews, so that I can ensure that only quality reviews end up on the website
-* As a staff member (Admin role), I want to be able to delete product reviews, so that I can ensure that innapropriate reviews do not end up on the website
+* As a staff member (Admin role), I want to be able to delete product reviews, so that I can ensure that inappropriate reviews do not end up on the website
 * As a staff member (Admin role), I want to be able to add, amend and delete products from the website 
 
 #### User Account and Authentication
 * As a user, I can sign up to become a registered user, so that I can track have a profile that tracks previous orders and automatically populate fields with my details at checkout
-* As a user, I will recieve a confirmation email when I have created an account, so that I can securely validate my account
+* As a user, I will receive a confirmation email when I have created an account, so that I can securely validate my account
 * As a registered user I am able to securely log in and log out of my profile so that I know that my account is safe
 * As a registered user, I am able to update my profile information, so that I can be sure that my details are up to date
 * As a registered user, I am able to give myself a profile picture, so that I can have a photo on my profile
@@ -227,7 +230,7 @@ Registered users are able to leave reviews of products
 * As a user of the website I can be shown all the items I am buying, plus the subtotal, shipping details and grand total before I complete the purchase, so that I can decide that I definitely want to complete the purchase
 * As a user of the website I can enter my details into the checkout securely, using the Stripe API, so that I can purchase items safely and securely
 * As a user of the website, I can be shown my order details once my order is confirmed, so that I can see that my order has been completed
-* As a user of the website, I can recieve an email confirming my order once my order has been succesfully submitted
+* As a user of the website, I can receive an email confirming my order once my order has been successfully submitted
 
 #### Brand Experience
 * As a user, I want to be able to sign up to The Tavern's newsletter, so I can learn about their community
@@ -236,7 +239,7 @@ Registered users are able to leave reviews of products
 * As a staff member (Admin role) I want to be able to update the information on the company, so that I can keep this up to date as the company grows and expands
 
 ### MoSCoW Prioritisation
-Using the MoSCoW priotisation method, I then further broke down my user stories into four seperate categories. These categories are:
+Using the MoSCoW priotisation method, I then further broke down my user stories into four separate categories. These categories are:
  
 * Must Have - this should take up no more than 60% of the entire project. 
 * Should Have
@@ -259,7 +262,7 @@ Total | 25 | 100%
 * As a user of the website, I want to be able to view product details for each individual product, so that I can understand if the product is suited for my needs
 * As a staff member (Admin role), I want to be able to add, amend and delete products from the website
 * As a user, I can sign up to become a registered user, so that I can track have a profile that tracks previous orders and automatically populate fields with my details at checkout
-* As a user, I will recieve a confirmation email when I have created an account, so that I can securely validate my account
+* As a user, I will receive a confirmation email when I have created an account, so that I can securely validate my account
 * As a registered user I am able to securely log in and log out of my profile so that I know that my account is safe
 * As a user of the website, I can add items to a shopping bag and see how much the grand total is, so that I can track how much I am spending
 * As a user of the website, I can change the quantity of the items in my shopping bag and an updated grand total, so that I can track how much I am spending
@@ -277,7 +280,7 @@ Total | 25 | 100%
 * As a registered user, I am able to reset my password at any time, so that I can keep my account secure
 * As a registered user, I am able to see my previous orders, so that I can track any orders I have made in the past.
 * As a user of the website, I can be shown my order details once my order is confirmed, so that I can see that my order has been completed
-* As a user of the website, I can recieve an email confirming my order once my order has been succesfully submitted
+* As a user of the website, I can receive an email confirming my order once my order has been successfully submitted
 * As a user, I want to be able to contact the team behind The Tavern, so I can know that I can message directly with questions, queries or suggestions
 
 #### Could Have
@@ -298,7 +301,7 @@ Prior to building The Tavern, I created an ERD which helped me visualise all of 
 
 ## Website Features
 ### Header
-The header extends the base.html template, and is a simple, minimalistic design which is visually appealing for users. On mobile the header is much simpler, displaying only the most crucial features of the website to allow users easy UX - these features are: a drop down burger icon which allows users to navigate to the following: all products, dice, other accessories, about us, FAQ and contact us. There is also a search button, allowing users to search the site, a my account button, and a basket button. On tablets and up, the header is much more elaborate, featuring a small version of the companies logo on the left hand side, a central search bar and the account and basket features on the right hand side of the screen. Running just below this in a seperate bar is the product catalogue, and seperated from this the FAQ and the contact us button can be found in the header. This allows users to easily navigate to the product directory, but requires them to search a little further for the other pages, which is the ultimate goal of an eCommerce site. 
+The header extends the base.html template, and is a simple, minimalistic design which is visually appealing for users. On mobile the header is much simpler, displaying only the most crucial features of the website to allow users easy UX - these features are: a drop down burger icon which allows users to navigate to the following: all products, dice, other accessories, about us, FAQ and contact us. There is also a search button, allowing users to search the site, a my account button, and a basket button. On tablets and up, the header is much more elaborate, featuring a small version of the companies logo on the left hand side, a central search bar and the account and basket features on the right hand side of the screen. Running just below this in a separate bar is the product catalogue, and separated from this the FAQ and the contact us button can be found in the header. This allows users to easily navigate to the product directory, but requires them to search a little further for the other pages, which is the ultimate goal of an eCommerce site. 
 
 ### Newsletter Sign Up
 The newsletter sign up extends from base.html and acts as part of an elongated footer. The newsletter is connected to Mailchimp, and on the user providing their email this is tracked in Mailchimp's dashboard. On providing the email, the user is shown a success message confirming that their information has been collected. 
@@ -639,7 +642,7 @@ After implementing S3, I observed inconsistent behaviour in production. Some pro
 
 The issue with the default fallback image was slightly different. The file existed locally in the project’s media directory, but it had never been uploaded to S3. To fix this I moved the missing image from the media products folder to the static images folder. 
 
-To resolve this issue, I conducted systematic checks between Django admin, the folders in VSCode and S3 in AWS. In the end, I decided to remove all of the original file photos from the media file, and reuploading them through the deployed website to ensure that the files were saved into AWS rather than locally. The same files were then duplicated and placed into folders in local development to avoid any confusion for myself. This also supported my performance issues, as Google Lighthouse was highlighting that the photos being hosted were too large and were causing loading issues. As such all of the files that exist within the website have been reformatted to WebPs that were further supressed to reduce the file size. At the time of submission, this issue has been fully fixed.
+To resolve this issue, I conducted systematic checks between Django admin, the folders in VSCode and S3 in AWS. In the end, I decided to remove all of the original file photos from the media file, and reuploading them through the deployed website to ensure that the files were saved into AWS rather than locally. The same files were then duplicated and placed into folders in local development to avoid any confusion for myself. This also supported my performance issues, as Google Lighthouse was highlighting that the photos being hosted were too large and were causing loading issues. As such all of the files that exist within the website have been reformatted to WebPs that were further compressed to reduce the file size. At the time of submission, this issue has been fully fixed.
 
 ### Stripe Webhooks
 Similarly to the AWS issue, the issue with webhooks wasn't uncovered until the the website was put into production and I was conducting general testing with the full checkout path from browsing to purchase. Post purchase, I discovered that emails were not being sent automatically due to the set up of the Webhooks. To discover this I did a combination of close monitoring of the webooks event section, and using Heroku's live logging system which allowed me to see in realtime that the webhooks weren't triggering for email sending. 
@@ -651,9 +654,7 @@ Part of this issue was resolved quickly after I realised that there were a numbe
 After running the standard migrations required for the model, I updated the webhook logic which searched for the confirmation email sent boolean and decides whether or not to send an email. Further, this webhook acted so if it sent the email, it was automatically toggle that boolean from false to true, which wouldn't allow for duplicate emails. 
 
 ## Testing
-Multiple testing methods were carried out to ensure the quality, functionality, and responsiveness of The Tavern. These included automated validation tools, device and browser testing, Lighthouse analysis, accessibility checks, and user-story-based manual testing. All core functionality works as expected, and at the the time of submission any bugs have been fixed.
-
-Testing was carried out using a mix of automated tools and manual user-story-based methods.
+Multiple testing methods were carried out to ensure the quality, functionality, and responsiveness of The Tavern. These included automated validation tools, device and browser testing, Lighthouse analysis, accessibility checks, and user-story-based manual testing. All core functionality works as expected and, at the time of submission, all known bugs have been resolved.
 
 ### Summary of Testing
 Testing Method | Tools Used | Purpose | Result 
@@ -670,7 +671,7 @@ Manual Testing | Developer testing | To test that all website features were work
 User Story Testing | Manual testing table | Verify all features against stories | Good overall 
 
 ### Lighthouse Testing
-As part of general testing, I conducted a series of lighthouse tests across both mobile and desktop formatting. As a rule of thumb, all of the tests for mobile came back weaker than desktop, however from doing research this seems to be an issue connected to the fact that the website is hosted through Heroku on eco dynos and therefore is not primed to hit high grades. The weakest page was the products directory page, which was to be expected as the page is very image and link heavy, due to being an eCommerce website. To try and reduce image size, all images were reformatted from JEPGs to WebPs and were then further supressed. Lazy loading was also used on almost all of the photos, helping reduce the photo weight. 
+As part of general testing, I conducted a series of lighthouse tests across both mobile and desktop formatting. As a rule of thumb, all of the tests for mobile came back weaker than desktop, however from doing research this seems to be an issue connected to the fact that the website is hosted through Heroku on eco dynos and therefore is not primed to hit high grades. The weakest page was the products directory page, which was to be expected as the page is very image and link heavy, due to being an eCommerce website. To try and reduce image size, all images were reformatted from JPEGs to WebPs and were then further compressed. Lazy loading was also used on almost all of the photos, helping reduce the photo weight. 
 
 | Page | Format | Lighthouse Grades
 --- | --- | --- 
@@ -693,20 +694,20 @@ Order Confirmation | Mobile | ![Mobile - Order Confirmation Lighthouse Grade](ht
 Profile | Desktop | ![Desktop - Profile Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-profile.png)
 Profile | Mobile | ![Mobile - Profile Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-profile.png)
 Contact | Desktop | ![Desktop - Contact Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-contact.png)
-Contact | Mobile | ![Mobile - Contact Lightouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-contact.png)
+Contact | Mobile | ![Mobile - Contact Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-contact.png)
 About | Desktop | ![Desktop - About Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-about.png)
 About | Mobile | ![Mobile - About Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-about.png)
 FAQ | Desktop | ![Desktop - FAQ Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-faq.png)
-FAQ | Mobile | ![Mobile - FAQ Lightouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-faq.png)
+FAQ | Mobile | ![Mobile - FAQ Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-faq.png)
 Privacy | Desktop | ![Desktop - Privacy Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-privacy.png)
 Privacy | Mobile | ![Mobile - Privacy Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-privacy.png) 
-Returns | Desktop | ![Desktop - Returns Ligthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-returns.png)
+Returns | Desktop | ![Desktop - Returns Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-returns.png)
 Returns | Mobile | ![Mobile - Returns Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-returns.png)
 Shipping | Desktop | ![Desktop - Shipping Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-shipping.png)
 Shipping | Mobile | ![Mobile - Shipping Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-shipping.png)
 Sign In | Desktop | ![Desktop - Sign In Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-sign-in.png)
 Sign In | Mobile | ![Mobile - Sign In Lighthouse Grade](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-sign-in.png)
-Sign In - Google | Dekstop | ![Desktop - Sign In - Google](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-sign-in-google.png)
+Sign In - Google | Desktop | ![Desktop - Sign In - Google](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-sign-in-google.png)
 Sign In - Google | Mobile | ![Mobile - Sign In - Google](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-sign-in-google.png)
 Sign In - Facebook | Desktop | ![Desktop - Sign In - Facebook](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/desktop-sign-in-facebook.png)
 Sign In - Facebook | Mobile | ![Mobile - Sign In - Facebook](https://github.com/foster95/the_tavern/blob/main/documentation/lighthouse/mobile-sign-in-facebook.png)
@@ -721,12 +722,12 @@ Sign Up | Mobile | ![Mobile - Sign Up](https://github.com/foster95/the_tavern/bl
 Home | ![HTML Validation - Home](https://github.com/foster95/the_tavern/blob/main/documentation/html/home.png) |
 Products | ![HTML Validation - Products](https://github.com/foster95/the_tavern/blob/main/documentation/html/products.png) | 
 Product Details | ![HTML Validation - Product Details](https://github.com/foster95/the_tavern/blob/main/documentation/html/product-details.png) |
-Add Product | ![HTML Validation - Add Product](https://github.com/foster95/the_tavern/blob/main/documentation/html/product-add.png) | Minor info warning due to trailing slashes implented by Django forms. Unfixed due to insignificance. 
-Amend Product | ![HTML Validation - Amend Product](https://github.com/foster95/the_tavern/blob/main/documentation/html/product-amend.png) | Minor info warning due to trailing slashes implented by Django forms. Unfixed due to insignificance. 
+Add Product | ![HTML Validation - Add Product](https://github.com/foster95/the_tavern/blob/main/documentation/html/product-add.png) | Minor info warning due to trailing slashes implemented by Django forms. Unfixed due to insignificance. 
+Amend Product | ![HTML Validation - Amend Product](https://github.com/foster95/the_tavern/blob/main/documentation/html/product-amend.png) | Minor info warning due to trailing slashes implemented by Django forms. Unfixed due to insignificance. 
 Bag | ![HTML Validation - Bag](https://github.com/foster95/the_tavern/blob/main/documentation/html/bag.png) |
 Checkout | ![HTML Validation - Checkout](https://github.com/foster95/the_tavern/blob/main/documentation/html/checkout.png) |
 Order Confirmation | ![HTML Validation - Order Confirmation](https://github.com/foster95/the_tavern/blob/main/documentation/html/checkout-confirmation.png) |
-Profile | ![HTML Validation - Profile](https://github.com/foster95/the_tavern/blob/main/documentation/html/profile.png) | Minor info warning due to trailing slashes implented by Django forms. Unfixed due to insignificance. 
+Profile | ![HTML Validation - Profile](https://github.com/foster95/the_tavern/blob/main/documentation/html/profile.png) | Minor info warning due to trailing slashes implemented by Django forms. Unfixed due to insignificance. 
 Contact | ![HTML Validation - Contact](https://github.com/foster95/the_tavern/blob/main/documentation/html/contact.png) |
 About | ![HTML Validation - About](https://github.com/foster95/the_tavern/blob/main/documentation/html/about.png) |
 FAQ | ![HTML Validation - FAQ](https://github.com/foster95/the_tavern/blob/main/documentation/html/faq.png) |
@@ -813,11 +814,11 @@ profile.js | ![JShint Validation - Profile](https://github.com/foster95/the_tave
 #### Base
 | Feature Tested | Action | Expected Result | Actual Result
 --- | --- | --- | ---
-Header Bar | Header Bar is responsive to device | On tablets and desktops the header bar should show in full, stretching out across the full page with the logo on the left handside, the search bar in the centre and the account icon and basket icon on the right hand side. On mobiles, this bar should not be seen at all, but the user sees the burger icon, the search icon, the account icon and the basket icon. On clicking the search icon, the search bar drops down and appears | On tablets and desktops the header bar shows in full, stretching out across the full page with the logo on the left handside, the search bar in the centre and the account icon and basket icon on the right hand side. On mobiles, this bar cannot be seen at all, but the user sees the burger icon, the search icon, the account icon and the basket icon. On clicking the search icon, the search bar drops down and appears
+Header Bar | Header Bar is responsive to device | On tablets and desktops the header bar should show in full, stretching out across the full page with the logo on the left-handside, the search bar in the centre and the account icon and basket icon on the right hand side. On mobiles, this bar should not be seen at all, but the user sees the burger icon, the search icon, the account icon and the basket icon. On clicking the search icon, the search bar drops down and appears | On tablets and desktops the header bar shows in full, stretching out across the full page with the logo on the left-handside, the search bar in the centre and the account icon and basket icon on the right hand side. On mobiles, this bar cannot be seen at all, but the user sees the burger icon, the search icon, the account icon and the basket icon. On clicking the search icon, the search bar drops down and appears
 Navigation Bar | Navigation Bar is responsive to device | On tablets and desktops the gold navigation bar should show, stretching across the full page. Within the navigation bar should be three columns - one for "All Products", one for "Dice" and one for "Other Accessories". On hovering over these, a further box should drop down from which the user can select what they would like. On mobiles, this bar should not show at all but a list of the items can be triggered by clicking the burger button. When the user clicks the burger button, they should also see the additional links to "Home", "Our Story", "FAQ", "Shipping", "Returns" and "Contact" | On tablets and desktops the gold navigation bar shows, stretching across the full page. Within the navigation bar are three columns - one for "All Products", one for "Dice" and one for "Other Accessories". On hovering over these, a further box drops down from which the user can select what they would like. On mobiles, this bar does not show at all but a list of the items can be triggered by clicking the burger button. When the user clicks the burger button, they can also see the additional links to "Home", "Our Story", "FAQ", "Shipping", "Returns" and "Contact" 
 Scrolling Bar | Scrolling bar shows and scrolls across the page | The scrolling bar should be seen at the top of the page, underneath the gold navigation bar. The scroll should be relatively slow and should stop when the user clicks or hovers over the bar. The price of the free delivery should be taken from the Free Delivery threshold in settings.py | The scrolling bar is seen at the top of the page, underneath the gold navigation bar. The scroll is relatively slow and stops when the user clicks or hovers over the bar. The price of the free delivery is taken from the Free Delivery threshold in settings.py
 Newsletter | Newsletter is functioning | The newsletter sign up function should be seen regardless of the device used. The user should be able to input their email and click subscribe. On clicking subscribe they should see the message "Welcome Adventurer! You are now subscribed to our newsletter!". The email should be recorded in the Mailchimp dashboard |  The newsletter sign up function can be seen regardless of the device used. The user is able to input their email and click subscribe. On clicking subscribe they  see the message "Welcome Adventurer! You are now subscribed to our newsletter!". The email is recorded in the Mailchimp dashboard
-Footer | Footer is responsive | Footer should be responsive to the device. On mobiles the footer should stack into one column, and on desktops this should stretch out into three seperate columns until it sits neatly. Social media icons should stretch out into one row when viewed on a desktop. | Footer is responsive to the device. On mobiles the footer stacks into one column, and on desktops this stretches out into three seperate columns until it sits neatly. Social media icons stretch out into one row when viewed on a desktop.
+Footer | Footer is responsive | Footer should be responsive to the device. On mobiles the footer should stack into one column, and on desktops this should stretch out into three separate columns until it sits neatly. Social media icons should stretch out into one row when viewed on a desktop. | Footer is responsive to the device. On mobiles the footer stacks into one column, and on desktops this stretches out into three separate columns until it sits neatly. Social media icons stretch out into one row when viewed on a desktop.
 Footer | Social Media links and other internal links | Social media links should open to a new tab. Internal links should just move the user to the correct page within the current tab | Social media links open to a new tab. Internal links move the user to the correct page within the current tab. 
 
 #### Home 
@@ -830,7 +831,7 @@ Product of the Month/Explore our Wares | Section is responsive | On mobiles, Pro
 Product of the Month | Product of the Month can be seen and is showing accurate information | Product of the Month image should show the relevant item as decided by the Django admin panel. Users should also be able to see the name of the product, and the cost. The name of the product should be a clickable link that takes the user to the product details page for that item. The Product of the Month should be set by the admin panel, which can be pre-planned by the superadmin who is logged in. | Product of the Month image shows the relevant item as decided by the Django admin panel. Users are able to see the name of the product, and the cost. The name of the product is a clickable link that takes the user to the product details page for that item. The Product of the Month is be set by the admin panel, which can be pre-planned by the superadmin who is logged in.
 Explore our Wares Buttons | Buttons are working | The relevant buttons should take the user to the associated part of the site. On hovering over the button the colour should invert to indicate to the user where they are clicking | The relevant buttons take the user to the associated part of the site. On hovering over the button the colour inverts to indicate to the user where they are clicking
 Reasons to Purchase Carousel | Carousel shows carousel of text which slides automatically | Carousel should render as a full green block that stretches across the entire page, regardless of device. The carousel should change on a slide every seven sessions, but there should also be arrows on either side for users to click through if they desire. The reason should be broken up into a small header, and slightly more explanation underneath. Underneath the entire carousel, users should see "Trusted by tables across the UK." | Carousel renders as a full green block that stretches across the entire page, regardless of device. The carousel changes on a slide every seven sessions, and there are also arrows on either side for users to click through if they desire. The reason is be broken up into a small header, and slightly more explanation underneath. Underneath the entire carousel, users can see "Trusted by tables across the UK."
-Testimonials | Testimonials should be responsive | Testimonials should stack on mobile and stretch into a full row of three seperate columns on desktops | Testimonials stack on mobile and stretch into a full row on three seperate columns on desktop
+Testimonials | Testimonials should be responsive | Testimonials should stack on mobile and stretch into a full row of three separate columns on desktops | Testimonials stack on mobile and stretch into a full row on three separate columns on desktop
 Testimonials | Testimonials should render and should show accurate testimonials as set up in the Django Admin | Testimonials should render as the following - a small paragraph with the testimonial and underneath that, the name of the person providing a testimonial, the class/race they typically play, and their location as a subheader. The testimonial that shows should match the information that has been set in the Django Admin, including the order set on the admin | Testimonials render as the following - a small paragraph with the testimonial and underneath that, the name of the person providing a testimonial, the class/race they typically play, and their location as a subheader. The testimonial that shows matches the information that has been set in the Django Admin, including the order set on the admin
 
 #### Products
@@ -847,7 +848,7 @@ Products Page | Back to Top button | The Back to Top button should appear once t
 #### Product Details
 | Feature Tested | Action | Expected Result | Actual Result
 --- | --- | --- | ---
-Product Details | Product Details page renders and is responsive to device | Product page should render with the following: a product image, the product title, the product description, the product materials and dimensions accordion, the product quantity toggle, the add to bag button, and the product image and customer reviews if they have been provided by users. On mobiles this should all stack into one long column, on desktops this should stretch out where the product and product details should be two columns on the same row, with the image on the left handside and the product details on the right. The product reviews should show under this in a completely different row | Product page renders with the following: a product image, the product title, the product description, the product materials and dimensions accordion, the product quantity toggle, the add to bag button, and the product image and customer reviews if they have been provided by users. On mobiles this stacks into one long column, on desktops this stretches out and the product and product details are in two columns on the same row, with the image on the left handside and the product details on the right. The product reviews show under this in a completely different row.
+Product Details | Product Details page renders and is responsive to device | Product page should render with the following: a product image, the product title, the product description, the product materials and dimensions accordion, the product quantity toggle, the add to bag button, and the product image and customer reviews if they have been provided by users. On mobiles this should all stack into one long column, on desktops this should stretch out where the product and product details should be two columns on the same row, with the image on the left-handside and the product details on the right. The product reviews should show under this in a completely different row | Product page renders with the following: a product image, the product title, the product description, the product materials and dimensions accordion, the product quantity toggle, the add to bag button, and the product image and customer reviews if they have been provided by users. On mobiles this stacks into one long column, on desktops this stretches out and the product and product details are in two columns on the same row, with the image on the left-handside and the product details on the right. The product reviews show under this in a completely different row.
 Product Details | Choose option renders on dice | If a user loads the product details for a dice set, they should be able to see the option of the single D20 or the full set. The page should automatically load to the single D20 cost. The price shown on the page should reflect the costs set in the Django Admin for the single D20 vs the full set when the user flicks between the buttons and should update in realtime | If a user loads the product details for a dice set, they are able to see the option of the single D20 or the full set. The page automatically loads to the single D20 cost. The price shown on the page reflects the costs set in the Django Admin for the single D20 vs the full set, and when the user flicks between the buttons updates in realtime
 Product Details | Product quantity increase and decrease button works and updates quantity in real time | The product quantity increase and decrease buttons should update when being clicked by a user. The quantity number should update as this goes up and down in real time and should the user add the item to their bag, the quantity should match the quantity in the bag. | The product quantity increase and decrease buttons update when being clicked by a user. The quantity number updates as this goes up and down in real time and should the user add the item to their bag, the quantity matches the quantity in the bag.
 Product Details | Product quantity cannot be reduced lower than 1 | The product quantity should not be able to be reduced lower than 1, even if the user tries to override this by manually typing 0 | Product quantity cannot be reduced lower than 1, even when the user tries to override this by manually typing 0
@@ -858,6 +859,7 @@ Product Details | Reviews | Reviews can only be provided by people who are logge
 Product Details | Reviews | Reviews do not automatically get submitted for view | Reviews provided and submitted should not immediately be published, instead the review should go to "pending" and should only be approved by a Superuser. Until the review has been approved, the user that provided the review should see the review as "pending" and it should not be published to the website | Reviews provided and submitted are not immediately published, instead the review goes to "pending" and can only be approved by a Superuser. Until the review has been approved, the user that provided the review should see the review as "pending" and it is not published to the website
 Product Details | Reviews | Edit reviews go back to pending | If a review has been approved and the user wishes to make a change, any change should force the comment back to a pending state which should be reapproved by the Superadmin again. Whilst the review is "pending" the review should show as "pending" | If a review has been approved and the user wishes to make a change, any change forces the comment back to a pending state which has to be reapproved by the Superadmin again. Whilst the review is "pending" the review shows as "pending" 
 Product Details | Reviews | Rating gets aggregated with multiple reviews | If a review has multiple reviews, the rating shown at the top should be an aggregate of the stars given | If a review has multiple reviews, the rating shown at the top is an aggregate of the stars given
+Product Details | Profile Picture | Profile picture should be the correct profile picture for the account user, and if the user has not uploaded a profile picture, should be the default picture instead | Profile picture is the correct profile picture for the account user, and if the user has not uploaded a profile picture, this is the default picture instead
 
 #### Bag
 | Feature Tested | Action | Expected Result | Actual Result
@@ -872,10 +874,32 @@ Bag | Keep Shopping and Secure Checkout buttons work | The "Keep Shopping" butto
 #### Checkout
 | Feature Tested | Action | Expected Result | Actual Result
 --- | --- | --- | ---
+Checkout | Checkout page renders and is responsive | Checkout page should render and be responsive to devices. On mobile, the forms should render into one column with the order summary on the top, and the checkout form underneath, followed by the adjust bag and the complete order button. On desktops, the page should stretch out into two columns, with the order summary on the right hand side and the checkout form on the left with the buttons underneath the order form | Checkout page renders and is responsive to devices. On mobile, the forms render into one column with the order summary on the top, and the checkout form underneath, followed by the adjust bag and the complete order button. On desktops, the page stretches out into two columns, with the order summary on the right hand side and the checkout form on the left with the buttons underneath the order form
+Checkout | Form is validating | Order should not be processed if the required fields are unfilled | Orders should not be processed if required fields are not filled in | Orders are not processed if the required fields are not filled in. The tooltip does not appear when anything is left unfilled on the Your Details section, however a tooltip does appear when anything is left unfilled on the Delivery section. This is a similar issue that showed up on the Kytchen Table project with the tooltips not appearing on Google Chrome on certain fields
+Checkout | Payment Element is validating | Order should not be processed if the element is left unfilled. If the number is filled incorrectly, a Stripe relevant message should triggered which is determined by Stripe. | Orders are not processed if the element is left unfilled. If the number is filled incorrectly, a Stripe relevant message is triggered which is determined by Stripe
+Checkout | Save this information checkbox | Save this information checkbox should only show for those who are logged into an account. If the tickbox is ticked, the information should be saved to the session and used to populate the profile delivery details | Save this information checkbox only shows for those who are logged into an account. If the tickbox is ticked, the information is saved to the session and used to populate the profile delivery details
+Checkout | Delivery information populated | Delivery information that has been saved from a previous session should automatically populate if the user is logged in at the time they reach the checkout | Delivery information that has been saved from a previous session is automatically populated if the user is logged in at the time they reach the checkout
+Checkout | "Adjust Bag" works | The "Adjust Bag" button should send the user back to their bag | The "Adjust Bag" button sends the user back to their bag
+Checkout | "Complete Order" works | The "Complete Order" button should trigger the Stripe elements API which checks the information is correct and valid. If the information is valid, the checkout order success page should load. Whilst the order is being processed, a spinner should appear on the button powered by JavaScript | The "Complete Order" button triggers the Stripe elements API which checks the information is correct and valid. If the information is valid, the checkout order success page loads. Whilst the order is being processed, a spinner appears on the button powered by JavaScript
+
+### Checkout Confirmation
+| Feature Tested | Action | Expected Result | Actual Result
+--- | --- | --- | ---
+Checkout Confirmation | Checkout Confirmation renders | Checkout confirmation should render, showing the following information: the order number, the order date, a summary of the order, the delivery details and the billing information. Underneath two buttons should render - one for "Continue Shopping" and one for "Back to Profile" | Checkout confirmation should render, showing the following information: the order number, the order date, a summary of the order, the delivery details and the billing information. Underneath two buttons should render - one for "Continue Shopping" and one for "Back to Profile"
+Checkout Confirmation | "Continue Shopping" button | "Continue Shopping button should return users to the products catalog | "Continue Shopping" button returns users to the product catalog
+Checkout Confirmation | "Back to Profile" button | "Back to Profile" button should send users to the users individual profile | "Back to Profile" button sends users to their individual profile
 
 #### Profile
 | Feature Tested | Action | Expected Result | Actual Result
 --- | --- | --- | ---
+Profile | Profile renders and is responsive to device | Profile page renders and should appear be responsive to devices. On mobiles, the profile should stack, with the profile picture at the top, the delivery details underneath, and the order history below that. On tablets and above, the profile should stretch out so that the profile picture sits  in a singular row, and then the default delivery and order history sit in the same row in two separate columns. A button to update delivery details should show underneath the default delivery details | Profile page renders and is responsive to devices. On mobiles, the profile stacks, with the profile picture at the top, the delivery details underneath, and the order history below that. On tablets and above, the profile stretches out so that the profile picture sits  in a singular row, and then the default delivery and order history sit in the same row in two separate columns. A button to update delivery details should show underneath the default delivery details 
+Profile | Default Profile Picture | Default profile picture should automatically attach to an account, and should show if the user removes their current profile picture | Default profile picture automatically attaches to an account, and shows if the user removes their current profile picture
+Profile | Profile Picture can be updated | Users should be able to select a photo and upload to their profile. By clicking "choose file" it should launch a window with their own files. The user can choose whatever photo they like and on clicking "upload", the profile picture should attach to the profile and render at the top of the account | Users are able to select a photo and upload to their profile. By clicking "choose file" they launch a window with their own files. The user can choose whatever photo they like and on clicking "upload", the profile picture is attached to the profile and renders at the top of the account
+Profile | Default Delivery Information renders | The default delivery should render in a form, which should be prepopulated with the information provided by the user from their delivery. If the user has not made any orders, this form should appear blank | The default delivery renders in a form, which is prepopulated with the information provided by the user from their delivery. If the user has not made any orders, this form appears blank
+Profile | "Update Information" button working | If the user makes any changes to their delivery information and clicks "Update Information" then the page should reload with the updated information. The next time a user makes an order, the populated information in the order form should match the changes made. There has been no validation added to the profile form, so if the user chooses to leave empty fields they are should be able to save the form |  If the user makes any changes to their delivery information and clicks "Update Information" then the page reloads with the updated information. The next time a user makes an order, the populated information in the order form matches the changes made. There has been no validation added to the profile form, so if the user chooses to leave empty fields they are are be able to save the form
+Profile | Order number links correctly | Order number should link to the correct previous order | Order number links to the correct previous order 
+Profile | Order History shows correct information | Order History should render with the following information: date, items, total. This information should match the information shown in the Django Admin panel. The order history should move to a scroll once a user makes a certain amount of orders | Order History renders with the following information: date, items, total. This information matches the information shown in the Django Admin panel. The order history moves to a scroll once a user makes a certain amount of orders
+
 
 #### AllAuth
 | Feature Tested | Action | Expected Result | Actual Result
@@ -885,8 +909,8 @@ Bag | Keep Shopping and Secure Checkout buttons work | The "Keep Shopping" butto
 | Feature Tested | Action | Expected Result | Actual Result
 --- | --- | --- | ---
 
-### Automated Testing
-Due to time constraints within the project schedule, I chose not to implement automated testing. The priority was ensuring core functionality — including payments, media storage, and deployment stability — was fully working in production. Instead, I relied on thorough manual testing across different devices and environments, carefully checking key user flows such as account creation, checkout, order confirmation, and admin functionality. While automated tests would have strengthened the project further, particularly for long-term maintainability, the focus at this stage was on delivering a stable, fully functioning live application within the available timeframe.
+### Automated Unit Testing
+Due to project time constraints and prioritising production stability, automated unit tests were not implemented for this version of the project. The priority was ensuring core functionality — including payments, media storage, and deployment stability — was fully working in production. Instead, I relied on thorough manual testing across different devices and environments, carefully checking key user flows such as account creation, checkout, order confirmation, and admin functionality. While automated tests would have strengthened the project further, particularly for long-term maintainability, the focus at this stage was on delivering a stable, fully functioning live application within the available timeframe.
 
 ### Testing Against User Stories
 | User Story | Category (MoSCoW) | Met?
@@ -895,7 +919,7 @@ As a user of the website, I want to be able to browse products so that I can fin
 As a user of the website, I want to be able to view product details for each individual product, so that I can understand if the product is suited for my needs | Must Have | Met
 As a staff member (Admin role), I want to be able to add, amend and delete products from the website | Must Have | Met
 As a user, I can sign up to become a registered user, so that I can track have a profile that tracks previous orders and automatically populate fields with my details at checkout | Must Have | Met
-As a user, I will recieve a confirmation email when I have created an account, so that I can securely validate my account | Must Have | Met
+As a user, I will receive a confirmation email when I have created an account, so that I can securely validate my account | Must Have | Met
 As a registered user I am able to securely log in and log out of my profile so that I know that my account is safe | Must Have | Met
 As a user of the website, I can add items to a shopping bag and see how much the grand total is, so that I can track how much I am spending | Must Have | Met
 As a user of the website, I can change the quantity of the items in my shopping bag and an updated grand total, so that I can track how much I am spending | Must Have | Met
@@ -906,12 +930,12 @@ As a user, I want to be able to sign up to The Tavern's newsletter, so I can lea
 As a user of the website, I want to be able to read product reviews, so that I can see how other people have experienced the item and decide if it suits my needs | Should Have | Met
 As a registered user of the website, I want to be able to leave product reviews, so that I can help inform other potential buyers about my opinion of the product | Should Have | Met
 As a staff member (Admin role), I want to be able to approve product reviews, so that I can ensure that only quality reviews end up on the website | Should Have | Met
-As a staff member (Admin role), I want to be able to delete product reviews, so that I can ensure that innapropriate reviews do not end up on the website | Should Have | Met
+As a staff member (Admin role), I want to be able to delete product reviews, so that I can ensure that inappropriate reviews do not end up on the website | Should Have | Met
 As a registered user, I am able to update my profile information, so that I can be sure that my details are up to date | Should Have | Met
-As a registered user, I am able to reset my password at any time, so that I can keep my account secure | Should Have | Not Met
+As a registered user, I am able to reset my password at any time, so that I can keep my account secure | Should Have | Met, through Allauth but only on the sign in page rather than as an intended button on the profile
 As a registered user, I am able to see my previous orders, so that I can track any orders I have made in the past | Should Have | Met
 As a user of the website, I can be shown my order details once my order is confirmed, so that I can see that my order has been completed | Should Have | Met
-As a user of the website, I can recieve an email confirming my order once my order has been succesfully submitted | Should Have | Met
+As a user of the website, I can receive an email confirming my order once my order has been successfully submitted | Should Have | Met
 As a user, I want to be able to contact the team behind The Tavern, so I can know that I can message directly with questions, queries or suggestions | Should Have | Met
 As a registered user, I am able to give myself a profile picture, so that I can have a photo on my profile | Could Have | Met
 As a user, I want to be able to see information about the company, so I can know who I'm buying from | Could Have | Met

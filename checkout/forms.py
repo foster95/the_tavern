@@ -30,7 +30,7 @@ class OrderForm(forms.ModelForm):
             "street_address2": "Street Address 2 (optional)",
             "town_or_city": "Town or City",
             "county": "County (optional)",
-            "postcode": "Postcode (optional)",
+            "postcode": "Postcode",
         }
 
         self.fields["first_name"].widget.attrs["autofocus"] = True
