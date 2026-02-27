@@ -38,7 +38,7 @@ The Tavern is an online e-commerce website store, designed for the Dungeons and 
         * [WAVE/Aim Web Accessibility Testing](#wave-aimweb-accessibility-testing)
         * [PEP8 Testing](#pep8-testing)
         * [JShint Testing](#jshint-testing)
-        * [Device Testing]
+        * [Device Testing](#device-testing)
         * [Browser Testing]
         * [Manual Testing](#manual-testing)
         * [Automated Testing](#automated-testing)
@@ -58,7 +58,7 @@ To guide the initial development stages of The Tavern, I used the theory of the 
 
 ### Strategy
 #### Purpose
-* The Tavern is a one stop shop allowing D&D and TTPG fans to purchase items that will enhance their table experience. The Tavern should be integrated with Stripe to allow for a secure and seamless payment experience
+* The Tavern is a one stop shop allowing D&D and TTRPG fans to purchase items that will enhance their table experience. The Tavern should be integrated with Stripe to allow for a secure and seamless payment experience
 * The Tavern should also have a email newsletter, to help create a community within the TTRPG space. 
 * The website should allow the team behind the tavern to add products, amend products and delete products as demand. 
 * The Django admin for the website should allow the team behind The Tavern to keep track of orders
@@ -75,9 +75,9 @@ To guide the initial development stages of The Tavern, I used the theory of the 
 * Registered users should be able to see their past orders 
 
 #### Business Goals
-* To provide a website that gives a fun, theatrical experience with aesthetics expected for the D&D/TTPG community
+* To provide a website that gives a fun, theatrical experience with aesthetics expected for the D&D/TTRPG community
 * The website should have an administrative portal that allows The Tavern's staff to track, amend and delete orders as required, as well as update the product inventory
-* The website should have front end functionality to allow registered staff to login and make amendements to the catalog without having to log into the Django administration panel. 
+* The website should have front end functionality to allow registered staff to login and make amendments to the catalog without having to log into the Django administration panel. 
 * The website should streamline the purchasing process for both customers and staff.
 
 ### Scope
@@ -150,7 +150,7 @@ The initial colour palette created for The Tavern can be found below:
 
 ![Initial Colour Palette for The Tavern](https://github.com/foster95/the_tavern/blob/main/documentation/brand/initial-colour-palette.png)
 
-At the end of the devlopment of the website I undertook WAVE testing, which raised contrast issues with the current colour palette. With that in mind, the primary accent was tweaked slightly to make it darker and pass the AIM minimum checker, whilst still keeping the original colour palette in mind. The refined palette can be seen below:
+At the end of the development of the website I undertook WAVE testing, which raised contrast issues with the current colour palette. With that in mind, the primary accent was tweaked slightly to make it darker and pass the AIM minimum checker, whilst still keeping the original colour palette in mind. The refined palette can be seen below:
 
 ![Refined Colour Palette for The Tavern](https://github.com/foster95/the_tavern/blob/main/documentation/brand/refined-colour-palette.png)
 
@@ -168,7 +168,7 @@ Using Our Own Thing's font matching extension, I settled on using Montserrat for
 
 #### Development Using Agile Methodology
 Using the Agile Methodology, I first created a set of epics, which then got broken down into 
-a series of user stories to help understand down the requirements of the website. These user stories were all writen in the following formation: As a *Role* I can *Capability* so that *Receive Benefit*.
+a series of user stories to help understand down the requirements of the website. These user stories were all written in the following formation: As a *Role* I can *Capability* so that *Receive Benefit*.
 
 ## Developing using Agile Methodology
 ### Epics
@@ -275,7 +275,7 @@ Total | 25 | 100%
 * As a user of the website, I want to be able to read product reviews, so that I can see how other people have experienced the item and decide if it suits my needs
 * As a registered user of the website, I want to be able to leave product reviews, so that I can help inform other potential buyers about my opinion of the product
 * As a staff member (Admin role), I want to be able to approve product reviews, so that I can ensure that only quality reviews end up on the website
-* As a staff member (Admin role), I want to be able to delete product reviews, so that I can ensure that innapropriate reviews do not end up on the website
+* As a staff member (Admin role), I want to be able to delete product reviews, so that I can ensure that inappropriate reviews do not end up on the website
 * As a registered user, I am able to update my profile information, so that I can be sure that my details are up to date
 * As a registered user, I am able to reset my password at any time, so that I can keep my account secure
 * As a registered user, I am able to see my previous orders, so that I can track any orders I have made in the past.
@@ -530,7 +530,7 @@ Users of the website can also input the quantity of the item they would like to 
 On putting an item in the shopping bag, the website utilises Bootstraps built in toast system to indicate to the user that the item has been added to their bag. The toast has a X for users to close, but will also automatically fade after 5 seconds. Within the toast, the user is able to see the item that has been placed into the bag, the quantity of the item and the cost as well as see if they have put enough things in their shopping bag to get free delivery. Finally, the user is shown a button which takes them to the shopping bag page. 
 
 ### Shopping Bag
-The shopping bag, or the Bag of Holding as it is called on the website in line with the D&D theme, is the next step in the purchasing process for a user, and is designed to give the user an immediate detailed overview of the products they are in the process of purchasing. The page is designed to be as simple as ossible, with a table which includes the product image, the item that is being purchased, the quantity and the subtotal. Underneath this, the user can see the bag total, delivery costs and the grand total. If the user has not reached the threshold for free delivery, they are informed how much more they need to spend to reach the free checkout threshold. Within the table, users are able to amend their product quantity, increasing or reducing it (no lower than 1) or removing the entire item from the bag. To wire up the quantity and remove buttons and make them functional, a small amount of JS was written which was inspired by the Boutique Ado code: 
+The shopping bag, or the Bag of Holding as it is called on the website in line with the D&D theme, is the next step in the purchasing process for a user, and is designed to give the user an immediate detailed overview of the products they are in the process of purchasing. The page is designed to be as simple as possible, with a table which includes the product image, the item that is being purchased, the quantity and the subtotal. Underneath this, the user can see the bag total, delivery costs and the grand total. If the user has not reached the threshold for free delivery, they are informed how much more they need to spend to reach the free checkout threshold. Within the table, users are able to amend their product quantity, increasing or reducing it (no lower than 1) or removing the entire item from the bag. To wire up the quantity and remove buttons and make them functional, a small amount of JS was written which was inspired by the Boutique Ado code: 
 
 
         /* Bag quantity controls + prevent Update if quantity hasn't changed */
@@ -741,8 +741,10 @@ Sign In - Google | ![HTML Validation - Sign In - Google](https://github.com/fost
 Sign In - Facebook | ![HTML Validation - Sign In - Facebook](https://github.com/foster95/the_tavern/blob/main/documentation/html/facebook-login.png) |
 
 ### CSS Testing
+![CSS Validation](https://github.com/foster95/the_tavern/blob/main/documentation/css/css-validation.png)
 
 ### WAVE AimWeb Accessibility Testing
+![Wave AimWeb Accessibility Validation](https://github.com/foster95/the_tavern/blob/main/documentation/wave/wave-testing.png)
 
 
 ### PEP8 Testing
@@ -814,50 +816,60 @@ profile.js | ![JShint Validation - Profile](https://github.com/foster95/the_tave
 I used Blisk to conduct device testing across multiple devices
 
 | Type of Device | Devices Tested | Page | Screenshot | Notes
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Home | ![Mobile - Home](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-home.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Navigation Dropdown | ![Mobile - Navigation Dropdown](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-navigation.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Search | ![Mobile - Search](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-search.png) 
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Products | ![Mobile - Products](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-products.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Product Details | ![Mobile - Product Details](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-product-details.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Bag | ![Mobile - Bag](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-bag.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Checkout | ![Mobile - Checkout](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-checkout.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Order Confirmation | ![Mobile - Order Confirmation](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-order-confirmation.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Profile | ![Mobile - Profile](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-profile.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Sign In - Standard | ![Mobile - Standard Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-sign-in.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Sign In - Google | ![Mobile - Google Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-google-login.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Sign In - Facebook | ![Mobile - Facebook Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-facebook-login.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Sign Up | ![Mobile - Sign Up](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-sign-up.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Sign Out | ![Mobile - Sign Out](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-sign-up.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | About ![Mobile - About](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-about.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | FAQ | ![Mobile - FAQ](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-faq.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Contact | ![Mobile - Contact](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-contact.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Returns | ![Mobile - Returns ](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-returns.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Shipping | ![Mobile - Shipping](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-shipping.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Privacy Policy | ![Mobile - Privacy](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-privacy-policy.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Add Product | ![Mobile - Add Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-admin-add-product.png)
-iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Amend Product ![Mobile - Amend Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-admin-amend-product.png)
-
-
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Home | ![Desktop - Home](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-about.png)
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Products | ![Desktop - Products](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-products.png)
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Product Details | ![Desktop - Product Details](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-product-details.png)
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Bag | ![Desktop - Bag](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-bag.png)
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Checkout | ![Desktop - Checkout](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-checkout.png)
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Order Confirmation | ![Desktop - Order Confirmation](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-order-confirmation.png)
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Profile | ![Desktop - Profile](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-profile.png)
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Sign In - Standard | ![Desktop - Standard Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-sign-in.png)
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Sign In - Google | ![Desktop - Google Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-google-login.png)
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Sign In - Facebook | ![Desktop - Facebook Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-facebook-login.png)
+--- | --- | --- | --- | ---
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Home | ![Mobile - Home](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-home.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Navigation Dropdown | ![Mobile - Navigation Dropdown](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-navigation.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Search | ![Mobile - Search](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-search.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Products | ![Mobile - Products](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-products.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Product Details | ![Mobile - Product Details](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-product-details.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Bag | ![Mobile - Bag](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-bag.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Checkout | ![Mobile - Checkout](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-checkout.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Order Confirmation | ![Mobile - Order Confirmation](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-order-confirmation.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Profile | ![Mobile - Profile](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-profile.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Sign In - Standard | ![Mobile - Standard Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-sign-in.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Sign In - Google | ![Mobile - Google Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-google-login.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Sign In - Facebook | ![Mobile - Facebook Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-facebook-login.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Sign Up | ![Mobile - Sign Up](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-sign-up.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Sign Out | ![Mobile - Sign Out](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-sign-up.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | About ![Mobile - About](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-about.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | FAQ | ![Mobile - FAQ](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-faq.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Contact | ![Mobile - Contact](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-contact.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Returns | ![Mobile - Returns ](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-returns.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Shipping | ![Mobile - Shipping](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-shipping.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Privacy Policy | ![Mobile - Privacy](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-privacy-policy.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Add Product | ![Mobile - Add Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-admin-add-product.png) | No issues 
+iPhone | iPhone 16, iPhone 15 Plus, iPhone 14 Pro, iPhone 13 Mini, iPhone 11 | Amend Product ![Mobile - Amend Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/mobile-admin-amend-product.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Home | ![Desktop - Home](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-about.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Products | ![Desktop - Products](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-products.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Product Details | ![Desktop - Product Details](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-product-details.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Bag | ![Desktop - Bag](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-bag.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Checkout | ![Desktop - Checkout](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-checkout.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Order Confirmation | ![Desktop - Order Confirmation](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-order-confirmation.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Profile | ![Desktop - Profile](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-profile.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Sign In - Standard | ![Desktop - Standard Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-sign-in.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Sign In - Google | ![Desktop - Google Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-google-login.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Sign In - Facebook | ![Desktop - Facebook Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-facebook-login.png) | No issues 
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Sign Up | ![Desktop - Sign Up](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-sign-up.png)
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Sign Out | ![Desktop - Sign Out](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-sign-out.png)
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | About | ![Desktop - About](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-about.png)
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | FAQ | ![Desktop - FAQ](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-faq.png)
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Contact | ![Desktop - Contact](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-contact.png)
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Returns | ![Desktop - Returns](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-returns.png)
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Shipping | ![Desktop - Shipping](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-shipping.png)
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Privacy Policy | ![Desktop - Privacy](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-privacy.png)
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Add Product | ![Desktop - Add Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-add-product.png)
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Amend Product ![Desktop - Amend Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-amend-profile.png)
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Sign Out | ![Desktop - Sign Out](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-sign-out.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | About | ![Desktop - About](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-about.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | FAQ | ![Desktop - FAQ](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-faq.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Contact | ![Desktop - Contact](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-contact.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Returns | ![Desktop - Returns](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-returns.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Shipping | ![Desktop - Shipping](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-shipping.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Privacy Policy | ![Desktop - Privacy](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-privacy.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Add Product | ![Desktop - Add Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-add-product.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Amend Product ![Desktop - Amend Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-amend-profile.png) | No issues 
+
+### Browser Testing
+I used BrowserStack to test the website under various different browser conditions
+
+| Browser | Notes
+--- | ---
+Edge 142 | No issues
+Firefox 144 | No issues
+Google 142 | No issues
+Opera 122 | No issues
+Safari 5.1 | No issues
 
 ### Manual Testing
 #### Base/General
@@ -960,9 +972,9 @@ AllAuth - Sign Up | Verification Page | Once the user has clicked the link sent 
 AllAuth - Sign Up | Redirect to Sign In works | If the user clicks on the hyperlinked "Sign Up here" they should be redirected to the Sign Up page | If the user clicks on the hyperlinked "Sign Up here" they are redirected to the Sign Up page.
 AllAuth - Sign In | Standard Sign In | AllAuth form should load, asking user to provide mandatory username and password. If the user tries to log in without providing this information they should be prompted to fill in the required fields. If the information is correct, the user should be signed in and taken to the home page. If the information is incorrect, the user should be informed and asked to try again | AllAuth form loads, asking user to provide mandatory username and password. If the user tries to log in without providing this information they are prompted to fill in the required fields. If the information is correct, the user is signed in and taken to the home page. If the information is incorrect, the user is informed and asked to try again
 AllAuth - Sign In | Facebook Sign In | If the user clicks "Continue with Facebook" they should be taken to a new page which warns them they are directing away from the site to log in through Facebook. On clicking "Continue" they should be taken to the Facebook AllAuth portal, and the user is able to choose who they wish which account they sign in with. On clicking the account, they should be redirected to the create account through 3rd party part of AllAuth and the user creates login credentials. Upon these being created, the user should be redirected to the home page | If the user clicks "Continue with Facebook" they are be taken to a new page which warns them they are directing away from the site to log in through Google. On clicking "Continue" they are taken to the Facebook AllAuth portal, and the user is able to choose who they wish which account they sign in with. On clicking the account, they are redirected to the create account through 3rd party part of AllAuth and the user creates login credentials. Upon these being created, the user is redirected to the home page
-AllAuth - Sign In | Facebook Sign In | "Cancel and Go Back" button works | Clicking the "Cancel and Go Back" button should return the user to the general AllAuth Sign In page | Clicking the "Cancel and Go Back" button returs the user to the general AllAuth Sign In page
+AllAuth - Sign In | Facebook Sign In | "Cancel and Go Back" button works | Clicking the "Cancel and Go Back" button should return the user to the general AllAuth Sign In page | Clicking the "Cancel and Go Back" button returns the user to the general AllAuth Sign In page
 AllAuth - Sign In | Google Sign In | If the user clicks "Continue with Google" they should be taken to a new page which warns them they are directing away from the site to log in through Google. On clicking "Continue" they should be taken to the Google AllAuth portal, and the user is able to choose who they wish which account they sign in with. On clicking the account, they should be redirected to the home page and an account is created associated to that account if they have not signed in on that email before | If the user clicks "Continue with Google" they are be taken to a new page which warns them they are directing away from the site to log in through Google. On clicking "Continue" they are taken to the Google AllAuth portal, and the user is able to choose who they wish which account they sign in with. On clicking the account, they are redirected to the home page and an account is created associated to that account if they have not signed in on that email before 
-AllAuth - Sign In | Google Sign In | "Cancel and Go Back" button works | Clicking the "Cancel and Go Back" button should return the user to the general AllAuth Sign In page | Clicking the "Cancel and Go Back" button returs the user to the general AllAuth Sign In page
+AllAuth - Sign In | Google Sign In | "Cancel and Go Back" button works | Clicking the "Cancel and Go Back" button should return the user to the general AllAuth Sign In page | Clicking the "Cancel and Go Back" button returns the user to the general AllAuth Sign In page
 AllAuth - Sign Out | Sign Out button | Sign out button should successfully sign out the user, redirecting them to the homepage. | Sign out button successfully signs out the user, redirecting them to the homepage. 
 
 #### Additional Pages
@@ -971,10 +983,10 @@ AllAuth - Sign Out | Sign Out button | Sign out button should successfully sign 
 Our Story | Our Story page renders | Our Story page should render and shows the full biography | Our Story page renders and shows the full biography
 FAQ | FAQ page renders | FAQ page should render and show the full paragraph and accordion | FAQ page renders and shows the full paragraph and accordion
 FAQ | FAQ Accordion | The FAQ accordion should activate when a user clicks the accordion bar. The accordions should be able to be opened independently and closed independently rather than opening and closing together | The FAQ accordion activates when a user clicks the accordion bar. The accordions are able to be opened independently and closed independently rather than opening and closing together
-Privacy Policy | Privacy Policy renders | The Privacy Polucy should render and show the full policy | The Privacy Polucy renders and show the full policy
+Privacy Policy | Privacy Policy renders | The Privacy Policy should render and show the full policy | The Privacy Policy renders and show the full policy
 Contact Us | Contact Us renders | Contact Us page should render with the form showing for users to fill in | Contact Us page should render with the form showing for users to fill in
 Contact Us | Validation works | Contact Us form should be filled in on all fields. If any fields are not filled, the user should be prompted where they need to fill the form. The form should not be able to be submitted until validation has been satisfied | Contact Us form must be filled in on all fields. If any fields are not filled, the user is prompted where they need to fill the form. The user is unable to submit until validation has been satisfied
-Contact Us | Message is recieved by Django Admin | Contact Us message should be accessible via the Django Admin panel | Contact Us message is accessible via the Django Admin panel
+Contact Us | Message is received by Django Admin | Contact Us message should be accessible via the Django Admin panel | Contact Us message is accessible via the Django Admin panel
 Shipping | Shipping renders | Shipping should render and show all information | Shipping renders and show all information
 Returns | Returns renders | Returns should render and show all information | Returns renders and show all information
 
@@ -1096,7 +1108,7 @@ Following this, I developed a content strategy which would help me align my requ
 As part of the building the website, I considered what The Tavern would use for marketing techniques, and came up with the following:
 
 #### Who?
-The Tavern's primary users are people who are already enganging with TTRPG and D&D games, as the items they sell are for use at the table itself. These could be people who virtually play TTRPG/D&D but it is more likely that these are people who meet and play games in physical spaces and therefore have a need for dice, dice rollers and dice bags
+The Tavern's primary users are people who are already engaging with TTRPG and D&D games, as the items they sell are for use at the table itself. These could be people who virtually play TTRPG/D&D but it is more likely that these are people who meet and play games in physical spaces and therefore have a need for dice, dice rollers and dice bags
 
 #### What online platforms do they use?
 TTRPG and D&D has a large presence online already, particularly on Instagram, Tik Tok and Discord. If they were focussing on paid for marketing/influencer marketing, I would suggest they focus on these platforms.
@@ -1312,4 +1324,5 @@ You have now successfully deployed to Heroku!
 * JShint - JavaScript Validation
 * Lighthouse - Performance Checker
 * WAVE from WebAim - Accessibility Checker
-* Blisk - Device Compatability Checker 
+* Blisk - Device Compatibility Checker 
+* Browser Stack - Browser Checker
