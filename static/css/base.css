@@ -1210,6 +1210,10 @@ label[for^="id_qty"] {
     width: auto;
     white-space: nowrap;
   }
+
+  #account {
+    font-size: 15px;
+  }
 }
 
 @media (min-width: 800px) {
@@ -1269,6 +1273,10 @@ label[for^="id_qty"] {
   .qty-row .col-md-6 {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  #account {
+    font-size: 16px;
   }
 }
 
