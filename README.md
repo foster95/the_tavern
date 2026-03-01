@@ -88,9 +88,9 @@ To guide the initial development stages of The Tavern, I used the theory of the 
 * Users will be able to create an account to become a registered user
 * Registered users will be able to update their profile details
 * Registered users will be able to see previous orders
-* Super Admins will be able to add or delete any user
-* Super Admins will be able to see all orders and amend and delete orders
-* Super Admins will be able to add, amend and remove products
+* Superuser will be able to add or delete any user
+* Superuser will be able to see all orders and amend and delete orders
+* Superuser will be able to add, amend and remove products
 
 #### Content Requirements
 * A favicon icon must be visible on desktop 
@@ -117,9 +117,9 @@ User | Wishes to create an account | Home → Sign Up
 User | Wishes to login to account | Home → Sign In
 User | Wishes to see previous orders | Home → Sign In → Profile
 User | Signs up to newsletter | Home → Subscribe Form (mobile), Subscribe Form in footer (desktop)
-Staff | Wants to add a product | Home → Login → Product Management → Add a Product
-Staff | Wants to amend a product | Home → Login → Product Management → Amend a Product
-Staff | Wants to delete a product | Home → Login → Product Management → Delete Product
+Superuser | Wants to add a product | Home → Login → Product Management → Add a Product
+Superuser | Wants to amend a product | Home → Login → Product Management → Amend a Product
+Superuser | Wants to delete a product | Home → Login → Product Management → Delete Product
 
 ### Skeleton
 #### Wireframes
@@ -176,12 +176,12 @@ Using the Agile Methodology, I first created a set of epics, which were then bro
 * Users are able to view reviews of products
 Registered users are able to leave reviews of products
 * Users are able to see when they have put a product into their shopping bag
-* Super Admins are able to add, remove and delete products
-* Super Admins are able to keep product details up to date
+* Superuser are able to add, remove and delete products
+* Superuser are able to keep product details up to date
 
 #### User Account and Authentication
 * Users are able to sign up to become registered users
-* Users are able to receive a confirmation email once they have completed a product purchase a
+* Users are able to receive a confirmation email once they have completed a product purchase
 * Registered users are able to securely log in and log out of their account
 * Registered users are able to manage their own personal details in their profile, including a profile picture
 * Registered users are able to reset their password at any time
@@ -311,7 +311,7 @@ The footer also extends from base.html and is very simple, made up of a few link
 The scrolling bar is a fun little feature that allows users to see the free delivery threshold by scrolling across the screen. The scroll is slow so as not to be distracting, and can be stopped by hovering the mouse over the scroll bar. 
 
 ### Product of the Month - Home Page
-The Product of the Month section of the homepage is linked to a template literal which comes from a model that was specifically built for this function. This model allows Super Admin staff users to access the Django admin platform and highlight a specific product that they want to show on the website. 
+The Product of the Month section of the homepage is linked to a template literal which comes from a model that was specifically built for this function. This model allows Superusers to access the Django admin platform and highlight a specific product that they want to show on the website. 
 
         MONTH_CHOICES = [(i, calendar.month_name[i]) for i in range(1, 13)]
 
@@ -412,7 +412,7 @@ The product catalog is a visual map for users of the website to navigate to the 
             def __str__(self):
                 return self.name
 
-The product catalog is designed mobile first, and products stack into individual rows on a mobile, rows of two on a tablet and rows of four on desktop and above. There is a small arrow that floats on the right hand side of the items which takes users from the bottom of the page to the top using a small chunk of javascript. This code was inspired by the Boutique Ado walkthrough and adjusted for the project needs. 
+The product catalog is designed mobile first, and products stack into individual rows on a mobile, rows of two on a tablet and rows of four on desktop and above. There is a small arrow that floats on the right hand side of the items which takes users from the bottom of the page to the top using a small chunk of JavaScript. This code was inspired by the Boutique Ado walkthrough and adjusted for the project needs. 
 
 ### Product Details Page
 Upon clicking any of the items on the product catalog, the user is taken to the individual product description page. Products are searched for using their slug, rather than their individual ID number, providing better UX for users as they can understand the product they are searching for much easier than if they were required to know the product number. The product details page includes the following - the product tag, a product image, a product title, a product description, a product price, a product quantity toggler and a dimensions and materials drop down accordion. When accessed via mobile, the columns automatically stack on top of each other but on tablet and larger screens, the columns split into two showing the product image on the left hand side and the product details on the right. 
@@ -436,7 +436,7 @@ As dice can be sold either individually or as part of a seven piece set, dice ha
             def __str__(self):
                 return f"{self.category.name} - {self.name}"
 
-A small portion of javascript was written to help the user in clicking between the single dice price and the full set price. 
+A small portion of JavaScript was written to help the user in clicking between the single dice price and the full set price. 
 
         document.addEventListener("DOMContentLoaded", () => {
             const singleBtn = document.getElementById("single-btn");
@@ -467,7 +467,7 @@ A small portion of javascript was written to help the user in clicking between t
             });
         });
 
-Users of the website can also input the quantity of the item they would like to add to their shopping bag. To avoid a user being able to input 0, a guard has been introduced through javascript, which does not allow the number 0 to be inputted and automatically defaults to 1 if the user does try and manually type to override:
+Users of the website can also input the quantity of the item they would like to add to their shopping bag. To avoid a user being able to input 0, a guard has been introduced through JavaScript, which does not allow the number 0 to be inputted and automatically defaults to 1 if the user does try and manually type to override:
 
         document.addEventListener("DOMContentLoaded", () => {
             const MIN_QTY = 1;
@@ -827,10 +827,10 @@ The contact form gives users a straightforward way to message The Tavern team di
 The Tavern includes a set of informational pages to support customer confidence and reduce repeated support questions. Pages such as Our Story, FAQ, Shipping, Returns and Exchanges, and Privacy Policy are available through the main navigation and footer links, making them accessible from anywhere on the site. The FAQ page uses accordion components so users can quickly scan topics without being overwhelmed by long blocks of text. 
 
 ### Django Administrative Panel and Front End Product Management
-The Tavern includes a full admin system for managing products, orders, and customer activity. Product management is handled through the Product model, which links to Category via a ForeignKey, allowing items to be organised and filtered across the site. Super Admin users can add, amend, and delete products either through the Django admin panel or through front-end management pages (restricted to superusers). Orders are stored using the Order model, which links back to user accounts through user_profile = ForeignKey(UserProfile, ...), allowing orders to be tracked per customer while still supporting guest checkout if needed. Admin users can also moderate reviews (where implemented) by approving or rejecting them before they display publicly, helping maintain quality and prevent inappropriate content appearing on the storefront.
+The Tavern includes a full admin system for managing products, orders, and customer activity. Product management is handled through the Product model, which links to Category via a ForeignKey, allowing items to be organised and filtered across the site. Superusers can add, amend, and delete products either through the Django admin panel or through front-end management pages (restricted to superusers). Orders are stored using the Order model, which links back to user accounts through user_profile = ForeignKey(UserProfile, ...), allowing orders to be tracked per customer while still supporting guest checkout if needed. Admin users can also moderate reviews (where implemented) by approving or rejecting them before they display publicly, helping maintain quality and prevent inappropriate content appearing on the storefront.
 
 ## Developmental Bugs
-Throughout development I came across numerous issues, bugs and difficulties with the website. At the time of submission, I am confident there are no known major bugs remain. however I cannot guarantee this 100% as I cannot account for all user behaviour that would try to break the website and its integrity. The vast majority of the bugs that I came across were to do with minor CSS and responsivity issues, however the major bug that I struggled with has been documented below:
+Throughout development I came across numerous issues, bugs and difficulties with the website. At the time of submission, I am confident there are no known major bugs remaining. however I cannot guarantee this 100% as I cannot account for all user behaviour that would try to break the website and its integrity. The vast majority of the bugs that I came across were to do with minor CSS and responsivity issues, however the major bug that I struggled with has been documented below:
 
 ### AWS S3 Media Storage
 As part of preparing The Tavern for production, I migrated media storage from local filesystem storage to AWS S3. The goal was to ensure scalable, persistent media storage suitable for deployment on Heroku. Although the initial configuration appeared successful, the migration introduced a series of subtle but significant issues that required deep debugging across storage configuration, database records, and template rendering.
@@ -839,7 +839,7 @@ After implementing S3, I observed inconsistent behaviour in production. Some pro
 
 The issue with the default fallback image was slightly different. The file existed locally in the project’s media directory, but it had never been uploaded to S3. To fix this I moved the missing image from the media products folder to the static images folder. 
 
-To resolve this issue, I conducted systematic checks between Django admin, the folders in VSCode and S3 in AWS. In the end, I decided to remove all of the original file photos from the media file, and reuploading them through the deployed website to ensure that the files were saved into AWS rather than locally. The same files were then duplicated and placed into folders in local development to avoid any confusion for myself. This also supported my performance issues, as Google Lighthouse was highlighting that the photos being hosted were too large and were causing loading issues. As such all of the files that exist within the website have been reformatted to WebPs that were further compressed to reduce the file size. At the time of submission, this issue has been fully fixed.
+To resolve this issue, I conducted systematic checks between Django admin, the folders in VSCode and S3 in AWS. In the end, I decided to remove all original media files and reupload them through the deployed website to ensure that the files were saved into AWS rather than locally. The same files were then duplicated and placed into folders in local development to avoid any confusion for myself. This also supported my performance issues, as Google Lighthouse was highlighting that the photos being hosted were too large and were causing loading issues. As such all of the files that exist within the website have been reformatted to WebPs that were further compressed to reduce the file size. At the time of submission, this issue has been fully fixed.
 
 ### Stripe Webhooks
 Similarly to the AWS issue, the issue with Webhooks wasn't uncovered until the website was put into production and I was conducting general testing with the full checkout path from browsing to purchase. Post purchase, I discovered that emails were not being sent automatically due to the set up of the Webhooks. To discover this I did a combination of close monitoring of the Webhooks event section, and using Heroku's live logging system which allowed me to see in realtime that the Webhooks weren't triggering for email sending. 
@@ -854,7 +854,7 @@ After running the standard migrations required for the model, I updated the webh
 Multiple testing methods were carried out to ensure the quality, functionality, and responsiveness of The Tavern. These included automated validation tools, device and browser testing, Lighthouse analysis, accessibility checks, and user-story-based manual testing. All core functionality works as expected and, at the time of submission, all known bugs have been resolved.
 
 ### Summary of Testing
-Testing Method | Tools Used | Purpose | Result 
+Testing Method | Tools Used | Purpose | Result |
 | --- | --- | --- | --- |
 Performance | Google Lighthouse | Measure performance & best practices | Good overall 
 HTML Validation | Nu HTML Checker | Check HTML structure | Passed – 0 errors 
@@ -1046,7 +1046,7 @@ Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Profile | !
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Sign In - Standard | ![Desktop - Standard Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-sign-in.png) | No issues 
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Sign In - Google | ![Desktop - Google Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-google-login.png) | No issues 
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Sign In - Facebook | ![Desktop - Facebook Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-facebook-login.png) | No issues 
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Sign Up | ![Desktop - Sign Up](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-sign-up.png)
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Sign Up | ![Desktop - Sign Up](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-sign-up.png) | No issues
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Sign Out | ![Desktop - Sign Out](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-sign-out.png) | No issues 
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | About | ![Desktop - About](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-about.png) | No issues 
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | FAQ | ![Desktop - FAQ](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-faq.png) | No issues 
@@ -1055,7 +1055,7 @@ Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Returns | !
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Shipping | ![Desktop - Shipping](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-shipping.png) | No issues 
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Privacy Policy | ![Desktop - Privacy](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-privacy.png) | No issues 
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Add Product | ![Desktop - Add Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-add-product.png) | No issues 
-Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Amend Product | [Desktop - Amend Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-amend-profile.png) | No issues 
+Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Amend Product | ![Desktop - Amend Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-amend-profile.png) | No issues 
 
 ### Browser Testing
 I used BrowserStack to test the website under various different browser conditions
@@ -1088,8 +1088,8 @@ Home Page | User opens to The Tavern | User opens The Tavern and is automaticall
 Home Page | Logo (tablets and desktops only) | User clicks on the logo and the page reloads to the homepage | User clicks on the logo and the page reloads to the homepage
 Hero Image | Hero image shows | Hero image should be seen at the top of the page underneath the scroll bar. The hero image should be responsive to the device | Hero image should be seen at the top of the page underneath the scroll bar. The hero image should be responsive to the device | Hero image is seen at the top of the page underneath the scroll bar. The hero image is responsive to the device
 Product of the Month/Explore our Wares | Section is responsive | On mobiles, Product of the Month should stack on top of the Explore our Wares section. On tablets and up, this should stretch out into one long row, with the Product of the Month section on the left, and the Explore our Wares section on the right. The buttons for Explore our Wares should remain stacked regardless of whether accessed on a mobile, tablet or desktop | On mobiles, Product of the Month stacks on top of the Explore our Wares section. On tablets and up, this stretches out into one long row, with the Product of the Month section on the left, and the Explore our Wares section on the right. The buttons for Explore our Wares remain stacked regardless of whether accessed on a mobile, tablet or desktop
-Product of the Month | Product of the Month can be seen and is showing accurate information | Product of the Month image should show the relevant item as decided by the Django admin panel. Users should also be able to see the name of the product, and the cost. The name of the product should be a clickable link that takes the user to the product details page for that item. The Product of the Month should be set by the admin panel, which can be pre-planned by the Super Admin who is logged in. | Product of the Month image shows the relevant item as decided by the Django admin panel. Users are able to see the name of the product, and the cost. The name of the product is a clickable link that takes the user to the product details page for that item. The Product of the Month is set by the admin panel, which can be pre-planned by the Super Admin who is logged in.
-Explore our Wares Buttons | Buttons are working | The relevant buttons should take the user to the associated part of the site. On hovering over the button the colour should invert to indicate to the user where they are clicking | The relevant buttons take the user to the associated part of the site. On hovering over the button the colour inverts to indicate to the user where they are clicking
+Product of the Month | Product of the Month can be seen and is showing accurate information | Product of the Month image should show the relevant item as decided by the Django admin panel. Users should also be able to see the name of the product, and the cost. The name of the product should be a clickable link that takes the user to the product details page for that item. The Product of the Month should be set by the admin panel, which can be pre-planned by the Superuser who is logged in. | Product of the Month image shows the relevant item as decided by the Django admin panel. Users are able to see the name of the product, and the cost. The name of the product is a clickable link that takes the user to the product details page for that item. The Product of the Month is set by the admin panel, which can be pre-planned by the Superuser who is logged in.
+Explore our Wares Buttons | Buttons are linked correctly and working | The relevant buttons should take the user to the associated part of the site. On hovering over the button the colour should invert to indicate to the user where they are clicking | The relevant buttons take the user to the associated part of the site. On hovering over the button the colour inverts to indicate to the user where they are clicking
 Reasons to Purchase Carousel | Carousel shows carousel of text which slides automatically | Carousel should render as a full green block that stretches across the entire page, regardless of device. The carousel should change on a slide every seven sessions, but there should also be arrows on either side for users to click through if they desire. The reason should be broken up into a small header, and slightly more explanation underneath. Underneath the entire carousel, users should see "Trusted by tables across the UK." | Carousel renders as a full green block that stretches across the entire page, regardless of device. The carousel changes on a slide every seven seconds, and there are also arrows on either side for users to click through if they desire. The reason is broken up into a small header, and slightly more explanation underneath. Underneath the entire carousel, users can see "Trusted by tables across the UK."
 Testimonials | Testimonials should be responsive | Testimonials should stack on mobile and stretch into a full row of three separate columns on desktops | Testimonials stack on mobile and stretch into a full row on three separate columns on desktop
 Testimonials | Testimonials should render and should show accurate testimonials as set up in the Django Admin | Testimonials should render as the following - a small paragraph with the testimonial and underneath that, the name of the person providing a testimonial, the class/race they typically play, and their location as a subheader. The testimonial that shows should match the information that has been set in the Django Admin, including the order set on the admin | Testimonials render as the following - a small paragraph with the testimonial and underneath that, the name of the person providing a testimonial, the class/race they typically play, and their location as a subheader. The testimonial that shows matches the information that has been set in the Django Admin, including the order set on the admin
@@ -1102,7 +1102,7 @@ Products Page | Filter | The sort by filters should work as the following: Price
 Product Page | Product image renders | Product image should render regardless of device | Product image renders regardless of device
 Product Page | Product name, price and category renders and is correct according to Django Admin | Product name, price and category should render underneath the product image, and should match the information in the Django Admin | Product name, price and category renders underneath the product image, and matches the information in the Django Admin
 Product Page | Product Price | Product price should show as the flat cost for dice towers, dice bags and dice boxes. Dice should show as a "From" price, which should be the lowest possible price of the dice set as declared in the Django Admin | Product price is shown as the flat cost for dice towers, dice bags and dice boxes. Dice show as a "From" price, which is the lowest possible price of the dice set as declared in the Django Admin 
-Product Page | Edit and Delete buttons show only when the Superuser is logged in | The Edit and Delete buttons which launch the product amendment pages or delete the product from the catalog should only be visible for Super Admins. Normal users should not see these buttons at all | The Edit and Delete buttons which launch the product amendment pages or delete the product from the catalog are only visible for Super Admins. Normal users do not see these buttons at all
+Product Page | Edit and Delete buttons show only when the Superuser is logged in | The Edit and Delete buttons which launch the product amendment pages or delete the product from the catalog should only be visible for Superuser. Normal users should not see these buttons at all | The Edit and Delete buttons which launch the product amendment pages or delete the product from the catalog are only visible for Superuser. Normal users do not see these buttons at all
 Products Page | Back to Top button | The Back to Top button should appear once the user begins to scroll on the lower right hand side of the screen regardless of the device. On clicking this button, the site should scroll back to the top of the page | The Back to Top button appears once the user begins to scroll on the lower right hand side of the screen regardless of the device. On clicking this button, the site scrolls back to the top of the page
 
 #### Product Details
@@ -1114,12 +1114,12 @@ Product Details | Product quantity increase and decrease button works and update
 Product Details | Product quantity cannot be reduced lower than 1 | The product quantity should not be able to be reduced lower than 1, even if the user tries to override this by manually typing 0 | Product quantity cannot be reduced lower than 1, even when the user tries to override this by manually typing 0
 Product Details | Add to bag button | Add to bag button should add the items to a session bag, which is connected to the quantity shown in the product quantity toggle. On clicking add to bag, a toast should be launched which says the item has been added to the bag | Add to bag button adds the items to a session bag, which is connected to the quantity shown in the product quantity toggle. On clicking add to bag, a toast launches which says the item has been added to the bag
 Product Details | Product Material and Dimension Accordion | The "Product Material" and "Product Dimensions" accordion should activate when a user clicks the accordion bar. The accordions should be able to be opened independently and closed independently rather than opening and closing together | The "Product Material" and "Product Dimensions" accordion activates when a user clicks the accordion bar. The accordions can be opened independently and closed independently rather than opening and closing together 
-Product Page | Edit and Delete buttons show only when the Superuser is logged in | The Edit and Delete buttons which launch the product amendment pages or delete the product from the catalog should only be visible for Super Admins. Normal users should not see these buttons at all | The Edit and Delete buttons which launch the product amendment pages or delete the product from the catalog are only be visible for Super Admins. Normal users do not see these buttons at all
-Product Details | Reviews | Reviews can only be provided by people who are logged in | Users should be logged in to provide a review. If the user is logged out, they should be sent to the login page. | Users must be logged in to provide a review. If the user is logged out, they are sent to the login page.
-Product Details | Reviews | Reviews do not automatically get submitted for view | Reviews provided and submitted should not immediately be published, instead the review should go to "pending" and should only be approved by a Superuser. Until the review has been approved, the user that provided the review should see the review as "pending" and it should not be published to the website | Reviews provided and submitted are not immediately published, instead the review goes to "pending" and can only be approved by a Superuser. Until the review has been approved, the user that provided the review should see the review as "pending" and it is not published to the website
-Product Details | Reviews | Edit reviews go back to pending | If a review has been approved and the user wishes to make a change, any change should force the comment back to a pending state which should be reapproved by the Super Admin again. Whilst the review is "pending" the review should show as "pending" | If a review has been approved and the user wishes to make a change, any change forces the comment back to a pending state which has to be reapproved by the Super Admin again. Whilst the review is "pending" the review shows as "pending" 
+Product Details | Edit and Delete buttons show only when the Superuser is logged in | The Edit and Delete buttons which launch the product amendment pages or delete the product from the catalog should only be visible for Superusers. Normal users should not see these buttons at all | The Edit and Delete buttons which launch the product amendment pages or delete the product from the catalog are only be visible for Superusers. Normal users do not see these buttons at all
+Product Details | Reviews - User must be logged in | Reviews can only be provided by people who are logged in | Users should be logged in to provide a review. If the user is logged out, they should be sent to the login page. | Users must be logged in to provide a review. If the user is logged out, they are sent to the login page.
+Product Details | Reviews - Pending status | Reviews do not automatically get submitted for view | Reviews provided and submitted should not immediately be published, instead the review should go to "pending" and should only be approved by a Superuser. Until the review has been approved, the user that provided the review should see the review as "pending" and it should not be published to the website | Reviews provided and submitted are not immediately published, instead the review goes to "pending" and can only be approved by a Superuser. Until the review has been approved, the user that provided the review should see the review as "pending" and it is not published to the website
+Product Details | Reviews - Edit reviews go back to pending | If a review has been approved and the user wishes to make a change, any change should force the comment back to a pending state which should be reapproved by the Superuser again. Whilst the review is "pending" the review should show as "pending" | If a review has been approved and the user wishes to make a change, any change forces the comment back to a pending state which has to be reapproved by the Superuser again. Whilst the review is "pending" the review shows as "pending" 
 Product Details | Reviews | Rating gets aggregated with multiple reviews | If a product has multiple reviews, the rating shown at the top should be an aggregate of the stars given | If a product has multiple reviews, the rating shown at the top is an aggregate of the stars given
-Product Details | Profile Picture | Profile picture should be the correct profile picture for the account user, and if the user has not uploaded a profile picture, should be the default picture instead | Profile picture is the correct profile picture for the account user, and if the user has not uploaded a profile picture, this is the default picture instead
+Product Details | Profile Picture on reviews | Profile picture should be the correct profile picture for the account user, and if the user has not uploaded a profile picture, should be the default picture instead | Profile picture is the correct profile picture for the account user, and if the user has not uploaded a profile picture, this is the default picture instead
 
 #### Bag
 | Feature Tested | Action | Expected Result | Actual Result |
@@ -1156,7 +1156,7 @@ Profile | Profile renders and is responsive to device | Profile page renders and
 Profile | Default Profile Picture | Default profile picture should automatically attach to an account, and should show if the user removes their current profile picture | Default profile picture automatically attaches to an account, and shows if the user removes their current profile picture
 Profile | Profile Picture can be updated | Users should be able to select a photo and upload to their profile. By clicking "choose file" it should launch a window with their own files. The user can choose whatever photo they like and on clicking "upload", the profile picture should attach to the profile and render at the top of the account | Users are able to select a photo and upload to their profile. By clicking "choose file" they launch a window with their own files. The user can choose whatever photo they like and on clicking "upload", the profile picture is attached to the profile and renders at the top of the account
 Profile | Default Delivery Information renders | The default delivery should render in a form, which should be prepopulated with the information provided by the user from their delivery. If the user has not made any orders, this form should appear blank | The default delivery renders in a form, which is prepopulated with the information provided by the user from their delivery. If the user has not made any orders, this form appears blank
-Profile | "Update Information" button working | If the user makes any changes to their delivery information and clicks "Update Information" then the page should reload with the updated information. The next time a user makes an order, the populated information in the order form should match the changes made. There has been no validation added to the profile form, so if the user chooses to leave empty fields they should be able to save the form |  If the user makes any changes to their delivery information and clicks "Update Information" then the page reloads with the updated information. The next time a user makes an order, the populated information in the order form matches the changes made. There has been no validation added to the profile form, so if the user chooses to leave empty fields they are are be able to save the form
+Profile | "Update Information" button working | If the user makes any changes to their delivery information and clicks "Update Information" then the page should reload with the updated information. The next time a user makes an order, the populated information in the order form should match the changes made. There has been no validation added to the profile form, so if the user chooses to leave empty fields they should be able to save the form |  If the user makes any changes to their delivery information and clicks "Update Information" then the page reloads with the updated information. The next time a user makes an order, the populated information in the order form matches the changes made. There has been no validation added to the profile form, so if the user chooses to leave empty fields they are able to save the form
 Profile | Order number links correctly | Order number should link to the correct previous order | Order number links to the correct previous order 
 Profile | Order History shows correct information | Order History should render with the following information: date, items, total. This information should match the information shown in the Django Admin panel. The order history should move to a scroll once a user makes a certain amount of orders | Order History renders with the following information: date, items, total. This information matches the information shown in the Django Admin panel. The order history moves to a scroll once a user makes a certain amount of orders
 
@@ -1169,9 +1169,9 @@ AllAuth - Sign Up | Verification Page | Once the user has clicked the link sent 
 AllAuth - Sign Up | Redirect to Sign In works | If the user clicks on the hyperlinked "Sign Up here" they should be redirected to the Sign Up page | If the user clicks on the hyperlinked "Sign Up here" they are redirected to the Sign Up page.
 AllAuth - Sign In | Standard Sign In | AllAuth form should load, asking user to provide mandatory username and password. If the user tries to log in without providing this information they should be prompted to fill in the required fields. If the information is correct, the user should be signed in and taken to the home page. If the information is incorrect, the user should be informed and asked to try again | AllAuth form loads, asking user to provide mandatory username and password. If the user tries to log in without providing this information they are prompted to fill in the required fields. If the information is correct, the user is signed in and taken to the home page. If the information is incorrect, the user is informed and asked to try again
 AllAuth - Sign In | Facebook Sign In | If the user clicks "Continue with Facebook" they should be taken to a new page which warns them they are directing away from the site to log in through Facebook. On clicking "Continue" they should be taken to the Facebook AllAuth portal, and the user is able to choose who they wish which account they sign in with. On clicking the account, they should be redirected to the create account through 3rd party part of AllAuth and the user creates login credentials. Upon these being created, the user should be redirected to the home page | If the user clicks "Continue with Facebook" they are taken to a new page which warns them they are directing away from the site to log in through Facebook. On clicking "Continue" they are taken to the Facebook AllAuth portal, and the user is able to choose who they wish which account they sign in with. On clicking the account, they are redirected to the create account through 3rd party part of AllAuth and the user creates login credentials. Upon these being created, the user is redirected to the home page
-AllAuth - Sign In | Facebook Sign In | "Cancel and Go Back" button works | Clicking the "Cancel and Go Back" button should return the user to the general AllAuth Sign In page | Clicking the "Cancel and Go Back" button returns the user to the general AllAuth Sign In page
+AllAuth - Sign In | Facebook Sign In - "Cancel and Go Back" button works | Clicking the "Cancel and Go Back" button should return the user to the general AllAuth Sign In page | Clicking the "Cancel and Go Back" button returns the user to the general AllAuth Sign In page
 AllAuth - Sign In | Google Sign In | If the user clicks "Continue with Google" they should be taken to a new page which warns them they are directing away from the site to log in through Google. On clicking "Continue" they should be taken to the Google AllAuth portal, and the user is able to choose who they wish which account they sign in with. On clicking the account, they should be redirected to the home page and an account is created associated to that account if they have not signed in on that email before | If the user clicks "Continue with Google" they are taken to a new page which warns them they are directing away from the site to log in through Google. On clicking "Continue" they are taken to the Google AllAuth portal, and the user is able to choose who they wish which account they sign in with. On clicking the account, they are redirected to the home page and an account is created associated to that account if they have not signed in on that email before 
-AllAuth - Sign In | Google Sign In | "Cancel and Go Back" button works | Clicking the "Cancel and Go Back" button should return the user to the general AllAuth Sign In page | Clicking the "Cancel and Go Back" button returns the user to the general AllAuth Sign In page
+AllAuth - Sign In | Google Sign In - "Cancel and Go Back" button works | Clicking the "Cancel and Go Back" button should return the user to the general AllAuth Sign In page | Clicking the "Cancel and Go Back" button returns the user to the general AllAuth Sign In page
 AllAuth - Sign Out | Sign Out button | Sign out button should successfully sign out the user, redirecting them to the homepage. | Sign out button successfully signs out the user, redirecting them to the homepage. 
 
 #### Additional Pages
@@ -1256,7 +1256,15 @@ Next, I drilled these down into more specific long and short tail keywords:
 
 I also used Google's search bar to help me find related search phrases that users could be looking for, and I also used wordtracker.com to complete two free searches to find similar competition keywords at the time of searching. 
 
-IMAGES FROM GOOGLE SEARCHES GO HERE
+| Key Phrase Search | People Also Search For
+| --- | --- |
+![Key Phrase - TTRPG](https://github.com/foster95/the_tavern/blob/main/documentation/brand/key-phrase-search-02.png) | ![People Also Search For - TTRPG](https://github.com/foster95/the_tavern/blob/main/documentation/brand/key-phrase-search-01.png)
+![Key Phrase - DnD Dice](https://github.com/foster95/the_tavern/blob/main/documentation/brand/keyword-search-02.png) | ![People Also Search For - DnD Dice](https://github.com/foster95/the_tavern/blob/main/documentation/brand/key-phrase-search-03.png)
+![Key Phrase - Gift ideas for dnd players](https://github.com/foster95/the_tavern/blob/main/documentation/brand/key-phrase-search-05.png) | ![People Also Search For - Gift Ideas for DnD Players](https://github.com/foster95/the_tavern/blob/main/documentation/brand/key-phrase-search-04.png)
+
+![Wordtracker Results - Dungeons and Dragons Dice](https://github.com/foster95/the_tavern/blob/main/documentation/brand/keyword-search-03.png)
+
+![Wordtracker Results - DnD Dice](https://github.com/foster95/the_tavern/blob/main/documentation/brand/keyword-search-01.png)
 
 After further consideration, I removed a number of these long and short tail keywords as they were either too competitive or would be too general for my purposes. My final list therefore became the following:
 
@@ -1502,6 +1510,10 @@ AWS_SECRET_ACCESS_KEY | user-inserts-aws-access-secret-key-id
 You have now successfully deployed to Heroku!
 
 ## Tools and Technologies
+### Keywording
+* Wordtracker
+* Google Search
+
 ### Media and Design
 * Google Gemini - Product images and product copy 
 * Coolors - Colour Palettes
