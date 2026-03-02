@@ -59,7 +59,7 @@ class ProductForm(forms.ModelForm):
             self.add_error("price", "Please enter a price for this product.")
 
         if is_dice_set:
-            if not dice_set_price is None:
+            if dice_set_price is None:
                 self.add_error(
                     "dice_set_price", "Please add a full set price."
                     )

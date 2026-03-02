@@ -48,8 +48,8 @@ The Tavern is an online eCommerce store, designed for the Dungeons and Dragons a
         * [Marketing Strategies](#marketing-strategies)
     * [Deployment](#deployment)
     * [Tools and Technologies](#tools-and-technologies)
-    * [Credits and Acknowledgments]
-    * [A Final Word from the Developer]
+    * [Credits and Acknowledgments](#credits-and-acknowledgements)
+    * [A Final Note from the Developer](#a-final-note-from-the-developer)
 
 
 ## UX
