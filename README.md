@@ -1527,6 +1527,13 @@ You have now successfully deployed to Heroku!
 * Miro - ERD creation
 * Mailchimp - Newsletter sign up database
 
+### Build and Deployment
+* VSCode
+* GitHub Issues
+* GitHub Boards
+* Heroku
+* GitHub
+
 ## Debugging and Testing
 * ChatGPT - General Debugging Assistance
 * W3C HTML Validation - HTML Validation
@@ -1536,3 +1543,20 @@ You have now successfully deployed to Heroku!
 * WAVE from WebAIM - Accessibility Checker
 * Blisk - Device Compatibility Checker 
 * Browser Stack - Browser Checker
+* CI PEP8 Linter - Python Validation
+
+### Credits and Acknowledgements
+The Tavern is a website built entirely from scratch by myself. I acknowledge that I was undoubtedly inspired by other D&D eCommerce website, but the code and company name was created by myself. Gemini AI was used to help me create product images and to come up for titles for products that were in keeping with the theme. Some code snippets were taken from Boutique Ado from the Code Institute walkthrough. To my knowledge there is no company currently operating under The Tavern, selling TTRPG and D&D products. 
+
+### A Final Note from the Developer
+And here we are. The final project from the most massive year of learning, struggling, refining, breaking down and rebuilding back up. Coming up with a final project theme for what has been one of the most defining years of my life was really difficult, but similarly to what I did with The Compendium, I returned to my love of TTRPG and D&D for inspiration. This project has driven me up the wall more times than I can count, and made me question what it is I can do, but I come to the end of this year incredibly proud of the progress I have made. This project is not perfect - no project is, I opted out of doing automatic testing but if I had had the time I would have loved to include that. There are also further features that I wanted to implement but ran out of time to complete. 
+
+I continue to be endlessly grateful and inspired by my mentor Spencer Barribal, who if he reads this I hope is sunning himself on a beach somewhere. He has been not just a beacon of hope and calm, but he has also made our calls funny, involved, moving and genuinely joyful. I can only hope that I will continue to be sending smoke signals to him in the years to come whilst he enjoys getting out the rat race. 
+
+I have maintained and will always maintain that this win is as much mine as it is my loving partner Jon's. I cannot begin to start adequately thanking him for allowing me this space and time and for holding down the fort this entire year whilst I spent my evenings in a code addled mess. He is my north star, and I hope that as I get to step away from Code Institute, I will get the opportunity to support him as he has supported me. Also thanks to Deedee, who is the best study buddy, even if she likes to occasionally walk over the laptop and rewrite my code (everyone's a critic!). Final endless thanks to my parents who have loved me, supported me, pushed me, encouraged me and taken over on things when I did not have the capacity to do so. Their love and kindness has made me snap out of even the darkest of times, and I thank every day that I won the parent lottery.
+
+Finally I would like to thank Code Institue for putting together this program of learning which has challenged me, perplexed me, infuriated me, and also unlocked a lifelong love of coding. Thank you.
+
+All trademarked and/or copyrighted content are the property of their respective owners.
+
+Developed by Alice Foster, 2026.
