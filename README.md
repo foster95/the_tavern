@@ -49,6 +49,7 @@ To see the full deployed project please click [here](https://the-tavern-d30d8391
         * [Testing Against User Stories](#testing-against-user-stories)
     * [Web Marketing](#web-marketing)
         * [Keywords and SEO Research](#keyword-and-seo-research)
+        * [Robots and Sitemaps](#robots-and-sitemaps)
         * [Marketing Strategies](#marketing-strategies)
     * [Deployment](#deployment)
     * [Tools and Technologies](#tools-and-technologies)
@@ -1356,6 +1357,28 @@ The goal of The Tavern is to sell D&D accessories, but also to build a community
 
 #### Budget
 The Tavern does have a small marketing budget; however, I would personally suggest to them that they rely on organic marketing rather than paid for marketing. You can often find that it is the outsiders and the misfits that drift towards D&D and TTRPG and those people can be especially cynical and shrewd about paid for marketing. 
+
+## Robots and Sitemaps
+A robots.txt file has been implemented at the root of the application to guide search engine crawlers.
+
+The file allows general indexing of public pages while restricting access to sensitive or non-public areas of the site such as:
+
+            /admin/
+            /accounts/
+            /profile/
+
+The robots.txt file also references the site’s sitemap.xml to assist search engines in efficiently discovering and indexing available content.
+
+A sitemap.xml file has been implemented to support search engine crawling and indexing of the application’s publicly accessible pages.
+
+The sitemap includes key site routes such as:
+
+            Home page
+            Product listing page
+            Individual product detail pages
+            Informational pages (e.g. About, FAQ, Shipping, Returns)
+
+All URLs are provided in absolute HTTPS format in line with sitemap best practices.
 
 ### Social Media
 As part of the project, I created a Facebook page for The Tavern, which the team can use to launch products, engage with customers and build on the brand. This approach aligns with the needs of the TTRPG audience, which spans an increasingly wide age group from the very young, to the very young at heart! Facebook is traditionally a market for older audiences, typically 40+ and acts as a bridge to get customers from their social media platform, over to the website itself. Please see a screenshot of the Facebook page below. Please note that due to Meta's careful monitoring of pages to ensure that they are active and accurate, the page may be subject to removal by Meta if flagged as non-authentic or not meeting platform verification requirements.
