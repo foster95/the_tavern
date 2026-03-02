@@ -4,6 +4,8 @@
 
 The Tavern is an online eCommerce store, designed for the Dungeons and Dragons and Table Top Roleplay Game (TTRPG) community. The Tavern is a B2C (Business to Consumer) one-stop shop for all accessories needed for the table - from dice to rollers and bags, and is based within the UK, shipping globally. It features a user-friendly interface, secure payment system, and allows for a seamless shopping experience. Within the website, customers will be able to browse products, read and understand product details and leave reviews for products. 
 
+To see the full deployed project please click [here](https://the-tavern-d30d8391b571.herokuapp.com/)
+
 # Table of Contents
 1. [UX](#ux)
     * [Five Planes of UX Design](#five-planes-of-ux-design)
