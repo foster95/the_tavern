@@ -1,5 +1,7 @@
 # the_tavern
 
+![The Tavern Mock Up](https://github.com/foster95/the_tavern/blob/main/documentation/the-tavern-mock-up.png)
+
 *Welcome adventurer!*
 
 The Tavern is an online eCommerce store, designed for the Dungeons and Dragons and Table Top Roleplay Game (TTRPG) community. The Tavern is a B2C (Business to Consumer) one-stop shop for all accessories needed for the table - from dice to rollers and bags, and is based within the UK, shipping globally. It features a user-friendly interface, secure payment system, and allows for a seamless shopping experience. Within the website, customers will be able to browse products, read and understand product details and leave reviews for products. 
@@ -14,7 +16,7 @@ To see the full deployed project please click [here](https://the-tavern-d30d8391
         * [Structure](#structure)
         * [Skeleton](#skeleton)
         * [Surface](#surface)
-2. [Development using Agile Methodology](#developing-using-agile-methodology)
+2. [Development using Agile Methodology](#dev)
     * [Epics](#epics)
         * [Products](#products)
         * [User Account and Authentication](#user-account-and-authentication)
@@ -28,8 +30,8 @@ To see the full deployed project please click [here](https://the-tavern-d30d8391
     * [MoSCoW Prioritisation](#moscow-prioritisation)
         * [MoSCoW summary](#moscow-summary) 
         * [Must Have](#must-have)
-        * [Could Have](#could-have)
         * [Should Have](#should-have)
+        * [Could Have](#could-have)
     * [Database Design](#database-design)
     * [Website Features](#website-features)
     * [Testing](#testing)
@@ -297,6 +299,7 @@ In the later stages of development I used GitHub Projects kanban board as a trac
 ## Database Design
 ### Data Models
 Prior to building The Tavern, I created an ERD which helped me visualise all of the relationships between the different datasets and databases in the site. I used Miro to create this:
+
 ![Database ERD](https://github.com/foster95/the_tavern/blob/main/documentation/database/erd.png)
 
 ## Website Features
