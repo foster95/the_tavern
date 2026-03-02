@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +28,22 @@ urlpatterns = [
     path('bag/', include('bag.urls')),  # Bag URL
     path('checkout/', include('checkout.urls')),  # Checkout URL
     path('profile/', include('profiles.urls')), # Profiles URL
+    path(
+        'robots.txt',
+        TemplateView.as_view(
+            template_name="robots.txt",
+            content_type="text/plain"
+        ),
+        name='robots.txt'
+    ),
+    path(
+        'sitemap.xml',
+        TemplateView.as_view(
+            template_name="sitemap.xml",
+            content_type="application/xml"
+        ),
+        name='sitemap'
+    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
