@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const MIN_QTY = 1;
   const MAX_QTY = 99;
 
-  /* Quantity + / - controls */
   document.querySelectorAll(".quantity-wrapper").forEach((wrapper) => {
     const minusBtn = wrapper.querySelector(".qty-btn.minus");
     const plusBtn = wrapper.querySelector(".qty-btn.plus");
@@ -38,17 +37,14 @@ document.addEventListener("DOMContentLoaded", () => {
     input.addEventListener("input", sync);
   });
 
-  /* Block Update if unchanged */
   let warningShown = false;
 
   document.querySelectorAll("form").forEach((form) => {
     const input = form.querySelector(".qty-input");
     const updateBtn = form.querySelector(".bag-update-button, .update-button");
 
-    // Only target update forms
     if (!input || !updateBtn) return;
 
-    // Reset warning if user changes quantity
     input.addEventListener("input", () => {
       warningShown = false;
     });
@@ -71,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-/* Block Update if unchanged */
 function showBagMessage(text) {
   const toastEl = document.getElementById("js-toast-warning");
   const textEl = document.getElementById("js-toast-warning-text");
@@ -80,7 +75,6 @@ function showBagMessage(text) {
 
   textEl.textContent = text;
 
-  // unhide the toast only when needed
   toastEl.classList.remove("d-none");
 
   const toast = bootstrap.Toast.getOrCreateInstance(toastEl);

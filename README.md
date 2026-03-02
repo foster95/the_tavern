@@ -1606,7 +1606,7 @@ I continue to be endlessly grateful and inspired by my mentor Spencer Barribal, 
 
 I have maintained and will always maintain that this win is as much mine as it is my loving partner Jon's. I cannot begin to start adequately thanking him for allowing me this space and time and for holding down the fort this entire year whilst I spent my evenings in a code addled mess. He is my north star, and I hope that as I get to step away from Code Institute, I will get the opportunity to support him as he has supported me. Also thanks to Deedee, who is the best study buddy, even if she likes to occasionally walk over the laptop and rewrite my code (everyone's a critic!). Final endless thanks to my parents who have loved me, supported me, pushed me, encouraged me and taken over on things when I did not have the capacity to do so. Their love and kindness has made me snap out of even the darkest of times, and I thank every day that I won the parent lottery.
 
-Finally I would like to thank Code Institue for putting together this program of learning which has challenged me, perplexed me, infuriated me, and also unlocked a lifelong love of coding. Thank you.
+Finally I would like to thank Code Institute for putting together this program of learning which has challenged me, perplexed me, infuriated me, and also unlocked a lifelong love of coding. Thank you.
 
 All trademarked and/or copyrighted content are the property of their respective owners.
 

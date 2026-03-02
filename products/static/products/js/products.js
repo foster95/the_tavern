@@ -25,8 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
   sortSelector.addEventListener("change", function () {
     const currentUrl = new URL(window.location.href);
 
-    // Reset sorting
-
     if (this.value === "reset") {
       currentUrl.searchParams.delete("sort");
       currentUrl.searchParams.delete("direction");
@@ -45,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
 const bttButton = document.querySelector(".btt-button");
 
   if (bttButton) {
-    // Show / hide button on scroll
     window.addEventListener("scroll", function () {
       if (window.scrollY > 300) {
         bttButton.classList.add("show");

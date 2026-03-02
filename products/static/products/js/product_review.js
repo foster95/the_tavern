@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (stars.length && ratingInput) {
 
-        // Click to select rating
         stars.forEach(star => {
             star.addEventListener("click", function () {
                 const value = parseInt(this.dataset.value);
@@ -29,12 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 paintStars(stars, value);
             });
 
-            // Hover preview
             star.addEventListener("mouseenter", function () {
                 paintStars(stars, parseInt(this.dataset.value));
             });
 
-            // Keyboard accessibility
             star.addEventListener("keydown", function (e) {
                 if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
@@ -45,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-        // Reset after hover
         const wrapper = document.getElementById("star-rating");
         if (wrapper) {
             wrapper.addEventListener("mouseleave", function () {

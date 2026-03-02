@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 /**
  * Handles price switching on the product detail page
  * between single dice and full set options.
@@ -11,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!singleBtn || !setBtn || !priceSpan || !diceOption) return;
 
-  // set default (and highlight it)
   diceOption.value = "single";
   singleBtn.classList.add("active");
   setBtn.classList.remove("active");
