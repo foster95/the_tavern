@@ -63,9 +63,11 @@
     </p>
     {% endif %}
 
+      {% if request.resolver_match.url_name != 'view_bag' %}
       <a href="{% url 'view_bag' %}" aria-label="Go to your bag of holding" class="toast-checkout-btn mt-3 mb-2">
         GO TO YOUR BAG OF HOLDING <i class="fa-solid fa-basket-shopping ms-2"></i>
       </a>
+      {% endif %}
     {% endif %}
   </div>
 </div>
