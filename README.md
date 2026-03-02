@@ -88,7 +88,7 @@ To guide the initial development stages of The Tavern, I used the theory of the 
 * Users will be able to create an account to become a registered user.
 * Registered users will be able to update their profile details.
 * Registered users will be able to see previous orders.
-* Superuser will be able to add or delete any user.
+* Superuser will be able to add or delete any user via the Django admin.
 * Superuser will be able to see all orders and amend and delete orders.
 * Superuser will be able to add, amend and remove products.
 
@@ -311,7 +311,7 @@ The footer also extends from base.html and is very simple, made up of a few link
 The scrolling bar is a fun little feature that allows users to see the free delivery threshold by scrolling across the screen. The scroll is slow so as to not be distracting, and can be stopped by hovering the mouse over the scroll bar. 
 
 ### Product of the Month - Home Page
-The Product of the Month section of the homepage is linked to a template literal which comes from a model that was specifically built for this function. This model allows Superusers to access the Django admin platform and highlight a specific product that they want to show on the website. 
+The Product of the Month section of the homepage is linked to a featured product model rendered in the template which comes from a model that was specifically built for this function. This model allows Superusers to access the Django admin platform and highlight a specific product that they want to show on the website. 
 
         MONTH_CHOICES = [(i, calendar.month_name[i]) for i in range(1, 13)]
 
@@ -829,6 +829,9 @@ The Tavern includes a set of informational pages to support customer confidence 
 ### Django Administrative Panel and Front End Product Management
 The Tavern includes a full admin system for managing products, orders, and customer activity. Product management is handled through the Product model, which links to Category via a ForeignKey, allowing items to be organised and filtered across the site. Superusers can add, amend, and delete products either through the Django admin panel or through front-end management pages (restricted to superusers). Orders are stored using the Order model, which links back to user accounts through user_profile = ForeignKey(UserProfile, ...), allowing orders to be tracked per customer while still supporting guest checkout if needed. Admin users can also moderate reviews (where implemented) by approving or rejecting them before they display publicly, helping maintain quality and prevent inappropriate content appearing on the storefront.
 
+## Future Features
+Whilst this version of the project does hit the required MVP, several features have been identified for future expansion that did not get built into this original project. They include: a feature for the user to change their password at any time on the profile page, discount codes, suggested products off the basis of the customer purchasing history. 
+
 ## Developmental Bugs
 Throughout development I came across numerous issues, bugs and difficulties with the website. At the time of submission, I am confident there are no known major bugs remaining. However I cannot guarantee this 100% as I cannot account for all user behaviour that would try to break the website and its integrity. The majority of the bugs that I came across were to do with minor CSS and responsivity issues, however the major bug that I struggled with has been documented below:
 
@@ -1056,6 +1059,26 @@ Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Shipping | 
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Privacy Policy | ![Desktop - Privacy](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-privacy.png) | No issues 
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Add Product | ![Desktop - Add Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-add-product.png) | No issues 
 Desktop | Small Laptop, Medium Laptop, MacBook Pro, iMac Retina 4K | Amend Product | ![Desktop - Amend Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/desktop-amend-profile.png) | No issues 
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | Home | ![Tablet - Home](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-home.png) | No issues 
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | Products | ![Tablet - Products](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-products.png) | No issues 
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | Product Details | ![Tablet - Product Details](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-product-details.png) | No issues 
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | Bag | ![Tablet - Bag](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-bag.png) | Stacking issues discovered for Account and Bag icons in header, issue fixed using Media Query but Blisk using cached CSS. Has been checked in Google Chrome since fix and is now no longer an issue
+Tablet |  | Checkout | ![Tablet - Checkout](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-checkout.png) | Stacking issues discovered for Account and Bag icons in header, issue fixed using Media Query but Blisk using cached CSS. Has been checked in Google Chrome since fix and is now no longer an issue 
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | Order Confirmation | ![Tablet - Order Confirmation](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-order-confirmation.png) | No issues 
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | Profile | ![Tablet - Profile](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-profile.png) | No issues 
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | Sign In - Standard | ![Tablet - Standard Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-sign-in.png) | No issues 
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | Sign In - Google | ![Tablet - Google Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-google-sign-in.png) | No issues 
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | Sign In - Facebook | ![Tablet - Facebook Sign In](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-facebook-sign-in.png) | No issues 
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | Sign Up | ![Tablet - Sign Up](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-sign-up.png)| No issues
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | Sign Out | ![Tablet - Sign Out](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-sign-out.png) | No issues 
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | About | ![Tablet - About](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-about.png) | No issues 
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | FAQ | ![Tablet - FAQ](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-faq.png) | No issues 
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | Contact | ![Tablet - Contact](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-faq.png) | No issues 
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | Returns | ![Tablet - Returns](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-returns.png) | No issues 
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | Shipping | ![Tablet - Shipping](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-shipping.png) | No issues 
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | Privacy Policy | ![Tablet - Privacy](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-privacy.png) | No issues 
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | Add Product | ![Tablet - Add Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-privacy.png) | No issues 
+Tablet | iPad Mini 4, iPad Pro 9, iPad Pro 11 | Amend Product | ![Tablet - Amend Product](https://github.com/foster95/the_tavern/blob/main/documentation/device/tablet-add-product.png) | No issues 
 
 ### Browser Testing
 I used BrowserStack to test the website under various different browser conditions
